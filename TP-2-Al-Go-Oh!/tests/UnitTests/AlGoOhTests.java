@@ -14,7 +14,7 @@ public class AlGoOhTests {
 		
 		AlGoOh algooh = new AlGoOh();
 		
-		assertEquals(20, algooh.getValor() );
+		assertEquals(1, algooh.getValor() );
 	}
 	@Test
 	public void obtenerOtroValor() {
