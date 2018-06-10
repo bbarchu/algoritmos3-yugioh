@@ -20,6 +20,6 @@ public class AlGoOhTests {
 	public void obtenerOtroValor() {
 		
 		AlGoOh algooh = new AlGoOh();
-		assertNotEquals(40, algooh.getValor());
+		assertNotEquals(40, algooh.getValor()) ;
 	}
 }
