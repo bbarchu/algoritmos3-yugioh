@@ -18,15 +18,15 @@ package Application;
 public class AlGoOh {
 	Jugador jugadorNumeroUno;
 	jugador jugadorNumeroDos;
-	Campo campoJugador1;
-	Campo campojugador2;
+	CampoDeBatalla campoJugador1;
+	CampoDeBatalla campojugador2;
 	
 	AlgoOh(){
 		
 		jugadorNumeroUno = new Jugador();
 		jugadorNumeroDos = new Jugador();
-		campoJugador1 = new Campo();
-		campoJugador2 = new Campo();
+		campoJugador1 = new CampoDeBatalla();
+		campoJugador2 = new CampoDeBatalla();
 	}
 	
 
