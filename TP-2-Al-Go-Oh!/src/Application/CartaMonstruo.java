@@ -8,8 +8,7 @@ public class CartaMonstruo extends Carta{
 	
 
 	private ModoDeUso modo;
-	
-	//private Posicion posicion;
+	private Estado estado;
 	//Efecto (puede tener o no un efecto)
 	
 	public CartaMonstruo(ModoDeUso unModo) {
@@ -33,6 +32,8 @@ public class CartaMonstruo extends Carta{
 		campoDeBatalla.colocar(this);
 		
 	}
+	
+	
 	
 /*	public void invocar(ModoDeUso estadoDeLaInvocacion) {
 		

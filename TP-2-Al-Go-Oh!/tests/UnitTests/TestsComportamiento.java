@@ -10,6 +10,7 @@ import Application.Carta;
 import Application.CartaMagica;
 import Application.CartaMonstruo;
 import Application.Estado;
+import Application.Jugador;
 import Application.ModoAtaque;
 import Application.ModoDeUso;
 import Application.ModoDefensa;
@@ -62,7 +63,40 @@ public class TestsComportamiento {
 		unCampo.colocar(unMonstruo);
 		unCampo.destruir(unMonstruo);
 		
-		//Falta Implementar Destruir
+		assertEquals(unCampo.hayCartasMonstruo(), false);
+		assertEquals(unCampo.hayCartasEnElCementerio(), true);
 	}
 	
+	/*
+	@Test
+	public void dosJugadoresSeAtacanConMostruosYLosPuntosDeVidaCambian(){
+		Jugador unJugador = new Jugador();
+		Jugador otroJugador = new Jugador();
+		ModoDeUso modoATK = new ModoAtaque();
+		int puntosATKGanador = 2000;
+		int puntosATKPerdedor = 1000;
+		int puntosDEF = 500;
+		int estrellas = 1;
+		int puntosDeVidaEsperados = 7000;
+		
+		Carta monstruoDeUnJugador = new CartaMonstruo(puntosATKPerdedor, puntosDEF, estrellas, modoATK);
+		Carta monstruoDeOtroJugador = new CartaMonstruo(puntosATKGanador, puntosDEF, estrellas, modoATK);
+		
+		unJugador.presentarJugadorRival(otroJugador);
+		otroJugador.presentarJugadorRival(unJugador);
+		
+		unJugador.agregarCartaAlMazo(monstruoDeUnJugador);
+		otroJugador.agregarCartaAlMazo(monstruoDeOtroJugador);
+		
+		unJugador.tomarCartaDelMazo();
+		otroJugador.tomarCartaDelMazo();
+		
+		unJugador.invocar(monstruoDeUnJugador);
+		otroJugador.invocar(monstruoDeOtroJugador);
+		
+		otroJugador.atacarCon_A(monstruoDeOtroJugador,monstruoDeUnJugador);
+		
+		assertEquals(unJugador.obtenerPuntosDeVida(),puntosDeVidaEsperados);
+	}
+	*/
 }

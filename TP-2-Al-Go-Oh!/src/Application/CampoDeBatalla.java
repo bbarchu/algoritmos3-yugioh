@@ -16,28 +16,36 @@ public class CampoDeBatalla {
 	
 	Carta cartaMonstruo;
 	Carta cartaMagica;
+	Carta cementerio;
 	
 	public CampoDeBatalla() {
 		cartaMonstruo = null;
 		cartaMagica = null;
+		cementerio = null;
 	}
 	
 	public void colocar(Carta unaCarta) {
 		unaCarta.colocateEn(this);	
 	}
 	public void colocar(CartaMonstruo unMonstruo) {
-		cartaMonstruo = unMonstruo;	
+		this.cartaMonstruo = unMonstruo;	
 	}
 	public void colocar(CartaMagica unaCartaMagica ) {
-		cartaMagica = unaCartaMagica;	
+		this.cartaMagica = unaCartaMagica;	
 	}
 	
 
 	public void destruir(Carta unaCarta) {
-		//----------------------------------------------------//
-		//					ME QUEDE POR ACA				  //
-		//----------------------------------------------------//
+		// Esta es una solucion mala, pero es lo que propone TDD
 		
+		if(cartaMonstruo == unaCarta) {
+			cartaMonstruo = null;
+		}
+		else if(cartaMagica == unaCarta) {
+			cartaMagica = null;
+		}
+		
+		this.cementerio = unaCarta;
 	}
 	
 	// Lucas: Los metodos HayCartas deberían ser eliminados ya que se crearon solo para las pruebas
@@ -52,7 +60,11 @@ public class CampoDeBatalla {
 		
 		return (cartaMagica != null);
 	}
-
+	
+	public Boolean hayCartasEnElCementerio() {
+		
+		return (cementerio != null);
+	}
 	
 
 }

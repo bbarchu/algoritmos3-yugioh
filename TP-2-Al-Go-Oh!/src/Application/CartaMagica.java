@@ -14,6 +14,12 @@ public class CartaMagica extends Carta {
 	public void colocateEn(CampoDeBatalla campoDeBatalla) {
 		campoDeBatalla.colocar(this);		
 	}
+
+	@Override
+	public void atacarA(Carta monstruoDelRival) {
+		// Deberia lanzar una excepcion ya que una carta de magia no puede atacar.
+		
+	}
 	
 //	public void invocarBocaAbajo() {
 	
