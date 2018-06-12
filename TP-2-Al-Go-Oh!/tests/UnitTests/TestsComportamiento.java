@@ -26,7 +26,7 @@ public class TestsComportamiento {
 		unCampo.colocar(unMonstruo);
 		
 		assertEquals(unCampo.hayCartasMonstruo(), true);
-				
+		
 		
 	}
 	
@@ -67,7 +67,7 @@ public class TestsComportamiento {
 		assertEquals(unCampo.hayCartasEnElCementerio(), true);
 	}
 	
-	/*
+	
 	@Test
 	public void dosJugadoresSeAtacanConMostruosYLosPuntosDeVidaCambian(){
 		Jugador unJugador = new Jugador();
@@ -79,8 +79,8 @@ public class TestsComportamiento {
 		int estrellas = 1;
 		int puntosDeVidaEsperados = 7000;
 		
-		Carta monstruoDeUnJugador = new CartaMonstruo(puntosATKPerdedor, puntosDEF, estrellas, modoATK);
-		Carta monstruoDeOtroJugador = new CartaMonstruo(puntosATKGanador, puntosDEF, estrellas, modoATK);
+		Carta monstruoDeUnJugador = new CartaMonstruo(puntosATKPerdedor, puntosDEF, estrellas, modoATK, unJugador);
+		Carta monstruoDeOtroJugador = new CartaMonstruo(puntosATKGanador, puntosDEF, estrellas, modoATK, otroJugador);
 		
 		unJugador.presentarJugadorRival(otroJugador);
 		otroJugador.presentarJugadorRival(unJugador);
@@ -98,5 +98,5 @@ public class TestsComportamiento {
 		
 		assertEquals(unJugador.obtenerPuntosDeVida(),puntosDeVidaEsperados);
 	}
-	*/
+	
 }

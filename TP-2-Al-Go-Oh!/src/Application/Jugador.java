@@ -46,4 +46,9 @@ public class Jugador {
 		}
 	}
 
+	public void atacarCon_A(CartaMonstruo carta, CartaMonstruo otraCarta) {
+		carta.atacar(otraCarta);
+		
+	}
+
 }

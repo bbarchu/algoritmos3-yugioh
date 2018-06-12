@@ -1,6 +1,10 @@
 package Application;
 
+import static org.junit.jupiter.api.Assumptions.assumingThat;
+
 public class CartaMonstruo extends Carta{
+	
+	private Jugador jugador;
 	
 	private int puntosDeAtaque;
 	private int puntosDeDefensa;
@@ -19,17 +23,32 @@ public class CartaMonstruo extends Carta{
 		this.modo = unModo;
 	}
 	
-	public CartaMonstruo(int puntosATK, int puntosDEF, int estrellas, ModoDeUso unModo) {
+	public CartaMonstruo(int puntosATK, int puntosDEF, int estrellas, ModoDeUso unModo, Jugador jugador) {
 		
 		this.puntosDeAtaque = puntosATK;
 		this.puntosDeDefensa = puntosDEF;
 		this.cantidadEstrellas = estrellas;
 		this.modo = unModo;
+		this.jugador = jugador;
 	}
 
 	@Override
 	public void colocateEn(CampoDeBatalla campoDeBatalla) {
 		campoDeBatalla.colocar(this);
+		
+	}
+
+	public void recibirPuntosAtaque(CartaMonstruo otraCarta) {
+		this.modo.recibirPuntosAtaque(otraCarta);
+		
+	}
+
+	private int obtenerPuntosDeAtaque() {
+		return puntosDeAtaque;
+	}
+
+	public void atacar(CartaMonstruo otraCarta) {
+		this.modo.atacar(otraCarta,this);
 		
 	}
 	
