@@ -2,8 +2,8 @@ package Application;
 
 public class ModoAtaque extends ModoDeUso {
 	
-	public ModoAtaque(int defensa) {
-		super(defensa);
+	public ModoAtaque() {
+		super();
 	}
 
 	@Override
@@ -13,7 +13,7 @@ public class ModoAtaque extends ModoDeUso {
 
 	@Override
 	public void defender(CartaMonstruo cartaAtacante, CartaMonstruo cartaAtacada) {
-		int puntosDefensa = this.puntosParaDefender;
+		int puntosDefensa = cartaAtacada.obtenerPuntosDeAtaque();
 		int puntosAtaque = cartaAtacante.obtenerPuntosDeAtaque();
 		
 		if (puntosDefensa < puntosAtaque) {
@@ -24,6 +24,8 @@ public class ModoAtaque extends ModoDeUso {
 		else if (puntosDefensa < puntosAtaque) {
 			cartaAtacante.destruirCarta();
 		}
+		
+		//Dejo el else {} para lo que se hace en caso de empate
 	}
 	
 	

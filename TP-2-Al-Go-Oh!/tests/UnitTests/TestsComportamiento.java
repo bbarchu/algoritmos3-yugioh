@@ -20,7 +20,7 @@ public class TestsComportamiento {
 	@Test
 	public void colocarUnMonstruoEnAtaqueEnElCampo() {
 		CampoDeBatalla unCampo = new CampoDeBatalla();
-		ModoDeUso unModo = new ModoAtaque(10);
+		ModoDeUso unModo = new ModoAtaque();
 		Carta unMonstruo = new CartaMonstruo(unModo);
 		
 		unCampo.colocar(unMonstruo);
@@ -79,8 +79,8 @@ public class TestsComportamiento {
 		int estrellas = 1;
 		int puntosDeVidaEsperados = 7000;
 		
-		Carta monstruoDeUnJugador = new CartaMonstruo(puntosATKPerdedor, puntosDEF, estrellas, modoATK, unJugador);
-		Carta monstruoDeOtroJugador = new CartaMonstruo(puntosATKGanador, puntosDEF, estrellas, modoATK, otroJugador);
+		CartaMonstruo monstruoDeUnJugador = new CartaMonstruo(puntosATKPerdedor, puntosDEF, estrellas, modoATK, unJugador);
+		CartaMonstruo monstruoDeOtroJugador = new CartaMonstruo(puntosATKGanador, puntosDEF, estrellas, modoATK, otroJugador);
 		
 		unJugador.presentarJugadorRival(otroJugador);
 		otroJugador.presentarJugadorRival(unJugador);
@@ -94,9 +94,9 @@ public class TestsComportamiento {
 		unJugador.invocar(monstruoDeUnJugador);
 		otroJugador.invocar(monstruoDeOtroJugador);
 		
-		otroJugador.atacarCon_A(monstruoDeOtroJugador,monstruoDeUnJugador);
+		otroJugador.atacarCon_A(monstruoDeOtroJugador, monstruoDeUnJugador);
 		
-		assertEquals(unJugador.obtenerPuntosDeVida(),puntosDeVidaEsperados);
+		assertEquals(unJugador.obtenerPuntosDeVida(), puntosDeVidaEsperados);
 	}
 	
 }

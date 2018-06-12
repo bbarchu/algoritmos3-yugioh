@@ -60,4 +60,8 @@ public class Jugador {
 		this.mano = null;
 	}
 
+	public int obtenerPuntosDeVida() {
+		return this.puntosDeVida;
+	}
+
 }

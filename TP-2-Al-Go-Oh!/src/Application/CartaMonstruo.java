@@ -60,6 +60,10 @@ public class CartaMonstruo extends Carta{
 		this.jugador.restarVida(vida);
 		
 	}
+
+	public int obtenerPuntosDeDefensa() {
+		return this.puntosDeDefensa;
+	}
 	
 	
 	
