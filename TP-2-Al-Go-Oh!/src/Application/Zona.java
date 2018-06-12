@@ -8,4 +8,8 @@ public abstract class Zona {
 	public Zona() {
 		cartas = new ArrayList<Carta>();
 	}
+	
+	public void agregarCarta (Carta carta) {
+		cartas.add(carta);
+	}
 }
