@@ -51,4 +51,13 @@ public class Jugador {
 		
 	}
 
+	public void restarVida(int vida) {
+		this.puntosDeVida -= vida;
+		
+	}
+	
+	public void destruirCarta(CartaMonstruo carta) {
+		this.mano = null;
+	}
+
 }

@@ -2,13 +2,13 @@ package Application;
 
 public abstract class ModoDeUso {
 
-	protected int puntosDefensa;
+	protected int puntosParaDefender;
 	
 	public ModoDeUso(int defensa) {
-		this.puntosDefensa = defensa;
+		this.puntosParaDefender = defensa;
 	}
 
 	public abstract void atacar(CartaMonstruo otraCarta, CartaMonstruo miCarta);
 
-	public abstract void recibirPuntosAtaque(CartaMonstruo Carta);
+	public abstract void defender(CartaMonstruo carta, CartaMonstruo cartaAtacada);
 }

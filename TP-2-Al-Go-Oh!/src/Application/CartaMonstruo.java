@@ -39,16 +39,25 @@ public class CartaMonstruo extends Carta{
 	}
 
 	public void recibirPuntosAtaque(CartaMonstruo otraCarta) {
-		this.modo.recibirPuntosAtaque(otraCarta);
+		this.modo.defender(otraCarta, this);
 		
 	}
+	
+	public void destruirCarta() {
+		this.jugador.destruirCarta(this);
+	}
 
-	private int obtenerPuntosDeAtaque() {
+	public int obtenerPuntosDeAtaque() {
 		return puntosDeAtaque;
 	}
 
 	public void atacar(CartaMonstruo otraCarta) {
 		this.modo.atacar(otraCarta,this);
+		
+	}
+
+	public void restarVidaAJugador(int vida) {
+		this.jugador.restarVida(vida);
 		
 	}
 	

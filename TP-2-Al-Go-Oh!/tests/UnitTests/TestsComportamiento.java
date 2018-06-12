@@ -20,7 +20,7 @@ public class TestsComportamiento {
 	@Test
 	public void colocarUnMonstruoEnAtaqueEnElCampo() {
 		CampoDeBatalla unCampo = new CampoDeBatalla();
-		ModoDeUso unModo = new ModoAtaque();
+		ModoDeUso unModo = new ModoAtaque(10);
 		Carta unMonstruo = new CartaMonstruo(unModo);
 		
 		unCampo.colocar(unMonstruo);
