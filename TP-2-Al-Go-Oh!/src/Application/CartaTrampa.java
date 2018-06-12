@@ -5,6 +5,7 @@ public class CartaTrampa extends Carta{
 	// Efecto
 
 	public void invocar() {
-		
+	
+		campoDeJuego.invocar(this);
 	}
 }
