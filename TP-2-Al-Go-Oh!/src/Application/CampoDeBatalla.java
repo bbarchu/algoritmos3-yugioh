@@ -2,9 +2,6 @@ package Application;
 
 public class CampoDeBatalla {
 
-
-	
-	//bar: Campo a que se debe? no entendi si es la zona campo, o a que se refiere? De todas maneras extendi zona, a sus herederas.
 	
 //	ZonaCartasMonstruos cartasMonstruo;
 //	ZonaCartasMagicas cartasMagicas;

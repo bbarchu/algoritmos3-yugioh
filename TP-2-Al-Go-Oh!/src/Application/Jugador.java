@@ -22,12 +22,14 @@ public class Jugador {
 		this.puntosDeVida = 8000;
 		this.mano = null;
 		this.mazo = null;
+		campoDelJugador = new CampoDeBatalla();
 	}
 	
 	public void presentarJugadorRival(Jugador unJugador){
 		jugadorRival = unJugador;
 	}
 
+	//bar: Por que el jugador puede agregar una carta al mazo? 
 	public void agregarCartaAlMazo(Carta unMonstruo) {
 		this.mazo = unMonstruo;
 	}
@@ -64,4 +66,7 @@ public class Jugador {
 		return this.puntosDeVida;
 	}
 
+	public CampoDeBatalla obtenerCampoDeBatalla() {
+		return campoDelJugador;
+	}
 }

@@ -7,7 +7,7 @@ public class ModoDefensa extends ModoDeUso {
 
 	@Override
 	public void atacar(CartaMonstruo otraCarta, CartaMonstruo miCarta) {
-		//Aca hay que tirar excepcion
+		//Aca no hay q tirar excepcion, tuve q hacer unos cambios y entra por aca pero no debería hacer nada este metodo. BAR.
 		
 	}
 
@@ -19,7 +19,7 @@ public class ModoDefensa extends ModoDeUso {
 			cartaAtacada.destruirCarta();
 		}
 		else if (puntosAtaque < puntosDefensa) {
-			cartaAtacante.destruirCarta();
+			cartaAtacante.destruirCarta(); //akjsfkalfka
 		}
 		
 		//Dejo el else {} para lo que se hace en caso de empate

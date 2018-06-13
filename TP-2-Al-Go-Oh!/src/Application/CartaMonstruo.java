@@ -45,6 +45,7 @@ public class CartaMonstruo extends Carta{
 	
 	public void destruirCarta() {
 		this.jugador.destruirCarta(this);
+		jugador.campoDelJugador.destruir(this); //Bar: agrego esta linea para verificar que existan en el cementerio.
 	}
 
 	public int obtenerPuntosDeAtaque() {
