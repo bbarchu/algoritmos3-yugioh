@@ -1,13 +1,10 @@
 package Application;
 
 public class Jugador {
-
-//		Mazo mazo = new Mazo();
-//		Mano mano = new Mano();
 		
 		int puntosDeVida;
-		Carta mazo;
-		Carta mano;
+		Mazo mazo;
+		Mano mano;
 		CampoDeBatalla campoDelJugador;
 		
 		//Lucas: el jugador debe poder interactuar con el jugadorRival para atacarlo
@@ -20,8 +17,8 @@ public class Jugador {
 	
 	public Jugador() {
 		this.puntosDeVida = 8000;
-		this.mano = null;
-		this.mazo = null;
+		this.mano = new Mano();
+		this.mazo = new Mazo();
 		campoDelJugador = new CampoDeBatalla();
 	}
 	
@@ -29,22 +26,32 @@ public class Jugador {
 		jugadorRival = unJugador;
 	}
 
-	//bar: Por que el jugador puede agregar una carta al mazo? 
+	//bar: Por que el jugador puede agregar una carta al mazo?
+	//Lucas: Respuesta -> es para controlar el comportamiento mientras se desarrolla el TP, en algun 
+	//			momento este metodo va a pasar a ser privado y llamado únicamente en el constructor.
 	public void agregarCartaAlMazo(Carta unMonstruo) {
-		this.mazo = unMonstruo;
+		this.mazo.agregarUnaCarta(unMonstruo);
 	}
 
 	public void tomarCartaDelMazo() {
-		this.mano = this.mazo;
-		
-		this.mazo = null;
-		
+		this.mano.tomarUnaCartaDel(this.mazo);	
 	}
 
-	public void invocar(Carta unMonstruo) {
+	public void invocar(Carta unaCarta) {
+		unaCarta.invocate(this);
+	}
+	
+	public void invocar(CartaMonstruo unMonstruo) {
 		
-		if(this.mano == unMonstruo){
+		if(this.mano.contiene(unMonstruo)){
 			campoDelJugador.colocar(unMonstruo);
+		}
+	}
+	
+	public void invocar(CartaMagica unaCartaMagica) {
+		
+		if(this.mano.contiene(unaCartaMagica)){
+			campoDelJugador.colocar(unaCartaMagica);
 		}
 	}
 
@@ -53,8 +60,8 @@ public class Jugador {
 		
 	}
 
-	public void restarVida(int vida) {
-		this.puntosDeVida -= vida;
+	public void restarVida(int decrementoVida) {
+		this.puntosDeVida -= decrementoVida;
 		
 	}
 	
@@ -68,5 +75,9 @@ public class Jugador {
 
 	public CampoDeBatalla obtenerCampoDeBatalla() {
 		return campoDelJugador;
+	}
+	
+	public Jugador obtenerJugadorRival() {
+		return jugadorRival;
 	}
 }

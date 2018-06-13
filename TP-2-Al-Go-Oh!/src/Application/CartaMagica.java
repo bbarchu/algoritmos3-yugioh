@@ -3,12 +3,19 @@ package Application;
 public class CartaMagica extends Carta {
 	
 	private Estado estado;
+	protected Jugador jugador;
 	
 	// Efecto
 	
+	public CartaMagica(Estado unEstado, Jugador unJugador) {
+		
+		this.estado = unEstado;
+		this.jugador = unJugador;
+	}
+	
 	public CartaMagica(Estado unEstado) {
 		
-		this.estado = estado;
+		this.estado = unEstado;
 	}
 
 	@Override
@@ -16,22 +23,26 @@ public class CartaMagica extends Carta {
 		campoDeBatalla.colocar(this);		
 	}
 
-	@Override
+/*	@Override
 	public void atacarA(Carta monstruoDelRival) {
 		// Deberia lanzar una excepcion ya que una carta de magia no puede atacar.
 		
 	}
-	
+*/	
 	public boolean estaBocaArriba() {
 		
 		return (estado.estaActiva());
 	}
 
-	@Override
-	public void activarEfecto(CampoDeBatalla unCampo, CampoDeBatalla otroCampo) {
+	public void activarEfecto() {
 		// TODO Auto-generated method stub
-		
 	}
+
+	@Override
+	public void invocate(Jugador jugador) {
+		jugador.invocar(this);
+	}
+	
 	
 	
 //	public void invocarBocaAbajo() {

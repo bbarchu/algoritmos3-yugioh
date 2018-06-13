@@ -11,8 +11,8 @@ public class CampoDeBatalla {
 //	Mazo mazo;
 //	Mano mano;
 	
-	Carta cartaMonstruo;
-	Carta cartaMagica;
+	CartaMonstruo cartaMonstruo;
+	CartaMagica cartaMagica;
 	Carta cementerio;
 	
 	public CampoDeBatalla() {
@@ -24,16 +24,18 @@ public class CampoDeBatalla {
 	public void colocar(Carta unaCarta) {
 		unaCarta.colocateEn(this);	
 	}
+	
 	public void colocar(CartaMonstruo unMonstruo) {
 		this.cartaMonstruo = unMonstruo;	
 	}
+	
 	public void colocar(CartaMagica unaCartaMagica ) {
 		
 		this.cartaMagica = unaCartaMagica;	
-		// EL PROBLEMA ES QUE LA CARTA NO CONOCE LOS CAMPOS, PODRIA MANDARLE UN COMO PARAMETRO
-		// PERO NO CONOCE EL ENEMIGO. LAS CARTAS DEBERIAN CONOCER DONDE ESTAN O CONOCER EL CAMPO
-		// A TRAVES DE UN ATRIBUTO DE CLASE
-		if(cartaMagica.estaBocaArriba()) cartaMagica.activarEfecto();
+		
+		if(cartaMagica.estaBocaArriba()) {		
+			cartaMagica.activarEfecto();
+		}
 	}
 	
 

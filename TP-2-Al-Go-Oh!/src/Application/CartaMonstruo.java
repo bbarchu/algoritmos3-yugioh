@@ -10,10 +10,11 @@ public class CartaMonstruo extends Carta{
 	private int puntosDeDefensa;
 	private int cantidadEstrellas;
 	
-
 	private ModoDeUso modo;
 	private Estado estado;
+	
 	//Efecto (puede tener o no un efecto)
+	
 	
 	public CartaMonstruo(ModoDeUso unModo) {
 		
@@ -57,8 +58,8 @@ public class CartaMonstruo extends Carta{
 		
 	}
 
-	public void restarVidaAJugador(int vida) {
-		this.jugador.restarVida(vida);
+	public void restarVidaAJugador(int decrementoVida) {
+		this.jugador.restarVida(decrementoVida);
 		
 	}
 
@@ -71,6 +72,10 @@ public class CartaMonstruo extends Carta{
 		return (estado.estaActiva());
 	}
 	
+	@Override
+	public void invocate(Jugador jugador) {
+		jugador.invocar(this);
+	}
 	
 	
 /*	public void invocar(ModoDeUso estadoDeLaInvocacion) {
