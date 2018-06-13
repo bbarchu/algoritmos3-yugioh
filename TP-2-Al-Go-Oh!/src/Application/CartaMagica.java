@@ -7,6 +7,7 @@ public class CartaMagica extends Carta {
 	// Efecto
 	
 	public CartaMagica(Estado unEstado) {
+		
 		this.estado = estado;
 	}
 
@@ -20,6 +21,18 @@ public class CartaMagica extends Carta {
 		// Deberia lanzar una excepcion ya que una carta de magia no puede atacar.
 		
 	}
+	
+	public boolean estaBocaArriba() {
+		
+		return (estado.estaActiva());
+	}
+
+	@Override
+	public void activarEfecto(CampoDeBatalla unCampo, CampoDeBatalla otroCampo) {
+		// TODO Auto-generated method stub
+		
+	}
+	
 	
 //	public void invocarBocaAbajo() {
 	

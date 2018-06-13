@@ -66,6 +66,11 @@ public class CartaMonstruo extends Carta{
 		return this.puntosDeDefensa;
 	}
 	
+	public boolean estaBocaArriba() {
+		
+		return (estado.estaActiva());
+	}
+	
 	
 	
 /*	public void invocar(ModoDeUso estadoDeLaInvocacion) {

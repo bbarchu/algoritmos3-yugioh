@@ -177,7 +177,7 @@ public class TestsComportamiento {
 	}
 	
 	@Test
-	public void AtacarAUnMonstruoEnDefensaConMenosDefensaQueMiAtaqueLoDestruye(){
+	public void AtacarAUnMonstruoEnDefensaConMenosDefensaQueMiAtaqueLoDestruyeYLosPuntosDeVidaNoSeVenAfectados(){
 		Jugador unJugador = new Jugador();
 		Jugador otroJugador = new Jugador();
 		ModoDeUso modoATK = new ModoAtaque();
@@ -253,7 +253,6 @@ public class TestsComportamiento {
 		assertEquals(8000,otroJugador.obtenerPuntosDeVida());
 		
 	}
-	
 	
 	
 	

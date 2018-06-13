@@ -28,7 +28,12 @@ public class CampoDeBatalla {
 		this.cartaMonstruo = unMonstruo;	
 	}
 	public void colocar(CartaMagica unaCartaMagica ) {
+		
 		this.cartaMagica = unaCartaMagica;	
+		// EL PROBLEMA ES QUE LA CARTA NO CONOCE LOS CAMPOS, PODRIA MANDARLE UN COMO PARAMETRO
+		// PERO NO CONOCE EL ENEMIGO. LAS CARTAS DEBERIAN CONOCER DONDE ESTAN O CONOCER EL CAMPO
+		// A TRAVES DE UN ATRIBUTO DE CLASE
+		if(cartaMagica.estaBocaArriba()) cartaMagica.activarEfecto();
 	}
 	
 
@@ -61,6 +66,13 @@ public class CampoDeBatalla {
 	public Boolean hayCartasEnElCementerio() {
 		
 		return (cementerio != null);
+	}
+	
+	public void activarEfectoDe(AgujeroNegro carta) {
+		
+		this.cementerio = this.cartaMonstruo;
+		this.cartaMonstruo = null;
+		
 	}
 	
 

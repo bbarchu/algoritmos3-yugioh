@@ -7,4 +7,9 @@ public class CartaCampo extends Carta {
 	public void invocar() {
 		
 	}
+	
+	public boolean estaBocaArriba() {
+		
+		return true;
+	}
 }

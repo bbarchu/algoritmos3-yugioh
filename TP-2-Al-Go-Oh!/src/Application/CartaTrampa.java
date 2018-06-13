@@ -8,4 +8,9 @@ public class CartaTrampa extends Carta{
 	
 		campoDeJuego.invocar(this);
 	}
+	
+	public boolean estaBocaArriba() {
+		
+		return (estado.estaActiva());
+	}
 }
