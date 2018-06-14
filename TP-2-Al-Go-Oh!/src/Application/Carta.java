@@ -7,6 +7,8 @@ public abstract class Carta {
 	public abstract boolean estaBocaArriba();
 
 	public abstract void invocate(Jugador jugador);
+
+	public abstract void destruite(CampoDeBatalla campoDeBatalla);
 	
 //	public abstract void activarEfecto(CampoDeBatalla unCampo, CampoDeBatalla otroCampo);
 

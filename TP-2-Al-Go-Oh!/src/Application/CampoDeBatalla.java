@@ -2,8 +2,6 @@ package Application;
 
 public class CampoDeBatalla {
 
-	
-//	ZonaCartasMonstruos cartasMonstruo;
 //	ZonaCartasMagicas cartasMagicas;
 //	ZonaCartasCampo cartasCampo;
 //	ZonaCartasTrampa cartasTrampa;
@@ -11,14 +9,16 @@ public class CampoDeBatalla {
 //	Mazo mazo;
 //	Mano mano;
 	
-	CartaMonstruo cartaMonstruo;
+	Zona cartasMonstruo;
 	CartaMagica cartaMagica;
-	Carta cementerio;
+	Cementerio cementerio;
 	
 	public CampoDeBatalla() {
-		cartaMonstruo = null;
+		int cantidadMaximaMonstruos = 5;
+		
+		cartasMonstruo = new ZonaMonstruos(cantidadMaximaMonstruos);
 		cartaMagica = null;
-		cementerio = null;
+		cementerio = new Cementerio();
 	}
 	
 	public void colocar(Carta unaCarta) {
@@ -26,9 +26,15 @@ public class CampoDeBatalla {
 	}
 	
 	public void colocar(CartaMonstruo unMonstruo) {
-		this.cartaMonstruo = unMonstruo;	
+		
+		verificarEstrellasDelMonstruo(unMonstruo);
+		this.cartasMonstruo.agregarCarta(unMonstruo);
 	}
 	
+	private void verificarEstrellasDelMonstruo(CartaMonstruo unMonstruo) {
+		unMonstruo.realizarSacrificiosNecesariosEn(this);	
+	}
+
 	public void colocar(CartaMagica unaCartaMagica ) {
 		
 		this.cartaMagica = unaCartaMagica;	
@@ -38,18 +44,23 @@ public class CampoDeBatalla {
 		}
 	}
 	
-
 	public void destruir(Carta unaCarta) {
-		// Esta es una solucion mala, pero es lo que propone TDD
 		
-		if(cartaMonstruo == unaCarta) {
-			cartaMonstruo = null;
-		}
-		else if(cartaMagica == unaCarta) {
-			cartaMagica = null;
-		}
+		unaCarta.destruite(this);
+	
+	}
+	
+	public void destruir(CartaMonstruo unMonstruo) {
 		
-		this.cementerio = unaCarta;
+		// Aca puede lanzar una excepcion si no la encuentra
+		
+		cartasMonstruo.eliminarCarta(unMonstruo);
+		cementerio.agregarCarta(unMonstruo);
+	}
+	
+	public void destruirUnMonstruo() {
+		
+		cementerio.agregarCarta(cartasMonstruo.eliminarMonstruo());
 	}
 	
 	// Lucas: Los metodos HayCartas deberían ser eliminados ya que se crearon solo para las pruebas
@@ -57,7 +68,7 @@ public class CampoDeBatalla {
 	
 	public Boolean hayCartasMonstruo() {
 		
-		return (cartaMonstruo != null);
+		return (!cartasMonstruo.estaVacio());
 	}
 
 	public Boolean hayCartasMagicas() {
@@ -67,14 +78,16 @@ public class CampoDeBatalla {
 	
 	public Boolean hayCartasEnElCementerio() {
 		
-		return (cementerio != null);
+		return (!cementerio.estaVacio());
 	}
 	
 	public void activarEfectoDe(AgujeroNegro carta) {
 		
-		this.cementerio = this.cartaMonstruo;
-		this.cartaMonstruo = null;
-		
+		while(!cartasMonstruo.estaVacio()) {
+			
+			Carta cartaAEliminar = cartasMonstruo.eliminarMonstruo();
+			this.cementerio.agregarCarta(cartaAEliminar);
+		}
 	}
 	
 

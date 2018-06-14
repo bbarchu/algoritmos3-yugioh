@@ -18,8 +18,7 @@ import Application.ModoDeUso;
 import Application.ModoDefensa;
 
 
-//Chicos el assert es ESPERADO, CONTRA LA FUNCION INVOCADA. Lo estan escribiendo al reves!
-//Expected <> , but was: <>.
+
 public class TestsComportamiento {
 	
 	@Test
@@ -31,9 +30,7 @@ public class TestsComportamiento {
 		
 		unCampo.colocar(unMonstruo);
 		
-		assertEquals(unCampo.hayCartasMonstruo(), true);
-		//Esto va al revés
-		
+		assertEquals(true, unCampo.hayCartasMonstruo());
 		
 	}
 	
@@ -46,7 +43,7 @@ public class TestsComportamiento {
 		
 		unCampo.colocar(unMonstruo);
 		
-		assertEquals(unCampo.hayCartasMonstruo(), true);
+		assertEquals(true, unCampo.hayCartasMonstruo());
 				
 		
 	}
@@ -62,9 +59,7 @@ public class TestsComportamiento {
 		
 		assertEquals(unCampo.hayCartasMagicas(), true);
 	}
-	
-	
-	
+			
 	@Test
 	public void destruirUnMonstruoYVerificarQueEsteEnElCementerio(){
 		CampoDeBatalla unCampo = new CampoDeBatalla();
@@ -77,7 +72,6 @@ public class TestsComportamiento {
 		assertEquals(unCampo.hayCartasMonstruo(), false);
 		assertEquals(unCampo.hayCartasEnElCementerio(), true);
 	}
-	
 	
 	@Test
 	public void dosJugadoresSeAtacanConMostruosYLosPuntosDeVidaCambian(){
@@ -299,6 +293,66 @@ public class TestsComportamiento {
 		
 	}
 	
+	@Test
+	public void colocarUnMonstruoSeguidoDeOtroQueRequierSacrificioEliminandoAlPrimero(){
+		
+		Jugador unJugador = new Jugador();
+		CampoDeBatalla campito = unJugador.obtenerCampoDeBatalla();
+		ModoDeUso modoATK = new ModoAtaque();
+		Estado unEstado = new BocaArriba();
+		int puntosATK = 100;
+		int puntosDEF = 500;
+		int unasEstrellas = 1;
+		int otrasEstrellas = 5;
+		
+		CartaMonstruo unMonstruo = new CartaMonstruo(puntosATK, puntosDEF, unasEstrellas, modoATK, unJugador);
+		CartaMonstruo unMonstruoConSacrificio = new CartaMonstruo(puntosATK, puntosDEF, otrasEstrellas, modoATK, unJugador);
+		CartaMagica agujeroNegro = new AgujeroNegro(unEstado, unJugador);
+		
 	
+		unJugador.agregarCartaAlMazo(unMonstruo);
+		unJugador.tomarCartaDelMazo();		
+		unJugador.invocar(unMonstruo);
+		
+		unJugador.agregarCartaAlMazo(unMonstruoConSacrificio);
+		unJugador.tomarCartaDelMazo();
+		unJugador.invocar(unMonstruoConSacrificio);
+		
+		
+		assertEquals(true,campito.hayCartasEnElCementerio()); 		
+	}
 	
+	@Test
+	public void colocarDosMonstruoSeguidoDeOtroQueRequierDosSacrificiosEliminandoALosPrimeros(){
+		
+		Jugador unJugador = new Jugador();
+		CampoDeBatalla campito = unJugador.obtenerCampoDeBatalla();
+		ModoDeUso modoATK = new ModoAtaque();
+		Estado unEstado = new BocaArriba();
+		int puntosATK = 100;
+		int puntosDEF = 500;
+		int unasEstrellas = 1;
+		int otrasEstrellas = 7;
+		
+		CartaMonstruo unMonstruo = new CartaMonstruo(puntosATK, puntosDEF, unasEstrellas, modoATK, unJugador);
+		CartaMonstruo otroMonstruo = new CartaMonstruo(puntosATK, puntosDEF, unasEstrellas, modoATK, unJugador);
+		CartaMonstruo unMonstruoConSacrificio = new CartaMonstruo(puntosATK, puntosDEF, otrasEstrellas, modoATK, unJugador);
+		CartaMagica agujeroNegro = new AgujeroNegro(unEstado, unJugador);
+		
+	
+		unJugador.agregarCartaAlMazo(unMonstruo);
+		unJugador.tomarCartaDelMazo();		
+		unJugador.invocar(unMonstruo);
+		
+		unJugador.agregarCartaAlMazo(otroMonstruo);
+		unJugador.tomarCartaDelMazo();		
+		unJugador.invocar(otroMonstruo);
+		
+		unJugador.agregarCartaAlMazo(unMonstruoConSacrificio);
+		unJugador.tomarCartaDelMazo();
+		unJugador.invocar(unMonstruoConSacrificio);
+		
+		
+		assertEquals(true,campito.hayCartasEnElCementerio()); 		
+	}
 }

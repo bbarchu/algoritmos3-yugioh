@@ -17,7 +17,12 @@ public class CartaMagica extends Carta {
 		
 		this.estado = unEstado;
 	}
-
+	
+	@Override
+	public void destruite(CampoDeBatalla campoDeBatalla) {
+		campoDeBatalla.destruir(this);
+	}
+	
 	@Override
 	public void colocateEn(CampoDeBatalla campoDeBatalla) {
 		campoDeBatalla.colocar(this);		

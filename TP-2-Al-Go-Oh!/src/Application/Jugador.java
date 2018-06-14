@@ -19,7 +19,9 @@ public class Jugador {
 		this.puntosDeVida = 8000;
 		this.mano = new Mano();
 		this.mazo = new Mazo();
-		campoDelJugador = new CampoDeBatalla();
+		this.campoDelJugador = new CampoDeBatalla();
+		this.jugadorRival = null;
+		
 	}
 	
 	public void presentarJugadorRival(Jugador unJugador){
@@ -46,6 +48,7 @@ public class Jugador {
 		if(this.mano.contiene(unMonstruo)){
 			campoDelJugador.colocar(unMonstruo);
 		}
+		this.eliminarDeLaMano(unMonstruo);
 	}
 	
 	public void invocar(CartaMagica unaCartaMagica) {
@@ -53,6 +56,7 @@ public class Jugador {
 		if(this.mano.contiene(unaCartaMagica)){
 			campoDelJugador.colocar(unaCartaMagica);
 		}
+		this.eliminarDeLaMano(unaCartaMagica);
 	}
 
 	public void atacarCon_A(CartaMonstruo carta, CartaMonstruo otraCarta) {
@@ -65,8 +69,8 @@ public class Jugador {
 		
 	}
 	
-	public void destruirCarta(CartaMonstruo carta) {
-		this.mano = null;
+	public void eliminarDeLaMano(Carta unaCarta) {
+		this.mano.eliminar(unaCarta);
 	}
 
 	public int obtenerPuntosDeVida() {

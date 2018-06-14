@@ -30,4 +30,8 @@ public class Mano {
 	public boolean contiene(Carta unaCarta) {
 		return (cartas.contains(unaCarta));
 	}
+	
+	public void eliminar(Carta unaCarta) {
+		cartas.remove(unaCarta);
+	}
 }

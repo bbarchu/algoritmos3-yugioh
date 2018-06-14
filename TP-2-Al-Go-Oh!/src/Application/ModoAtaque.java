@@ -10,7 +10,8 @@ public class ModoAtaque extends ModoDeUso {
 	public void atacar(CartaMonstruo otraCarta, CartaMonstruo miCarta) {
 		otraCarta.recibirPuntosAtaque(miCarta);
 		
-		miCarta.recibirPuntosAtaque(otraCarta); //Bar: agrego esta linea para que ambas cartas se hagan daño(ModoATAQUE)
+		miCarta.recibirPuntosAtaque(otraCarta); 
+		//Bar: agrego esta linea para que ambas cartas se hagan daño(ModoATAQUE)
 		//Si es modo defensa no deberia PASAR NADA. ENTRA AL METODO DE MODO DEFENSA Y NO HACE NADA, TAMPOCO DEBERíA MANDAR ERROR.
 	}
 
