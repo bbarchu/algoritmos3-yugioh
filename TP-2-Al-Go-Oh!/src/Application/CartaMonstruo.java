@@ -1,7 +1,5 @@
 package Application;
 
-import static org.junit.jupiter.api.Assumptions.assumingThat;
-
 public class CartaMonstruo extends Carta{
 	
 	private Jugador jugador;
@@ -48,11 +46,9 @@ public class CartaMonstruo extends Carta{
 	}
 
 	public void recibirPuntosAtaque(CartaMonstruo otraCarta) {
-		this.modo.defender(otraCarta, this);
-		
+		this.modo.defender(otraCarta, this);	
 	}
-	
-	
+		
 	//Bar: agrego esta linea para verificar que existan en el cementerio.
 	//Lucas: comento este metodo porque el campo elimina las cartas, y no las cartas a ellas mismas.
 	
@@ -88,7 +84,6 @@ public class CartaMonstruo extends Carta{
 		jugador.invocar(this);
 	}
 
-	
 	public void realizarSacrificiosNecesariosEn(CampoDeBatalla campoDeBatalla) {
 		sacrificioRequerido.sacrificarDeSerNecesario(campoDeBatalla);
 	}

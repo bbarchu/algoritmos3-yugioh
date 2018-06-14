@@ -8,9 +8,5 @@ import org.junit.Test;
 import Application.CartaCampo;
 
 public class CartaCampoTest {
-	@Test
-	public void test01ViajeVacio() {
-        
-		assertEquals(0, 0);
-	}
+	
 }

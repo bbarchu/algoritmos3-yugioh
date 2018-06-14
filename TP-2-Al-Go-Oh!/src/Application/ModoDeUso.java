@@ -2,8 +2,6 @@ package Application;
 
 public abstract class ModoDeUso {
 	
-	public ModoDeUso() {
-	}
 
 	public abstract void atacar(CartaMonstruo otraCarta, CartaMonstruo miCarta);
 

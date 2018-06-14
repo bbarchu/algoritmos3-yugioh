@@ -2,9 +2,6 @@ package Application;
 
 public class ModoAtaque extends ModoDeUso {
 	
-	public ModoAtaque() {
-		super();
-	}
 
 	@Override
 	public void atacar(CartaMonstruo otraCarta, CartaMonstruo miCarta) {
@@ -36,7 +33,6 @@ public class ModoAtaque extends ModoDeUso {
 			cartaAtacada.destruirCarta();
 		}
 	}
-	
 	
 
 }

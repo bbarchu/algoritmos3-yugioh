@@ -47,8 +47,8 @@ public abstract class Zona {
 	public boolean estaVacio() {
 		return cartas.isEmpty();
 	}
-
-	public Carta eliminarMonstruo() {
+	
+	public Carta eliminarCartaMasAntigua() {
 		
 		if(estaVacio()) {
 			//lanzar excepcion

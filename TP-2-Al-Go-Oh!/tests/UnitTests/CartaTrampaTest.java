@@ -10,11 +10,4 @@ import Application.CartaTrampa;
 
 public class CartaTrampaTest {
 
-	@Test
-	public void colocarCartaTrampaBocaAbajo() {
-		
-		Carta cartaTrampa = new CartaTrampa();
-		
-		cartaTrampa.invocar();
-	}
 }

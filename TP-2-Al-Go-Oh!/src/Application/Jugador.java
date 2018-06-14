@@ -13,7 +13,6 @@ public class Jugador {
 		//			Ej: interfaz obserbable, que solo permita ver las cartas del campo rival.
 		
 		Jugador jugadorRival;
-
 	
 	public Jugador() {
 		this.puntosDeVida = 8000;
@@ -30,7 +29,8 @@ public class Jugador {
 
 	//bar: Por que el jugador puede agregar una carta al mazo?
 	//Lucas: Respuesta -> es para controlar el comportamiento mientras se desarrolla el TP, en algun 
-	//			momento este metodo va a pasar a ser privado y llamado únicamente en el constructor.
+	//			momento este metodo va a pasar a ser privado y llamado únicamente en el constructor (cuando se llena el mazo).
+	
 	public void agregarCartaAlMazo(Carta unMonstruo) {
 		this.mazo.agregarUnaCarta(unMonstruo);
 	}
@@ -63,13 +63,14 @@ public class Jugador {
 		carta.atacar(otraCarta);
 		
 	}
-
+	
+	// Lucas: me parece un poco raro que un metodo que mata al jugador sea publico
 	public void restarVida(int decrementoVida) {
 		this.puntosDeVida -= decrementoVida;
 		
 	}
 	
-	public void eliminarDeLaMano(Carta unaCarta) {
+	private void eliminarDeLaMano(Carta unaCarta) {
 		this.mano.eliminar(unaCarta);
 	}
 

@@ -3,87 +3,51 @@ package UnitTests;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
-import Application.AgujeroNegro;
-import Application.BocaAbajo;
 import Application.BocaArriba;
 import Application.CampoDeBatalla;
-import Application.Carta;
 import Application.CartaMagica;
 import Application.CartaMonstruo;
-import Application.CartaTrampa;
 import Application.Estado;
 import Application.Jugador;
 import Application.ModoAtaque;
 import Application.ModoDeUso;
 import Application.ModoDefensa;
 
+public class JugadorTest {
 
+	@Test
+	public void invocarUnMonstruoDesdeLaMano(){
+		Jugador unJugador = new Jugador();
+		ModoDeUso modoATK = new ModoAtaque();
+		int puntosATK = 2000;
+		int puntosDEF = 500;
+		int estrellas = 1;
+		CartaMonstruo unMonstruo = new CartaMonstruo(puntosATK, puntosDEF, estrellas, modoATK, unJugador);
+		
+		unJugador.agregarCartaAlMazo(unMonstruo);
+		unJugador.tomarCartaDelMazo();
+		unJugador.invocar(unMonstruo);
+		
+		assertEquals(true, unJugador.obtenerCampoDeBatalla().hayCartasMonstruo());
+	}
+	
+	@Test
+	public void invocarUnaCartaMagicaDesdeLaMano(){
+		Jugador unJugador = new Jugador();
+		Estado unEstado = new BocaArriba();
 
-public class TestsComportamiento {
-	
-	@Test
-	public void colocarUnMonstruoEnAtaqueEnElCampo() {
+		CartaMagica unaCartaMagica = new CartaMagica(unEstado);
 		
-		CampoDeBatalla unCampo = new CampoDeBatalla();
-		ModoDeUso unModo = new ModoAtaque();
-		Carta unMonstruo = new CartaMonstruo(unModo);
+		unJugador.agregarCartaAlMazo(unaCartaMagica);
+		unJugador.tomarCartaDelMazo();
+		unJugador.invocar(unaCartaMagica);
 		
-		unCampo.colocar(unMonstruo);
-		
-		assertEquals(true, unCampo.hayCartasMonstruo());
-		
+		assertEquals(true, unJugador.obtenerCampoDeBatalla().hayCartasMagicas());
 	}
 	
-	@Test
-	public void colocarUnMonstruoEnDefensaEnElCampo() {
-		
-		CampoDeBatalla unCampo = new CampoDeBatalla();
-		ModoDeUso unModo = new ModoDefensa();
-		Carta unMonstruo = new CartaMonstruo(unModo);
-		
-		unCampo.colocar(unMonstruo);
-		
-		assertEquals(true, unCampo.hayCartasMonstruo());
-				
-		
-	}
+	// Para probar los metodos atacar es necesario mas de un jugador, por lo que las puebas se escriben como de "integracion"
+	// Son los mismos test que para la entrega
 	
-	@Test
-	public void colocarUnaCartaMagicaBocaAbajoEnElCampo(){
-		
-		CampoDeBatalla unCampo = new CampoDeBatalla();
-		Estado unEstado = new BocaAbajo();
-		Carta unaCartaMagica = new CartaMagica(unEstado);
-		
-		unCampo.colocar(unaCartaMagica);
-		
-		assertEquals(true, unCampo.hayCartasMagicas());
-	}
-	
-	@Test
-	public void colocarUnaCartaTrampaBocaAbajoEnElCampo(){
-		
-		CampoDeBatalla unCampo = new CampoDeBatalla();
-		Estado unEstado = new BocaAbajo();
-		Carta unaCartaTrampa = new CartaTrampa(unEstado);
-		
-		unCampo.colocar(unaCartaTrampa);
-		
-		assertEquals(true, unCampo.hayCartasMagicas());
-	}
-			
-	@Test
-	public void destruirUnMonstruoYVerificarQueEsteEnElCementerio(){
-		CampoDeBatalla unCampo = new CampoDeBatalla();
-		ModoDeUso unModo = new ModoAtaque();
-		Carta unMonstruo = new CartaMonstruo(unModo);
-		
-		unCampo.colocar(unMonstruo);
-		unCampo.destruir(unMonstruo);
-		
-		assertEquals(false, unCampo.hayCartasMonstruo());
-		assertEquals(true, unCampo.estaEnElCementerio(unMonstruo));
-	}
 	
 	@Test
 	public void dosJugadoresSeAtacanConMostruosYLosPuntosDeVidaCambian(){
@@ -269,104 +233,4 @@ public class TestsComportamiento {
 		
 	}
 	
-	@Test
-	public void ColocarDosMonstruosYDestruirlosConElAgujeroNegroSinRecibirDaño(){
-		
-		Jugador unJugador = new Jugador();
-		Jugador otroJugador = new Jugador();
-		CampoDeBatalla campito = unJugador.obtenerCampoDeBatalla();
-		CampoDeBatalla campito2 = otroJugador.obtenerCampoDeBatalla();
-		ModoDeUso modoATK = new ModoAtaque();
-		Estado unEstado = new BocaArriba();
-		int puntosATK = 100;
-		int puntosDEF = 500;
-		int estrellas = 1;
-		int puntosDeVidaIniciales = 8000;
-		
-		CartaMonstruo monstruoDefensa = new CartaMonstruo(puntosATK, puntosDEF, estrellas, modoATK, unJugador);
-		CartaMonstruo monstruoAtaque = new CartaMonstruo(puntosATK, puntosDEF, estrellas, modoATK, otroJugador);
-		CartaMagica agujeroNegro = new AgujeroNegro(unEstado, unJugador);
-		
-		unJugador.presentarJugadorRival(otroJugador);
-		otroJugador.presentarJugadorRival(unJugador);
-		
-		unJugador.agregarCartaAlMazo(monstruoDefensa);
-		unJugador.agregarCartaAlMazo(agujeroNegro);
-		otroJugador.agregarCartaAlMazo(monstruoAtaque);
-		
-		unJugador.tomarCartaDelMazo();
-		otroJugador.tomarCartaDelMazo();
-		
-		unJugador.invocar(monstruoDefensa);
-		otroJugador.invocar(monstruoAtaque);
-		
-		unJugador.tomarCartaDelMazo();
-		unJugador.invocar(agujeroNegro);
-		
-		assertEquals(true,campito.estaEnElCementerio(monstruoDefensa)); 
-		assertEquals(true,campito2.estaEnElCementerio(monstruoAtaque));
-		assertEquals(puntosDeVidaIniciales, unJugador.obtenerPuntosDeVida());
-		assertEquals(puntosDeVidaIniciales,otroJugador.obtenerPuntosDeVida());
-		
-	}
-	
-	@Test
-	public void colocarUnMonstruoSeguidoDeOtroQueRequierSacrificioEliminandoAlPrimero(){
-		
-		Jugador unJugador = new Jugador();
-		CampoDeBatalla campito = unJugador.obtenerCampoDeBatalla();
-		ModoDeUso modoATK = new ModoAtaque();
-		int puntosATK = 100;
-		int puntosDEF = 500;
-		int unasEstrellas = 1;
-		int otrasEstrellas = 5;
-		
-		CartaMonstruo unMonstruo = new CartaMonstruo(puntosATK, puntosDEF, unasEstrellas, modoATK, unJugador);
-		CartaMonstruo unMonstruoConSacrificio = new CartaMonstruo(puntosATK, puntosDEF, otrasEstrellas, modoATK, unJugador);
-		
-	
-		unJugador.agregarCartaAlMazo(unMonstruo);
-		unJugador.tomarCartaDelMazo();		
-		unJugador.invocar(unMonstruo);
-		
-		unJugador.agregarCartaAlMazo(unMonstruoConSacrificio);
-		unJugador.tomarCartaDelMazo();
-		unJugador.invocar(unMonstruoConSacrificio);
-		
-		
-		assertEquals(true,campito.estaEnElCementerio(unMonstruo)); 		
-	}
-	
-	@Test
-	public void colocarDosMonstruoSeguidoDeOtroQueRequierDosSacrificiosEliminandoALosPrimeros(){
-		
-		Jugador unJugador = new Jugador();
-		CampoDeBatalla campito = unJugador.obtenerCampoDeBatalla();
-		ModoDeUso modoATK = new ModoAtaque();
-		int puntosATK = 100;
-		int puntosDEF = 500;
-		int unasEstrellas = 1;
-		int otrasEstrellas = 7;
-		
-		CartaMonstruo unMonstruo = new CartaMonstruo(puntosATK, puntosDEF, unasEstrellas, modoATK, unJugador);
-		CartaMonstruo otroMonstruo = new CartaMonstruo(puntosATK, puntosDEF, unasEstrellas, modoATK, unJugador);
-		CartaMonstruo unMonstruoConSacrificio = new CartaMonstruo(puntosATK, puntosDEF, otrasEstrellas, modoATK, unJugador);
-		
-	
-		unJugador.agregarCartaAlMazo(unMonstruo);
-		unJugador.tomarCartaDelMazo();		
-		unJugador.invocar(unMonstruo);
-		
-		unJugador.agregarCartaAlMazo(otroMonstruo);
-		unJugador.tomarCartaDelMazo();		
-		unJugador.invocar(otroMonstruo);
-		
-		unJugador.agregarCartaAlMazo(unMonstruoConSacrificio);
-		unJugador.tomarCartaDelMazo();
-		unJugador.invocar(unMonstruoConSacrificio);
-		
-		
-		assertEquals(true,campito.estaEnElCementerio(unMonstruo));
-		assertEquals(true,campito.estaEnElCementerio(otroMonstruo));
-	}
 }

@@ -2,13 +2,10 @@ package Application;
 
 public class ModoDefensa extends ModoDeUso {
 
-	public ModoDefensa() {
-	}
 
 	@Override
 	public void atacar(CartaMonstruo otraCarta, CartaMonstruo miCarta) {
 		//Aca no hay q tirar excepcion, tuve q hacer unos cambios y entra por aca pero no debería hacer nada este metodo. BAR.
-		
 	}
 
 	@Override
