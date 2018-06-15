@@ -57,7 +57,7 @@ public class TestsComportamiento {
 		
 		unCampo.colocar(unaCartaMagica);
 		
-		assertEquals(true, unCampo.hayCartasMagicas());
+		assertEquals(true, unCampo.hayCartasMagiaOTrampa());
 	}
 	
 	@Test
@@ -69,7 +69,7 @@ public class TestsComportamiento {
 		
 		unCampo.colocar(unaCartaTrampa);
 		
-		assertEquals(true, unCampo.hayCartasMagicas());
+		assertEquals(true, unCampo.hayCartasMagiaOTrampa());
 	}
 			
 	@Test

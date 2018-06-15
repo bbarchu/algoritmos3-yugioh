@@ -42,7 +42,8 @@ public class JugadorTest {
 		unJugador.tomarCartaDelMazo();
 		unJugador.invocar(unaCartaMagica);
 		
-		assertEquals(true, unJugador.obtenerCampoDeBatalla().hayCartasMagicas());
+		assertEquals(false, unJugador.obtenerCampoDeBatalla().hayCartasMagiaOTrampa());
+		//Esto debería dar false, porque cuando la das vuelta, se elimina automaticamente, ya que las cartas mágicas tienen un unico uso.
 	}
 	
 	// Para probar los metodos atacar es necesario mas de un jugador, por lo que las puebas se escriben como de "integracion"

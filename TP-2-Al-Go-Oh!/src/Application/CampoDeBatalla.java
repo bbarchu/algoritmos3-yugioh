@@ -7,33 +7,57 @@ public class CampoDeBatalla {
 //	Zona cartasTrampa;
 	
 	Zona cartasMonstruo;
+	Zona cartasMagiaTrampa;
+	Zona cartaCampo;
+	
+	
 	Carta cartaMagica;
 	Cementerio cementerio;
 	
 	public CampoDeBatalla() {
+		
 		int cantidadMaximaMonstruos = 5;
+		int cantidadMaximaDeMagiaTrampa = 5;
+		int cantidadMaximaCampo = 1;
+		
 		
 		cartasMonstruo = new ZonaMonstruos(cantidadMaximaMonstruos);
-		cartaMagica = null;
+		cartasMagiaTrampa = new ZonaMagiaTrampa(cantidadMaximaDeMagiaTrampa);
+		cartaCampo = new ZonaCartaCampo(cantidadMaximaCampo);
 		cementerio = new Cementerio();
+		
+		
+		cartaMagica = null;
+		
 	}
 	
+
 	public void colocar(Carta unaCarta) {
 		unaCarta.colocateEn(this);	
 	}
 	
 	public void colocar(CartaMagica unaCartaMagica ) {
 		
-		this.cartaMagica = unaCartaMagica;	
+		//this.cartaMagica = unaCartaMagica;
+		
+		this.cartasMagiaTrampa.agregarCarta(unaCartaMagica);
 		
 		if(unaCartaMagica.estaBocaArriba()) {		
 			unaCartaMagica.activarEfecto();
+			// Solo un uso van al cementerio : bar;
+			
+			unaCartaMagica.destruite(this);
 		}
 	}
 	
 	public void colocar(CartaTrampa unaCartaTrampa ) {
 		
-		this.cartaMagica = unaCartaTrampa;
+		
+		this.cartasMagiaTrampa.agregarCarta(unaCartaTrampa);
+	}
+	
+	public void colocar(CartaCampo unaCartaCampo ) {		
+		this.cartaCampo.agregarCarta(unaCartaCampo);
 	}
 	
 	public void colocar(CartaMonstruo unMonstruo) {
@@ -64,7 +88,8 @@ public class CampoDeBatalla {
 		
 		// Aca puede lanzar una excepcion si no la encuentra
 		
-		cartaMagica = null;
+		
+		cartasMagiaTrampa.eliminarCarta(unaCartaMagica);
 		cementerio.agregarCarta(unaCartaMagica);
 	}
 	
@@ -81,9 +106,9 @@ public class CampoDeBatalla {
 		return (!cartasMonstruo.estaVacio());
 	}
 
-	public Boolean hayCartasMagicas() {
-		
-		return (cartaMagica != null);
+	
+	public Boolean hayCartasMagiaOTrampa() {
+		return (!cartasMagiaTrampa.estaVacio());
 	}
 	
 	public boolean estaEnElCementerio(Carta unaCarta){

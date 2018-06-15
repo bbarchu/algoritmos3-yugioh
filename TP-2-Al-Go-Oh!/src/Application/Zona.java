@@ -26,6 +26,7 @@ public abstract class Zona {
 			cartas.add(carta);
 			cantidadDeCartas++;
 		}
+		//else {La ZONA esta llena! MovimientoIncorrectoError }
 	}
 	
 	public boolean contiene (Carta unaCarta){

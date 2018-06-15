@@ -35,7 +35,7 @@ public class CampoDeBatallaTest {
 		
 		unCampo.colocar(unaCartaMagica);
 		
-		assertEquals(true, unCampo.hayCartasMagicas());
+		assertEquals(true, unCampo.hayCartasMagiaOTrampa());
 	}
 	
 	@Test
@@ -60,7 +60,7 @@ public class CampoDeBatallaTest {
 		unCampo.colocar(unaCartaMagica);
 		unCampo.destruir(unaCartaMagica);
 		
-		assertEquals(false, unCampo.hayCartasMagicas());
+		assertEquals(false, unCampo.hayCartasMagiaOTrampa());
 		assertEquals(true, unCampo.estaEnElCementerio(unaCartaMagica));
 		
 	}

@@ -2,31 +2,30 @@ package Application;
 
 public class CartaCampo extends Carta {
 	
-	// Efecto
+	// Efecto que abarca a todo el campo, camo amigo y campo enemigo, bar.
+	//Cuando se destrute una carta de campo? ya que no dice nada al respecto, no tiene un unico uso.
+	
 	
 
 	@Override
 	public void colocateEn(CampoDeBatalla campoDeBatalla) {
-		// TODO Auto-generated method stub
-		
+		campoDeBatalla.colocar(this);		
 	}
 
-	@Override
 	public void invocate(Jugador jugador) {
-		// TODO Auto-generated method stub
-		
+		jugador.invocar(this);
 	}
 
 	@Override
 	public void destruite(CampoDeBatalla campoDeBatalla) {
-		// TODO Auto-generated method stub
-		
+		campoDeBatalla.destruir(this);
 	}
 
 	@Override
 	public boolean estaBocaArriba() {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
+		
+		//Podes activar el efecto desde la mano colocandolas boca arriba! Siempre estan boca arriba, bar.
 	}
 	
 /*	public void invocar() {
