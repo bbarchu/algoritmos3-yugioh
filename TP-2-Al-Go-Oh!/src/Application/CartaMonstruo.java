@@ -93,6 +93,13 @@ public class CartaMonstruo extends Carta{
 		campoDeBatalla.destruir(this);
 	}
 	
+	public void aumentarPuntosDeAtaqueEn(int puntosAAumentar) {
+		this.puntosDeAtaque += puntosAAumentar;
+	}
+	
+	public void aumentarPuntosDeDefensaEn(int puntosAAumentar) {
+		this.puntosDeDefensa += puntosAAumentar;
+	}
 	
 /*	public void invocar(ModoDeUso estadoDeLaInvocacion) {
 		

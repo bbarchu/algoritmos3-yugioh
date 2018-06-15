@@ -1,5 +1,7 @@
 package Application;
 
+import java.util.LinkedList;
+
 public class CampoDeBatalla {
 
 //	Zona cartasMagicas;
@@ -123,6 +125,21 @@ public class CampoDeBatalla {
 			this.cementerio.agregarCarta(cartaAEliminar);
 		}
 	}
+ 	
+ 	public void activarEfectoDeMi(Wasteland carta) {
+ 		
+ 		cartasMonstruo.aumentarAtaqueEn(200);
+ 		//Aumentar ataque
+ 	}
+ 	
+ 	public void activarEfectoContrarioDe(Wasteland carta) {
+ 		cartasMonstruo.aumentarDefensaEn(300);
+ 		//AumentarDefensa
+ 	}
+ 	
+ 	public LinkedList<CartaMonstruo> verCartasMonstruo() {
+ 		return cartasMonstruo.verCartas();
+ 	}
 	
 /*	public Boolean hayCartasEnElCementerio() {
 	

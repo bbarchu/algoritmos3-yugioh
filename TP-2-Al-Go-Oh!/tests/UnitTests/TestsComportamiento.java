@@ -1,6 +1,9 @@
 package UnitTests;
 
 import static org.junit.Assert.assertEquals;
+
+import java.util.LinkedList;
+
 import org.junit.Test;
 
 import Application.AgujeroNegro;
@@ -368,5 +371,57 @@ public class TestsComportamiento {
 		
 		assertEquals(true,campito.estaEnElCementerio(unMonstruo));
 		assertEquals(true,campito.estaEnElCementerio(otroMonstruo));
+	}
+	
+	//Segundas pruebas 
+	
+	@Test
+	public void ColocarDosMonstruosYActivarWastelandDeUnLadoDelCampoAumentaAtaqueDelOtroAumentaDefensa(){
+		
+		Jugador unJugador = new Jugador();
+		Jugador otroJugador = new Jugador();
+		CampoDeBatalla campito = unJugador.obtenerCampoDeBatalla();
+		CampoDeBatalla campito2 = otroJugador.obtenerCampoDeBatalla();
+		ModoDeUso modoATK = new ModoAtaque();
+		Estado unEstado = new BocaArriba();
+		int puntosATK = 100;
+		int puntosDEF = 100;
+		int estrellas = 1;
+		int puntosDeVidaIniciales = 8000;
+		
+		CartaMonstruo monstruoDefensa = new CartaMonstruo(puntosATK, puntosDEF, estrellas, modoATK, unJugador);
+		CartaMonstruo monstruoAtaque = new CartaMonstruo(puntosATK, puntosDEF, estrellas, modoATK, otroJugador);
+		CartaMagica wasteland = new Wasteland();
+		
+		unJugador.presentarJugadorRival(otroJugador);
+		otroJugador.presentarJugadorRival(unJugador);
+		
+		unJugador.agregarCartaAlMazo(monstruoDefensa);
+		unJugador.agregarCartaAlMazo(wasteland);
+		otroJugador.agregarCartaAlMazo(monstruoAtaque);
+		
+		unJugador.tomarCartaDelMazo();
+		otroJugador.tomarCartaDelMazo();
+		
+		unJugador.invocar(monstruoDefensa);
+		otroJugador.invocar(monstruoAtaque);
+		
+		unJugador.tomarCartaDelMazo();
+		unJugador.invocar(wasteland);
+		
+		assertEquals(puntosDeVidaIniciales, unJugador.obtenerPuntosDeVida());
+		assertEquals(puntosDeVidaIniciales,otroJugador.obtenerPuntosDeVida());
+		
+		
+		LinkedList<CartaMonstruo> cartasMonstruoEnElCampo;
+		cartasMonstruoEnElCampo = campito.verCartasMonstruo();
+
+		
+		LinkedList<CartaMonstruo> CartasMonstruoEnElCampo2;
+		CartasMonstruoEnElCampo = campito2.verCartasMonstruo();
+		
+		//faltaria ver el ataque, y la defensa...
+		
+		
 	}
 }

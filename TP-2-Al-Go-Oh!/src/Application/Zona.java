@@ -1,6 +1,7 @@
 package Application;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 public abstract class Zona {
 	
@@ -58,5 +59,20 @@ public abstract class Zona {
 		Carta cartaAEliminar = cartas.get(0);
 		this.cartas.remove(0);
 		return (cartaAEliminar);
+	}
+
+	public LinkedList<CartaMonstruo> verCartas() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void aumentarDefensaEn(int i) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void aumentarAtaqueEn(int i) {
+		// TODO Auto-generated method stub
+		
 	}
 }
