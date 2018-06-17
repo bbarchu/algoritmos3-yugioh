@@ -1,6 +1,6 @@
 package Application;
 
-public class Jugador {
+public class Jugador implements OponenteAtacable{
 		
 		int puntosDeVida;
 		Mazo mazo;
@@ -15,6 +15,7 @@ public class Jugador {
 		Jugador jugadorRival;
 	
 	public Jugador() {
+		
 		this.puntosDeVida = 8000;
 		this.mano = new Mano();
 		this.mazo = new Mazo();
@@ -24,6 +25,7 @@ public class Jugador {
 	}
 	
 	public void presentarJugadorRival(Jugador unJugador){
+		
 		jugadorRival = unJugador;
 	}
 

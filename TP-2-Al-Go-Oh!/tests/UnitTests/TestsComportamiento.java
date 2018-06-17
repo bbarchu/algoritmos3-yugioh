@@ -419,9 +419,9 @@ public class TestsComportamiento {
 		
 		LinkedList<CartaMonstruo> CartasMonstruoEnElCampo2;
 		CartasMonstruoEnElCampo = campito2.verCartasMonstruo();
-		
-		//faltaria ver el ataque, y la defensa...
-		
-		
-	}
+//		
+//		//faltaria ver el ataque, y la defensa...
+//		
+//		
+//	}
 }

@@ -2,7 +2,7 @@ package Application;
 
 public class CartaMonstruo extends Carta{
 	
-	private Jugador jugador;
+	private OponenteAtacable jugador;
 	
 	private int puntosDeAtaque;
 	private int puntosDeDefensa;
