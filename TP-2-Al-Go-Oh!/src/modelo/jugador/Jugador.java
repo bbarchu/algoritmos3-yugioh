@@ -101,4 +101,13 @@ public class Jugador implements OponenteAtacable{
 	public Jugador obtenerJugadorRival() {
 		return jugadorRival;
 	}
+	
+	// este metodo fue creado para verificar el resultado de una prueba. Debe ser eliminado
+	public int cantidadDeCartasEnLaMano(){
+		int cantidad;
+		
+		cantidad = this.mano.obtenerCantidadDeCartas();
+		
+		return cantidad;
+	}
 }
