@@ -18,6 +18,7 @@ public class ZonaMonstruos extends Zona {
 	 
 	 public void aumentarAtaqueEn(int puntosDeAtaque){
 		iteradorCarta = cartas.listIterator(0);
+		
 		while (iteradorCarta.hasNext() != false) {
 			CartaMonstruo monstruoActual = (CartaMonstruo) iteradorCarta.next();
 			monstruoActual.aumentarPuntosDeAtaqueEn(puntosDeAtaque);
