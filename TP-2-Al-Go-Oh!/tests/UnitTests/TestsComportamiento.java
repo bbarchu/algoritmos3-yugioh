@@ -2,6 +2,7 @@ package UnitTests;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.Iterator;
 import java.util.LinkedList;
 
 import org.junit.Test;
@@ -11,6 +12,7 @@ import Application.BocaAbajo;
 import Application.BocaArriba;
 import Application.CampoDeBatalla;
 import Application.Carta;
+import Application.CartaCampo;
 import Application.CartaMagica;
 import Application.CartaMonstruo;
 import Application.CartaTrampa;
@@ -19,6 +21,7 @@ import Application.Jugador;
 import Application.ModoAtaque;
 import Application.ModoDeUso;
 import Application.ModoDefensa;
+import Application.Wasteland;
 
 
 
@@ -391,7 +394,7 @@ public class TestsComportamiento {
 		
 		CartaMonstruo monstruoDefensa = new CartaMonstruo(puntosATK, puntosDEF, estrellas, modoATK, unJugador);
 		CartaMonstruo monstruoAtaque = new CartaMonstruo(puntosATK, puntosDEF, estrellas, modoATK, otroJugador);
-		CartaMagica wasteland = new Wasteland();
+		CartaCampo wasteland = new Wasteland(unJugador);
 		
 		unJugador.presentarJugadorRival(otroJugador);
 		otroJugador.presentarJugadorRival(unJugador);
@@ -409,19 +412,25 @@ public class TestsComportamiento {
 		unJugador.tomarCartaDelMazo();
 		unJugador.invocar(wasteland);
 		
-		assertEquals(puntosDeVidaIniciales, unJugador.obtenerPuntosDeVida());
-		assertEquals(puntosDeVidaIniciales,otroJugador.obtenerPuntosDeVida());
 		
-		
-		LinkedList<CartaMonstruo> cartasMonstruoEnElCampo;
+		LinkedList<Carta> cartasMonstruoEnElCampo;
 		cartasMonstruoEnElCampo = campito.verCartasMonstruo();
 
 		
-		LinkedList<CartaMonstruo> CartasMonstruoEnElCampo2;
-		CartasMonstruoEnElCampo = campito2.verCartasMonstruo();
-//		
-//		//faltaria ver el ataque, y la defensa...
-//		
-//		
-//	}
+		LinkedList<Carta> cartasMonstruoEnElCampo2;
+		cartasMonstruoEnElCampo2 = campito2.verCartasMonstruo();
+		
+		Iterator<Carta>iterador1;
+		Iterator<Carta>iterador2;
+		iterador1 = cartasMonstruoEnElCampo.iterator();
+		iterador2 = cartasMonstruoEnElCampo2.iterator();
+		
+		CartaMonstruo primerMonstruo = (CartaMonstruo) iterador1.next();
+		CartaMonstruo segundoMonstruo = (CartaMonstruo) iterador2.next();
+		
+		assertEquals(300,primerMonstruo.obtenerPuntosDeAtaque());
+		assertEquals(400,segundoMonstruo.obtenerPuntosDeDefensa());
+		
+
+	}
 }

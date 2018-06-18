@@ -60,6 +60,14 @@ public class Jugador implements OponenteAtacable{
 		}
 		this.eliminarDeLaMano(unaCartaMagica);
 	}
+	
+	public void invocar(CartaCampo unaCartaCampo) {
+		
+		if(this.mano.contiene(unaCartaCampo)){
+			campoDelJugador.colocar(unaCartaCampo);
+		}
+		this.eliminarDeLaMano(unaCartaCampo);
+	}
 
 	public void atacarCon_A(CartaMonstruo carta, CartaMonstruo otraCarta) {
 		carta.atacar(otraCarta);

@@ -1,23 +1,25 @@
 package Application;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.LinkedList;
 
 public abstract class Zona {
 	
-	protected ArrayList<Carta> cartas;
+	protected LinkedList<Carta> cartas;
 	int capacidad;
 	int cantidadDeCartas;
+	Iterator<Carta>iteradorCarta;
 	
 	public Zona(int unaCapacidad) {
-		cartas = new ArrayList<Carta>();
+		cartas = new LinkedList<Carta>();
 		capacidad = unaCapacidad;
 		cantidadDeCartas = 0;
 	}
 	
 	public Zona() {
 		int capacidadMaximaDefault = 100;
-		cartas = new ArrayList<Carta>();
+		cartas = new LinkedList<Carta>();
 		capacidad = capacidadMaximaDefault;
 		cantidadDeCartas = 0;
 	}
@@ -61,9 +63,9 @@ public abstract class Zona {
 		return (cartaAEliminar);
 	}
 
-	public LinkedList<CartaMonstruo> verCartas() {
+	public LinkedList<Carta> verCartas() {
 		// TODO Auto-generated method stub
-		return null;
+		return cartas;
 	}
 
 	public void aumentarDefensaEn(int i) {

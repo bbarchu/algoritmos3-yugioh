@@ -60,6 +60,11 @@ public class CampoDeBatalla {
 	
 	public void colocar(CartaCampo unaCartaCampo ) {		
 		this.cartaCampo.agregarCarta(unaCartaCampo);
+		
+		if(unaCartaCampo.estaBocaArriba()) {		
+			unaCartaCampo.activarEfecto();
+			
+		}
 	}
 	
 	public void colocar(CartaMonstruo unMonstruo) {
@@ -137,7 +142,7 @@ public class CampoDeBatalla {
  		//AumentarDefensa
  	}
  	
- 	public LinkedList<CartaMonstruo> verCartasMonstruo() {
+ 	public LinkedList<Carta> verCartasMonstruo() {
  		return cartasMonstruo.verCartas();
  	}
 	

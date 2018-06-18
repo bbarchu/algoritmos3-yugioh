@@ -6,33 +6,32 @@ import java.util.LinkedList;
 
 public class ZonaMonstruos extends Zona {
 	
-	 Iterator<CartaMonstruo>iteradorMonstruo;
-	 LinkedList<CartaMonstruo> cartasMonstruo;		
+	 	
 	
 	
 	 ZonaMonstruos(int cantidadMaximaMonstruos){
 		 super(cantidadMaximaMonstruos);
-		 cartasMonstruo = new LinkedList();
-		 iteradorMonstruo = cartasMonstruo.iterator();
 	 }
 	 
 	 
 	 
-	 void aumentarAtaqueEn(int puntosDeAtaque){
-		while (iteradorMonstruo.hasNext() != false) {
-			CartaMonstruo monstruoActual = iteradorMonstruo.next();
+	 public void aumentarAtaqueEn(int puntosDeAtaque){
+		iteradorCarta = cartas.listIterator(0);
+		while (iteradorCarta.hasNext() != false) {
+			CartaMonstruo monstruoActual = (CartaMonstruo) iteradorCarta.next();
 			monstruoActual.aumentarPuntosDeAtaqueEn(puntosDeAtaque);
 		}
 	 }
 	 
-	 void aumentarDefensaEn(int puntosDeDefensa){
-		 while (iteradorMonstruo.hasNext() != false) {
-				CartaMonstruo monstruoActual = iteradorMonstruo.next();
+	 public void aumentarDefensaEn(int puntosDeDefensa){
+		 iteradorCarta = cartas.listIterator(0);
+		 while (iteradorCarta.hasNext() != false) {
+				CartaMonstruo monstruoActual = (CartaMonstruo) iteradorCarta.next();
 				monstruoActual.aumentarPuntosDeDefensaEn(puntosDeDefensa);
 		 }
 	 }
 	  
-	 public LinkedList verCartas() {
-		 return cartasMonstruo;
+	 public LinkedList<Carta> verCartas() {
+		 return cartas;
 	 }
 }
