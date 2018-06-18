@@ -1,18 +1,17 @@
 package UnitTests;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
+
 import org.junit.Test;
 
-import Application.BocaAbajo;
-import Application.BocaArriba;
-import Application.CampoDeBatalla;
-import Application.Carta;
-import Application.CartaMagica;
-import Application.CartaMonstruo;
-import Application.Estado;
-import Application.ModoAtaque;
-import Application.ModoDeUso;
+import modelo.cartasGenericas.BocaAbajo;
+import modelo.cartasGenericas.Carta;
+import modelo.cartasGenericas.CartaMagica;
+import modelo.cartasGenericas.CartaMonstruo;
+import modelo.cartasGenericas.Estado;
+import modelo.cartasGenericas.ModoAtaque;
+import modelo.cartasGenericas.ModoDeUso;
+import modelo.tablero.CampoDeBatalla;
 
 public class CampoDeBatallaTest {
 

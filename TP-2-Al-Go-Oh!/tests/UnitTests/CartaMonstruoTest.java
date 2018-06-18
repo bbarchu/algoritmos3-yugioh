@@ -1,11 +1,13 @@
 package UnitTests;
 
 import static org.junit.Assert.assertEquals;
+
 import org.junit.Test;
-import Application.CartaMonstruo;
-import Application.Jugador;
-import Application.ModoAtaque;
-import Application.ModoDeUso;
+
+import modelo.cartasGenericas.CartaMonstruo;
+import modelo.cartasGenericas.ModoAtaque;
+import modelo.cartasGenericas.ModoDeUso;
+import modelo.jugador.Jugador;
 
 public class CartaMonstruoTest {
 	

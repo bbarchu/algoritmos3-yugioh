@@ -7,21 +7,21 @@ import java.util.LinkedList;
 
 import org.junit.Test;
 
-import Application.AgujeroNegro;
-import Application.BocaAbajo;
-import Application.BocaArriba;
-import Application.CampoDeBatalla;
-import Application.Carta;
-import Application.CartaCampo;
-import Application.CartaMagica;
-import Application.CartaMonstruo;
-import Application.CartaTrampa;
-import Application.Estado;
-import Application.Jugador;
-import Application.ModoAtaque;
-import Application.ModoDeUso;
-import Application.ModoDefensa;
-import Application.Wasteland;
+import modelo.cartasEspecificas.AgujeroNegro;
+import modelo.cartasEspecificas.Wasteland;
+import modelo.cartasGenericas.BocaAbajo;
+import modelo.cartasGenericas.BocaArriba;
+import modelo.cartasGenericas.Carta;
+import modelo.cartasGenericas.CartaCampo;
+import modelo.cartasGenericas.CartaMagica;
+import modelo.cartasGenericas.CartaMonstruo;
+import modelo.cartasGenericas.CartaTrampa;
+import modelo.cartasGenericas.Estado;
+import modelo.cartasGenericas.ModoAtaque;
+import modelo.cartasGenericas.ModoDeUso;
+import modelo.cartasGenericas.ModoDefensa;
+import modelo.jugador.Jugador;
+import modelo.tablero.CampoDeBatalla;
 
 
 
@@ -386,11 +386,11 @@ public class TestsComportamiento {
 		CampoDeBatalla campito = unJugador.obtenerCampoDeBatalla();
 		CampoDeBatalla campito2 = otroJugador.obtenerCampoDeBatalla();
 		ModoDeUso modoATK = new ModoAtaque();
-		Estado unEstado = new BocaArriba();
 		int puntosATK = 100;
 		int puntosDEF = 100;
+		int puntosATKEsperados = 300;
+		int puntosDEFEsperados = 400;
 		int estrellas = 1;
-		int puntosDeVidaIniciales = 8000;
 		
 		CartaMonstruo monstruoDefensa = new CartaMonstruo(puntosATK, puntosDEF, estrellas, modoATK, unJugador);
 		CartaMonstruo monstruoAtaque = new CartaMonstruo(puntosATK, puntosDEF, estrellas, modoATK, otroJugador);
@@ -428,9 +428,70 @@ public class TestsComportamiento {
 		CartaMonstruo primerMonstruo = (CartaMonstruo) iterador1.next();
 		CartaMonstruo segundoMonstruo = (CartaMonstruo) iterador2.next();
 		
-		assertEquals(300,primerMonstruo.obtenerPuntosDeAtaque());
-		assertEquals(400,segundoMonstruo.obtenerPuntosDeDefensa());
-		
+		assertEquals(puntosATKEsperados,primerMonstruo.obtenerPuntosDeAtaque());
+		assertEquals(puntosDEFEsperados,segundoMonstruo.obtenerPuntosDeDefensa());	
 
 	}
+	
+	
+	@Test
+	public void ColocarDosMonstruosYActivarSogenDeUnLadoDelCampoAumentaDefensaDelOtroAumentaAtaque(){
+		
+	}
+	
+	
+	@Test
+	public void ActivarOllaDeLaCodiciaTomandoDosCartasDelMazo(){
+		Jugador unJugador = new Jugador();
+		Jugador otroJugador = new Jugador();
+		CampoDeBatalla campito = unJugador.obtenerCampoDeBatalla();
+		CampoDeBatalla campito2 = otroJugador.obtenerCampoDeBatalla();
+		ModoDeUso modoATK = new ModoAtaque();
+		int puntosATK = 100;
+		int puntosDEF = 100;
+		int puntosATKEsperados = 300;
+		int puntosDEFEsperados = 400;
+		int estrellas = 1;
+		
+		CartaMonstruo monstruoDefensa = new CartaMonstruo(puntosATK, puntosDEF, estrellas, modoATK, unJugador);
+		CartaMonstruo monstruoAtaque = new CartaMonstruo(puntosATK, puntosDEF, estrellas, modoATK, otroJugador);
+		CartaCampo wasteland = new Wasteland(unJugador);
+		
+		unJugador.presentarJugadorRival(otroJugador);
+		otroJugador.presentarJugadorRival(unJugador);
+		
+		unJugador.agregarCartaAlMazo(monstruoDefensa);
+		unJugador.agregarCartaAlMazo(wasteland);
+		otroJugador.agregarCartaAlMazo(monstruoAtaque);
+		
+		unJugador.tomarCartaDelMazo();
+		otroJugador.tomarCartaDelMazo();
+		
+		unJugador.invocar(monstruoDefensa);
+		otroJugador.invocar(monstruoAtaque);
+		
+		unJugador.tomarCartaDelMazo();
+		unJugador.invocar(wasteland);
+		
+		
+		LinkedList<Carta> cartasMonstruoEnElCampo;
+		cartasMonstruoEnElCampo = campito.verCartasMonstruo();
+
+		
+		LinkedList<Carta> cartasMonstruoEnElCampo2;
+		cartasMonstruoEnElCampo2 = campito2.verCartasMonstruo();
+		
+		Iterator<Carta>iterador1;
+		Iterator<Carta>iterador2;
+		iterador1 = cartasMonstruoEnElCampo.iterator();
+		iterador2 = cartasMonstruoEnElCampo2.iterator();
+		
+		CartaMonstruo primerMonstruo = (CartaMonstruo) iterador1.next();
+		CartaMonstruo segundoMonstruo = (CartaMonstruo) iterador2.next();
+		
+		assertEquals(puntosATKEsperados,primerMonstruo.obtenerPuntosDeAtaque());
+		assertEquals(puntosDEFEsperados,segundoMonstruo.obtenerPuntosDeDefensa());	
+	}
+	
+	
 }
