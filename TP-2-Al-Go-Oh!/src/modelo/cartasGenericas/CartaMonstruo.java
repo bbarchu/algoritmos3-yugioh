@@ -9,13 +9,33 @@ public class CartaMonstruo extends Carta{
 	
 	private int puntosDeAtaque;
 	private int puntosDeDefensa;
-		
+	
+	protected String nombre;
+	
 	protected ModoDeUso modo;
 	private Estado estado;
 	private Sacrificio sacrificioRequerido;
 	
 	//Efecto (puede tener o no un efecto)
 	
+	
+public CartaMonstruo(int puntosATK, int puntosDEF, int estrellas, ModoDeUso unModo, Jugador jugador, String nombre) {
+		
+		this.nombre = nombre;
+		this.puntosDeAtaque = puntosATK;
+		this.puntosDeDefensa = puntosDEF;
+		this.modo = unModo;
+		this.jugador = jugador;
+		
+		//Esta parte despues se puede modificar para sacar los if
+		if(estrellas <= 4) {
+			this.sacrificioRequerido = new NoRequiereSacrificio();
+		}else if(estrellas <= 6) {
+			this.sacrificioRequerido = new RequiereUnSacrificio();
+		}else {
+			this.sacrificioRequerido = new RequiereDosSacrificios();
+		}
+	}
 	
 	public CartaMonstruo(ModoDeUso unModo) {
 		
@@ -102,6 +122,10 @@ public class CartaMonstruo extends Carta{
 	
 	public void aumentarPuntosDeDefensaEn(int puntosAAumentar) {
 		this.puntosDeDefensa += puntosAAumentar;
+	}
+
+	public String getNombre() {
+		return this.nombre;
 	}
 	
 /*	public void invocar(ModoDeUso estadoDeLaInvocacion) {

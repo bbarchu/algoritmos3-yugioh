@@ -14,7 +14,19 @@ public class ZonaMonstruos extends Zona {
 		 super(cantidadMaximaMonstruos);
 	 }
 	 
-	 
+	 public CartaMonstruo buscar(String nombreCartaMonstruo) {
+		 iteradorCarta = this.cartas.listIterator(0);
+		 while (iteradorCarta.hasNext() != false) {
+			 CartaMonstruo monstruoActual = (CartaMonstruo) iteradorCarta.next();
+			 if (monstruoActual.getNombre() == nombreCartaMonstruo) {
+				 return monstruoActual;
+			 }
+			 
+		 }
+		 return null;
+		 
+		 
+	 }
 	 
 	 public void aumentarAtaqueEn(int puntosDeAtaque){
 		iteradorCarta = cartas.listIterator(0);

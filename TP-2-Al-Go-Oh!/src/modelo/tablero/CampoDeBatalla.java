@@ -18,7 +18,7 @@ public class CampoDeBatalla {
 //	Zona cartasCampo;
 //	Zona cartasTrampa;
 	
-	Zona cartasMonstruo;
+	ZonaMonstruos cartasMonstruo;
 	Zona cartasMagiaTrampa;
 	Zona cartaCampo;
 	
@@ -42,6 +42,10 @@ public class CampoDeBatalla {
 		
 	}
 	
+	public CartaMonstruo buscarCartaMonstruo (String nombreCartaMonstruo) {
+		CartaMonstruo carta = cartasMonstruo.buscar(nombreCartaMonstruo);
+		return carta;
+	}
 
 	public void colocar(Carta unaCarta) {
 		unaCarta.colocateEn(this);	
