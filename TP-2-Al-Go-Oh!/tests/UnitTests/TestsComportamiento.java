@@ -657,5 +657,40 @@ public class TestsComportamiento {
 		boolean estaEnCementerioTres = jugador.obtenerCampoDeBatalla().estaEnElCementerio(dragonBlancoTres);
 		assertEquals(true, estaEnCementerioTres);
 	}
+	
+public void testColocarInsectoComeHombresEnPosicionDefensaBocaAbajoYVerificarQueAlSerAtacadoSeVolteaYDestruyeAlAtacante() {
+		
+		Jugador unJugador = new Jugador();
+		Jugador jugadorAtacante = new Jugador();
+		
+		int puntosATKAtacante = 100;
+		int puntosDEFAtacante = 100;
+		int estrellasAtacante = 2;
+		
+		ModoDeUso modoDefensa = new ModoDefensa();
+		ModoDeUso modoAtaque = new ModoAtaque();
+		
+		CartaMonstruo monstruoAtacante = new CartaMonstruo (puntosATKAtacante, puntosDEFAtacante, estrellasAtacante, modoAtaque, jugadorAtacante);
+		
+		InsectoComeHombres insectoComeHombres = new InsectoComeHombres(modoDefensa, unJugador);
+	
+		unJugador.presentarJugadorRival(jugadorAtacante);
+		jugadorAtacante.presentarJugadorRival(unJugador);
+		
+		jugadorAtacante.agregarCartaAlMazo(monstruoAtacante);
+		unJugador.agregarCartaAlMazo(insectoComeHombres);
+		
+		jugadorAtacante.tomarCartaDelMazo();
+		unJugador.tomarCartaDelMazo();
+		
+		jugadorAtacante.invocar(monstruoAtacante);
+		unJugador.invocar(insectoComeHombres);
+		
+		jugadorAtacante.atacarCon_A(monstruoAtacante, insectoComeHombres);
+		
+		assertEquals(true, jugadorAtacante.obtenerCampoDeBatalla().estaEnElCementerio(monstruoAtacante));
+		assertEquals(false, unJugador.obtenerCampoDeBatalla().estaEnElCementerio(insectoComeHombres));
+		
+	}
 
 }
