@@ -3,6 +3,7 @@ package modelo.tablero;
 import java.util.LinkedList;
 
 import modelo.cartasEspecificas.AgujeroNegro;
+import modelo.cartasEspecificas.Fisura;
 import modelo.cartasEspecificas.Sogen;
 import modelo.cartasEspecificas.Wasteland;
 import modelo.cartasGenericas.Carta;
@@ -38,7 +39,6 @@ public class CampoDeBatalla {
 		cementerio = new Cementerio();
 		
 		
-		cartaMagica = null;
 		
 	}
 	
@@ -49,7 +49,6 @@ public class CampoDeBatalla {
 	
 	public void colocar(CartaMagica unaCartaMagica ) {
 		
-		//this.cartaMagica = unaCartaMagica;
 		
 		this.cartasMagiaTrampa.agregarCarta(unaCartaMagica);
 		
@@ -163,6 +162,11 @@ public class CampoDeBatalla {
  	public void activarEfectoContrarioDe(Sogen carta) {
 		cartasMonstruo.aumentarAtaqueEn(200);
 		
+	}
+ 	
+public void activarEfectoDe(Fisura carta) {
+ 		
+ 		cartasMonstruo.destruirLaDeMenorAtaque();
 	}
 	
 /*	public Boolean hayCartasEnElCementerio() {

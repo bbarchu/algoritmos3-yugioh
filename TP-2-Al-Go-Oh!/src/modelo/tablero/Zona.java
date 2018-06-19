@@ -78,4 +78,9 @@ public abstract class Zona {
 		// TODO Auto-generated method stub
 		
 	}
+
+	public void destruirLaDeMenorAtaque() {
+		// TODO Auto-generated method stub
+		
+	}
 }

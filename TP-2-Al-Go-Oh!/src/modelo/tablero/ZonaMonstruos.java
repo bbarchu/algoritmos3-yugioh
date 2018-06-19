@@ -36,4 +36,27 @@ public class ZonaMonstruos extends Zona {
 	 public LinkedList<Carta> verCartas() {
 		 return cartas;
 	 }
+	 
+	 public void destruirLaDeMenorAtaque() {
+		 int menorAtaque = 0;
+		 int puntosAtaqueAuxiliar=0;
+		 CartaMonstruo cartaADestruir;
+		 
+		 iteradorCarta = cartas.listIterator(0);
+		 
+		 //inicializo
+		 cartaADestruir = (CartaMonstruo) cartas.get(0);
+		 menorAtaque = cartaADestruir.obtenerPuntosDeAtaque();
+		 
+		 while (iteradorCarta.hasNext() != false) {
+				CartaMonstruo monstruoActual = (CartaMonstruo) iteradorCarta.next();
+				puntosAtaqueAuxiliar = monstruoActual.obtenerPuntosDeAtaque();
+				
+				if (menorAtaque > puntosAtaqueAuxiliar) {
+					menorAtaque = puntosAtaqueAuxiliar;
+					cartaADestruir = monstruoActual;
+				}
+		 }
+		 cartaADestruir.destruirCarta();
+	 }
 }

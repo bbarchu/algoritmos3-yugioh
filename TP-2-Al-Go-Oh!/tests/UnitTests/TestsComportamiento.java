@@ -8,6 +8,7 @@ import java.util.LinkedList;
 import org.junit.Test;
 
 import modelo.cartasEspecificas.AgujeroNegro;
+import modelo.cartasEspecificas.Fisura;
 import modelo.cartasEspecificas.Sogen;
 import modelo.cartasEspecificas.Wasteland;
 import modelo.cartasGenericas.BocaAbajo;
@@ -29,7 +30,7 @@ import modelo.tablero.CampoDeBatalla;
 public class TestsComportamiento {
 	
 	@Test
-	public void colocarUnMonstruoEnAtaqueEnElCampo() {
+	public void testcolocarUnMonstruoEnAtaqueEnElCampo() {
 		
 		CampoDeBatalla unCampo = new CampoDeBatalla();
 		ModoDeUso unModo = new ModoAtaque();
@@ -42,7 +43,7 @@ public class TestsComportamiento {
 	}
 	
 	@Test
-	public void colocarUnMonstruoEnDefensaEnElCampo() {
+	public void testcolocarUnMonstruoEnDefensaEnElCampo() {
 		
 		CampoDeBatalla unCampo = new CampoDeBatalla();
 		ModoDeUso unModo = new ModoDefensa();
@@ -56,7 +57,7 @@ public class TestsComportamiento {
 	}
 	
 	@Test
-	public void colocarUnaCartaMagicaBocaAbajoEnElCampo(){
+	public void testcolocarUnaCartaMagicaBocaAbajoEnElCampo(){
 		
 		CampoDeBatalla unCampo = new CampoDeBatalla();
 		Estado unEstado = new BocaAbajo();
@@ -68,7 +69,7 @@ public class TestsComportamiento {
 	}
 	
 	@Test
-	public void colocarUnaCartaTrampaBocaAbajoEnElCampo(){
+	public void testcolocarUnaCartaTrampaBocaAbajoEnElCampo(){
 		
 		CampoDeBatalla unCampo = new CampoDeBatalla();
 		Estado unEstado = new BocaAbajo();
@@ -80,7 +81,7 @@ public class TestsComportamiento {
 	}
 			
 	@Test
-	public void destruirUnMonstruoYVerificarQueEsteEnElCementerio(){
+	public void testdestruirUnMonstruoYVerificarQueEsteEnElCementerio(){
 		CampoDeBatalla unCampo = new CampoDeBatalla();
 		ModoDeUso unModo = new ModoAtaque();
 		Carta unMonstruo = new CartaMonstruo(unModo);
@@ -93,7 +94,7 @@ public class TestsComportamiento {
 	}
 	
 	@Test
-	public void dosJugadoresSeAtacanConMostruosYLosPuntosDeVidaCambian(){
+	public void testdosJugadoresSeAtacanConMostruosYLosPuntosDeVidaCambian(){
 		
 		Jugador unJugador = new Jugador();
 		Jugador otroJugador = new Jugador();
@@ -126,7 +127,7 @@ public class TestsComportamiento {
 	}
 	
 	@Test
-	public void elJugadorQueAtacaConMenorAtaqueEsElQueMuereYLosPuntosDeEsteJugadorBajan(){
+	public void testelJugadorQueAtacaConMenorAtaqueEsElQueMuereYLosPuntosDeEsteJugadorBajan(){
 		
 		Jugador jugadorMalo = new Jugador();
 		Jugador jugadorBueno = new Jugador();
@@ -158,7 +159,7 @@ public class TestsComportamiento {
 	}
 	
 	@Test
-	public void hayEmpateSeDestruyenAmbasCartasNoSeSufreDañoEnPuntosDeVida(){
+	public void testhayEmpateSeDestruyenAmbasCartasNoSeSufreDañoEnPuntosDeVida(){
 		
 		Jugador unJugador = new Jugador();
 		Jugador otroJugador = new Jugador();
@@ -198,7 +199,7 @@ public class TestsComportamiento {
 	}
 	
 	@Test
-	public void AtacarAUnMonstruoEnDefensaConMenosDefensaQueMiAtaqueLoDestruyeYLosPuntosDeVidaNoSeVenAfectados(){
+	public void testAtacarAUnMonstruoEnDefensaConMenosDefensaQueMiAtaqueLoDestruyeYLosPuntosDeVidaNoSeVenAfectados(){
 		
 		Jugador unJugador = new Jugador();
 		Jugador otroJugador = new Jugador();
@@ -238,7 +239,7 @@ public class TestsComportamiento {
 	}
 	
 	@Test
-	public void AtacarAMonstruoConMayorDefensaQueMiAtaqueNOPASANADA(){
+	public void testAtacarAMonstruoConMayorDefensaQueMiAtaqueNOPASANADA(){
 		
 		Jugador unJugador = new Jugador();
 		Jugador otroJugador = new Jugador();
@@ -277,7 +278,7 @@ public class TestsComportamiento {
 	}
 	
 	@Test
-	public void ColocarDosMonstruosYDestruirlosConElAgujeroNegroSinRecibirDaño(){
+	public void testColocarDosMonstruosYDestruirlosConElAgujeroNegroSinRecibirDaño(){
 		
 		Jugador unJugador = new Jugador();
 		Jugador otroJugador = new Jugador();
@@ -318,7 +319,7 @@ public class TestsComportamiento {
 	}
 	
 	@Test
-	public void colocarUnMonstruoSeguidoDeOtroQueRequierSacrificioEliminandoAlPrimero(){
+	public void testcolocarUnMonstruoSeguidoDeOtroQueRequierSacrificioEliminandoAlPrimero(){
 		
 		Jugador unJugador = new Jugador();
 		CampoDeBatalla campito = unJugador.obtenerCampoDeBatalla();
@@ -345,7 +346,7 @@ public class TestsComportamiento {
 	}
 	
 	@Test
-	public void colocarDosMonstruoSeguidoDeOtroQueRequierDosSacrificiosEliminandoALosPrimeros(){
+	public void testcolocarDosMonstruoSeguidoDeOtroQueRequierDosSacrificiosEliminandoALosPrimeros(){
 		
 		Jugador unJugador = new Jugador();
 		CampoDeBatalla campito = unJugador.obtenerCampoDeBatalla();
@@ -380,7 +381,7 @@ public class TestsComportamiento {
 	//Segundas pruebas 
 	
 	@Test
-	public void ColocarDosMonstruosYActivarWastelandDeUnLadoDelCampoAumentaAtaqueDelOtroAumentaDefensa(){
+	public void testColocarDosMonstruosYActivarWastelandDeUnLadoDelCampoAumentaAtaqueDelOtroAumentaDefensa(){
 		
 		Jugador unJugador = new Jugador();
 		Jugador otroJugador = new Jugador();
@@ -436,7 +437,7 @@ public class TestsComportamiento {
 	
 		
 	@Test
-	public void ColocarDosMonstruosYActivarSogenDeUnLadoDelCampoAumentaDefensaDelOtroAumentaAtaque(){
+	public void testColocarDosMonstruosYActivarSogenDeUnLadoDelCampoAumentaDefensaDelOtroAumentaAtaque(){
 		Jugador unJugador = new Jugador();
 		Jugador otroJugador = new Jugador();
 		CampoDeBatalla campito = unJugador.obtenerCampoDeBatalla();
@@ -488,7 +489,7 @@ public class TestsComportamiento {
 	
 	
 	@Test
-	public void ActivarOllaDeLaCodiciaTomandoDosCartasDelMazo(){
+	public void testActivarOllaDeLaCodiciaTomandoDosCartasDelMazo(){
 		Jugador unJugador = new Jugador();
 		Jugador otroJugador = new Jugador();
 		CampoDeBatalla campito = unJugador.obtenerCampoDeBatalla();
@@ -540,5 +541,42 @@ public class TestsComportamiento {
 		assertEquals(puntosDEFEsperados,segundoMonstruo.obtenerPuntosDeDefensa());	
 	}
 	
-	
+	@Test
+	public void testColocarDosMonstruosEnemigosYActivarLaCartaMagicaFisuraElDeMenorAtaqueSeDestruira() {
+		Jugador unJugador = new Jugador();
+		Jugador otroJugador = new Jugador();
+		CampoDeBatalla campito = unJugador.obtenerCampoDeBatalla();
+		CampoDeBatalla campito2 = otroJugador.obtenerCampoDeBatalla();
+		Estado unEstado = new BocaArriba();
+		ModoDeUso modoATK = new ModoAtaque();
+		int puntosATK = 100;
+		int puntosDEF = 100;
+		int puntosATKEsperados = 300;
+		int puntosDEFEsperados = 400;
+		int estrellas = 1;
+		
+		CartaMonstruo monstruoAtaqueMenor = new CartaMonstruo(puntosATK, puntosDEF, estrellas, modoATK, otroJugador);
+		CartaMonstruo monstruoAtaqueMayor = new CartaMonstruo(puntosATK, puntosDEF, estrellas, modoATK, otroJugador);
+		CartaMagica fisura = new Fisura(unEstado,unJugador);
+		
+		unJugador.presentarJugadorRival(otroJugador);
+		otroJugador.presentarJugadorRival(unJugador);
+		
+		otroJugador.agregarCartaAlMazo(monstruoAtaqueMenor);
+		otroJugador.agregarCartaAlMazo(monstruoAtaqueMayor);
+		
+		otroJugador.tomarCartaDelMazo();
+		otroJugador.tomarCartaDelMazo();
+		
+		otroJugador.invocar(monstruoAtaqueMenor);
+		otroJugador.invocar(monstruoAtaqueMayor);
+		
+		unJugador.agregarCartaAlMazo(fisura);
+		unJugador.tomarCartaDelMazo();
+		unJugador.invocar(fisura);
+		
+		assertEquals(true,campito2.estaEnElCementerio(monstruoAtaqueMenor));
+		assertEquals(false,campito2.estaEnElCementerio(monstruoAtaqueMayor));
+		
+	}
 }
