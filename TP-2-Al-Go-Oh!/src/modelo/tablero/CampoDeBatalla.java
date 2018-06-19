@@ -42,9 +42,9 @@ public class CampoDeBatalla {
 		
 	}
 	
-	public CartaMonstruo buscarCartaMonstruo (String nombreCartaMonstruo) {
-		CartaMonstruo carta = cartasMonstruo.buscar(nombreCartaMonstruo);
-		return carta;
+	public LinkedList<CartaMonstruo> buscarTresCartasMonstruoIguales (String nombreCartaMonstruo) {
+		LinkedList<CartaMonstruo> cartas = cartasMonstruo.buscarTresCartas(nombreCartaMonstruo);
+		return cartas;
 	}
 
 	public void colocar(Carta unaCarta) {

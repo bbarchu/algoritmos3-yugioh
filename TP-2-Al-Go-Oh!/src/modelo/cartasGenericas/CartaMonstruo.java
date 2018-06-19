@@ -14,7 +14,7 @@ public class CartaMonstruo extends Carta{
 	
 	protected ModoDeUso modo;
 	private Estado estado;
-	private Sacrificio sacrificioRequerido;
+	protected Sacrificio sacrificioRequerido;
 	
 	//Efecto (puede tener o no un efecto)
 	
