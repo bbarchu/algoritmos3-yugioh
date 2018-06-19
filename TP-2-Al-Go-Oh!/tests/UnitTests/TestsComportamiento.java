@@ -8,6 +8,7 @@ import java.util.LinkedList;
 import org.junit.Test;
 
 import modelo.cartasEspecificas.AgujeroNegro;
+import modelo.cartasEspecificas.Sogen;
 import modelo.cartasEspecificas.Wasteland;
 import modelo.cartasGenericas.BocaAbajo;
 import modelo.cartasGenericas.BocaArriba;
@@ -433,10 +434,56 @@ public class TestsComportamiento {
 
 	}
 	
-	
+		
 	@Test
 	public void ColocarDosMonstruosYActivarSogenDeUnLadoDelCampoAumentaDefensaDelOtroAumentaAtaque(){
+		Jugador unJugador = new Jugador();
+		Jugador otroJugador = new Jugador();
+		CampoDeBatalla campito = unJugador.obtenerCampoDeBatalla();
+		CampoDeBatalla campito2 = otroJugador.obtenerCampoDeBatalla();
+		ModoDeUso modoATK = new ModoAtaque();
+		int puntosATK = 100;
+		int puntosDEF = 100;
+		int estrellas = 1;
 		
+		CartaMonstruo monstruoDefensa = new CartaMonstruo(puntosATK, puntosDEF, estrellas, modoATK, unJugador);
+		CartaMonstruo monstruoAtaque = new CartaMonstruo(puntosATK, puntosDEF, estrellas, modoATK, otroJugador);
+		CartaCampo sogen = new Sogen(unJugador);
+		
+		unJugador.presentarJugadorRival(otroJugador);
+		otroJugador.presentarJugadorRival(unJugador);
+		
+		unJugador.agregarCartaAlMazo(monstruoDefensa);
+		unJugador.agregarCartaAlMazo(sogen);
+		otroJugador.agregarCartaAlMazo(monstruoAtaque);
+		
+		unJugador.tomarCartaDelMazo();
+		otroJugador.tomarCartaDelMazo();
+		
+		unJugador.invocar(monstruoDefensa);
+		otroJugador.invocar(monstruoAtaque);
+		
+		unJugador.tomarCartaDelMazo();
+		unJugador.invocar(sogen);
+		
+		
+		LinkedList<Carta> cartasMonstruoEnElCampo;
+		cartasMonstruoEnElCampo = campito.verCartasMonstruo();
+
+		
+		LinkedList<Carta> cartasMonstruoEnElCampo2;
+		cartasMonstruoEnElCampo2 = campito2.verCartasMonstruo();
+		
+		Iterator<Carta>iterador1;
+		Iterator<Carta>iterador2;
+		iterador1 = cartasMonstruoEnElCampo.iterator();
+		iterador2 = cartasMonstruoEnElCampo2.iterator();
+		
+		CartaMonstruo primerMonstruo = (CartaMonstruo) iterador1.next();
+		CartaMonstruo segundoMonstruo = (CartaMonstruo) iterador2.next();
+		
+		assertEquals(600,primerMonstruo.obtenerPuntosDeDefensa());
+		assertEquals(300,segundoMonstruo.obtenerPuntosDeAtaque());	
 	}
 	
 	

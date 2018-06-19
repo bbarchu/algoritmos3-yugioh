@@ -3,6 +3,7 @@ package modelo.tablero;
 import java.util.LinkedList;
 
 import modelo.cartasEspecificas.AgujeroNegro;
+import modelo.cartasEspecificas.Sogen;
 import modelo.cartasEspecificas.Wasteland;
 import modelo.cartasGenericas.Carta;
 import modelo.cartasGenericas.CartaCampo;
@@ -142,17 +143,27 @@ public class CampoDeBatalla {
  	public void activarEfectoDeMi(Wasteland carta) {
  		
  		cartasMonstruo.aumentarAtaqueEn(200);
- 		//Aumentar ataque
+ 		
  	}
  	
  	public void activarEfectoContrarioDe(Wasteland carta) {
  		cartasMonstruo.aumentarDefensaEn(300);
- 		//AumentarDefensa
+ 		
  	}
  	
  	public LinkedList<Carta> verCartasMonstruo() {
  		return cartasMonstruo.verCartas();
  	}
+ 	
+ 	public void activarEfectoDeMi(Sogen carta) {
+ 		
+ 		cartasMonstruo.aumentarDefensaEn(500);
+
+ 	}
+ 	public void activarEfectoContrarioDe(Sogen carta) {
+		cartasMonstruo.aumentarAtaqueEn(200);
+		
+	}
 	
 /*	public Boolean hayCartasEnElCementerio() {
 	
