@@ -9,6 +9,7 @@ import org.junit.Test;
 
 import modelo.cartasEspecificas.AgujeroNegro;
 import modelo.cartasEspecificas.Fisura;
+import modelo.cartasEspecificas.InsectoComeHombres;
 import modelo.cartasEspecificas.Jinzo7;
 import modelo.cartasEspecificas.Sogen;
 import modelo.cartasEspecificas.Wasteland;
@@ -614,4 +615,42 @@ public class TestsComportamiento {
 		
 		assertEquals(vidaEsperada,otroJugador.obtenerPuntosDeVida());
 	}
+	
+	@Test
+	public void testColocarInsectoComeHombresEnPosicionDefensaBocaAbajoYVerificarQueAlSerAtacadoSeVolteaYDestruyeAlAtacante() {
+		
+		Jugador unJugador = new Jugador();
+		Jugador jugadorAtacante = new Jugador();
+		
+		int puntosATKAtacante = 100;
+		int puntosDEFAtacante = 100;
+		int estrellasAtacante = 2;
+		
+		ModoDeUso modoDefensa = new ModoDefensa();
+		ModoDeUso modoAtaque = new ModoAtaque();
+		
+		CartaMonstruo monstruoAtacante = new CartaMonstruo (puntosATKAtacante, puntosDEFAtacante, estrellasAtacante, modoAtaque, jugadorAtacante);
+		
+		InsectoComeHombres insectoComeHombres = new InsectoComeHombres(modoDefensa, unJugador);
+	
+		unJugador.presentarJugadorRival(jugadorAtacante);
+		jugadorAtacante.presentarJugadorRival(unJugador);
+		
+		jugadorAtacante.agregarCartaAlMazo(monstruoAtacante);
+		unJugador.agregarCartaAlMazo(insectoComeHombres);
+		
+		jugadorAtacante.tomarCartaDelMazo();
+		unJugador.tomarCartaDelMazo();
+		
+		jugadorAtacante.invocar(monstruoAtacante);
+		unJugador.invocar(insectoComeHombres);
+		
+		jugadorAtacante.atacarCon_A(monstruoAtacante, insectoComeHombres);
+		
+		assertEquals(true, jugadorAtacante.obtenerCampoDeBatalla().estaEnElCementerio(monstruoAtacante));
+		assertEquals(false, unJugador.obtenerCampoDeBatalla().estaEnElCementerio(insectoComeHombres));
+		
+	}
+	
+
 }
