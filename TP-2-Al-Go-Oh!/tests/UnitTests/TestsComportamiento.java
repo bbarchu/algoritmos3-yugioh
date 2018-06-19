@@ -692,7 +692,7 @@ public void testColocarInsectoComeHombresEnPosicionDefensaBocaAbajoYVerificarQue
 		
 		assertEquals(true, jugadorAtacante.obtenerCampoDeBatalla().estaEnElCementerio(monstruoAtacante));
 		assertEquals(false, unJugador.obtenerCampoDeBatalla().estaEnElCementerio(insectoComeHombres));
-		
+		//agregado
 		assertEquals(puntosDeVidaSinAfectar, unJugador.obtenerPuntosDeVida());
 		assertEquals(puntosDeVidaSinAfectar, jugadorAtacante.obtenerPuntosDeVida());
 	}
