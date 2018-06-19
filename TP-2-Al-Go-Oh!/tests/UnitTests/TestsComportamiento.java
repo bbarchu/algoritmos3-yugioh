@@ -651,6 +651,7 @@ public class TestsComportamiento {
 		
 		assertEquals(true, jugadorAtacante.obtenerCampoDeBatalla().estaEnElCementerio(monstruoAtacante));
 		assertEquals(false, unJugador.obtenerCampoDeBatalla().estaEnElCementerio(insectoComeHombres));
+		
 		assertEquals(puntosDeVidaSinAfectar, unJugador.obtenerPuntosDeVida());
 		assertEquals(puntosDeVidaSinAfectar, jugadorAtacante.obtenerPuntosDeVida());
 	}
