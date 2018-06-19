@@ -35,6 +35,7 @@ public class Mano {
 	
 	public void eliminar(Carta unaCarta) {
 		cartas.remove(unaCarta);
+		cantidad --;
 	}
 	
 	public int obtenerCantidadDeCartas() {

@@ -1,4 +1,4 @@
-package UnitTests;
+package unitTests;
 
 public class ModoDeUsoTest {
 	
