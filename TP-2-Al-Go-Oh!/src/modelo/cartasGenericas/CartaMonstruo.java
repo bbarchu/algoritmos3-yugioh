@@ -26,7 +26,7 @@ public CartaMonstruo(int puntosATK, int puntosDEF, int estrellas, ModoDeUso unMo
 		this.puntosDeDefensa = puntosDEF;
 		this.modo = unModo;
 		this.jugador = jugador;
-		
+		this.estado = new BocaAbajo();
 		//Esta parte despues se puede modificar para sacar los if
 		if(estrellas <= 4) {
 			this.sacrificioRequerido = new NoRequiereSacrificio();
@@ -42,6 +42,7 @@ public CartaMonstruo(int puntosATK, int puntosDEF, int estrellas, ModoDeUso unMo
 		this.puntosDeAtaque = 0;
 		this.puntosDeDefensa = 0;
 		this.modo = unModo;
+		this.estado = new BocaAbajo();
 		this.sacrificioRequerido = new NoRequiereSacrificio();
 	
 	}
@@ -52,6 +53,7 @@ public CartaMonstruo(int puntosATK, int puntosDEF, int estrellas, ModoDeUso unMo
 		this.puntosDeDefensa = puntosDEF;
 		this.modo = unModo;
 		this.jugador = jugador;
+		this.estado = new BocaAbajo();
 		
 		//Esta parte despues se puede modificar para sacar los if
 		if(estrellas <= 4) {
@@ -61,6 +63,11 @@ public CartaMonstruo(int puntosATK, int puntosDEF, int estrellas, ModoDeUso unMo
 		}else {
 			this.sacrificioRequerido = new RequiereDosSacrificios();
 		}
+	}
+	
+	public void voltearCarta() {
+		
+		this.estado = new BocaArriba();
 	}
 
 	@Override
@@ -88,8 +95,10 @@ public CartaMonstruo(int puntosATK, int puntosDEF, int estrellas, ModoDeUso unMo
 	}
 	
 	public void atacar(CartaMonstruo otraCarta) {
-		this.modo.atacar(otraCarta,this);
 		
+		if(this.estado.estaActiva()) this.modo.atacar(otraCarta,this);
+		
+		//else LANZAR EXCEPCION
 	}
 
 	public void restarVidaAJugador(int decrementoVida) {
