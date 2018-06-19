@@ -14,16 +14,23 @@ public class ZonaMonstruos extends Zona {
 		 super(cantidadMaximaMonstruos);
 	 }
 	 
-	 public CartaMonstruo buscar(String nombreCartaMonstruo) {
+	 public LinkedList<CartaMonstruo> buscarTresCartas(String nombreCartaMonstruo) {
+		 int contador = 0;
+		 LinkedList<CartaMonstruo> lista = new LinkedList<CartaMonstruo>();
 		 iteradorCarta = this.cartas.listIterator(0);
-		 while (iteradorCarta.hasNext() != false) {
+		 while (iteradorCarta.hasNext() != false && contador < 3) {
 			 CartaMonstruo monstruoActual = (CartaMonstruo) iteradorCarta.next();
 			 if (monstruoActual.getNombre() == nombreCartaMonstruo) {
-				 return monstruoActual;
+				 contador += 1;
+				 lista.add(monstruoActual);
 			 }
 			 
 		 }
-		 return null;
+		 if (contador < 3) {
+			 //Aca deberia lanzar una excepcion
+		 }
+		 
+		 return lista;
 		 
 		 
 	 }

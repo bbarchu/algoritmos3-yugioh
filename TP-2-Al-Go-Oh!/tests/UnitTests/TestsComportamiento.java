@@ -8,6 +8,7 @@ import java.util.LinkedList;
 import org.junit.Test;
 
 import modelo.cartasEspecificas.AgujeroNegro;
+import modelo.cartasEspecificas.DragonDefinitivoDeOjosAzules;
 import modelo.cartasEspecificas.Fisura;
 import modelo.cartasEspecificas.InsectoComeHombres;
 import modelo.cartasEspecificas.Jinzo7;
@@ -583,7 +584,7 @@ public class TestsComportamiento {
 	}
 	
 	@Test
-	public void colocarJinzo7YUnMonstruoEnemigoYAtacarDirectamenteALosPuntosDeVida() {
+	public void testcolocarJinzo7YUnMonstruoEnemigoYAtacarDirectamenteALosPuntosDeVida() {
 		Jugador unJugador = new Jugador();
 		Jugador otroJugador = new Jugador();
 		
@@ -617,7 +618,47 @@ public class TestsComportamiento {
 	}
 	
 	@Test
-	public void testColocarInsectoComeHombresEnPosicionDefensaBocaAbajoYVerificarQueAlSerAtacadoSeVolteaYDestruyeAlAtacante() {
+	public void testInvocarTresDragonesBlancosDeOjosAzulesYUnDragonDefinitivoDeOjosAzules() {
+		Jugador jugador = new Jugador();
+		int ataqueDragonBlanco = 3000;
+		int defensaDragonBlanco = 2500;
+		int estrellasDragonBlanco = 1;
+		ModoDeUso modoAtaque = new ModoAtaque();
+		String nombreDragonBlanco = "DragonBlancoDeOjosAzules";
+		
+		CartaMonstruo dragonBlancoUno = new CartaMonstruo(ataqueDragonBlanco, defensaDragonBlanco, estrellasDragonBlanco, modoAtaque, jugador, nombreDragonBlanco);
+		CartaMonstruo dragonBlancoDos = new CartaMonstruo(ataqueDragonBlanco, defensaDragonBlanco, estrellasDragonBlanco, modoAtaque, jugador, nombreDragonBlanco);
+		CartaMonstruo dragonBlancoTres = new CartaMonstruo(ataqueDragonBlanco, defensaDragonBlanco, estrellasDragonBlanco, modoAtaque, jugador, nombreDragonBlanco);
+		CartaMonstruo dragonDefinitivo = new DragonDefinitivoDeOjosAzules(modoAtaque, jugador);
+		
+		jugador.agregarCartaAlMazo(dragonBlancoUno);
+		jugador.tomarCartaDelMazo();
+		
+		jugador.agregarCartaAlMazo(dragonBlancoDos);
+		jugador.tomarCartaDelMazo();
+		
+		jugador.agregarCartaAlMazo(dragonBlancoTres);
+		jugador.tomarCartaDelMazo();
+		
+		jugador.agregarCartaAlMazo(dragonDefinitivo);
+		jugador.tomarCartaDelMazo();
+		
+		jugador.invocar(dragonBlancoUno);
+		jugador.invocar(dragonBlancoDos);
+		jugador.invocar(dragonBlancoTres);
+		jugador.invocar(dragonDefinitivo);
+		
+		boolean estaEnCementerioUno = jugador.obtenerCampoDeBatalla().estaEnElCementerio(dragonBlancoUno);
+		assertEquals(true, estaEnCementerioUno);
+		
+		boolean estaEnCementerioDos = jugador.obtenerCampoDeBatalla().estaEnElCementerio(dragonBlancoDos);
+		assertEquals(true, estaEnCementerioDos);
+		
+		boolean estaEnCementerioTres = jugador.obtenerCampoDeBatalla().estaEnElCementerio(dragonBlancoTres);
+		assertEquals(true, estaEnCementerioTres);
+	}
+	
+public void testColocarInsectoComeHombresEnPosicionDefensaBocaAbajoYVerificarQueAlSerAtacadoSeVolteaYDestruyeAlAtacante() {
 		
 		int puntosDeVidaSinAfectar = 8000;
 		
@@ -655,6 +696,5 @@ public class TestsComportamiento {
 		assertEquals(puntosDeVidaSinAfectar, unJugador.obtenerPuntosDeVida());
 		assertEquals(puntosDeVidaSinAfectar, jugadorAtacante.obtenerPuntosDeVida());
 	}
-	
 
 }
