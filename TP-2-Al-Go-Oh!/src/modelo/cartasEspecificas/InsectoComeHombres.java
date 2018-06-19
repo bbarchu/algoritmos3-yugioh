@@ -17,14 +17,20 @@ public class InsectoComeHombres extends CartaMonstruo{
 
 	public void recibirPuntosAtaque(CartaMonstruo otraCarta) {
 		
-		if(!this.estaBocaArriba()) otraCarta.destruirCarta();
+		if(!this.estaBocaArriba()) {
+			
+			otraCarta.destruirCarta();
+			super.voltearCarta();
+		}
 		
 		else super.recibirPuntosAtaque(otraCarta);
 	}
 	
-//	public void voltearCarta() {
-//		
-//		super.voltearCarta();
-//		
-//	}
+	public void voltearCarta() {
+		
+		super.voltearCarta();
+		
+		this.jugador.obtenerJugadorRival().obtenerCampoDeBatalla().destruirUnMonstruo();
+		
+	}
 }

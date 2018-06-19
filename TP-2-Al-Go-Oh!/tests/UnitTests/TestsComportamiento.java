@@ -10,6 +10,7 @@ import org.junit.Test;
 import modelo.cartasEspecificas.AgujeroNegro;
 import modelo.cartasEspecificas.DragonDefinitivoDeOjosAzules;
 import modelo.cartasEspecificas.Fisura;
+import modelo.cartasEspecificas.InsectoComeHombres;
 import modelo.cartasEspecificas.Jinzo7;
 import modelo.cartasEspecificas.Sogen;
 import modelo.cartasEspecificas.Wasteland;
@@ -656,4 +657,5 @@ public class TestsComportamiento {
 		boolean estaEnCementerioTres = jugador.obtenerCampoDeBatalla().estaEnElCementerio(dragonBlancoTres);
 		assertEquals(true, estaEnCementerioTres);
 	}
+
 }

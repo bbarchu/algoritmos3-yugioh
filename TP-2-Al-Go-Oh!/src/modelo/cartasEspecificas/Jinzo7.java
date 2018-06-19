@@ -10,7 +10,7 @@ public class Jinzo7 extends CartaMonstruo{
 	private static int puntosDeAtaque = 500;
 	private static int puntosDeDefensa = 400;
 	private static int estrellas = 2;
-	
+
 	public Jinzo7 (ModoDeUso unModo, Jugador unJugador) {
 		super(puntosDeAtaque, puntosDeDefensa, estrellas, unModo, unJugador);
 	}
