@@ -657,7 +657,7 @@ public class TestsComportamiento {
 		boolean estaEnCementerioTres = jugador.obtenerCampoDeBatalla().estaEnElCementerio(dragonBlancoTres);
 		assertEquals(true, estaEnCementerioTres);
 	}
-	
+@Test
 public void testColocarInsectoComeHombresEnPosicionDefensaBocaAbajoYVerificarQueAlSerAtacadoSeVolteaYDestruyeAlAtacante() {
 		
 		int puntosDeVidaSinAfectar = 8000;
