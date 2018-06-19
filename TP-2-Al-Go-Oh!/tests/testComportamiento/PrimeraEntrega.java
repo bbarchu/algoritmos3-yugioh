@@ -200,14 +200,13 @@ public class PrimeraEntrega {
 		ModoDeUso modoDEF = new ModoDefensa();
 		CampoDeBatalla campito = unJugador.obtenerCampoDeBatalla();
 		CampoDeBatalla campito2 = otroJugador.obtenerCampoDeBatalla();
-		int puntosATKGanador = 1000;
-		int puntosATKPerdedor = 100;
+		int puntosATK = 1000;
 		int puntosDEF = 500;
 		int estrellas = 1;
 		int puntosDeVidaIniciales = 8000;
 		
-		CartaMonstruo monstruoDefensa = new CartaMonstruo(puntosATKPerdedor, puntosDEF, estrellas, modoDEF, unJugador);
-		CartaMonstruo monstruoAtaque = new CartaMonstruo(puntosATKGanador, puntosDEF, estrellas, modoATK, otroJugador);
+		CartaMonstruo monstruoDefensa = new CartaMonstruo(puntosATK, puntosDEF, estrellas, modoDEF, unJugador);
+		CartaMonstruo monstruoAtaque = new CartaMonstruo(puntosATK, puntosDEF, estrellas, modoATK, otroJugador);
 		
 		unJugador.presentarJugadorRival(otroJugador);
 		otroJugador.presentarJugadorRival(unJugador);

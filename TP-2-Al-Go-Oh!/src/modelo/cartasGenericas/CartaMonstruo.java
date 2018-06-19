@@ -97,6 +97,7 @@ public CartaMonstruo(int puntosATK, int puntosDEF, int estrellas, ModoDeUso unMo
 	public void atacar(CartaMonstruo otraCarta) {
 		
 		this.modo.atacar(otraCarta,this);
+		otraCarta.modo.atacar(this,otraCarta);//agrego esto
 		
 		//else LANZAR EXCEPCION
 	}
