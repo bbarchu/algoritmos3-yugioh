@@ -9,6 +9,7 @@ import org.junit.Test;
 
 import modelo.cartasEspecificas.AgujeroNegro;
 import modelo.cartasEspecificas.Fisura;
+import modelo.cartasEspecificas.Jinzo7;
 import modelo.cartasEspecificas.Sogen;
 import modelo.cartasEspecificas.Wasteland;
 import modelo.cartasGenericas.BocaAbajo;
@@ -578,5 +579,39 @@ public class TestsComportamiento {
 		assertEquals(true,campito2.estaEnElCementerio(monstruoAtaqueMenor));
 		assertEquals(false,campito2.estaEnElCementerio(monstruoAtaqueMayor));
 		
+	}
+	
+	@Test
+	public void colocarJinzo7YUnMonstruoEnemigoYAtacarDirectamenteALosPuntosDeVida() {
+		Jugador unJugador = new Jugador();
+		Jugador otroJugador = new Jugador();
+		
+		int vidaEsperada = 7500;
+		
+		int puntosATKRival = 100;
+		int puntosDEFRival = 100;
+		int estrellasRival = 2;
+		ModoDeUso modoRival = new ModoDefensa();
+		
+		ModoDeUso modoAtaque = new ModoAtaque();
+		
+		CartaMonstruo monstruoRival = new CartaMonstruo (puntosATKRival, puntosDEFRival, estrellasRival, modoRival, otroJugador);
+		Jinzo7 jinzo7 = new Jinzo7 (modoAtaque, unJugador);
+		
+		unJugador.presentarJugadorRival(otroJugador);
+		otroJugador.presentarJugadorRival(unJugador);
+		
+		otroJugador.agregarCartaAlMazo(monstruoRival);
+		unJugador.agregarCartaAlMazo(jinzo7);
+		
+		otroJugador.tomarCartaDelMazo();
+		unJugador.tomarCartaDelMazo();
+		
+		otroJugador.invocar(monstruoRival);
+		unJugador.invocar(jinzo7);
+		
+		jinzo7.atacarJugador(otroJugador);
+		
+		assertEquals(vidaEsperada,otroJugador.obtenerPuntosDeVida());
 	}
 }

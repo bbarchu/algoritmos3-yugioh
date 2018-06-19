@@ -79,6 +79,7 @@ public class Jugador implements OponenteAtacable{
 		carta.atacar(otraCarta);
 		
 	}
+
 	
 	// Lucas: me parece un poco raro que un metodo que mata al jugador sea publico
 	public void restarVida(int decrementoVida) {

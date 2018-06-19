@@ -1,17 +1,16 @@
 package modelo.cartasGenericas;
 
 import modelo.jugador.Jugador;
-import modelo.jugador.OponenteAtacable;
 import modelo.tablero.CampoDeBatalla;
 
 public class CartaMonstruo extends Carta{
 	
-	private OponenteAtacable jugador;
+	protected Jugador jugador;
 	
 	private int puntosDeAtaque;
 	private int puntosDeDefensa;
 		
-	private ModoDeUso modo;
+	protected ModoDeUso modo;
 	private Estado estado;
 	private Sacrificio sacrificioRequerido;
 	

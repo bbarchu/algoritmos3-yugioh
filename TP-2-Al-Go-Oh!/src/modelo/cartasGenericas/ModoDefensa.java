@@ -1,5 +1,8 @@
 package modelo.cartasGenericas;
 
+import modelo.cartasEspecificas.Jinzo7;
+import modelo.jugador.OponenteAtacable;
+
 public class ModoDefensa extends ModoDeUso {
 
 
@@ -20,6 +23,12 @@ public class ModoDefensa extends ModoDeUso {
 		}
 		
 		//Dejo el else {} para lo que se hace en caso de empate
+	}
+
+	@Override
+	public void atacarDirectamenteSinContemplarDefensa(Jinzo7 carta, OponenteAtacable oponente) {
+		//Nacho: Aca hay que lanzar excepcion
+		
 	}
 	
 	

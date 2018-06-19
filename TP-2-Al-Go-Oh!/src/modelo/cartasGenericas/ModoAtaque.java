@@ -1,5 +1,9 @@
 package modelo.cartasGenericas;
 
+import modelo.cartasEspecificas.Jinzo7;
+import modelo.jugador.Jugador;
+import modelo.jugador.OponenteAtacable;
+
 public class ModoAtaque extends ModoDeUso {
 	
 
@@ -32,6 +36,13 @@ public class ModoAtaque extends ModoDeUso {
 			cartaAtacante.destruirCarta();
 			cartaAtacada.destruirCarta();
 		}
+	}
+
+
+	@Override
+	public void atacarDirectamenteSinContemplarDefensa(Jinzo7 carta, OponenteAtacable oponente) {
+		oponente.restarVida(carta.obtenerPuntosDeAtaque());
+		
 	}
 	
 
