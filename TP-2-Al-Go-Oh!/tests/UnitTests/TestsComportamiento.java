@@ -619,6 +619,8 @@ public class TestsComportamiento {
 	@Test
 	public void testColocarInsectoComeHombresEnPosicionDefensaBocaAbajoYVerificarQueAlSerAtacadoSeVolteaYDestruyeAlAtacante() {
 		
+		int puntosDeVidaSinAfectar = 8000;
+		
 		Jugador unJugador = new Jugador();
 		Jugador jugadorAtacante = new Jugador();
 		
@@ -649,7 +651,8 @@ public class TestsComportamiento {
 		
 		assertEquals(true, jugadorAtacante.obtenerCampoDeBatalla().estaEnElCementerio(monstruoAtacante));
 		assertEquals(false, unJugador.obtenerCampoDeBatalla().estaEnElCementerio(insectoComeHombres));
-		
+		assertEquals(puntosDeVidaSinAfectar, unJugador.obtenerPuntosDeVida());
+		assertEquals(puntosDeVidaSinAfectar, jugadorAtacante.obtenerPuntosDeVida());
 	}
 	
 
