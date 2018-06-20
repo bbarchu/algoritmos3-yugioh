@@ -9,7 +9,7 @@ public class ModoAtaque extends ModoDeUso {
 
 	@Override
 	public void atacar(CartaMonstruo otraCarta, CartaMonstruo miCarta) {
-		otraCarta.recibirPuntosAtaque(miCarta);
+		otraCarta.recibirAtaque(miCarta);
 	
 	}
 

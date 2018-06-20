@@ -85,7 +85,7 @@ public class CartaMonstruo extends Carta{
 		campoDeBatalla.colocar(this);
 	}
 
-	public void recibirPuntosAtaque(CartaMonstruo otraCarta) {
+	public void recibirAtaque(CartaMonstruo otraCarta) {
 		this.modo.defender(otraCarta, this);	
 	}
 		

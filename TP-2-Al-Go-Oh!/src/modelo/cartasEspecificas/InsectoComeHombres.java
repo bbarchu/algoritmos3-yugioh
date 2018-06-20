@@ -15,7 +15,7 @@ public class InsectoComeHombres extends CartaMonstruo{
 		super(puntosDeAtaque, puntosDeDefensa, estrellas, modo, jugador);
 	}
 
-	public void recibirPuntosAtaque(CartaMonstruo otraCarta) {
+	public void recibirAtaque(CartaMonstruo otraCarta) {
 		
 		if(!this.estaBocaArriba()) {
 			
@@ -23,7 +23,7 @@ public class InsectoComeHombres extends CartaMonstruo{
 			super.voltearCarta();
 		}
 		
-		else super.recibirPuntosAtaque(otraCarta);
+		else super.recibirAtaque(otraCarta);
 	}
 	
 	public void voltearCarta() {
