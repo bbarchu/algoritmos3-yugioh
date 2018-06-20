@@ -13,6 +13,8 @@ public abstract class Carta {
 
 	public abstract void destruite(CampoDeBatalla campoDeBatalla);
 	
+	public abstract String getNombre();
+	
 //	public abstract void activarEfecto(CampoDeBatalla unCampo, CampoDeBatalla otroCampo);
 
 	

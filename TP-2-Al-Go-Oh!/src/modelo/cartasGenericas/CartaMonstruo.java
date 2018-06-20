@@ -160,7 +160,7 @@ public class CartaMonstruo extends Carta{
 		
 		this.puntosDeAtaque = puntosDeAtaque - decremento;
 	}
-
+	
 	public String getNombre() {
 		return this.nombre;
 	}

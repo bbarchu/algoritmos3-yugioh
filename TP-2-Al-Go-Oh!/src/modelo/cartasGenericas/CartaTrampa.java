@@ -6,11 +6,13 @@ import modelo.tablero.CampoDeBatalla;
 public class CartaTrampa extends Carta{
 	
 	Estado estado;
+	protected String nombre;
 	
 
 	public CartaTrampa(){
 				
-		this.estado = new BocaAbajo();		
+		this.estado = new BocaAbajo();
+		this.nombre = "";
 	}
 	
 	public void activarEfecto(CartaMonstruo atacante, CartaMonstruo atacado) {
@@ -48,6 +50,10 @@ public class CartaTrampa extends Carta{
 	public boolean estaBocaArriba() {
 		// TODO Auto-generated method stub
 		return false;
+	}
+	
+	public String getNombre() {
+		return this.nombre;
 	}
 	
 /*	public void invocar() {

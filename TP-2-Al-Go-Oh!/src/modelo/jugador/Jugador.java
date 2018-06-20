@@ -9,17 +9,17 @@ import modelo.tablero.CampoDeBatalla;
 
 public class Jugador implements OponenteAtacable{
 		
+	//Lucas: el jugador debe poder interactuar con el jugadorRival para atacarlo
+	//Lucas: considero que no es una buena solucion ya que el jugador no debería poder ver los metodos
+	//			del otro jugador, debeía implementarse una interfaz que controle ese comportamiento
+	//			Ej: interfaz obserbable, que solo permita ver las cartas del campo rival.
 		int puntosDeVida;
 		Mazo mazo;
 		Mano mano;
-		CampoDeBatalla campoDelJugador;
-		
-		//Lucas: el jugador debe poder interactuar con el jugadorRival para atacarlo
-		//Lucas: considero que no es una buena solucion ya que el jugador no debería poder ver los metodos
-		//			del otro jugador, debeía implementarse una interfaz que controle ese comportamiento
-		//			Ej: interfaz obserbable, que solo permita ver las cartas del campo rival.
-		
+		CampoDeBatalla campoDelJugador;	
 		Jugador jugadorRival;
+		boolean perdioLaPartida;
+		boolean ganoLaPartida;
 	
 	public Jugador() {
 		
@@ -28,6 +28,8 @@ public class Jugador implements OponenteAtacable{
 		this.mazo = new Mazo();
 		this.campoDelJugador = new CampoDeBatalla();
 		this.jugadorRival = null;
+		this.ganoLaPartida = false;
+		this.perdioLaPartida = false;
 		
 	}
 	
@@ -45,7 +47,14 @@ public class Jugador implements OponenteAtacable{
 	}
 
 	public void tomarCartaDelMazo() {
-		this.mano.tomarUnaCartaDel(this.mazo);	
+		this.mano.tomarUnaCartaDel(this.mazo);
+		
+		if(mano.contieneLas5PartesDeExodia()) {
+			this.ganoLaPartida = true;
+		}
+		if(mazo.estaVacio()) {
+			this.perdioLaPartida = true;
+		}
 	}
 
 	public void invocar(Carta unaCarta) {
@@ -95,6 +104,10 @@ public class Jugador implements OponenteAtacable{
 	public void restarVida(int decrementoVida) {
 		this.puntosDeVida -= decrementoVida;
 		
+		if(puntosDeVida <= 0) {
+			this.perdioLaPartida = true;
+		}
+		
 	}
 	
 	private void eliminarDeLaMano(Carta unaCarta) {
@@ -120,5 +133,13 @@ public class Jugador implements OponenteAtacable{
 		cantidad = this.mano.obtenerCantidadDeCartas();
 		
 		return cantidad;
+	}
+
+	public boolean perdioLaPartida() {
+		return this.perdioLaPartida;
+	}
+
+	public boolean ganoLaPartida() {
+		return this.ganoLaPartida;
 	}
 }

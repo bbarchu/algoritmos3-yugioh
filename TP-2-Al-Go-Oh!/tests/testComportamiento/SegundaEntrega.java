@@ -401,6 +401,51 @@ public class SegundaEntrega {
 		assertEquals(puntosDeVidaEsperados, jugadorAtacante.obtenerPuntosDeVida());
 	}
 	
+	@Test
+	public void testElJugadorPierdeYaQueSeQuedaSinCartasEnElMazo() {
+		Jugador unJugador = new Jugador();
+		ModoDeUso modoATK = new ModoAtaque();
+		int puntosATK = 1;
+		int puntosDEF = 1;
+		int estrellas = 1;
+		
+		CartaMonstruo unMonstruo = new CartaMonstruo(puntosATK, puntosDEF, estrellas, modoATK, unJugador);
+		
+		unJugador.agregarCartaAlMazo(unMonstruo);
+		assertEquals(false, unJugador.perdioLaPartida());
+		
+		unJugador.tomarCartaDelMazo();
+		assertEquals(true, unJugador.perdioLaPartida());
+	}
+	@Test
+	public void testElJugadorGanaYaQueTieneLas5PartesDeExodiaEnLaMano() {
+		Jugador unJugador = new Jugador();
+		ModoDeUso modoATK = new ModoAtaque();
+		int puntosATK = 1;
+		int puntosDEF = 1;
+		int estrellas = 1;
+		
+		CartaMonstruo elProhibido = new CartaMonstruo(puntosATK, puntosDEF, estrellas, modoATK, unJugador,"ExodiaElProhibido");
+		CartaMonstruo brazoDerechoDelProhibido = new CartaMonstruo(puntosATK, puntosDEF, estrellas, modoATK, unJugador,"BrazoDerechoDelProhibido");
+		CartaMonstruo brazoIzquierdoDelProhibido = new CartaMonstruo(puntosATK, puntosDEF, estrellas, modoATK, unJugador,"BrazoIzquierdoDelProhibido");
+		CartaMonstruo piernaDerechaDelProhibido = new CartaMonstruo(puntosATK, puntosDEF, estrellas, modoATK, unJugador,"PiernaDerechaDelProhibido");
+		CartaMonstruo piernaIzquierdaDelProhibido = new CartaMonstruo(puntosATK, puntosDEF, estrellas, modoATK, unJugador,"PiernaIzquierdaDelProhibido");
+		
+		unJugador.agregarCartaAlMazo(elProhibido);
+		unJugador.agregarCartaAlMazo(brazoDerechoDelProhibido);
+		unJugador.agregarCartaAlMazo(brazoIzquierdoDelProhibido);
+		unJugador.agregarCartaAlMazo(piernaDerechaDelProhibido);
+		unJugador.agregarCartaAlMazo(piernaIzquierdaDelProhibido);
+		
+		unJugador.tomarCartaDelMazo();
+		unJugador.tomarCartaDelMazo();
+		unJugador.tomarCartaDelMazo();
+		unJugador.tomarCartaDelMazo();
+		unJugador.tomarCartaDelMazo();
+		
+		assertEquals(true, unJugador.ganoLaPartida());
+	}
+	
 	
 
 }
