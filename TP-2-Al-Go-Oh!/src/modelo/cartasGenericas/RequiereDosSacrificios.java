@@ -10,6 +10,9 @@ public class RequiereDosSacrificios extends Sacrificio {
 		
 		// Lucas: esto debe convertirse en un supuesto o modelar mejor el comportamiento
 		//		Comportamiento actual: se destruye el monstruo mas antiguo sobre el campo (posicion 0)
+		
+		//campoDeBatalla.destruir(unMonstruo);
+		
 		campoDeBatalla.destruirUnMonstruo();
 		campoDeBatalla.destruirUnMonstruo();
 		

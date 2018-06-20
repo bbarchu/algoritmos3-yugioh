@@ -28,6 +28,10 @@ public class Mazo {
 	
 	public Carta sacarUnaCarta(){
 		// Lucas: este metodo debería luego sacar cartas de forma aleatoria
+		//Bar: Me parece que las cartas se sacan desde arriba o abajo, no sacas aleatoriamente.
+		//Bar: Si la necesidad de mezclarlas antes... que se ubiquen aleatoriamente.
+		//Bar: Eso es depende como este pensado el armado de mazo. Si Siempre es igual, entonces si tiene 
+		//Bar: sentido, el sacarlo random.
 		
 		if(!estaVacio()) {
 			return (Carta) (cartas.remove(0));

@@ -15,15 +15,11 @@ public class ModoDefensa extends ModoDeUso {
 	public void defender(CartaMonstruo cartaAtacante, CartaMonstruo cartaAtacada) {
 		int puntosAtaque = cartaAtacante.obtenerPuntosDeAtaque();
 		int puntosDefensa = cartaAtacada.obtenerPuntosDeDefensa();
-		if (puntosDefensa < puntosAtaque) {
+		if (puntosDefensa <= puntosAtaque) {
 			cartaAtacada.destruirCarta();
 			
 		}
-		else if (puntosAtaque < puntosDefensa) {
-			//cartaAtacante.destruirCarta(); //akjsfkalfka ESTA LINEA NO VA!
-		}
-		
-		//Dejo el else {} para lo que se hace en caso de empate
+	
 	}
 
 	@Override
