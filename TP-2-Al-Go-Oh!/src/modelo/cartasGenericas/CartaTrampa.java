@@ -6,11 +6,24 @@ import modelo.tablero.CampoDeBatalla;
 public class CartaTrampa extends Carta{
 	
 	Estado estado;
-	// Efecto
+	
 
-	public CartaTrampa(Estado unEstado){
+	public CartaTrampa(){
 				
-		this.estado = unEstado;		
+		this.estado = new BocaAbajo();		
+	}
+	
+	public void activarEfecto(CartaMonstruo atacante, CartaMonstruo atacado) {
+		
+	}
+	
+	public void voltearCarta() {
+		
+		this.estado = new BocaArriba();
+	}
+	
+	public void desactivarEfecto(CartaMonstruo atacante, CartaMonstruo atacado) {
+		
 	}
 	
 	@Override

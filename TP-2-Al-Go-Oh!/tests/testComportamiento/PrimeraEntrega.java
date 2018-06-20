@@ -66,7 +66,7 @@ public class PrimeraEntrega {
 		
 		CampoDeBatalla unCampo = new CampoDeBatalla();
 		Estado unEstado = new BocaAbajo();
-		Carta unaCartaTrampa = new CartaTrampa(unEstado);
+		Carta unaCartaTrampa = new CartaTrampa();
 		
 		unCampo.colocar(unaCartaTrampa);
 		

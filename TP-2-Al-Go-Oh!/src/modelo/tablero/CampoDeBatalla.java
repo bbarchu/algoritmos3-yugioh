@@ -20,6 +20,7 @@ public class CampoDeBatalla {
 	
 	ZonaMonstruos cartasMonstruo;
 	Zona cartasMagiaTrampa;
+	ZonaTrampa cartasTrampa;
 	Zona cartaCampo;
 	
 	
@@ -32,7 +33,7 @@ public class CampoDeBatalla {
 		int cantidadMaximaDeMagiaTrampa = 5;
 		int cantidadMaximaCampo = 1;
 		
-		
+		cartasTrampa = new ZonaTrampa(cantidadMaximaDeMagiaTrampa);
 		cartasMonstruo = new ZonaMonstruos(cantidadMaximaMonstruos);
 		cartasMagiaTrampa = new ZonaMagiaTrampa(cantidadMaximaDeMagiaTrampa);
 		cartaCampo = new ZonaCartaCampo(cantidadMaximaCampo);
@@ -67,7 +68,7 @@ public class CampoDeBatalla {
 	public void colocar(CartaTrampa unaCartaTrampa ) {
 		
 		
-		this.cartasMagiaTrampa.agregarCarta(unaCartaTrampa);
+		this.cartasTrampa.agregarCarta(unaCartaTrampa);
 	}
 	
 	public void colocar(CartaCampo unaCartaCampo ) {		
@@ -172,6 +173,16 @@ public void activarEfectoDe(Fisura carta) {
  		
  		cartasMonstruo.destruirLaDeMenorAtaque();
 	}
+
+public void activarCartaTrampa(CartaMonstruo cartaAtacante, CartaMonstruo cartaAtacada) {
+	
+	this.cartasTrampa.activarCartaTrampa(cartaAtacante, cartaAtacada);
+}
+
+public void desactivarCartaTrampa(CartaMonstruo cartaAtacante, CartaMonstruo cartaAtacada) {
+	
+	this.cartasTrampa.desactivarCartaTrampa(cartaAtacante, cartaAtacada);
+}
 	
 /*	public Boolean hayCartasEnElCementerio() {
 	

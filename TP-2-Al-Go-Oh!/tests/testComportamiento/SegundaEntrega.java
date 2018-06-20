@@ -12,6 +12,7 @@ import modelo.cartasEspecificas.Fisura;
 import modelo.cartasEspecificas.InsectoComeHombres;
 import modelo.cartasEspecificas.Jinzo7;
 import modelo.cartasEspecificas.OllaDeLaCodicia;
+import modelo.cartasEspecificas.Reinforcements;
 import modelo.cartasEspecificas.Sogen;
 import modelo.cartasEspecificas.Wasteland;
 import modelo.cartasGenericas.BocaArriba;
@@ -19,6 +20,7 @@ import modelo.cartasGenericas.Carta;
 import modelo.cartasGenericas.CartaCampo;
 import modelo.cartasGenericas.CartaMagica;
 import modelo.cartasGenericas.CartaMonstruo;
+import modelo.cartasGenericas.CartaTrampa;
 import modelo.cartasGenericas.Estado;
 import modelo.cartasGenericas.ModoAtaque;
 import modelo.cartasGenericas.ModoDeUso;
@@ -314,4 +316,48 @@ public class SegundaEntrega {
 		assertEquals(puntosDeVidaSinAfectar, unJugador.obtenerPuntosDeVida());
 		assertEquals(puntosDeVidaSinAfectar, jugadorAtacante.obtenerPuntosDeVida());
 	}
+	
+	@Test
+	public void testColocarMonstruoCon400PuntosDeAtaqueMenosQueElDelRivalYAlAtacarmeSeActivaReinforcementsYElAtacanteSeDestruyeYPierde100PuntosDeVidaElRival() {
+	
+		Jugador jugadorConReinforcements = new Jugador();
+		Jugador jugadorAtacante = new Jugador();
+	
+		ModoDeUso modoATK = new ModoAtaque();
+		
+		int ATQMonstruoConReinforcements = 2000;
+		int ATKMonstruoAtacante = 2400;
+		int puntosDEF = 500;
+		int estrellas = 1;
+		int puntosDeVidaEsperados = 7900;
+		
+		CartaMonstruo monstruoConReinforcement = new CartaMonstruo(ATQMonstruoConReinforcements, puntosDEF, estrellas, modoATK, jugadorConReinforcements);
+		CartaMonstruo monstruoAtacante = new CartaMonstruo(ATKMonstruoAtacante, puntosDEF, estrellas, modoATK, jugadorAtacante);
+		
+		CartaTrampa reinforcements = new Reinforcements();
+		
+		jugadorConReinforcements.presentarJugadorRival(jugadorAtacante);
+		jugadorAtacante.presentarJugadorRival(jugadorConReinforcements);
+		
+		jugadorConReinforcements.agregarCartaAlMazo(monstruoConReinforcement);
+		jugadorAtacante.agregarCartaAlMazo(monstruoAtacante);
+		
+		jugadorConReinforcements.tomarCartaDelMazo();
+		jugadorAtacante.tomarCartaDelMazo();
+		
+		jugadorConReinforcements.invocar(monstruoConReinforcement);
+		jugadorAtacante.invocar(monstruoAtacante);
+		
+		jugadorConReinforcements.agregarCartaAlMazo(reinforcements);
+		jugadorConReinforcements.tomarCartaDelMazo();
+		jugadorConReinforcements.invocar(reinforcements);
+		
+		jugadorAtacante.atacarCon_A(monstruoAtacante, monstruoConReinforcement);
+		
+		assertEquals(true, jugadorAtacante.obtenerCampoDeBatalla().estaEnElCementerio(monstruoAtacante));
+		assertEquals(puntosDeVidaEsperados, jugadorAtacante.obtenerPuntosDeVida());
+	}
+	
+	
+
 }

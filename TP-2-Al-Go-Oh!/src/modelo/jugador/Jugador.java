@@ -4,6 +4,7 @@ import modelo.cartasGenericas.Carta;
 import modelo.cartasGenericas.CartaCampo;
 import modelo.cartasGenericas.CartaMagica;
 import modelo.cartasGenericas.CartaMonstruo;
+import modelo.cartasGenericas.CartaTrampa;
 import modelo.tablero.CampoDeBatalla;
 
 public class Jugador implements OponenteAtacable{
@@ -57,6 +58,15 @@ public class Jugador implements OponenteAtacable{
 			campoDelJugador.colocar(unMonstruo);
 		}
 		this.eliminarDeLaMano(unMonstruo);
+	}
+	
+	public void invocar(CartaTrampa trampa) {
+		
+		if(this.mano.contiene(trampa)) {
+			
+			campoDelJugador.colocar(trampa);
+			this.eliminarDeLaMano(trampa);
+		}
 	}
 	
 	public void invocar(CartaMagica unaCartaMagica) {

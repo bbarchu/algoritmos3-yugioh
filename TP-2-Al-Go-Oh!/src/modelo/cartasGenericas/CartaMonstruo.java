@@ -94,10 +94,22 @@ public CartaMonstruo(int puntosATK, int puntosDEF, int estrellas, ModoDeUso unMo
 		return this.puntosDeDefensa;
 	}
 	
+	private void activarCartaTrampa(CartaMonstruo cartaAtacante) {
+		
+		this.jugador.obtenerCampoDeBatalla().activarCartaTrampa(cartaAtacante, this);
+	}
+	
+	private void desactivarCartaTrampa(CartaMonstruo cartaAtacante) {
+		
+		this.jugador.obtenerCampoDeBatalla().desactivarCartaTrampa(cartaAtacante, this);
+	}
+	
 	public void atacar(CartaMonstruo otraCarta) {
 		
+		otraCarta.activarCartaTrampa(this);
 		this.modo.atacar(otraCarta,this);
 		otraCarta.modo.atacar(this,otraCarta);//agrego esto
+		
 		
 		//else LANZAR EXCEPCION
 	}
@@ -132,6 +144,11 @@ public CartaMonstruo(int puntosATK, int puntosDEF, int estrellas, ModoDeUso unMo
 	
 	public void aumentarPuntosDeDefensaEn(int puntosAAumentar) {
 		this.puntosDeDefensa += puntosAAumentar;
+	}
+	
+	public void disminuirPuntosDeAtaque(int decremento) {
+		
+		this.puntosDeAtaque = puntosDeAtaque - decremento;
 	}
 
 	public String getNombre() {
