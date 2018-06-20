@@ -12,4 +12,6 @@ public abstract class ModoDeUso {
 	public abstract void defender(CartaMonstruo carta, CartaMonstruo cartaAtacada);
 	
 	public abstract void atacarDirectamenteSinContemplarDefensa(Jinzo7 carta, OponenteAtacable oponente);
+	
+	public abstract int obtenerPuntosDeDaño(CartaMonstruo carta);
 }

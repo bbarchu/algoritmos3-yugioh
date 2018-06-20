@@ -11,6 +11,8 @@ public class AlGoOh {
 		
 		jugadorNumeroUno = new Jugador();
 		jugadorNumeroDos = new Jugador();
+		
+	
 	}
 	
 

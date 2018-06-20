@@ -32,5 +32,7 @@ public class ModoDefensa extends ModoDeUso {
 		
 	}
 	
-	
+	public  int obtenerPuntosDeDaño(CartaMonstruo carta) {
+		return carta.obtenerPuntosDeDefensa();
+	}
 }

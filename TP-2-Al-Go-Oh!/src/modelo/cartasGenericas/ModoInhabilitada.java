@@ -20,5 +20,9 @@ public class ModoInhabilitada extends ModoDeUso{
 
 		
 	}
+	
+	public int obtenerPuntosDeDaño(CartaMonstruo carta) {
+		return 0;
+	}
 
 }

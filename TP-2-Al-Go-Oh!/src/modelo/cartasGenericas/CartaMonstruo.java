@@ -163,6 +163,18 @@ public class CartaMonstruo extends Carta{
 		return this.nombre;
 	}
 	
+	public void atacarDirectoAlJugadorRival() {
+		Jugador jugadorRival = jugador.obtenerJugadorRival();
+		if (jugadorRival.obtenerCampoDeBatalla().hayCartasMonstruo()) {
+			//EXCEPCION
+			//end
+		}
+		
+		int puntosDeDaño = modo.obtenerPuntosDeDaño(this);
+		jugadorRival.restarVida(puntosDeDaño);	
+				
+	}
+	
 /*	public void invocar(ModoDeUso estadoDeLaInvocacion) {
 		
 		modo = estadoDeLaInvocacion;

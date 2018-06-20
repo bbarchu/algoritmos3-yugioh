@@ -45,5 +45,9 @@ public class ModoAtaque extends ModoDeUso {
 		
 	}
 	
+	public  int obtenerPuntosDeDaño(CartaMonstruo carta) {
+		return carta.obtenerPuntosDeAtaque();
+	}
+	
 
 }
