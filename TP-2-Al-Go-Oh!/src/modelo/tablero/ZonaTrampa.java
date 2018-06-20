@@ -11,9 +11,12 @@ public class ZonaTrampa extends Zona {
 	 
 	public void activarCartaTrampa(CartaMonstruo atacante, CartaMonstruo atacado) {
 		
-		CartaTrampa cartaTrampa = obtenerPrimerCartaTrampa();
+		if(!this.estaVacio()) {
+			
+			CartaTrampa cartaTrampa = obtenerPrimerCartaTrampa();
 		
-		cartaTrampa.activarEfecto(atacante, atacado);
+			cartaTrampa.activarEfecto(atacante, atacado);
+		}
 	}
 	
 	public void desactivarCartaTrampa(CartaMonstruo atacante, CartaMonstruo atacado) {

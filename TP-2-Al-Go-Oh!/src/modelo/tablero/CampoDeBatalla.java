@@ -126,6 +126,10 @@ public class CampoDeBatalla {
 		return (!cartasMonstruo.estaVacio());
 	}
 
+	public boolean hayCartasTrampa() {
+		
+		return (!cartasTrampa.estaVacio());
+	}
 	
 	public Boolean hayCartasMagiaOTrampa() {
 		return (!cartasMagiaTrampa.estaVacio());

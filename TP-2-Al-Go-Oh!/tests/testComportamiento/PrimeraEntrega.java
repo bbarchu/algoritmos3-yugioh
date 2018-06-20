@@ -70,7 +70,7 @@ public class PrimeraEntrega {
 		
 		unCampo.colocar(unaCartaTrampa);
 		
-		assertEquals(true, unCampo.hayCartasMagiaOTrampa());
+		assertEquals(true, unCampo.hayCartasTrampa());
 	}
 			
 	@Test
