@@ -173,20 +173,24 @@ public class CampoDeBatalla {
 		
 	}
  	
-public void activarEfectoDe(Fisura carta) {
+ 	public void activarEfectoDe(Fisura carta) {
  		
  		cartasMonstruo.destruirLaDeMenorAtaque();
 	}
 
-public void activarCartaTrampa(CartaMonstruo cartaAtacante, CartaMonstruo cartaAtacada) {
+ 	public void activarCartaTrampa(CartaMonstruo cartaAtacante, CartaMonstruo cartaAtacada) {
 	
 	this.cartasTrampa.activarCartaTrampa(cartaAtacante, cartaAtacada);
-}
+ 	}
 
-public void desactivarCartaTrampa(CartaMonstruo cartaAtacante, CartaMonstruo cartaAtacada) {
+ 	public void desactivarCartaTrampa(CartaMonstruo cartaAtacante, CartaMonstruo cartaAtacada) {
 	
 	this.cartasTrampa.desactivarCartaTrampa(cartaAtacante, cartaAtacada);
-}
+ 	}
+
+ 	public CartaMonstruo buscarMonstruoParaSacrificar(String nombreMonstruo) {
+ 		return cartasMonstruo.buscarCarta(nombreMonstruo);
+ 	}
 	
 /*	public Boolean hayCartasEnElCementerio() {
 	

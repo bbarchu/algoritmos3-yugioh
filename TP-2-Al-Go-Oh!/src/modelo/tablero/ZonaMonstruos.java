@@ -2,6 +2,7 @@ package modelo.tablero;
 
 import java.util.LinkedList;
 
+import modelo.NoSeEncontroLaCartaEnLaZonaError;
 import modelo.cartasGenericas.Carta;
 import modelo.cartasGenericas.CartaMonstruo;
 
@@ -78,4 +79,21 @@ public class ZonaMonstruos extends Zona {
 		 }
 		 cartaADestruir.destruirCarta();
 	 }
+	 
+	 public CartaMonstruo buscarCarta(String nombreCarta) {
+		 
+		 iteradorCarta = this.cartas.listIterator(0);
+		 while (iteradorCarta.hasNext() ) {
+			 CartaMonstruo monstruoActual = (CartaMonstruo) iteradorCarta.next();
+			 if (monstruoActual.getNombre() == nombreCarta) {
+				return monstruoActual;
+			 }
+			 
+		 }
+		 
+		 throw new NoSeEncontroLaCartaEnLaZonaError();
+		 
+	 }
+	
+	 
 }
