@@ -19,7 +19,7 @@ public class CartaMonstruo extends Carta{
 	//Efecto (puede tener o no un efecto)
 	
 	
-public CartaMonstruo(int puntosATK, int puntosDEF, int estrellas, ModoDeUso unModo, Jugador jugador, String nombre) {
+	public CartaMonstruo(int puntosATK, int puntosDEF, int estrellas, ModoDeUso unModo, Jugador jugador, String nombre) {
 		
 		this.nombre = nombre;
 		this.puntosDeAtaque = puntosATK;
@@ -63,6 +63,14 @@ public CartaMonstruo(int puntosATK, int puntosDEF, int estrellas, ModoDeUso unMo
 		}else {
 			this.sacrificioRequerido = new RequiereDosSacrificios();
 		}
+	}
+	
+	public void cambiarModoDeUso (ModoDeUso nuevoModo) {
+		this.modo = nuevoModo;
+	}
+	
+	public ModoDeUso getModoDeUsoActual () {
+		return this.modo;
 	}
 	
 	public void voltearCarta() {

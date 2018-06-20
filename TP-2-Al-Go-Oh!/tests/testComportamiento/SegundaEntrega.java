@@ -7,6 +7,7 @@ import java.util.LinkedList;
 
 import org.junit.Test;
 
+import modelo.cartasEspecificas.CilindroMagico;
 import modelo.cartasEspecificas.DragonDefinitivoDeOjosAzules;
 import modelo.cartasEspecificas.Fisura;
 import modelo.cartasEspecificas.InsectoComeHombres;
@@ -276,6 +277,48 @@ public class SegundaEntrega {
 		
 		boolean estaEnCementerioTres = jugador.obtenerCampoDeBatalla().estaEnElCementerio(dragonBlancoTres);
 		assertEquals(true, estaEnCementerioTres);
+	}
+	
+	@Test
+	public void testColocarTrampaCilindroMagicoYColocarCartaMonstruoEnAmbosLadosYAtacarALaCartaConTrampaYDisminuyeVidaAtacante() {
+	
+		Jugador jugadorConCilindro = new Jugador();
+		Jugador jugadorAtacante = new Jugador();
+	
+		ModoDeUso modoATK = new ModoAtaque();
+		
+		int ATKMonstruos = 1000;
+		int puntosDEF = 500;
+		int estrellas = 1;
+		int puntosDeVidaEsperados = 7000;
+		
+		CartaMonstruo monstruoDefensor = new CartaMonstruo(ATKMonstruos, puntosDEF, estrellas, modoATK, jugadorConCilindro);
+		CartaMonstruo monstruoAtacante = new CartaMonstruo(ATKMonstruos, puntosDEF, estrellas, modoATK, jugadorAtacante);
+		
+		CartaTrampa cilindro = new CilindroMagico();
+		
+		jugadorConCilindro.presentarJugadorRival(jugadorAtacante);
+		jugadorAtacante.presentarJugadorRival(jugadorConCilindro);
+		
+		jugadorConCilindro.agregarCartaAlMazo(monstruoDefensor);
+		jugadorAtacante.agregarCartaAlMazo(monstruoAtacante);
+		
+		jugadorConCilindro.tomarCartaDelMazo();
+		jugadorAtacante.tomarCartaDelMazo();
+		
+		jugadorConCilindro.invocar(monstruoDefensor);
+		jugadorAtacante.invocar(monstruoAtacante);
+		
+		jugadorConCilindro.agregarCartaAlMazo(cilindro);
+		jugadorConCilindro.tomarCartaDelMazo();
+		jugadorConCilindro.invocar(cilindro);
+		
+		jugadorAtacante.atacarCon_A(monstruoAtacante, monstruoDefensor);
+		
+		assertEquals(puntosDeVidaEsperados, jugadorAtacante.obtenerPuntosDeVida());
+		assertEquals(false,jugadorAtacante.obtenerCampoDeBatalla().estaEnElCementerio(monstruoAtacante));
+		assertEquals(false,jugadorConCilindro.obtenerCampoDeBatalla().estaEnElCementerio(monstruoDefensor));
+		
 	}
 	
 	@Test

@@ -43,7 +43,6 @@ public class CartaMagica extends Carta {
 	}
 
 	public void activarEfecto() {
-		// TODO Auto-generated method stub
 	}
 
 	@Override
