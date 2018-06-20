@@ -443,6 +443,7 @@ public class SegundaEntrega {
 		unJugador.tomarCartaDelMazo();
 		unJugador.tomarCartaDelMazo();
 		
+		
 		assertEquals(true, unJugador.ganoLaPartida());
 	}
 	
