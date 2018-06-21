@@ -3,6 +3,15 @@ package modelo.aplicacion;
 import modelo.jugador.Jugador;
 import modelo.jugador.OponenteAtacable;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.Timer;
+
+import java.awt.event.*; // Para el manejo de eventos, necesario para el Timer.
+import java.awt.event.KeyEvent;
+import javax.swing.InputMap;
+import javax.swing.KeyStroke;
 
 
 //bosquejo de turno, bar.
@@ -15,6 +24,7 @@ public class Turno {
 		jugador = jugadorQueTieneElTurno;
 		jugadorRival = (Jugador) jugador.obtenerJugadorRival();
 		//Debo castear porque el jugador proximo debe ser jugador.
+		faseInicial();
 		
 	}
 	
@@ -39,14 +49,14 @@ public class Turno {
 		//Se colocan todas las cartas magia y trampa que se quiera.
 		//Solo 1 Monstruo podemos colocar en el campo y tiene que estar boca ABAJO.
 
-		
-		jugador.habilitarParaPonerCartasEnElCampo();
+		while (!(jugador.quierePasarDeFase()) {
+			jugador.habilitarParaPonerCartasEnElCampo();
+		}
 		//Tambien podriamos durante esta etapa inhabilitar las otras funciones del jguador en cuestion
 		//y al oponente lo podriamos inhabilitar completamente.
 		
-		if ( jugador.quierePasarDeFase || time.isOver(15)) {
-			faseDeAtaqueYTrampas();
-		}
+		
+		faseDeAtaqueYTrampas();
 		
 		
 	}
@@ -57,12 +67,12 @@ public class Turno {
 		//Despues de un ataque de monstruo se activa la fase de trampas DEL ENEMIGO!!!!! ATENTO
 		
 		//La fase finaliza cuando el jugador lo requiera o llegamos al tiempo ej 15 Segundos...
-		
-		jugador.habilitarAtaque();
-		
-		if ( jugador.quierePasarDeFase || time.isOver( 15)) {
-			faseDeActivacionDeCartasMagicas();
+		while (!(jugador.quierePasarDeFase())) {
+			jugador.habilitarAtaque();
 		}
+		
+		faseDeActivacionDeCartasMagicas();
+		
 	}
 	
 	
@@ -75,15 +85,33 @@ public class Turno {
 		
 		//Lucas: no entiendo donde sigue el juego, porque se está creando un turno dentro del turno anterior y asi sucesivamente.
 		
-		jugador.habilitarActivacionDeCartasMagicas();
+		new TimerEx();
+		while (!(jugador.quierePasarDeFase()) || !(time.isOver(15))) {
 			
-		if (jugador.quierePasarDeFase || tiempo.isOver( 15)) {
-			Turno turnoSiguiente = new Turno(jugadorRival);
+			
+			jugador.habilitarActivacionDeCartasMagicas();
 		}
+		
+		if (jugador.ganoLaPartida() || jugador.perdioLaPartida()) {
+			System.out.println("Termino la partida");
+			String nombreJugador = jugador.verNombre();
+			String nombreOponente = jugadorRival.verNombre();
+			if (jugador.ganoLaPartida()) {
+				
+				System.out.println("Gano jugador %s y perdió");
+			}
+			else {
+				System.out.println("Perdio jugador tal");				
+			}
+			return;
+		}
+		
+		Turno turnoSiguiente = new Turno(jugadorRival);
+		
 		
 		
 		
 	}
-	
+		
 	
 }

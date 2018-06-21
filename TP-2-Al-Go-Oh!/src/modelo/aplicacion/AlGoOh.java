@@ -1,5 +1,7 @@
 package modelo.aplicacion;
 
+import java.util.Scanner;
+
 import modelo.jugador.Jugador;
 
 public class AlGoOh {
@@ -12,6 +14,19 @@ public class AlGoOh {
 		//creacion de jugadores.
 		jugadorNumeroUno = new Jugador();
 		jugadorNumeroDos = new Jugador();
+		
+		System.out.println ("Por favor introduzca el nombre del jugador 1:");
+		String entradaTeclado = "";
+        Scanner entradaEscaner = new Scanner (System.in); 
+        entradaTeclado = entradaEscaner.nextLine ();
+        jugadorNumeroUno.agregarNombre(entradaTeclado);
+        
+        System.out.println ("Por favor introduzca el nombre del jugador 2:");
+        entradaTeclado = entradaEscaner.nextLine ();
+		
+        jugadorNumeroDos.agregarNombre(entradaTeclado);
+		
+		
 		
 		//Lucas: Falta decidir como agregar todas las cartas al mazo de cada jugador (el orden tiene que ser aleatorio)
 		//Opciones: -dar a elegir las cartas (más dificil)

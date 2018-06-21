@@ -1,7 +1,10 @@
 package modelo.jugador;
 
+import java.util.Scanner;
+
 import modelo.ElJugadorNoPuedeAtacarASusPropiasCartasError;
 import modelo.TodaviaQuedanMonstruosParaAtacarEnElCampoError;
+import modelo.aplicacion.TimerEx;
 import modelo.cartasGenericas.Carta;
 import modelo.cartasGenericas.CartaCampo;
 import modelo.cartasGenericas.CartaMagica;
@@ -22,9 +25,11 @@ public class Jugador implements OponenteAtacable, JugadorModificable{
 		OponenteAtacable jugadorRival;
 		boolean perdioLaPartida;
 		boolean ganoLaPartida;
+		String nombre;
 	
 	public Jugador() {
 		
+		nombre = "";
 		this.puntosDeVida = 8000;
 		this.mano = new Mano();
 		this.mazo = new Mazo();
@@ -38,6 +43,14 @@ public class Jugador implements OponenteAtacable, JugadorModificable{
 	public void presentarJugadorRival(Jugador unJugador){
 		
 		jugadorRival = unJugador;
+	}
+	
+	public void agregarNombre(String nombreJugador) {
+		this.nombre = nombreJugador;
+	}
+	
+	public String verNombre() {
+		return this.nombre;
 	}
 
 	//bar: Por que el jugador puede agregar una carta al mazo?
@@ -117,6 +130,8 @@ public class Jugador implements OponenteAtacable, JugadorModificable{
 		
 		if(puntosDeVida <= 0) {
 			this.perdioLaPartida = true;
+			Jugador jugadorOponente = (Jugador) (jugadorRival);
+			jugadorOponente.convertirEnGanador();
 		}
 		
 	}
@@ -154,7 +169,107 @@ public class Jugador implements OponenteAtacable, JugadorModificable{
 		return this.ganoLaPartida;
 	}
 	
-	public void quierePasarDeFase() {
+	public void convertirEnGanador() {
+		this.ganoLaPartida = true;
+	}
+	
+	public void convertirEnPerdedor() {
+		this.perdioLaPartida = false;
+	}
+	
+	public boolean quierePasarDeFase() {
+		String entradaTeclado = "";
+        Scanner entradaEscaner = new Scanner (System.in); 
+        entradaTeclado = entradaEscaner.nextLine ();
+		while (entradaTeclado!="pasarfase") {
+			//No hace nada
+		}
 		
+		return true;
+		//La onda aca es apretar un boton...
+	}
+	
+	public void habilitarParaPonerCartasEnElCampo() {
+		System.out.println("Es hora de poner cartas en el campo");
+		System.out.println("Elige una carta de tu mano y colocala en el campo de batalla");
+		        
+        
+        while (mano.quedanCartas()) {
+        	
+        	System.out.println("Escribe el nombre de la carta que quieres colocar o escribe pasarFase");
+        	String entradaTeclado = "";
+            Scanner entradaEscaner = new Scanner (System.in); 
+            entradaTeclado = entradaEscaner.nextLine ();
+            if (entradaTeclado == "pasarfase") {
+            	return;
+            }
+            Carta cartaAColocar = mano.buscarCartaPorNombre(entradaTeclado);
+            mano.eliminar(cartaAColocar);
+            this.campoDelJugador.colocar(cartaAColocar);
+            
+            System.out.println("Quieres seguir poniendo cartas?");
+        }
+        
+        System.out.println("Ups! no te quedan mas cartas en la mano );
+        
+		
+		
+	}
+	
+	public void habilitarAtaque() {
+		System.out.println("Es hora de atacar");
+		System.out.println("Elige una carta de tu campo seguido de un objetivo");
+		
+        
+        While( quedanMonstruosSinAtacar()){
+        	System.out.println("Escribe el nombre de la carta que quieres que ataque");
+    		System.out.println("Si no quieres atacar, escribe pasarFase");
+    		
+    		String entradaTeclado = "";
+            Scanner entradaEscaner = new Scanner (System.in); 
+            entradaTeclado = entradaEscaner.nextLine ();
+            if (entradaTeclado == "pasarfase") {
+            	return;
+            }
+            
+            //aca debe haber unn try catch porque si no lo encuentra este metodo tira excepcion, y no estaria bueno parar el juego
+            CartaMonstruo cartaAtacante = this.campoDelJugador.buscarMonstruo(entradaTeclado);
+            System.out.println("Escribe el nombre de la carta que quieres atacar");
+            entradaTeclado = "";
+            entradaTeclado = entradaEscaner.nextLine ();
+            if (entradaTeclado == "pasarfase") {
+            	return;
+            }
+            CartaMonstruo cartaAtacada = jugadorRival.obtenerCampoDeBatalla().buscarMonstruo(entradaTeclado);
+            
+            //aca no contemplo modos!
+            cartaAtacante.atacar(cartaAtacada);
+            //Eliminar de monstruosSinAtacar
+        }
+        
+        System.out.println("Ups! ya atacaste con todos tus monstruos ");
+	}
+	
+	public void habilitarActivacionDeCartasMagicas() {
+		System.out.println("Activa las cartas mágicas que creas necesarias");		
+		System.out.println("Elige una carta de tu campo y si no quieres activar ninguna escribe pasarfase");
+		
+		while (campoDelJugador.quedanCartasMagicasSinActivar()) {
+        	
+        	System.out.println("Escribe el nombre de la carta que quieres colocar o escribe pasarFase");
+        	String entradaTeclado = "";
+            Scanner entradaEscaner = new Scanner (System.in); 
+            entradaTeclado = entradaEscaner.nextLine ();
+            if (entradaTeclado == "pasarfase") {
+            	return;
+            }
+            Carta cartaAActivar = buscarCarta..;
+           
+            
+            
+            System.out.println("Quieres seguir activando cartas?");
+        }
+		
+		System.out.println("Ups! ya activaste todas tus cartas magicas del campo ");
 	}
 }

@@ -191,6 +191,10 @@ public class CampoDeBatalla {
  	public CartaMonstruo buscarMonstruoParaSacrificar(String nombreMonstruo) {
  		return cartasMonstruo.buscarCarta(nombreMonstruo);
  	}
+ 	
+ 	public CartaMonstruo buscarMonstruo(String nombreMonstruo) {
+ 		return cartasMonstruo.buscarCarta(nombreMonstruo);
+ 	}
 	
 /*	public Boolean hayCartasEnElCementerio() {
 	

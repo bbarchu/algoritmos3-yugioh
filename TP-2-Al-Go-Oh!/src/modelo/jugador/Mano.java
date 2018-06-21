@@ -3,8 +3,10 @@ package modelo.jugador;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.ListIterator;
 
 import modelo.cartasGenericas.Carta;
+import modelo.cartasGenericas.CartaMonstruo;
 
 public class Mano {
 	int cantidad;
@@ -73,5 +75,30 @@ public class Mano {
 		}
 		
 		return resultado;
+	}
+	
+	public Carta buscarCartaPorNombre(String nombreCarta){
+		if (cantidad == 0) {
+			//Excepcion crear
+			
+		}
+		 ListIterator<Carta> iteradorCarta = this.cartas.listIterator(0);
+		 while (iteradorCarta.hasNext() ) {
+			 Carta cartaActual = (CartaMonstruo) iteradorCarta.next();
+			 if (cartaActual.getNombre() == nombreCarta) {
+				return cartaActual;
+			 }
+			 
+		 }
+		 
+		 //Si llegamos aca es porq no se encontro la carta
+		return null;
+	}
+	
+	public boolean quedanCartas() {
+		if (cantidad == 0) {
+			return false;
+		}
+		return true;
 	}
 }
