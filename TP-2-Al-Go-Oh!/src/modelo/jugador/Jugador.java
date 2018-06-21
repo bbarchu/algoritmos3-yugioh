@@ -58,6 +58,12 @@ public class Jugador implements OponenteAtacable, JugadorModificable{
 			this.perdioLaPartida = true;
 		}
 	}
+	
+	public void tomarCincoCartasDelMazo() {
+		for(int i =0 ; i < 6 ; i++) {
+			tomarCartaDelMazo();			
+		}
+	}
 
 	public void invocar(Carta unaCarta) {
 		unaCarta.invocate(this);
@@ -146,5 +152,9 @@ public class Jugador implements OponenteAtacable, JugadorModificable{
 
 	public boolean ganoLaPartida() {
 		return this.ganoLaPartida;
+	}
+	
+	public void quierePasarDeFase() {
+		
 	}
 }

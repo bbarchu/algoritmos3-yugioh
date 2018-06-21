@@ -225,7 +225,7 @@ public class JugadorTest {
 		unJugador.invocar(monstruoDefensa);
 		otroJugador.invocar(monstruoAtaque);
 		
-		otroJugador.atacarConA(monstruoDefensa, monstruoAtaque);
+		otroJugador.atacarConA(monstruoAtaque, monstruoDefensa);
 		
 		
 		assertEquals(false,campito.estaEnElCementerio(monstruoDefensa)); 
