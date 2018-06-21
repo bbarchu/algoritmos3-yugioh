@@ -115,11 +115,14 @@ public class CartaMonstruo extends Carta{
 		this.jugador.obtenerCampoDeBatalla().desactivarCartaTrampa(cartaAtacante, this);
 	}
 	
+	public void atacaConTuModo(CartaMonstruo unaCarta) {
+		this.modo.atacar(unaCarta,this);
+	}
 	public void atacar(CartaMonstruo otraCarta) {
 		
 		otraCarta.activarCartaTrampa(this);
 		this.modo.atacar(otraCarta,this);
-		otraCarta.modo.atacar(this,otraCarta);
+		otraCarta.atacaConTuModo(this);
 		
 		
 		//else LANZAR EXCEPCION

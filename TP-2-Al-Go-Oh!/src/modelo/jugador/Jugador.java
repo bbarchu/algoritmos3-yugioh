@@ -210,7 +210,7 @@ public class Jugador implements OponenteAtacable, JugadorModificable{
             System.out.println("Quieres seguir poniendo cartas?");
         }
         
-        System.out.println("Ups! no te quedan mas cartas en la mano );
+        System.out.println("Ups! no te quedan mas cartas en la mano ");
         
 		
 		
