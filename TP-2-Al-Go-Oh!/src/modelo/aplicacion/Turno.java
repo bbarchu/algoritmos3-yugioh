@@ -27,11 +27,18 @@ public class Turno {
 		
 		
 		//El jugador debe colocar cartas en el campo
+		
 		//Si ya hay cartas en el campo, se puede cambiar?
+		
+		
 		//Si la carta campo que estaba anteriormente se puede cambiar, entonces
 		//hay que desactivar los efectos.
+		
+		//--->Lucas: me parece que el jugador no puede sacar cartas del tablero
+		
 		//Se colocan todas las cartas magia y trampa que se quiera.
 		//Solo 1 Monstruo podemos colocar en el campo y tiene que estar boca ABAJO.
+
 		
 		jugador.habilitarParaPonerCartasEnElCampo();
 		//Tambien podriamos durante esta etapa inhabilitar las otras funciones del jguador en cuestion
@@ -65,6 +72,8 @@ public class Turno {
 		
 		//El jugador activa sus cartas magicas que desee
 		//El turno termina y se le pasa al jugador Rival
+		
+		//Lucas: no entiendo donde sigue el juego, porque se está creando un turno dentro del turno anterior y asi sucesivamente.
 		
 		jugador.habilitarActivacionDeCartasMagicas();
 			

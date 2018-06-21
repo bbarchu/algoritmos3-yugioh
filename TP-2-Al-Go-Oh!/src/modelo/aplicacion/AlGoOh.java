@@ -13,15 +13,22 @@ public class AlGoOh {
 		jugadorNumeroUno = new Jugador();
 		jugadorNumeroDos = new Jugador();
 		
+		//Lucas: Falta decidir como agregar todas las cartas al mazo de cada jugador (el orden tiene que ser aleatorio)
+		//Opciones: -dar a elegir las cartas (más dificil)
+		//			-colocar cartas random en cada uno
+		//			-colocar las mismas cartas en ambos (diferente orden)
+		
+		
 		//presentacion
 		jugadorNumeroUno.presentarJugadorRival(jugadorNumeroDos);
 		jugadorNumeroDos.presentarJugadorRival(jugadorNumeroUno);
 		
 		//Comienzo de partida
-		
+		//Lucas: Esta parte me parece que la podemos hacer en el constructor del jugador
 		jugadorNumeroUno.tomarCincoCartasDelMazo();
 		jugadorNumeroDos.tomarCincoCartasDelMazo();
 		
+
 		int numero = (int) (Math.random() * 2) +1 ;
 		
 		if (numero == 1) {
