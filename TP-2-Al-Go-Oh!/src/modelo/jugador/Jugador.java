@@ -19,7 +19,7 @@ public class Jugador implements OponenteAtacable{
 		Mazo mazo;
 		Mano mano;
 		CampoDeBatalla campoDelJugador;	
-		Jugador jugadorRival;
+		OponenteAtacable jugadorRival;
 		boolean perdioLaPartida;
 		boolean ganoLaPartida;
 	
@@ -127,7 +127,7 @@ public class Jugador implements OponenteAtacable{
 		return campoDelJugador;
 	}
 	
-	public Jugador obtenerJugadorRival() {
+	public OponenteAtacable obtenerJugadorRival() {
 		return jugadorRival;
 	}
 	

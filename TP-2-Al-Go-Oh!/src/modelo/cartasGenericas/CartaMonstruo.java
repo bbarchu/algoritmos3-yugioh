@@ -2,6 +2,7 @@ package modelo.cartasGenericas;
 
 import modelo.TodaviaQuedanMonstruosParaAtacarEnElCampoError;
 import modelo.jugador.Jugador;
+import modelo.jugador.OponenteAtacable;
 import modelo.tablero.CampoDeBatalla;
 
 public class CartaMonstruo extends Carta{
@@ -165,7 +166,7 @@ public class CartaMonstruo extends Carta{
 	}
 	
 	public void atacarDirectoAlJugadorRival() {
-		Jugador jugadorRival = jugador.obtenerJugadorRival();
+		OponenteAtacable jugadorRival = jugador.obtenerJugadorRival();
 		if (jugadorRival.obtenerCampoDeBatalla().hayCartasMonstruo()) {
 			throw new TodaviaQuedanMonstruosParaAtacarEnElCampoError();
 			
