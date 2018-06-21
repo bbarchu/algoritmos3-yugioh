@@ -1,5 +1,7 @@
 package modelo.jugador;
 
+import modelo.ElJugadorNoPuedeAtacarASusPropiasCartasError;
+import modelo.TodaviaQuedanMonstruosParaAtacarEnElCampoError;
 import modelo.cartasGenericas.Carta;
 import modelo.cartasGenericas.CartaCampo;
 import modelo.cartasGenericas.CartaMagica;
@@ -94,7 +96,10 @@ public class Jugador implements OponenteAtacable{
 		this.eliminarDeLaMano(unaCartaCampo);
 	}
 
-	public void atacarCon_A(CartaMonstruo carta, CartaMonstruo otraCarta) {
+	public void atacarCon_A(CartaMonstruo carta, CartaMonstruo otraCarta){
+		if (otraCarta.sosDelJugador(this)) {
+			throw new ElJugadorNoPuedeAtacarASusPropiasCartasError();
+		}
 		carta.atacar(otraCarta);
 		
 	}

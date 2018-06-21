@@ -15,9 +15,8 @@ public abstract class Carta {
 	
 	public abstract String getNombre();
 	
-//	public abstract void activarEfecto(CampoDeBatalla unCampo, CampoDeBatalla otroCampo);
-
 	
+//	public abstract void activarEfecto(CampoDeBatalla unCampo, CampoDeBatalla otroCampo);	
 //	protected static CampoDeBatalla campoDeJuego;
 //	protected Carta() {	
 //		campoDeJuego = new CampoDeBatalla();

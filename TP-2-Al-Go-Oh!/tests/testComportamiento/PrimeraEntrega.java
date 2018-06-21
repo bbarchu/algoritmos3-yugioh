@@ -65,7 +65,6 @@ public class PrimeraEntrega {
 	public void testColocarUnaCartaTrampaBocaAbajoEnElCampo(){
 		
 		CampoDeBatalla unCampo = new CampoDeBatalla();
-		Estado unEstado = new BocaAbajo();
 		Carta unaCartaTrampa = new CartaTrampa();
 		
 		unCampo.colocar(unaCartaTrampa);
@@ -259,7 +258,7 @@ public class PrimeraEntrega {
 		unJugador.invocar(monstruoDefensa);
 		otroJugador.invocar(monstruoAtaque);
 		
-		otroJugador.atacarCon_A(monstruoDefensa, monstruoAtaque);
+		otroJugador.atacarCon_A(monstruoAtaque, monstruoDefensa);
 		
 		
 		assertEquals(false,campito.estaEnElCementerio(monstruoDefensa)); 

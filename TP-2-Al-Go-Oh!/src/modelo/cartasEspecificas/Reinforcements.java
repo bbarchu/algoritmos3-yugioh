@@ -2,7 +2,6 @@ package modelo.cartasEspecificas;
 
 import modelo.cartasGenericas.CartaMonstruo;
 import modelo.cartasGenericas.CartaTrampa;
-import modelo.cartasGenericas.Estado;
 
 public class Reinforcements extends CartaTrampa {
 	

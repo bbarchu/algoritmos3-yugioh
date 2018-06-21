@@ -1,7 +1,6 @@
 package modelo.cartasGenericas;
 
 import modelo.cartasEspecificas.Jinzo7;
-import modelo.jugador.Jugador;
 import modelo.jugador.OponenteAtacable;
 
 public class ModoAtaque extends ModoDeUso {

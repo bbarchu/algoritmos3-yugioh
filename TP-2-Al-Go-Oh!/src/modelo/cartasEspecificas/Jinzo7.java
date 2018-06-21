@@ -1,7 +1,6 @@
 package modelo.cartasEspecificas;
 
 import modelo.cartasGenericas.CartaMonstruo;
-import modelo.cartasGenericas.Estado;
 import modelo.cartasGenericas.ModoDeUso;
 import modelo.jugador.Jugador;
 import modelo.jugador.OponenteAtacable;

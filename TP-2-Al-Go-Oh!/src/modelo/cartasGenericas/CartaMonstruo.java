@@ -1,6 +1,5 @@
 package modelo.cartasGenericas;
 
-import modelo.MazoEstaVacioError;
 import modelo.TodaviaQuedanMonstruosParaAtacarEnElCampoError;
 import modelo.jugador.Jugador;
 import modelo.tablero.CampoDeBatalla;
@@ -118,7 +117,7 @@ public class CartaMonstruo extends Carta{
 		
 		otraCarta.activarCartaTrampa(this);
 		this.modo.atacar(otraCarta,this);
-		otraCarta.modo.atacar(this,otraCarta);//agrego esto
+		otraCarta.modo.atacar(this,otraCarta);
 		
 		
 		//else LANZAR EXCEPCION
@@ -175,6 +174,10 @@ public class CartaMonstruo extends Carta{
 		int puntosDeDaño = modo.obtenerPuntosDeDaño(this);
 		jugadorRival.restarVida(puntosDeDaño);	
 				
+	}
+	
+	public boolean sosDelJugador(Jugador unJugador) {
+		return (this.jugador == unJugador);
 	}
 	
 /*	public void invocar(ModoDeUso estadoDeLaInvocacion) {

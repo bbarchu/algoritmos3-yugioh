@@ -1,7 +1,5 @@
 package modelo.cartasGenericas;
 
-import java.util.Scanner;
-
 import modelo.tablero.CampoDeBatalla;
 
 public class RequiereDosSacrificios extends Sacrificio {

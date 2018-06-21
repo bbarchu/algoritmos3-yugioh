@@ -3,10 +3,8 @@ package modelo.jugador;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.ListIterator;
 
 import modelo.cartasGenericas.Carta;
-import modelo.cartasGenericas.CartaMonstruo;
 
 public class Mano {
 	int cantidad;
