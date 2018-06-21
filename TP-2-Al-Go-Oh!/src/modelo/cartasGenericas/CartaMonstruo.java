@@ -2,12 +2,13 @@ package modelo.cartasGenericas;
 
 import modelo.TodaviaQuedanMonstruosParaAtacarEnElCampoError;
 import modelo.jugador.Jugador;
+import modelo.jugador.JugadorModificable;
 import modelo.jugador.OponenteAtacable;
 import modelo.tablero.CampoDeBatalla;
 
 public class CartaMonstruo extends Carta{
 	
-	protected Jugador jugador;
+	protected JugadorModificable jugador;
 	
 	private int puntosDeAtaque;
 	private int puntosDeDefensa;

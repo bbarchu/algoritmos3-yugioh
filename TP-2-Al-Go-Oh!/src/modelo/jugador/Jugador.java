@@ -9,7 +9,7 @@ import modelo.cartasGenericas.CartaMonstruo;
 import modelo.cartasGenericas.CartaTrampa;
 import modelo.tablero.CampoDeBatalla;
 
-public class Jugador implements OponenteAtacable{
+public class Jugador implements OponenteAtacable, JugadorModificable{
 		
 	//Lucas: el jugador debe poder interactuar con el jugadorRival para atacarlo
 	//Lucas: considero que no es una buena solucion ya que el jugador no debería poder ver los metodos
@@ -96,7 +96,7 @@ public class Jugador implements OponenteAtacable{
 		this.eliminarDeLaMano(unaCartaCampo);
 	}
 
-	public void atacarCon_A(CartaMonstruo carta, CartaMonstruo otraCarta){
+	public void atacarConA(CartaMonstruo carta, CartaMonstruo otraCarta){
 		if (otraCarta.sosDelJugador(this)) {
 			throw new ElJugadorNoPuedeAtacarASusPropiasCartasError();
 		}

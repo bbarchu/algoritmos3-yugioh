@@ -1,13 +1,14 @@
 package modelo.cartasGenericas;
 
 import modelo.jugador.Jugador;
+import modelo.jugador.JugadorModificable;
 import modelo.tablero.CampoDeBatalla;
 
 public class CartaCampo extends Carta {
 	
 	// Efecto que abarca a todo el campo, camo amigo y campo enemigo, bar.
 	//Cuando se destrute una carta de campo? ya que no dice nada al respecto, no tiene un unico uso.
-	protected Jugador jugador;
+	protected JugadorModificable jugador;
 	protected String nombre;
 	
 	public CartaCampo(Jugador unJugador) {

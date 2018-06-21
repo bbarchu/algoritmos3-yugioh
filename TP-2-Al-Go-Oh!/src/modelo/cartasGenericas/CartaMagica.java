@@ -1,12 +1,13 @@
 package modelo.cartasGenericas;
 
 import modelo.jugador.Jugador;
+import modelo.jugador.JugadorModificable;
 import modelo.tablero.CampoDeBatalla;
 
 public class CartaMagica extends Carta {
 	
 	private Estado estado;
-	protected Jugador jugador;
+	protected JugadorModificable jugador;
 	protected String nombre;
 	// Efecto
 	
@@ -48,8 +49,8 @@ public class CartaMagica extends Carta {
 	}
 
 	@Override
-	public void invocate(Jugador jugador) {
-		jugador.invocar(this);
+	public void invocate(Jugador unJugador) {
+		unJugador.invocar(this);
 	}
 	
 	public String getNombre() {

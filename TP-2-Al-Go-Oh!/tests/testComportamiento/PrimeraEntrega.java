@@ -112,7 +112,7 @@ public class PrimeraEntrega {
 		unJugador.invocar(monstruoDeUnJugador);
 		otroJugador.invocar(monstruoDeOtroJugador);
 		
-		otroJugador.atacarCon_A(monstruoDeOtroJugador, monstruoDeUnJugador);
+		otroJugador.atacarConA(monstruoDeOtroJugador, monstruoDeUnJugador);
 		
 		assertEquals(puntosDeVidaEsperados, unJugador.obtenerPuntosDeVida());
 		
@@ -145,7 +145,7 @@ public class PrimeraEntrega {
 		jugadorMalo.invocar(monstruoDeJugadorMalo);
 		jugadorBueno.invocar(monstruoDeJugadorBueno);
 		
-		jugadorMalo.atacarCon_A(monstruoDeJugadorMalo, monstruoDeJugadorBueno);
+		jugadorMalo.atacarConA(monstruoDeJugadorMalo, monstruoDeJugadorBueno);
 		
 		assertEquals(puntosDeVidaEsperados,jugadorMalo.obtenerPuntosDeVida());
 	}
@@ -180,7 +180,7 @@ public class PrimeraEntrega {
 		unJugador.invocar(monstruoDeUnJugador);
 		otroJugador.invocar(monstruoDeOtroJugador);
 		
-		otroJugador.atacarCon_A(monstruoDeOtroJugador, monstruoDeUnJugador);
+		otroJugador.atacarConA(monstruoDeOtroJugador, monstruoDeUnJugador);
 		
 		assertEquals(puntosDeVidaIniciales, unJugador.obtenerPuntosDeVida());
 		assertEquals(puntosDeVidaIniciales,otroJugador.obtenerPuntosDeVida());
@@ -219,7 +219,7 @@ public class PrimeraEntrega {
 		unJugador.invocar(monstruoDefensa);
 		otroJugador.invocar(monstruoAtaque);
 		
-		otroJugador.atacarCon_A(monstruoAtaque, monstruoDefensa);
+		otroJugador.atacarConA(monstruoAtaque, monstruoDefensa);
 		
 		assertEquals(true,campito.estaEnElCementerio(monstruoDefensa));
 		assertEquals(false,campito2.estaEnElCementerio(monstruoAtaque));
@@ -258,7 +258,7 @@ public class PrimeraEntrega {
 		unJugador.invocar(monstruoDefensa);
 		otroJugador.invocar(monstruoAtaque);
 		
-		otroJugador.atacarCon_A(monstruoAtaque, monstruoDefensa);
+		otroJugador.atacarConA(monstruoAtaque, monstruoDefensa);
 		
 		
 		assertEquals(false,campito.estaEnElCementerio(monstruoDefensa)); 
