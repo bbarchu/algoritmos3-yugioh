@@ -53,7 +53,7 @@ public class ContenedorBienvenidos extends VBox {
 	    etiqueta2.setTextFill(Color.web("#600a0a"));
 	    
        // BotonEntrarEventHandler botonEntrarHandler = new BotonEntrarEventHandler(stage, proximaEscena);
-        //botonEntrar.setOnAction(botonEntrarHandler);
+      //botonEntrar.setOnAction(botonEntrarHandler);
 	
 	
 	        this.getChildren().addAll(etiqueta1, etiqueta2, botonEntrar);
