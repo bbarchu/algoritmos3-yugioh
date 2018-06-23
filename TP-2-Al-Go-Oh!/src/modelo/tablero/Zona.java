@@ -3,6 +3,7 @@ package modelo.tablero;
 import java.util.Iterator;
 import java.util.LinkedList;
 
+import excepciones.ErrorZonaSinCapacidad;
 import modelo.cartasGenericas.Carta;
 
 public abstract class Zona {
@@ -26,10 +27,12 @@ public abstract class Zona {
 	}
 	
 	public void agregarCarta (Carta carta) {
-		if(cantidadDeCartas <= capacidad) {
+		
+		if(cantidadDeCartas < capacidad) {
 			cartas.add(carta);
 			cantidadDeCartas++;
 		}
+		else throw(new ErrorZonaSinCapacidad());
 		//else {La ZONA esta llena! MovimientoIncorrectoError }
 	}
 	
@@ -50,6 +53,7 @@ public abstract class Zona {
 */	}
 
 	public boolean estaVacio() {
+		
 		return cartas.isEmpty();
 	}
 	

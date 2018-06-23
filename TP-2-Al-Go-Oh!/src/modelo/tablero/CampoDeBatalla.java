@@ -13,37 +13,28 @@ import modelo.cartasGenericas.CartaMonstruo;
 import modelo.cartasGenericas.CartaTrampa;
 
 public class CampoDeBatalla {
-
-//	Zona cartasMagicas;
-//	Zona cartasCampo;
-//	Zona cartasTrampa;
 	
 	ZonaMonstruos cartasMonstruo;
-	Zona cartasMagiaTrampa;
+	ZonaMagia cartasMagia;
 	ZonaTrampa cartasTrampa;
-	Zona cartaCampo;
-	
-	
-	Carta cartaMagica;
+	ZonaCartaCampo cartaCampo;
 	Cementerio cementerio;
 	
 	public CampoDeBatalla() {
 		
-		int cantidadMaximaMonstruos = 5;
-		int cantidadMaximaDeMagiaTrampa = 5;
-		int cantidadMaximaCampo = 1;
-		
-		cartasTrampa = new ZonaTrampa(cantidadMaximaDeMagiaTrampa);
-		cartasMonstruo = new ZonaMonstruos(cantidadMaximaMonstruos);
-		cartasMagiaTrampa = new ZonaMagiaTrampa(cantidadMaximaDeMagiaTrampa);
-		cartaCampo = new ZonaCartaCampo(cantidadMaximaCampo);
+		cartasTrampa = new ZonaTrampa();
+		cartasMonstruo = new ZonaMonstruos();
+		cartasMagia = new ZonaMagia();
+		cartaCampo = new ZonaCartaCampo();
 		cementerio = new Cementerio();
 		
-		
-		
+		cartasTrampa.observarA(cartasMagia);
+		cartasMagia.observarA(cartasTrampa);
+	
 	}
 	
 	public LinkedList<CartaMonstruo> buscarTresCartasMonstruoIguales (String nombreCartaMonstruo) {
+		
 		LinkedList<CartaMonstruo> cartas = cartasMonstruo.buscarTresCartas(nombreCartaMonstruo);
 		return cartas;
 	}
@@ -55,7 +46,7 @@ public class CampoDeBatalla {
 	public void colocar(CartaMagica unaCartaMagica ) {
 		
 		
-		this.cartasMagiaTrampa.agregarCarta(unaCartaMagica);
+		this.cartasMagia.agregarCarta(unaCartaMagica);
 		
 		if(unaCartaMagica.estaBocaArriba()) {		
 			unaCartaMagica.activarEfecto();
@@ -109,7 +100,7 @@ public class CampoDeBatalla {
 		// Aca puede lanzar una excepcion si no la encuentra
 		
 		
-		cartasMagiaTrampa.eliminarCarta(unaCartaMagica);
+		cartasMagia.eliminarCarta(unaCartaMagica);
 		cementerio.agregarCarta(unaCartaMagica);
 	}
 	
@@ -132,7 +123,7 @@ public class CampoDeBatalla {
 	}
 	
 	public Boolean hayCartasMagiaOTrampa() {
-		return (!cartasMagiaTrampa.estaVacio());
+		return (!cartasMagia.estaVacio());
 	}
 	
 	public boolean estaEnElCementerio(Carta unaCarta){

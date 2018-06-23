@@ -2,9 +2,15 @@ package modelo.tablero;
 
 public class ZonaCartaCampo extends Zona {
 	
-	//Bar = aca que onda, la zona carta campo tiene 1 sola capacidad?; En el dibujo al menos lo parece.
+	private static int capacidadMaxima = 1;
 	
-	 ZonaCartaCampo(int cantidadMaximaCartasCampo){
+	public ZonaCartaCampo(){
+		
+		super(capacidadMaxima);
+	}
+	
+	public ZonaCartaCampo(int cantidadMaximaCartasCampo){
+		
 		super(cantidadMaximaCartasCampo);	
 	}	 
 

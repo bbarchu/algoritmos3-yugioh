@@ -1,58 +1,30 @@
 package modelo.tablero;
 
 import modelo.cartasGenericas.Carta;
-import modelo.cartasGenericas.CartaMonstruo;
-import modelo.cartasGenericas.CartaTrampa;
 
-public class ZonaTrampa extends Zona implements Observable, Observador{
+public class ZonaMagia extends Zona implements Observable, Observador {
 	
 	private static int capacidadMaxima = 5;
 	
 	private Observable observado;
 	
-	public ZonaTrampa() {
+	public ZonaMagia(int cantidadMaximaCartasMagia){
+		
+		super (cantidadMaximaCartasMagia);
+		
+		observado = null;
+	}	
+	
+	public ZonaMagia() {
 		
 		super(capacidadMaxima);
 		
 		observado = null;
 	}
-
-	 public ZonaTrampa(int cantidadMaximaCartasMagia){
-			
-		 super (cantidadMaximaCartasMagia);
-		
-		 observado = null;
-	}
-	 
-	public void observarA(ZonaMagia zona) {
+	
+	public void observarA(ZonaTrampa zona) {
 		
 		observado = zona;
-	}
-	 
-	public void activarCartaTrampa(CartaMonstruo atacante, CartaMonstruo atacado) {
-		
-		if(!this.estaVacio()) {
-			
-			CartaTrampa cartaTrampa = obtenerPrimerCartaTrampa();
-		
-			cartaTrampa.activarEfecto(atacante, atacado);
-		}
-	}
-	
-	public void desactivarCartaTrampa(CartaMonstruo atacante, CartaMonstruo atacado) {
-		
-		CartaTrampa cartaTrampa = obtenerPrimerCartaTrampa();
-		
-		cartaTrampa.desactivarEfecto(atacante, atacado);
-	}
-	
-	private CartaTrampa obtenerPrimerCartaTrampa() {
-		
-		int posicionPrimerCarta = 0; 
-		
-		CartaTrampa carta = (CartaTrampa) this.verCartas().get(posicionPrimerCarta);
-		
-		return carta;
 	}
 	
 	@Override
@@ -76,6 +48,7 @@ public class ZonaTrampa extends Zona implements Observable, Observador{
 		return (this.observado != null);
 	}
 	
+
 	@Override
 	public void seHaColocadoUnaCarta() {
 		
@@ -99,4 +72,6 @@ public class ZonaTrampa extends Zona implements Observable, Observador{
 		
 		this.observado.seHaDestruidoUnaCarta();
 	}
+	
 }
+
