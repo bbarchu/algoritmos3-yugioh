@@ -19,7 +19,7 @@ public class CampoDeBatalla {
 //	Zona cartasTrampa;
 	
 	ZonaMonstruos cartasMonstruo;
-	Zona cartasMagiaTrampa;
+	ZonaMagia cartasMagia;
 	ZonaTrampa cartasTrampa;
 	Zona cartaCampo;
 	
@@ -35,12 +35,13 @@ public class CampoDeBatalla {
 		
 		cartasTrampa = new ZonaTrampa(cantidadMaximaDeMagiaTrampa);
 		cartasMonstruo = new ZonaMonstruos(cantidadMaximaMonstruos);
-		cartasMagiaTrampa = new ZonaMagiaTrampa(cantidadMaximaDeMagiaTrampa);
+		cartasMagia = new ZonaMagia(cantidadMaximaDeMagiaTrampa);
 		cartaCampo = new ZonaCartaCampo(cantidadMaximaCampo);
 		cementerio = new Cementerio();
 		
-		
-		
+		cartasTrampa.observarA(cartasMagia);
+		cartasMagia.observarA(cartasTrampa);
+	
 	}
 	
 	public LinkedList<CartaMonstruo> buscarTresCartasMonstruoIguales (String nombreCartaMonstruo) {
@@ -55,7 +56,7 @@ public class CampoDeBatalla {
 	public void colocar(CartaMagica unaCartaMagica ) {
 		
 		
-		this.cartasMagiaTrampa.agregarCarta(unaCartaMagica);
+		this.cartasMagia.agregarCarta(unaCartaMagica);
 		
 		if(unaCartaMagica.estaBocaArriba()) {		
 			unaCartaMagica.activarEfecto();
@@ -109,7 +110,7 @@ public class CampoDeBatalla {
 		// Aca puede lanzar una excepcion si no la encuentra
 		
 		
-		cartasMagiaTrampa.eliminarCarta(unaCartaMagica);
+		cartasMagia.eliminarCarta(unaCartaMagica);
 		cementerio.agregarCarta(unaCartaMagica);
 	}
 	
@@ -132,7 +133,7 @@ public class CampoDeBatalla {
 	}
 	
 	public Boolean hayCartasMagiaOTrampa() {
-		return (!cartasMagiaTrampa.estaVacio());
+		return (!cartasMagia.estaVacio());
 	}
 	
 	public boolean estaEnElCementerio(Carta unaCarta){
