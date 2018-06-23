@@ -8,10 +8,15 @@ import modelo.cartasGenericas.CartaMonstruo;
 
 public class ZonaMonstruos extends Zona {
 	
-	 	
+	 private static int capacidadMaxima = 5;
 	
-	
+	 ZonaMonstruos(){
+		 
+		 super(capacidadMaxima);
+	 }
+	 
 	 ZonaMonstruos(int cantidadMaximaMonstruos){
+		 
 		 super(cantidadMaximaMonstruos);
 	 }
 	 

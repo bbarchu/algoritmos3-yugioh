@@ -13,30 +13,19 @@ import modelo.cartasGenericas.CartaMonstruo;
 import modelo.cartasGenericas.CartaTrampa;
 
 public class CampoDeBatalla {
-
-//	Zona cartasMagicas;
-//	Zona cartasCampo;
-//	Zona cartasTrampa;
 	
 	ZonaMonstruos cartasMonstruo;
 	ZonaMagia cartasMagia;
 	ZonaTrampa cartasTrampa;
-	Zona cartaCampo;
-	
-	
-	Carta cartaMagica;
+	ZonaCartaCampo cartaCampo;
 	Cementerio cementerio;
 	
 	public CampoDeBatalla() {
 		
-		int cantidadMaximaMonstruos = 5;
-		int cantidadMaximaDeMagiaTrampa = 5;
-		int cantidadMaximaCampo = 1;
-		
-		cartasTrampa = new ZonaTrampa(cantidadMaximaDeMagiaTrampa);
-		cartasMonstruo = new ZonaMonstruos(cantidadMaximaMonstruos);
-		cartasMagia = new ZonaMagia(cantidadMaximaDeMagiaTrampa);
-		cartaCampo = new ZonaCartaCampo(cantidadMaximaCampo);
+		cartasTrampa = new ZonaTrampa();
+		cartasMonstruo = new ZonaMonstruos();
+		cartasMagia = new ZonaMagia();
+		cartaCampo = new ZonaCartaCampo();
 		cementerio = new Cementerio();
 		
 		cartasTrampa.observarA(cartasMagia);
@@ -45,6 +34,7 @@ public class CampoDeBatalla {
 	}
 	
 	public LinkedList<CartaMonstruo> buscarTresCartasMonstruoIguales (String nombreCartaMonstruo) {
+		
 		LinkedList<CartaMonstruo> cartas = cartasMonstruo.buscarTresCartas(nombreCartaMonstruo);
 		return cartas;
 	}
