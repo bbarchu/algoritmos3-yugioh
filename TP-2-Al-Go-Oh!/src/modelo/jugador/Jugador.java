@@ -85,9 +85,11 @@ public class Jugador implements OponenteAtacable, JugadorModificable{
 	public void invocar(CartaMonstruo unMonstruo) {
 		
 		if(this.mano.contiene(unMonstruo)){
+			
 			campoDelJugador.colocar(unMonstruo);
+			this.eliminarDeLaMano(unMonstruo);
 		}
-		this.eliminarDeLaMano(unMonstruo);
+	
 	}
 	
 	public void invocar(CartaTrampa trampa) {
@@ -102,21 +104,27 @@ public class Jugador implements OponenteAtacable, JugadorModificable{
 	public void invocar(CartaMagica unaCartaMagica) {
 		
 		if(this.mano.contiene(unaCartaMagica)){
+			
 			campoDelJugador.colocar(unaCartaMagica);
+			this.eliminarDeLaMano(unaCartaMagica);
 		}
-		this.eliminarDeLaMano(unaCartaMagica);
+		
 	}
 	
 	public void invocar(CartaCampo unaCartaCampo) {
 		
 		if(this.mano.contiene(unaCartaCampo)){
+			
 			campoDelJugador.colocar(unaCartaCampo);
+			this.eliminarDeLaMano(unaCartaCampo);
 		}
-		this.eliminarDeLaMano(unaCartaCampo);
+		
 	}
 
 	public void atacarConA(CartaMonstruo carta, CartaMonstruo otraCarta){
+		
 		if (otraCarta.sosDelJugador(this)) {
+			
 			throw new ElJugadorNoPuedeAtacarASusPropiasCartasError();
 		}
 		carta.atacar(otraCarta);

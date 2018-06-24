@@ -5,12 +5,19 @@ import modelo.jugador.OponenteAtacable;
 
 public abstract class ModoDeUso {
 	
-
-	public abstract void atacar(CartaMonstruo otraCarta, CartaMonstruo miCarta);
-
-	public abstract void defender(CartaMonstruo carta, CartaMonstruo cartaAtacada);
 	
 	public abstract void atacarDirectamenteSinContemplarDefensa(Jinzo7 carta, OponenteAtacable oponente);
 	
-	public abstract int obtenerPuntosDeDaño(CartaMonstruo carta);
+	
+	public abstract int obtenerPuntosUtilizadosEnElModoActual(int puntosAtaque, int puntosDefensa);
+	
+	public abstract void realizarEnfrentamiento(CartaMonstruo atacante, CartaMonstruo atacada);
+	
+	public abstract void atacarSiCorresponde(CartaMonstruo atacante, CartaMonstruo atacada);
+	
+	public abstract void destruirSiCorresponde(CartaMonstruo cartaQueDestruir);
+	
+	public abstract void restarVidaDelInvocadorDe(CartaMonstruo cartaPerdedora, int danio);
+
+	public abstract void restarVidaDeMiInvocador(CartaMonstruo carta, int daño);
 }

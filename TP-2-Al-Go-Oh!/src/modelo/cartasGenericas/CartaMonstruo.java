@@ -1,5 +1,6 @@
 package modelo.cartasGenericas;
 
+import excepciones.ErrorAtaqueNoPermitido;
 import modelo.TodaviaQuedanMonstruosParaAtacarEnElCampoError;
 import modelo.jugador.Jugador;
 import modelo.jugador.JugadorModificable;
@@ -83,11 +84,8 @@ public class CartaMonstruo extends Carta{
 
 	@Override
 	public void colocateEn(CampoDeBatalla campoDeBatalla) {
+		
 		campoDeBatalla.colocar(this);
-	}
-
-	public void recibirAtaque(CartaMonstruo otraCarta) {
-		this.modo.defender(otraCarta, this);	
 	}
 		
 	//Bar: agrego esta linea para verificar que existan en el cementerio.
@@ -105,32 +103,40 @@ public class CartaMonstruo extends Carta{
 		return this.puntosDeDefensa;
 	}
 	
-	private void activarCartaTrampa(CartaMonstruo cartaAtacante) {
+	public void activarCartaTrampa(CartaMonstruo cartaAtacante) {
 		
 		this.jugador.obtenerCampoDeBatalla().activarCartaTrampa(cartaAtacante, this);
 	}
 	
-	private void desactivarCartaTrampa(CartaMonstruo cartaAtacante) {
+	public void desactivarCartaTrampa(CartaMonstruo cartaAtacante) {
 		
 		this.jugador.obtenerCampoDeBatalla().desactivarCartaTrampa(cartaAtacante, this);
 	}
 	
-	public void atacaConTuModo(CartaMonstruo unaCarta) {
-		this.modo.atacar(unaCarta,this);
-	}
 	public void atacar(CartaMonstruo otraCarta) {
 		
-		otraCarta.activarCartaTrampa(this);
-		this.modo.atacar(otraCarta,this);
-		otraCarta.atacaConTuModo(this);
+		this.modo.atacarSiCorresponde(this, otraCarta);
 		
+	}
+	
+	public void atacarA(CartaMonstruo cartaAtacada) {
+	
+		cartaAtacada.recibirAtaque(this);
+	}
+	
+	public void recibirAtaque(CartaMonstruo atacante) {
 		
-		//else LANZAR EXCEPCION
+		atacante.comenzarBatalla(this);
+	}
+	
+	public void comenzarBatalla(CartaMonstruo cartaAtacada) {
+		
+		this.modo.realizarEnfrentamiento(this, cartaAtacada);
 	}
 
 	public void restarVidaAJugador(int decrementoVida) {
-		this.jugador.restarVida(decrementoVida);
 		
+		this.jugador.restarVida(decrementoVida);
 	}
 
 	public boolean estaBocaArriba() {
@@ -140,23 +146,28 @@ public class CartaMonstruo extends Carta{
 	
 	@Override
 	public void invocate(Jugador jugador) {
+		
 		jugador.invocar(this);
 	}
 
 	public void realizarSacrificiosNecesariosEn(CampoDeBatalla campoDeBatalla) {
+		
 		sacrificioRequerido.sacrificarDeSerNecesario(campoDeBatalla);
 	}
 
 	@Override
 	public void destruite(CampoDeBatalla campoDeBatalla) {
+		
 		campoDeBatalla.destruir(this);
 	}
 	
 	public void aumentarPuntosDeAtaqueEn(int puntosAAumentar) {
+		
 		this.puntosDeAtaque += puntosAAumentar;
 	}
 	
 	public void aumentarPuntosDeDefensaEn(int puntosAAumentar) {
+		
 		this.puntosDeDefensa += puntosAAumentar;
 	}
 	
@@ -166,42 +177,47 @@ public class CartaMonstruo extends Carta{
 	}
 	
 	public String getNombre() {
+		
 		return this.nombre;
 	}
 	
 	public void atacarDirectoAlJugadorRival() {
+		
 		OponenteAtacable jugadorRival = jugador.obtenerJugadorRival();
+		
 		if (jugadorRival.obtenerCampoDeBatalla().hayCartasMonstruo()) {
-			throw new TodaviaQuedanMonstruosParaAtacarEnElCampoError();
 			
+			throw new TodaviaQuedanMonstruosParaAtacarEnElCampoError();
 		}
 		
-		int puntosDeDaño = modo.obtenerPuntosDeDaño(this);
-		jugadorRival.restarVida(puntosDeDaño);	
-				
+		int puntosDeDaño = modo.obtenerPuntosUtilizadosEnElModoActual(this.puntosDeAtaque, this.puntosDeDefensa);
+		jugadorRival.restarVida(puntosDeDaño);				
 	}
 	
 	public boolean sosDelJugador(Jugador unJugador) {
+		
 		return (this.jugador == unJugador);
 	}
 	
-/*	public void invocar(ModoDeUso estadoDeLaInvocacion) {
+	public int obtenerPuntosParaElEnfrentamiento() {
 		
-		modo = estadoDeLaInvocacion;
-		
-		campoDeJuego.invocar(this);
-	}
-	
-	public void colocarEnPosicionDeAtaque() {
-		
-		posicion = new PosicionDeAtaque();
-	}
-	
-	public void colocarEnPosicionDeDefensa() {
-		
-		posicion = new PosicionDeDefensa();
+		return ( this.modo.obtenerPuntosUtilizadosEnElModoActual(this.puntosDeAtaque, this.puntosDeDefensa));
 	}
 
-*/
 
+	
+	public void destruirSiCorrespondeA(CartaMonstruo cartaQueDestruir) {
+		
+		this.modo.destruirSiCorresponde(cartaQueDestruir);
+	}
+	
+	public void restarVidaDeMiInvocadorSiCorresponde(int daño) {
+		
+		this.modo.restarVidaDeMiInvocador(this, daño);
+	}
+
+	public void restarVidaAlInvocadorDeSiCorresponde(CartaMonstruo cartaPerdedora, int danio) {
+		
+		this.modo.restarVidaDelInvocadorDe(cartaPerdedora, danio);
+	}
 }

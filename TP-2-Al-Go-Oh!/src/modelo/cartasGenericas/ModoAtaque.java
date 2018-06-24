@@ -5,45 +5,47 @@ import modelo.jugador.OponenteAtacable;
 
 public class ModoAtaque extends ModoDeUso {
 	
-
-	@Override
-	public void atacar(CartaMonstruo otraCarta, CartaMonstruo miCarta) {
-		otraCarta.recibirAtaque(miCarta);
-	
-	}
-
-	@Override
-	public void defender(CartaMonstruo cartaAtacante, CartaMonstruo cartaAtacada) {
-		int puntosDefensa = cartaAtacada.obtenerPuntosDeAtaque();
-		int puntosAtaque = cartaAtacante.obtenerPuntosDeAtaque();
-		
-		if (puntosDefensa < puntosAtaque) {
-			int diferencia = puntosAtaque - puntosDefensa;
-			cartaAtacada.destruirCarta();
-			cartaAtacada.restarVidaAJugador(diferencia);
-		}
-		else if (puntosDefensa < puntosAtaque) {
-			cartaAtacante.destruirCarta();
-		}
-		
-		//bar:  ambas se destruyen, y no se restan puntos de vida
-		
-		else if(puntosDefensa == puntosAtaque) {
-			cartaAtacante.destruirCarta();
-			cartaAtacada.destruirCarta();
-		}
-	}
-
-
 	@Override
 	public void atacarDirectamenteSinContemplarDefensa(Jinzo7 carta, OponenteAtacable oponente) {
+		
 		oponente.restarVida(carta.obtenerPuntosDeAtaque());
+	}
+	
+	public int obtenerPuntosUtilizadosEnElModoActual(int puntosAtaque, int puntosDefensa) {
+		
+		return puntosAtaque;
+	}
+
+	public void restarVidaDeMiInvocador(CartaMonstruo carta, int daño) {
+		
+		carta.restarVidaAJugador(daño);
+	}
+	
+	
+	public void atacarSiCorresponde(CartaMonstruo atacante, CartaMonstruo atacada) {
+		
+		atacada.activarCartaTrampa(atacante);
+		atacante.atacarA(atacada);
+	}
+	
+	public void realizarEnfrentamiento(CartaMonstruo atacante, CartaMonstruo atacada) {
+		
+		Batalla batalla = (new Batalla(atacante, atacada));
+	}
+
+	@Override
+	public void destruirSiCorresponde(CartaMonstruo cartaQueDestruir) {
+		
+		cartaQueDestruir.destruirCarta();
+	}
+
+	@Override
+	public void restarVidaDelInvocadorDe(CartaMonstruo cartaPerdedora, int danio) {
+		
+		cartaPerdedora.restarVidaDeMiInvocadorSiCorresponde(danio);
 		
 	}
-	
-	public  int obtenerPuntosDeDaño(CartaMonstruo carta) {
-		return carta.obtenerPuntosDeAtaque();
-	}
-	
+
+
 
 }

@@ -15,6 +15,7 @@ public class InsectoComeHombres extends CartaMonstruo{
 		super(puntosDeAtaque, puntosDeDefensa, estrellas, modo, jugador);
 	}
 
+	@Override
 	public void recibirAtaque(CartaMonstruo otraCarta) {
 		
 		if(!this.estaBocaArriba()) {
