@@ -44,6 +44,11 @@ public class CartaMagica extends Carta {
 		
 		return (estado.estaActiva());
 	}
+	
+	public void voltearCarta() {
+		
+		activarEfecto();
+	}
 
 	public void activarEfecto() {
 	}
@@ -56,11 +61,5 @@ public class CartaMagica extends Carta {
 	public String getNombre() {
 		return this.nombre;
 	}
-	
-//	public void invocarBocaAbajo() {
-	
-//		estado = new BocaAbajo();
-		
-//		campoDeJuego.invocar(this);
-//	}
+
 }
