@@ -16,6 +16,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
+import vista.handlers.BotonEntrarEventHandler;
 
 public class ContenedorBienvenidos extends VBox {
 
@@ -52,8 +53,8 @@ public class ContenedorBienvenidos extends VBox {
 	    etiqueta1.setTextFill(Color.web("#9b0606"));
 	    etiqueta2.setTextFill(Color.web("#600a0a"));
 	    
-       // BotonEntrarEventHandler botonEntrarHandler = new BotonEntrarEventHandler(stage, proximaEscena);
-      //botonEntrar.setOnAction(botonEntrarHandler);
+       BotonEntrarEventHandler botonEntrarHandler = new BotonEntrarEventHandler(stage, proximaEscena);
+       botonEntrar.setOnAction(botonEntrarHandler);
 	
 	
 	        this.getChildren().addAll(etiqueta1, etiqueta2, botonEntrar);
