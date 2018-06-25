@@ -112,6 +112,8 @@ public class PrimeraEntrega {
 		unJugador.invocar(monstruoDeUnJugador);
 		otroJugador.invocar(monstruoDeOtroJugador);
 		
+		otroJugador.voltearCarta(monstruoDeOtroJugador);
+		
 		otroJugador.atacarConA(monstruoDeOtroJugador, monstruoDeUnJugador);
 		
 		assertEquals(puntosDeVidaEsperados, unJugador.obtenerPuntosDeVida());
@@ -145,6 +147,7 @@ public class PrimeraEntrega {
 		jugadorMalo.invocar(monstruoDeJugadorMalo);
 		jugadorBueno.invocar(monstruoDeJugadorBueno);
 		
+		jugadorMalo.voltearCarta(monstruoDeJugadorMalo);
 		jugadorMalo.atacarConA(monstruoDeJugadorMalo, monstruoDeJugadorBueno);
 		
 		assertEquals(puntosDeVidaEsperados,jugadorMalo.obtenerPuntosDeVida());
@@ -180,6 +183,7 @@ public class PrimeraEntrega {
 		unJugador.invocar(monstruoDeUnJugador);
 		otroJugador.invocar(monstruoDeOtroJugador);
 		
+		otroJugador.voltearCarta(monstruoDeOtroJugador);
 		otroJugador.atacarConA(monstruoDeOtroJugador, monstruoDeUnJugador);
 		
 		assertEquals(puntosDeVidaIniciales, unJugador.obtenerPuntosDeVida());
@@ -219,6 +223,7 @@ public class PrimeraEntrega {
 		unJugador.invocar(monstruoDefensa);
 		otroJugador.invocar(monstruoAtaque);
 		
+		otroJugador.voltearCarta(monstruoAtaque);
 		otroJugador.atacarConA(monstruoAtaque, monstruoDefensa);
 		
 		assertEquals(true,campito.estaEnElCementerio(monstruoDefensa));
@@ -257,7 +262,8 @@ public class PrimeraEntrega {
 		
 		unJugador.invocar(monstruoDefensa);
 		otroJugador.invocar(monstruoAtaque);
-		
+
+		otroJugador.voltearCarta(monstruoAtaque);
 		otroJugador.atacarConA(monstruoAtaque, monstruoDefensa);
 		
 		

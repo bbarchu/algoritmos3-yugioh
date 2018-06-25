@@ -47,6 +47,7 @@ public class Jugador implements OponenteAtacable, JugadorModificable{
 	}
 	
 	public String verNombre() {
+		
 		return this.nombre;
 	}
 
@@ -115,7 +116,14 @@ public class Jugador implements OponenteAtacable, JugadorModificable{
 			campoDelJugador.colocar(unaCartaCampo);
 			this.eliminarDeLaMano(unaCartaCampo);
 		}
+	}
+	
+	public void voltearCarta(Carta carta) {
 		
+		if(this.campoDelJugador.estaInvocadaEnElCampo(carta)) {
+			
+			carta.voltearCarta();
+		}
 	}
 	
 	public void atacarDirectamenteAlOponenteCon(CartaMonstruo carta) {

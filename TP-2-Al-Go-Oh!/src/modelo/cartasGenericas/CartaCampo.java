@@ -59,4 +59,16 @@ public class CartaCampo extends Carta {
 	public String getNombre() {
 		return nombre;
 	}
+
+	@Override
+	public void voltearCarta() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean verificarQueEsteInvocadaEn(CampoDeBatalla campo) {
+		
+		return (campo.verificarQueEstaEnElCampo(this));
+	}
 }

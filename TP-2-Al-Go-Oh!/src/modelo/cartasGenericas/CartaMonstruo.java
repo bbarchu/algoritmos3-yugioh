@@ -1,6 +1,6 @@
 package modelo.cartasGenericas;
 
-import excepciones.TodaviaQuedanMonstruosParaAtacarEnElCampoError;
+import excepciones.ErrorCartaBocaAbajoAtaqueInvalido;
 import modelo.jugador.Jugador;
 import modelo.jugador.JugadorModificable;
 import modelo.jugador.OponenteAtacable;
@@ -80,6 +80,11 @@ public class CartaMonstruo extends Carta{
 		
 		this.estado = new BocaArriba();
 	}
+	
+	public boolean verificarQueEsteInvocadaEn(CampoDeBatalla campo) {
+		
+		return (campo.verificarQueEstaEnElCampo(this));
+	}
 
 	@Override
 	public void colocateEn(CampoDeBatalla campoDeBatalla) {
@@ -114,8 +119,9 @@ public class CartaMonstruo extends Carta{
 	
 	public void atacar(CartaMonstruo otraCarta) {
 		
-		this.modo.atacarSiCorresponde(this, otraCarta);
+		if(this.estaBocaArriba()) this.modo.atacarSiCorresponde(this, otraCarta);
 		
+		else throw(new ErrorCartaBocaAbajoAtaqueInvalido());
 	}
 	
 	public void atacarA(CartaMonstruo cartaAtacada) {

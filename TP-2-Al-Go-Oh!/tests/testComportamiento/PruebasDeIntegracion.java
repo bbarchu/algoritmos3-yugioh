@@ -99,7 +99,7 @@ class PruebasDeIntegracion {
 			otroJugador.invocar(monstruoNormalDeOtroJugador);
 			otroJugador.invocar(fisura);
 			
-			monstruoNormalDeOtroJugador.voltearCarta();
+			otroJugador.voltearCarta(monstruoNormalDeOtroJugador);
 			//se debe destruir el monstruo de otroJugador
 			otroJugador.atacarConA(monstruoNormalDeOtroJugador, insectoComeHombres);
 			
@@ -111,7 +111,7 @@ class PruebasDeIntegracion {
 			assertEquals(true, otroJugador.obtenerCampoDeBatalla().estaEnElCementerio(monstruoNormalDeOtroJugador));
 			
 			//al voltearse debe activar el efecto
-			fisura.voltearCarta();
+			otroJugador.voltearCarta(fisura);
 			
 			assertEquals(puntosDeVidaEsperadosDeOtroJugador, otroJugador.obtenerPuntosDeVida());
 			assertEquals(puntosDeVidaEsperadosDeUnJugador, unJugador.obtenerPuntosDeVida());

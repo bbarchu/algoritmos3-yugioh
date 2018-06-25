@@ -313,6 +313,7 @@ public class SegundaEntrega {
 		jugadorConCilindro.tomarCartaDelMazo();
 		jugadorConCilindro.invocar(cilindro);
 		
+		jugadorAtacante.voltearCarta(monstruoAtacante);
 		jugadorAtacante.atacarConA(monstruoAtacante, monstruoDefensor);
 		
 		assertEquals(puntosDeVidaEsperados, jugadorAtacante.obtenerPuntosDeVida());
@@ -352,6 +353,7 @@ public class SegundaEntrega {
 		jugadorAtacante.invocar(monstruoAtacante);
 		unJugador.invocar(insectoComeHombres);
 		
+		jugadorAtacante.voltearCarta(monstruoAtacante);
 		jugadorAtacante.atacarConA(monstruoAtacante, insectoComeHombres);
 		
 		assertEquals(true, jugadorAtacante.obtenerCampoDeBatalla().estaEnElCementerio(monstruoAtacante));
@@ -395,6 +397,7 @@ public class SegundaEntrega {
 		jugadorConReinforcements.tomarCartaDelMazo();
 		jugadorConReinforcements.invocar(reinforcements);
 		
+		jugadorAtacante.voltearCarta(monstruoAtacante);
 		jugadorAtacante.atacarConA(monstruoAtacante, monstruoConReinforcement);
 		
 		assertEquals(true, jugadorAtacante.obtenerCampoDeBatalla().estaEnElCementerio(monstruoAtacante));

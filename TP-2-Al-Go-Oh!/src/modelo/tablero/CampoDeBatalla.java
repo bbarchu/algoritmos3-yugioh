@@ -186,6 +186,30 @@ public class CampoDeBatalla {
  	public CartaMonstruo buscarMonstruo(String nombreMonstruo) {
  		return cartasMonstruo.buscarCarta(nombreMonstruo);
  	}
+
+	public boolean estaInvocadaEnElCampo(Carta carta) {
+		
+		return (carta.verificarQueEsteInvocadaEn(this));
+	}
+	 public boolean verificarQueEstaEnElCampo(CartaMonstruo carta) {
+		 
+		return(this.cartasMonstruo.contiene(carta));
+	 }
+	 
+	 public boolean verificarQueEstaEnElCampo(CartaMagica carta) {
+		 
+		 return(this.cartasMagia.contiene(carta));
+	 }
+	 
+	 public boolean verificarQueEstaEnElCampo(CartaCampo carta) {
+		 
+		 return(this.cartaCampo.contiene(carta));
+	 }
+	 
+	 public boolean verificarQueEstaEnElCampo(CartaTrampa carta) {
+		 
+		 return(this.cartasTrampa.contiene(carta));
+	 }
 	
 /*	public Boolean hayCartasEnElCementerio() {
 	

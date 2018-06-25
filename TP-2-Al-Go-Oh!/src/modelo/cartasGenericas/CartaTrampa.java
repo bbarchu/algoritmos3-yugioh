@@ -55,6 +55,12 @@ public class CartaTrampa extends Carta{
 	public String getNombre() {
 		return this.nombre;
 	}
+
+	@Override
+	public boolean verificarQueEsteInvocadaEn(CampoDeBatalla campo) {
+		
+		return (campo.verificarQueEstaEnElCampo(this));
+	}
 	
 /*	public void invocar() {
 	

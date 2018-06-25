@@ -62,4 +62,10 @@ public class CartaMagica extends Carta {
 		return this.nombre;
 	}
 
+	@Override
+	public boolean verificarQueEsteInvocadaEn(CampoDeBatalla campo) {
+		
+		return (campo.verificarQueEstaEnElCampo(this));
+	}
+
 }

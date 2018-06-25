@@ -15,6 +15,10 @@ public abstract class Carta {
 	
 	public abstract String getNombre();
 	
+	public abstract void voltearCarta();
+	
+	public abstract boolean verificarQueEsteInvocadaEn(CampoDeBatalla campo);
+	
 	
 //	public abstract void activarEfecto(CampoDeBatalla unCampo, CampoDeBatalla otroCampo);	
 //	protected static CampoDeBatalla campoDeJuego;
