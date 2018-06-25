@@ -1,15 +1,11 @@
 package modelo.cartasGenericas;
 
+import excepciones.TodaviaQuedanMonstruosParaAtacarEnElCampoError;
 import modelo.cartasEspecificas.Jinzo7;
 import modelo.jugador.OponenteAtacable;
 
 public class ModoAtaque extends ModoDeUso {
 	
-	@Override
-	public void atacarDirectamenteSinContemplarDefensa(Jinzo7 carta, OponenteAtacable oponente) {
-		
-		oponente.restarVida(carta.obtenerPuntosDeAtaque());
-	}
 	
 	public int obtenerPuntosUtilizadosEnElModoActual(int puntosAtaque, int puntosDefensa) {
 		
@@ -44,6 +40,22 @@ public class ModoAtaque extends ModoDeUso {
 		
 		cartaPerdedora.restarVidaDeMiInvocadorSiCorresponde(danio);
 		
+	}
+
+	@Override
+	public void atacarDirectamente(Jinzo7 carta, OponenteAtacable oponente) {
+		oponente.restarVida(carta.obtenerPuntosDeAtaque());
+		
+	}
+
+	@Override
+	public void atacarDirectamente(CartaMonstruo carta, OponenteAtacable oponente) {
+		if (oponente.obtenerCampoDeBatalla().hayCartasMonstruo()) {
+			
+			throw new TodaviaQuedanMonstruosParaAtacarEnElCampoError();
+		}
+		
+		oponente.restarVida(carta.obtenerPuntosDeAtaque());
 	}
 
 

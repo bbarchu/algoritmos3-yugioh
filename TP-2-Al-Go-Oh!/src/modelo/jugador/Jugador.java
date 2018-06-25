@@ -1,6 +1,7 @@
 package modelo.jugador;
 
 import excepciones.ElJugadorNoPuedeAtacarASusPropiasCartasError;
+import modelo.cartasEspecificas.Jinzo7;
 import modelo.cartasGenericas.Carta;
 import modelo.cartasGenericas.CartaCampo;
 import modelo.cartasGenericas.CartaMagica;
@@ -115,6 +116,14 @@ public class Jugador implements OponenteAtacable, JugadorModificable{
 			this.eliminarDeLaMano(unaCartaCampo);
 		}
 		
+	}
+	
+	public void atacarDirectamenteAlOponenteCon(CartaMonstruo carta) {
+		carta.atacarDirectoAlJugadorRival();
+	}
+	
+	public void atacarDirectamenteAlOponenteCon(Jinzo7 carta) {
+		carta.atacarDirectoAlJugadorRival();
 	}
 
 	public void atacarConA(CartaMonstruo carta, CartaMonstruo otraCarta){

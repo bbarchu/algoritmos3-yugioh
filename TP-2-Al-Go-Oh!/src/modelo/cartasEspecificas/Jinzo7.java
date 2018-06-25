@@ -14,8 +14,9 @@ public class Jinzo7 extends CartaMonstruo{
 		super(puntosDeAtaque, puntosDeDefensa, estrellas, unModo, unJugador);
 	}
 	
-	public void atacarJugador (OponenteAtacable unJugador) {
-		modo.atacarDirectamenteSinContemplarDefensa(this, unJugador);
+	public void atacarDirectoAlJugadorRival() {
+		OponenteAtacable rival = this.jugador.obtenerJugadorRival();
+		modo.atacarDirectamente(this, rival);
 		
 	}
 }

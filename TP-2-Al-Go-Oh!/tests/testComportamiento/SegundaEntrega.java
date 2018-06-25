@@ -233,7 +233,7 @@ public class SegundaEntrega {
 		otroJugador.invocar(monstruoRival);
 		unJugador.invocar(jinzo7);
 		
-		jinzo7.atacarJugador(otroJugador);
+		jinzo7.atacarDirectoAlJugadorRival();
 		
 		assertEquals(vidaEsperada,otroJugador.obtenerPuntosDeVida());
 	}

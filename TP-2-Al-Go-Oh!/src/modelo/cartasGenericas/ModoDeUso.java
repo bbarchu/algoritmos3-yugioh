@@ -6,8 +6,9 @@ import modelo.jugador.OponenteAtacable;
 public abstract class ModoDeUso {
 	
 	
-	public abstract void atacarDirectamenteSinContemplarDefensa(Jinzo7 carta, OponenteAtacable oponente);
+	public abstract void atacarDirectamente(Jinzo7 carta, OponenteAtacable oponente);
 	
+	public abstract void atacarDirectamente(CartaMonstruo carta, OponenteAtacable oponente);
 	
 	public abstract int obtenerPuntosUtilizadosEnElModoActual(int puntosAtaque, int puntosDefensa);
 	

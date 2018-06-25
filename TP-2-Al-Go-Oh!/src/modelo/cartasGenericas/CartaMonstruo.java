@@ -182,15 +182,8 @@ public class CartaMonstruo extends Carta{
 	
 	public void atacarDirectoAlJugadorRival() {
 		
-		OponenteAtacable jugadorRival = jugador.obtenerJugadorRival();
-		
-		if (jugadorRival.obtenerCampoDeBatalla().hayCartasMonstruo()) {
-			
-			throw new TodaviaQuedanMonstruosParaAtacarEnElCampoError();
-		}
-		
-		int puntosDeDaño = modo.obtenerPuntosUtilizadosEnElModoActual(this.puntosDeAtaque, this.puntosDeDefensa);
-		jugadorRival.restarVida(puntosDeDaño);				
+		OponenteAtacable jugadorRival = jugador.obtenerJugadorRival();		
+		modo.atacarDirectamente(this, jugadorRival);		
 	}
 	
 	public boolean sosDelJugador(Jugador unJugador) {

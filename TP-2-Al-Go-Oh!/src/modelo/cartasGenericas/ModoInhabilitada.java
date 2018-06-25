@@ -17,11 +17,6 @@ public class ModoInhabilitada extends ModoDeUso{
 		throw(new ErrorCartaInhabilitadaParaUnEnfrentamiento());
 	}
 
-	@Override
-	public void atacarDirectamenteSinContemplarDefensa(Jinzo7 carta, OponenteAtacable oponente) {
-		
-	}
-
 
 	@Override
 	public void realizarEnfrentamiento(CartaMonstruo atacante, CartaMonstruo atacada) {
@@ -32,7 +27,6 @@ public class ModoInhabilitada extends ModoDeUso{
 	@Override
 	public void atacarSiCorresponde(CartaMonstruo atacante, CartaMonstruo atacada) {
 		
-		throw(new ErrorAtaqueNoPermitido());
 	}
 
 	@Override
@@ -51,6 +45,16 @@ public class ModoInhabilitada extends ModoDeUso{
 	public void restarVidaDeMiInvocador(CartaMonstruo carta, int daño) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public void atacarDirectamente(Jinzo7 carta, OponenteAtacable oponente) {
+		
+	}
+
+	@Override
+	public void atacarDirectamente(CartaMonstruo carta, OponenteAtacable oponente) {
+	
 	}
 
 }

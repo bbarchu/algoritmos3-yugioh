@@ -6,12 +6,7 @@ import modelo.jugador.OponenteAtacable;
 
 public class ModoDefensa extends ModoDeUso {
 
-	@Override
-	public void atacarDirectamenteSinContemplarDefensa(Jinzo7 carta, OponenteAtacable oponente) {
-		
-		throw(new ErrorAtaqueNoPermitido());
-	}
-	
+
 	public int obtenerPuntosUtilizadosEnElModoActual(int puntosAtaque, int puntosDefensa) {
 		
 		return puntosDefensa;
@@ -50,6 +45,18 @@ public class ModoDefensa extends ModoDeUso {
 	@Override
 	public void restarVidaDeMiInvocador(CartaMonstruo carta, int daño) {
 		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void atacarDirectamente(Jinzo7 carta, OponenteAtacable oponente) {
+		throw(new ErrorAtaqueNoPermitido());
+		
+	}
+
+	@Override
+	public void atacarDirectamente(CartaMonstruo carta, OponenteAtacable oponente) {
+		throw(new ErrorAtaqueNoPermitido());
 		
 	}
 }
