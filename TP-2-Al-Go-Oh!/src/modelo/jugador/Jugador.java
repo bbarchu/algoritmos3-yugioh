@@ -1,10 +1,6 @@
 package modelo.jugador;
 
-import java.util.Scanner;
-
-import modelo.ElJugadorNoPuedeAtacarASusPropiasCartasError;
-import modelo.TodaviaQuedanMonstruosParaAtacarEnElCampoError;
-
+import excepciones.ElJugadorNoPuedeAtacarASusPropiasCartasError;
 import modelo.cartasGenericas.Carta;
 import modelo.cartasGenericas.CartaCampo;
 import modelo.cartasGenericas.CartaMagica;

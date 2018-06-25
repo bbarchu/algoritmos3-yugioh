@@ -4,7 +4,7 @@ package modelo.jugador;
 import java.util.LinkedList;
 import java.util.List;
 
-import modelo.MazoEstaVacioError;
+import excepciones.MazoEstaVacioError;
 import modelo.cartasGenericas.Carta;
 
 public class Mazo {

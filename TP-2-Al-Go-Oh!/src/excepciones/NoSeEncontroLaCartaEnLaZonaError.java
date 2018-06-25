@@ -1,4 +1,4 @@
-package modelo;
+package excepciones;
 
 public class NoSeEncontroLaCartaEnLaZonaError extends RuntimeException {
 	

@@ -2,7 +2,7 @@ package modelo.tablero;
 
 import java.util.LinkedList;
 
-import modelo.NoSeEncontroLaCartaEnLaZonaError;
+import excepciones.NoSeEncontroLaCartaEnLaZonaError;
 import modelo.cartasGenericas.Carta;
 import modelo.cartasGenericas.CartaMonstruo;
 

@@ -1,7 +1,6 @@
 package modelo.cartasGenericas;
 
-import excepciones.ErrorAtaqueNoPermitido;
-import modelo.TodaviaQuedanMonstruosParaAtacarEnElCampoError;
+import excepciones.TodaviaQuedanMonstruosParaAtacarEnElCampoError;
 import modelo.jugador.Jugador;
 import modelo.jugador.JugadorModificable;
 import modelo.jugador.OponenteAtacable;
