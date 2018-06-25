@@ -37,7 +37,7 @@ public class CilindroMagico extends CartaTrampa{
 		this.inhabilitarCarta(atacado);		
 	}
 	
-	public void desacrivarEfecto() {
+	public void desactivarEfecto() {
 		this.habilitarCarta(cartaAtacada, modoAtacadaAnterior);
 		this.habilitarCarta(cartaAtacante, modoAtacanteAnterior);
 	}

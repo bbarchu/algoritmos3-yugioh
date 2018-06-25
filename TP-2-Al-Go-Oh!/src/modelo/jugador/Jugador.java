@@ -129,10 +129,6 @@ public class Jugador implements OponenteAtacable, JugadorModificable{
 	public void atacarDirectamenteAlOponenteCon(CartaMonstruo carta) {
 		carta.atacarDirectoAlJugadorRival();
 	}
-	
-	public void atacarDirectamenteAlOponenteCon(Jinzo7 carta) {
-		carta.atacarDirectoAlJugadorRival();
-	}
 
 	public void atacarConA(CartaMonstruo carta, CartaMonstruo otraCarta){
 		
