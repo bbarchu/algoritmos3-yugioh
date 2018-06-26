@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundImage;
@@ -44,6 +45,8 @@ public class ContenedorFaseMagia extends BorderPane {
 		nombreFase.setFont(Font.font("courier new", FontWeight.EXTRA_BOLD, 25));
 		nombreFase.setTextFill(Color.BLACK);
 		
+		TextField cuadroDeTextoCartaPropia = new TextField("Ingrese el nombre de SU carta");
+		
         Button botonActivarCartaMagia = new Button();
         botonActivarCartaMagia.setText("Activar carta magica");
         botonActivarCartaMagia.setMaxWidth(200);
@@ -58,8 +61,8 @@ public class ContenedorFaseMagia extends BorderPane {
 	    botonPasarDeFase.setOnAction(botonPasarDeFaseHandler);
 
 	    
-        VBox contenedorVertical = new VBox(nombreFase, botonActivarCartaMagia, botonPasarDeFase);
-        contenedorVertical.setSpacing(200);
+        VBox contenedorVertical = new VBox(nombreFase, cuadroDeTextoCartaPropia, botonActivarCartaMagia, botonPasarDeFase);
+        contenedorVertical.setSpacing(190);
         contenedorVertical.setAlignment(Pos.TOP_CENTER);
         contenedorVertical.setPadding(new Insets(20));
         contenedorVertical.setPrefWidth(300);

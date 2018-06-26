@@ -57,7 +57,7 @@ public class ContenedorFaseInicial extends BorderPane {
 	    botonTomarCarta.setOnAction(botonTomarCartaHandler);
 
 	    contenedorVertical = new VBox(nombreFase, botonTomarCarta);
-        contenedorVertical.setSpacing(200);
+        contenedorVertical.setSpacing(300);
         contenedorVertical.setAlignment(Pos.TOP_CENTER);
         contenedorVertical.setPadding(new Insets(20));
         contenedorVertical.setPrefWidth(300);

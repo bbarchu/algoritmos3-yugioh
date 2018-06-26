@@ -58,7 +58,7 @@ public class ContenedorFasePreparacion extends BorderPane {
 	    botonPasarDeFase.setOnAction(botonPasarDeFaseHandler);
 
         VBox contenedorVertical = new VBox(nombreFase, botonColocarCarta, botonPasarDeFase);
-        contenedorVertical.setSpacing(200);
+        contenedorVertical.setSpacing(290);
         contenedorVertical.setAlignment(Pos.TOP_CENTER);
         contenedorVertical.setPadding(new Insets(20));
         contenedorVertical.setPrefWidth(300);

@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundImage;
@@ -44,6 +45,9 @@ public class ContenedorFaseAtaque extends BorderPane{
 		nombreFase.setFont(Font.font("courier new", FontWeight.EXTRA_BOLD, 25));
 		nombreFase.setTextFill(Color.BLACK);
 		
+		TextField cuadroDeTextoCartaPropia = new TextField("Ingrese el nombre de SU carta");
+		TextField cuadroDeTextoCartaRival = new TextField("Ingrese el nombre de la carta del RIVAL");
+		
         Button botonAtacar = new Button();
         botonAtacar.setText("Atacar");
         botonAtacar.setMaxWidth(200);
@@ -59,17 +63,27 @@ public class ContenedorFaseAtaque extends BorderPane{
 	    
 	    BotonPasarDeFaseHandler botonPasarDeFaseHandler = new BotonPasarDeFaseHandler(stage, escenaFaseMagia);
 	    botonPasarDeFase.setOnAction(botonPasarDeFaseHandler);
+	    
+        VBox contenedorVerticalBotones = new VBox(botonAtacar, botonPasarDeFase);
+        contenedorVerticalBotones.setSpacing(120);
+        contenedorVerticalBotones.setAlignment(Pos.TOP_CENTER);
+        
+        VBox contenedorVerticalTexto = new VBox(cuadroDeTextoCartaPropia, cuadroDeTextoCartaRival);
+        contenedorVerticalTexto.setSpacing(50);
+        contenedorVerticalTexto.setAlignment(Pos.TOP_CENTER);
 
-        VBox contenedorVertical = new VBox(nombreFase, botonAtacar, botonPasarDeFase);
-        contenedorVertical.setSpacing(200);
-        contenedorVertical.setAlignment(Pos.TOP_CENTER);
-        contenedorVertical.setPadding(new Insets(20));
-        contenedorVertical.setPrefWidth(300);
+	    
+        VBox contenedorVerticalPrincipal = new VBox(nombreFase, contenedorVerticalTexto, contenedorVerticalBotones);
+        contenedorVerticalPrincipal.setSpacing(180);
+        contenedorVerticalPrincipal.setAlignment(Pos.TOP_CENTER);
+        contenedorVerticalPrincipal.setPadding(new Insets(20));
+        contenedorVerticalPrincipal.setPrefWidth(300);
+        
         Image imagen = new Image("file:src/vista/imagenes/repetible.jpg");
         BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
-        contenedorVertical.setBackground(new Background(imagenDeFondo));
+        contenedorVerticalPrincipal.setBackground(new Background(imagenDeFondo));
 
-        this.setRight(contenedorVertical);
+        this.setRight(contenedorVerticalPrincipal);
 	}
 
 	private void setCentro() {
