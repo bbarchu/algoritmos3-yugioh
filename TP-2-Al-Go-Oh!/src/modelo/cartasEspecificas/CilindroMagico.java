@@ -15,6 +15,10 @@ public class CilindroMagico extends CartaTrampa{
 		super();
 	}
 	
+	public CilindroMagico(String nombreDeLaCarta) {
+		super(nombreDeLaCarta);
+	}
+	
 	private void inhabilitarCarta(CartaMonstruo carta) {
 		carta.cambiarModoDeUso(new ModoInhabilitada());
 	}

@@ -6,13 +6,18 @@ import modelo.tablero.CampoDeBatalla;
 public class CartaTrampa extends Carta{
 	
 	Estado estado;
-	protected String nombre;
 	
 
 	public CartaTrampa(){
 				
 		this.estado = new BocaAbajo();
 		this.nombre = "";
+	}
+	
+	public CartaTrampa(String nombreDeLaCarta){
+				
+		this.estado = new BocaAbajo();
+		this.nombre = nombreDeLaCarta;
 	}
 	
 	public void activarEfecto(CartaMonstruo atacante, CartaMonstruo atacado) {

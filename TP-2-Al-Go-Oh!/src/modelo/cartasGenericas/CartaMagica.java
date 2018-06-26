@@ -8,7 +8,7 @@ public class CartaMagica extends Carta {
 	
 	private Estado estado;
 	protected JugadorModificable jugador;
-	protected String nombre;
+
 	// Efecto
 	
 	public CartaMagica(Estado unEstado, Jugador unJugador) {
@@ -16,6 +16,13 @@ public class CartaMagica extends Carta {
 		this.estado = unEstado;
 		this.jugador = unJugador;
 		this.nombre = "";
+	}
+	
+	public CartaMagica(String nombreDeLaCarta, Estado unEstado, Jugador unJugador) {
+		
+		this.estado = unEstado;
+		this.jugador = unJugador;
+		this.nombre = nombreDeLaCarta;
 	}
 	
 	public CartaMagica(Estado unEstado) {

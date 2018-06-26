@@ -9,11 +9,16 @@ public class CartaCampo extends Carta {
 	// Efecto que abarca a todo el campo, camo amigo y campo enemigo, bar.
 	//Cuando se destrute una carta de campo? ya que no dice nada al respecto, no tiene un unico uso.
 	protected JugadorModificable jugador;
-	protected String nombre;
+
 	
 	public CartaCampo(Jugador unJugador) {
 		this.jugador = unJugador;
 		this.nombre = "";
+	}
+	
+	public CartaCampo(Jugador unJugador, String nombreDeLaCarta) {
+		this.jugador = unJugador;
+		this.nombre = nombreDeLaCarta;
 	}
 
 	@Override

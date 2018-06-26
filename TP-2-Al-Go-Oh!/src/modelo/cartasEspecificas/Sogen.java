@@ -6,8 +6,10 @@ import modelo.tablero.CampoDeBatalla;
 
 public class Sogen extends CartaCampo {
 	
+	private static String nombreDeLaCarta = "Sogen";
+	
 	public Sogen(Jugador unJugador) {
-		super(unJugador);
+		super(unJugador, nombreDeLaCarta);
 	}
 	
 	public void activarEfecto() {

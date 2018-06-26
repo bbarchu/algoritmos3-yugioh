@@ -13,8 +13,6 @@ public class CartaMonstruo extends Carta{
 	private int puntosDeAtaque;
 	private int puntosDeDefensa;
 	
-	protected String nombre;
-	
 	protected ModoDeUso modo;
 	private Estado estado;
 	protected Sacrificio sacrificioRequerido;

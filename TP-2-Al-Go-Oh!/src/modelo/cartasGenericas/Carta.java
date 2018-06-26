@@ -4,6 +4,13 @@ import modelo.jugador.Jugador;
 import modelo.tablero.CampoDeBatalla;
 
 public abstract class Carta {
+	
+	protected String nombre;
+	
+	public String getNombre() {
+		
+		return nombre;
+	}
 
 	public abstract void colocateEn(CampoDeBatalla campoDeBatalla);
 
@@ -13,7 +20,7 @@ public abstract class Carta {
 
 	public abstract void destruite(CampoDeBatalla campoDeBatalla);
 	
-	public abstract String getNombre();
+//	public abstract String getNombre();
 	
 	public abstract void voltearCarta();
 	

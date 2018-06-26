@@ -6,8 +6,10 @@ import modelo.tablero.CampoDeBatalla;
 
 public class Wasteland extends CartaCampo {
 	
+	private static String nombreDeLaCarta = "Wasteland";
+	
 	public Wasteland(Jugador unJugador) {
-		super(unJugador);
+		super(unJugador, nombreDeLaCarta);
 	}
 	
 	public void activarEfecto() {
