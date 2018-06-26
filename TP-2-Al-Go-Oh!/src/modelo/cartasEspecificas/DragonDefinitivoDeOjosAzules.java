@@ -7,7 +7,7 @@ import modelo.cartasGenericas.Sacrificio;
 import modelo.jugador.Jugador;
 
 public class DragonDefinitivoDeOjosAzules extends CartaMonstruo{
-	private static String nombre = "DragonDefinitivoDeOjosAzules";
+	private static String nombre = "DragonDeOjosAzulesDefinitivo";
 	private static int puntosDeAtaque = 4500;
 	private static int puntosDeDefensa = 3800;
 	private static int estrellas = 12;
