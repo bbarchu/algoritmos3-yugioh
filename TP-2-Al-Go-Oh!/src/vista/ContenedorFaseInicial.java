@@ -28,7 +28,6 @@ import vista.handlers.BotonTomarCartaHandler;
 public class ContenedorFaseInicial extends BorderPane {
 	
 	BarraDeMenu menuBar;
-	//Canvas canvasCentral;
 	VBox contenedorCentral;
 	VBox contenedorVertical;
 	StackPane stackPaneCentral;
@@ -45,7 +44,7 @@ public class ContenedorFaseInicial extends BorderPane {
         
 		Label nombreFase = new Label();
 		nombreFase.setText("Fase Inicial");
-		nombreFase.setFont(Font.font("courier new", FontWeight.EXTRA_BOLD, 25));
+		nombreFase.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 25));
 		nombreFase.setTextFill(Color.BLACK);
 		
 		Button botonTomarCarta = new Button();
@@ -61,15 +60,15 @@ public class ContenedorFaseInicial extends BorderPane {
         contenedorVertical.setAlignment(Pos.TOP_CENTER);
         contenedorVertical.setPadding(new Insets(20));
         contenedorVertical.setPrefWidth(300);
-        Image imagen = new Image("file:src/vista/imagenes/repetible.jpg");
-        BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+        Image imagen = new Image("file:src/vista/imagenes/fondoBotonera.jpg");
+        BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT);
         contenedorVertical.setBackground(new Background(imagenDeFondo));
 
         this.setRight(contenedorVertical);
 	}
 
 	private void setCentro() {
-		//canvasCentral = new Canvas(800, 700);
+		
 		stackPaneCentral = new StackPane();
 		
 		VistaCampoDeBatalla vistaCampo = new VistaCampoDeBatalla(stackPaneCentral);

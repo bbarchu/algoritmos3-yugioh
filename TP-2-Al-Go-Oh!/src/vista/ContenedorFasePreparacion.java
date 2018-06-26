@@ -25,7 +25,6 @@ import vista.handlers.BotonTomarCartaHandler;
 public class ContenedorFasePreparacion extends BorderPane {
 	
 	BarraDeMenu menuBar;
-	Canvas canvasCentral;
 	VBox contenedorCentral;
 	StackPane stackPaneCentral;
 
@@ -41,7 +40,7 @@ public class ContenedorFasePreparacion extends BorderPane {
 		
 		Label nombreFase = new Label();
 		nombreFase.setText("Fase Preparacion");
-		nombreFase.setFont(Font.font("courier new", FontWeight.EXTRA_BOLD, 25));
+		nombreFase.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 25));
 		nombreFase.setTextFill(Color.BLACK);
 		
         Button botonColocarCarta = new Button();
@@ -62,8 +61,8 @@ public class ContenedorFasePreparacion extends BorderPane {
         contenedorVertical.setAlignment(Pos.TOP_CENTER);
         contenedorVertical.setPadding(new Insets(20));
         contenedorVertical.setPrefWidth(300);
-        Image imagen = new Image("file:src/vista/imagenes/repetible.jpg");
-        BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+        Image imagen = new Image("file:src/vista/imagenes/fondoBotonera.jpg");
+        BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT);
         contenedorVertical.setBackground(new Background(imagenDeFondo));
 
         this.setRight(contenedorVertical);

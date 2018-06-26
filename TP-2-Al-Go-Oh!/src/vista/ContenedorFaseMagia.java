@@ -27,22 +27,21 @@ import vista.handlers.BotonTomarCartaHandler;
 public class ContenedorFaseMagia extends BorderPane {
 
 	BarraDeMenu menuBar;
-	Canvas canvasCentral;
 	VBox contenedorCentral;
 	StackPane stackPaneCentral;
 	
-	public ContenedorFaseMagia(Stage stage) {
+	public ContenedorFaseMagia(Stage stage, Scene escenaCambioDeTurno) {
         
 		this.setMenu(stage);
         this.setCentro();
-        
+        this.setBotonera(stage, escenaCambioDeTurno);
 	}
 	
-	private void setBotonera(Stage stage, Scene escenaFaseInicia) {
+	private void setBotonera(Stage stage, Scene proximaEscena) {
 		
 		Label nombreFase = new Label();
 		nombreFase.setText("Fase de Magia");
-		nombreFase.setFont(Font.font("courier new", FontWeight.EXTRA_BOLD, 25));
+		nombreFase.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 25));
 		nombreFase.setTextFill(Color.BLACK);
 		
 		TextField cuadroDeTextoCartaPropia = new TextField("Ingrese el nombre de SU carta");
@@ -57,7 +56,7 @@ public class ContenedorFaseMagia extends BorderPane {
         botonPasarDeFase.setMaxWidth(150);
 	    botonPasarDeFase.setStyle("-fx-font: 15 arial; -fx-base: #b6e7c9;");
 	    
-	    BotonPasarDeFaseHandler botonPasarDeFaseHandler = new BotonPasarDeFaseHandler(stage, escenaFaseInicia);
+	    BotonPasarDeFaseHandler botonPasarDeFaseHandler = new BotonPasarDeFaseHandler(stage, proximaEscena);
 	    botonPasarDeFase.setOnAction(botonPasarDeFaseHandler);
 
 	    
@@ -66,8 +65,8 @@ public class ContenedorFaseMagia extends BorderPane {
         contenedorVertical.setAlignment(Pos.TOP_CENTER);
         contenedorVertical.setPadding(new Insets(20));
         contenedorVertical.setPrefWidth(300);
-        Image imagen = new Image("file:src/vista/imagenes/repetible.jpg");
-        BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+        Image imagen = new Image("file:src/vista/imagenes/fondoBotonera.jpg");
+        BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT);
         contenedorVertical.setBackground(new Background(imagenDeFondo));
 
         this.setRight(contenedorVertical);
@@ -100,9 +99,5 @@ public class ContenedorFaseMagia extends BorderPane {
 		return menuBar;
 	}
 
-	public void asignarEscenaFaseInicial(Stage stage, Scene escenaFaseInicial) {
-		this.setBotonera(stage,escenaFaseInicial);
-		
-	}
 
 }

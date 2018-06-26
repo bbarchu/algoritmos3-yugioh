@@ -19,9 +19,10 @@ public class Aplicacion extends Application{
 		stage.setTitle("AlGoOh!");
 		
 		
-
+		ContenedorCambioDeTurno contenedorCambioDeTurno = new ContenedorCambioDeTurno(stage);
+		Scene escenaCambioDeTurno = new Scene(contenedorCambioDeTurno, 640, 480);
 		
-		ContenedorFaseMagia contenedorFaseMagia = new ContenedorFaseMagia(stage);
+		ContenedorFaseMagia contenedorFaseMagia = new ContenedorFaseMagia(stage, escenaCambioDeTurno);
 		Scene escenaMagia = new Scene(contenedorFaseMagia, 640, 480);
 		
 		ContenedorFaseTrampas contenedorFaseTrampas = new ContenedorFaseTrampas(stage, escenaMagia);
@@ -41,18 +42,18 @@ public class Aplicacion extends Application{
 		
 	    //Los siguientes dos métodos se encuentran separados debido a que necesitan tener creados los objetos de arriba
 	    contenedorFaseTrampas.asignarEscenaFaseAtaque(stage,escenaAtaque);
-	    contenedorFaseMagia.asignarEscenaFaseInicial(stage,escenaFaseInicial);
+	    contenedorCambioDeTurno.asignarEscenaFaseInicial(stage,escenaFaseInicial);
 	    
-//		AplicacionOnKeyPressEventHandler bienvenidosHandler = new AplicacionOnKeyPressEventHandler(stage, contenedorFaseInicial.getBarraDeMenu());
-//		escenaFaseInicial.setOnKeyPressed(bienvenidosHandler);
-//		AplicacionOnKeyPressEventHandler preparacionHandler = new AplicacionOnKeyPressEventHandler(stage, contenedorFasePreparacion.getBarraDeMenu());
-//		escenaFasePreparacion.setOnKeyPressed(preparacionHandler);
-//		AplicacionOnKeyPressEventHandler ataqueHandler = new AplicacionOnKeyPressEventHandler(stage, contenedorFaseAtaque.getBarraDeMenu());
-//		escenaFaseAtaque.setOnKeyPressed(ataqueHandler);
-//		AplicacionOnKeyPressEventHandler trampasHandler = new AplicacionOnKeyPressEventHandler(stage, contenedorFaseTrampas.getBarraDeMenu());
-//		escenaFaseTrampas.setOnKeyPressed(trampasHandler);
-//		AplicacionOnKeyPressEventHandler magiaHandler = new AplicacionOnKeyPressEventHandler(stage, contenedorFaseMagia.getBarraDeMenu());
-//		escenaFaseMagia.setOnKeyPressed(magiaHandler);
+		AplicacionOnKeyPressEventHandler bienvenidosHandler = new AplicacionOnKeyPressEventHandler(stage, contenedorFaseInicial.getBarraDeMenu());
+		escenaFaseInicial.setOnKeyPressed(bienvenidosHandler);
+		AplicacionOnKeyPressEventHandler preparacionHandler = new AplicacionOnKeyPressEventHandler(stage, contenedorFasePreparacion.getBarraDeMenu());
+		escenaPreparacion.setOnKeyPressed(preparacionHandler);
+		AplicacionOnKeyPressEventHandler ataqueHandler = new AplicacionOnKeyPressEventHandler(stage, contenedorFaseAtaque.getBarraDeMenu());
+		escenaAtaque.setOnKeyPressed(ataqueHandler);
+		AplicacionOnKeyPressEventHandler trampasHandler = new AplicacionOnKeyPressEventHandler(stage, contenedorFaseTrampas.getBarraDeMenu());
+		escenaTrampas.setOnKeyPressed(trampasHandler);
+		AplicacionOnKeyPressEventHandler magiaHandler = new AplicacionOnKeyPressEventHandler(stage, contenedorFaseMagia.getBarraDeMenu());
+		escenaMagia.setOnKeyPressed(magiaHandler);
 		
 		
         stage.setScene(escenaBienvenidos);
