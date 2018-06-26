@@ -21,106 +21,40 @@ public class VistaCampoDeBatalla {
 	
 	Canvas canvas;
 	StackPane stack;
+	CatalogoImagenes imagenes;
 	
 	public VistaCampoDeBatalla(StackPane stackPaneCentral){
 		
 		this.stack = stackPaneCentral;
 		this.canvas = new Canvas(900, 900);
+		this.imagenes = new CatalogoImagenes();
 	}
 
 	public void dibuajarTodoElCampo() {
 		
 		this.setFondoTodoElCampo();
 		
-		ImageView imagen1 = new ImageView("file:src/vista/imagenes/Dragón_blanco_de_ojos_azules.jpg");
-		imagen1.setFitHeight(150);
-		imagen1.setFitWidth(100);
-		imagen1.setRotate(180);
+		ImageView imagen1 = imagenes.get("AgujeroOscuro");
+		ImageView imagen2 = imagenes.get("BrazoDerechoDelProhibido");
+		ImageView imagen3 = imagenes.get("BrazoIzquierdoDelProhibido");
+		ImageView imagen4 = imagenes.get("BueyDeBatalla");
+		ImageView imagen5 = imagenes.get("CaballoDeMar");
+		ImageView imagen6 = imagenes.get("CilindroMagico");
+		ImageView imagen7 = imagenes.get("Craneo");
+		ImageView imagen8 = imagenes.get("DarkMaster");
+		ImageView imagen9 = imagenes.get("DemonioElemental");
+		ImageView imagen10 = imagenes.get("DragonArmadoOscuro");
+		ImageView imagen11 = imagenes.get("DragonBlancoDeOjosAzules");
+		ImageView imagen12 = imagenes.get("DragonDeCuernoBlanco");
+		ImageView imagen13 = imagenes.get("DragonDeLaMuerte");
+		ImageView imagen14 = imagenes.get("DragonDeOjosAzulesDefinitivo");
+		ImageView imagen15 = imagenes.get("DragonElemental");
+		ImageView imagen16 = imagenes.get("DragonNegro");
+		ImageView imagen17 = imagenes.get("ExodiaElProhibido");
+		ImageView imagen18 = imagenes.get("Fisura");
+		ImageView imagen19 = imagenes.get("Girochin");
+		ImageView imagen20 = imagenes.get("GuardianDeLaPuerta");
 		
-		ImageView imagen2 = new ImageView("file:src/vista/imagenes/Dragón_blanco_de_ojos_azules.jpg");
-		imagen2.setFitHeight(150);
-		imagen2.setFitWidth(100);
-		imagen2.setRotate(180);
-		
-		ImageView imagen3 = new ImageView("file:src/vista/imagenes/Dragón_blanco_de_ojos_azules.jpg");
-		imagen3.setFitHeight(150);
-		imagen3.setFitWidth(100);
-		imagen3.setRotate(180);
-		
-		ImageView imagen4 = new ImageView("file:src/vista/imagenes/Dragón_blanco_de_ojos_azules.jpg");
-		imagen4.setFitHeight(150);
-		imagen4.setFitWidth(100);
-		imagen4.setRotate(180);
-		
-		ImageView imagen5 = new ImageView("file:src/vista/imagenes/Dragón_blanco_de_ojos_azules.jpg");
-		imagen5.setFitHeight(150);
-		imagen5.setFitWidth(100);
-		imagen4.setRotate(180);
-		
-		ImageView imagen6 = new ImageView("file:src/vista/imagenes/Dragón_blanco_de_ojos_azules.jpg");
-		imagen6.setFitHeight(150);
-		imagen6.setFitWidth(100);
-		imagen6.setRotate(180);
-		
-		ImageView imagen7 = new ImageView("file:src/vista/imagenes/Dragón_blanco_de_ojos_azules.jpg");
-		imagen7.setFitHeight(150);
-		imagen7.setFitWidth(100);
-		imagen7.setRotate(180);
-		
-		ImageView imagen8 = new ImageView("file:src/vista/imagenes/Dragón_blanco_de_ojos_azules.jpg");
-		imagen8.setFitHeight(150);
-		imagen8.setFitWidth(100);
-		imagen8.setRotate(180);
-		
-		ImageView imagen9 = new ImageView("file:src/vista/imagenes/Dragón_blanco_de_ojos_azules.jpg");
-		imagen9.setFitHeight(150);
-		imagen9.setFitWidth(100);
-		imagen9.setRotate(180);
-		
-		ImageView imagen10 = new ImageView("file:src/vista/imagenes/Dragón_blanco_de_ojos_azules.jpg");
-		imagen10.setFitHeight(150);
-		imagen10.setFitWidth(100);
-		imagen10.setRotate(180);
-		
-		ImageView imagen11 = new ImageView("file:src/vista/imagenes/Dragón_blanco_de_ojos_azules.jpg");
-		imagen11.setFitHeight(150);
-		imagen11.setFitWidth(100);
-		
-		ImageView imagen21 = new ImageView("file:src/vista/imagenes/Dragón_blanco_de_ojos_azules.jpg");
-		imagen21.setFitHeight(150);
-		imagen21.setFitWidth(100);
-		
-		ImageView imagen31 = new ImageView("file:src/vista/imagenes/Dragón_blanco_de_ojos_azules.jpg");
-		imagen31.setFitHeight(150);
-		imagen31.setFitWidth(100);
-		
-		ImageView imagen41 = new ImageView("file:src/vista/imagenes/Dragón_blanco_de_ojos_azules.jpg");
-		imagen41.setFitHeight(150);
-		imagen41.setFitWidth(100);
-		
-		ImageView imagen51 = new ImageView("file:src/vista/imagenes/Dragón_blanco_de_ojos_azules.jpg");
-		imagen51.setFitHeight(150);
-		imagen51.setFitWidth(100);
-		
-		ImageView imagen61 = new ImageView("file:src/vista/imagenes/Dragón_blanco_de_ojos_azules.jpg");
-		imagen61.setFitHeight(150);
-		imagen61.setFitWidth(100);
-		
-		ImageView imagen71 = new ImageView("file:src/vista/imagenes/Dragón_blanco_de_ojos_azules.jpg");
-		imagen71.setFitHeight(150);
-		imagen71.setFitWidth(100);
-		
-		ImageView imagen81 = new ImageView("file:src/vista/imagenes/Dragón_blanco_de_ojos_azules.jpg");
-		imagen81.setFitHeight(150);
-		imagen81.setFitWidth(100);
-		
-		ImageView imagen91 = new ImageView("file:src/vista/imagenes/Dragón_blanco_de_ojos_azules.jpg");
-		imagen91.setFitHeight(150);
-		imagen91.setFitWidth(100);
-		
-		ImageView imagen101 = new ImageView("file:src/vista/imagenes/Dragón_blanco_de_ojos_azules.jpg");
-		imagen101.setFitHeight(150);
-		imagen101.setFitWidth(100);
 		
 		HBox contenedorMagiaRival = new HBox(imagen1,imagen2,imagen3,imagen4,imagen5);
 		contenedorMagiaRival.setAlignment(Pos.CENTER);
@@ -130,11 +64,11 @@ public class VistaCampoDeBatalla {
 		contenedorMonstruosRival.setAlignment(Pos.CENTER);
 		contenedorMonstruosRival.setSpacing(50);
 
-		HBox contenedorMonstruosJugador = new HBox(imagen11,imagen21,imagen31,imagen41,imagen51);
+		HBox contenedorMonstruosJugador = new HBox(imagen11,imagen12,imagen13,imagen14,imagen15);
 		contenedorMonstruosJugador.setAlignment(Pos.CENTER);
 		contenedorMonstruosJugador.setSpacing(50);
 
-		HBox contenedorMagiaJugador = new HBox(imagen61,imagen71,imagen81,imagen91,imagen101);
+		HBox contenedorMagiaJugador = new HBox(imagen16,imagen17,imagen18,imagen19,imagen20);
 		contenedorMagiaJugador.setAlignment(Pos.CENTER);
 		contenedorMagiaJugador.setSpacing(50);
 
@@ -152,76 +86,32 @@ public class VistaCampoDeBatalla {
 	public void dibuajarManoYCampoPropio() {
 		this.setFondoManoYCampoPropio();
 		
-		ImageView imagen1 = new ImageView("file:src/vista/imagenes/Dragón_blanco_de_ojos_azules.jpg");
-		imagen1.setFitHeight(150);
-		imagen1.setFitWidth(100);
-		
-		ImageView imagen2 = new ImageView("file:src/vista/imagenes/Dragón_blanco_de_ojos_azules.jpg");
-		imagen2.setFitHeight(150);
-		imagen2.setFitWidth(100);
-		
-		ImageView imagen3 = new ImageView("file:src/vista/imagenes/Dragón_blanco_de_ojos_azules.jpg");
-		imagen3.setFitHeight(150);
-		imagen3.setFitWidth(100);
-		
-		ImageView imagen4 = new ImageView("file:src/vista/imagenes/Dragón_blanco_de_ojos_azules.jpg");
-		imagen4.setFitHeight(150);
-		imagen4.setFitWidth(100);
-		
-		ImageView imagen5 = new ImageView("file:src/vista/imagenes/Dragón_blanco_de_ojos_azules.jpg");
-		imagen5.setFitHeight(150);
-		imagen5.setFitWidth(100);
-		
-		ImageView imagen11 = new ImageView("file:src/vista/imagenes/Dragón_blanco_de_ojos_azules.jpg");
-		imagen11.setFitHeight(150);
-		imagen11.setFitWidth(100);
-		
-		ImageView imagen21 = new ImageView("file:src/vista/imagenes/Dragón_blanco_de_ojos_azules.jpg");
-		imagen21.setFitHeight(150);
-		imagen21.setFitWidth(100);
-		
-		ImageView imagen31 = new ImageView("file:src/vista/imagenes/Dragón_blanco_de_ojos_azules.jpg");
-		imagen31.setFitHeight(150);
-		imagen31.setFitWidth(100);
-		
-		ImageView imagen41 = new ImageView("file:src/vista/imagenes/Dragón_blanco_de_ojos_azules.jpg");
-		imagen41.setFitHeight(150);
-		imagen41.setFitWidth(100);
-		
-		ImageView imagen51 = new ImageView("file:src/vista/imagenes/Dragón_blanco_de_ojos_azules.jpg");
-		imagen51.setFitHeight(150);
-		imagen51.setFitWidth(100);
-		
-		ImageView imagen61 = new ImageView("file:src/vista/imagenes/Dragón_blanco_de_ojos_azules.jpg");
-		imagen61.setFitHeight(150);
-		imagen61.setFitWidth(100);
-		
-		ImageView imagen71 = new ImageView("file:src/vista/imagenes/Dragón_blanco_de_ojos_azules.jpg");
-		imagen71.setFitHeight(150);
-		imagen71.setFitWidth(100);
-		
-		ImageView imagen81 = new ImageView("file:src/vista/imagenes/Dragón_blanco_de_ojos_azules.jpg");
-		imagen81.setFitHeight(150);
-		imagen81.setFitWidth(100);
-		
-		ImageView imagen91 = new ImageView("file:src/vista/imagenes/Dragón_blanco_de_ojos_azules.jpg");
-		imagen91.setFitHeight(150);
-		imagen91.setFitWidth(100);
-		
-		ImageView imagen101 = new ImageView("file:src/vista/imagenes/Dragón_blanco_de_ojos_azules.jpg");
-		imagen101.setFitHeight(150);
-		imagen101.setFitWidth(100);
+		ImageView imagen1 = imagenes.get("HaneHane");
+		ImageView imagen2 = imagenes.get("HojaOscura");
+		ImageView imagen3 = imagenes.get("InsectoComeHombres");
+		ImageView imagen4 = imagenes.get("JineteMistico");
+		ImageView imagen5 = imagenes.get("Jinzo7");
+		ImageView imagen6 = imagenes.get("Kuriboh");
+		ImageView imagen7 = imagenes.get("KuribohAlado");
+		ImageView imagen8 = imagenes.get("LordOfD");
+		ImageView imagen9 = imagenes.get("MagoOscuro");
+		ImageView imagen10 = imagenes.get("Obelisk");
+		ImageView imagen11 = imagenes.get("OgroGrotto");
+		ImageView imagen12 = imagenes.get("OllaDeLaCodicia");
+		ImageView imagen13 = imagenes.get("PiernaDerechaDelProhibido");
+		ImageView imagen14 = imagenes.get("PiernaIzquierdaDelProhibido");
+		ImageView imagen15 = imagenes.get("Reinforcements");
 		
 		
-		HBox contenedorMonstruosJugador = new HBox(imagen11,imagen21,imagen31,imagen41,imagen51);
+		HBox contenedorMonstruosJugador = new HBox(imagen1,imagen2,imagen3,imagen4,imagen5);
 		contenedorMonstruosJugador.setAlignment(Pos.CENTER);
 		contenedorMonstruosJugador.setSpacing(50);
 
-		HBox contenedorMagiaJugador = new HBox(imagen61,imagen71,imagen81,imagen91,imagen101);
+		HBox contenedorMagiaJugador = new HBox(imagen6,imagen7,imagen8,imagen9,imagen10);
 		contenedorMagiaJugador.setAlignment(Pos.CENTER);
 		contenedorMagiaJugador.setSpacing(50);
 
-		HBox contenedorManoJugador = new HBox(imagen1,imagen2,imagen3,imagen4,imagen5);
+		HBox contenedorManoJugador = new HBox(imagen11,imagen12,imagen13,imagen14,imagen15);
 		contenedorManoJugador.setAlignment(Pos.CENTER);
 		contenedorManoJugador.setSpacing(50);
 
