@@ -36,9 +36,9 @@ public class ContenedorCambioDeTurno extends BorderPane{
 	private void setBotonera(Stage stage, Scene proximaEscena) {
 		
 		Label atencion = new Label();
-		atencion.setText("Atención!");
+		atencion.setText("Puntos de Vida");
 		atencion.setFont(Font.font("Impact", FontWeight.EXTRA_BOLD, 50));
-		atencion.setTextFill(Color.RED);
+		atencion.setTextFill(Color.DARKRED);
 		
 		Label recordatorio1 = new Label();
 		recordatorio1.setText("Es momento de cambiar de Jugador");
@@ -58,12 +58,18 @@ public class ContenedorCambioDeTurno extends BorderPane{
 	    
 	    BotonCambiarDeTurnoHandler BotonCambiarDeTurnoHandler = new BotonCambiarDeTurnoHandler(stage, proximaEscena);
 	    botonPasarDeFase.setOnAction(BotonCambiarDeTurnoHandler);
+	    
+		stackPaneCentral = new StackPane();
+	
+		VistaPuntajes vistaPuntajes = new VistaPuntajes(stackPaneCentral);
+		vistaPuntajes.dibujarAnotadorGrande();
+		
 
 	    
-        VBox contenedorVertical = new VBox(atencion, recordatorio1, recordatorio2, botonPasarDeFase);
-        contenedorVertical.setSpacing(150);
+        VBox contenedorVertical = new VBox(atencion, stackPaneCentral, recordatorio1, recordatorio2, botonPasarDeFase);
+        contenedorVertical.setSpacing(50);
         contenedorVertical.setAlignment(Pos.TOP_CENTER);
-        contenedorVertical.setPadding(new Insets(50));
+        contenedorVertical.setPadding(new Insets(20));
         contenedorVertical.setPrefWidth(600);
         Image imagen = new Image("file:src/vista/imagenes/fondoBotonera.jpg");
         BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT);
@@ -74,11 +80,7 @@ public class ContenedorCambioDeTurno extends BorderPane{
 
 	private void setCentro() {
 		 
-		stackPaneCentral = new StackPane();
-		
-//		VistaCampoDeBatalla vistaCampo = new VistaCampoDeBatalla(stackPaneCentral);
-//		vistaCampo.dibuajarTodoElCampo();
-		contenedorCentral = new VBox(stackPaneCentral);
+		contenedorCentral = new VBox();
 		contenedorCentral.setAlignment(Pos.TOP_CENTER);
 		contenedorCentral.setPadding(new Insets(20));
 		contenedorCentral.setPrefWidth(200);

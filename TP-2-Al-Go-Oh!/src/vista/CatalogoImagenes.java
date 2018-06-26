@@ -56,9 +56,7 @@ public class CatalogoImagenes {
 		this.colocarEnElMapa("Segadora");
 		this.colocarEnElMapa("Slifer");
 		this.colocarEnElMapa("Sogen");
-		this.colocarEnElMapa("Wasteland");		
-	
-		
+		this.colocarEnElMapa("Wasteland");			
 		
 	}
 	

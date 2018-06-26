@@ -27,6 +27,7 @@ public class ContenedorFaseTrampas extends BorderPane{
 	BarraDeMenu menuBar;
 	VBox contenedorCentral;
 	StackPane stackPaneCentral;
+	StackPane stackPaneLateral;
 	
 	public ContenedorFaseTrampas(Stage stage, Scene escenaFaseAtaque) {
         this.setMenu(stage);
@@ -36,24 +37,36 @@ public class ContenedorFaseTrampas extends BorderPane{
 	
 	private void setBotonera(Stage stage, Scene escenaFaseAtaque) {
         
+		stackPaneLateral = new StackPane();
+		
+		VistaPuntajes vistaPuntajes = new VistaPuntajes(stackPaneLateral);
+		vistaPuntajes.dibujarAnotadorChico();
+		
+		
 		Label nombreFase = new Label();
 		nombreFase.setText("Fase de Trampas");
 		nombreFase.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 25));
 		nombreFase.setTextFill(Color.BLACK);
 		
+		Label recordatorio = new Label();
+		recordatorio.setText("Antes de calcular el daño...");
+		recordatorio.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 15));
+		recordatorio.setTextFill(Color.BLACK);
+		
 		Button botonActivarTrampas = new Button();
-        botonActivarTrampas.setText("Activar carta trampa");
-        botonActivarTrampas.setMaxWidth(200);
+        botonActivarTrampas.setText("Activar carta trampa Rival");
+        botonActivarTrampas.setMaxWidth(250);
 	    botonActivarTrampas.setStyle("-fx-font: 18 arial; -fx-base: #b6e7c9;");
 	    
         BotonActivarTrampasHandler tomarCartaHandler = new BotonActivarTrampasHandler(stage, escenaFaseAtaque);
         botonActivarTrampas.setOnAction(tomarCartaHandler);
 
-        VBox contenedorVertical = new VBox(nombreFase, botonActivarTrampas);
-        contenedorVertical.setSpacing(200);
+        VBox contenedorVertical = new VBox(nombreFase,stackPaneLateral, recordatorio, botonActivarTrampas);
+        contenedorVertical.setSpacing(100);
         contenedorVertical.setAlignment(Pos.TOP_CENTER);
         contenedorVertical.setPadding(new Insets(20));
-        contenedorVertical.setPrefWidth(300);
+        contenedorVertical.setPrefWidth(400);
+        
         Image imagen = new Image("file:src/vista/imagenes/fondoBotonera.jpg");
         BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT);
         contenedorVertical.setBackground(new Background(imagenDeFondo));
