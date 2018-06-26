@@ -13,11 +13,13 @@ import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
+import modelo.tablero.CampoDeBatalla;
 import vista.handlers.BotonEntrarEventHandler;
 import vista.handlers.BotonPasarDeFaseHandler;
 import vista.handlers.BotonTomarCartaHandler;
@@ -26,8 +28,11 @@ import vista.handlers.BotonTomarCartaHandler;
 public class ContenedorFaseInicial extends BorderPane {
 	
 	BarraDeMenu menuBar;
-	Canvas canvasCentral;
+	//Canvas canvasCentral;
 	VBox contenedorCentral;
+	VBox contenedorVertical;
+	StackPane stackPaneCentral;
+
 	
     public ContenedorFaseInicial(Stage stage, Scene escenaFasePreparacion) {
         this.setMenu(stage);
@@ -51,7 +56,7 @@ public class ContenedorFaseInicial extends BorderPane {
 	    BotonTomarCartaHandler botonTomarCartaHandler = new BotonTomarCartaHandler(stage, proximaEscena);
 	    botonTomarCarta.setOnAction(botonTomarCartaHandler);
 
-        VBox contenedorVertical = new VBox(nombreFase, botonTomarCarta);
+	    contenedorVertical = new VBox(nombreFase, botonTomarCarta);
         contenedorVertical.setSpacing(200);
         contenedorVertical.setAlignment(Pos.TOP_CENTER);
         contenedorVertical.setPadding(new Insets(20));
@@ -64,12 +69,16 @@ public class ContenedorFaseInicial extends BorderPane {
 	}
 
 	private void setCentro() {
-		canvasCentral = new Canvas(460, 220);
-		 
-        contenedorCentral = new VBox(canvasCentral);
-        contenedorCentral.setAlignment(Pos.CENTER);
-        contenedorCentral.setSpacing(20);
-        contenedorCentral.setPadding(new Insets(25));
+		//canvasCentral = new Canvas(800, 700);
+		stackPaneCentral = new StackPane();
+		
+		VistaCampoDeBatalla vistaCampo = new VistaCampoDeBatalla(stackPaneCentral);
+		vistaCampo.dibuajarTodoElCampo();
+		
+		contenedorCentral = new VBox(stackPaneCentral);
+        contenedorCentral.setAlignment(Pos.TOP_CENTER);
+        contenedorCentral.setPadding(new Insets(20));
+        
         Image imagen = new Image("file:src/vista/imagenes/red-checkered.jpg");
         BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
         contenedorCentral.setBackground(new Background(imagenDeFondo));

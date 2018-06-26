@@ -13,6 +13,7 @@ import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -26,6 +27,7 @@ public class ContenedorFaseTrampas extends BorderPane{
 	BarraDeMenu menuBar;
 	Canvas canvasCentral;
 	VBox contenedorCentral;
+	StackPane stackPaneCentral;
 	
 	public ContenedorFaseTrampas(Stage stage, Scene escenaFaseAtaque) {
         this.setMenu(stage);
@@ -61,12 +63,16 @@ public class ContenedorFaseTrampas extends BorderPane{
 	}
 
 	private void setCentro() {
-		canvasCentral = new Canvas(460, 220);
-		 
-        contenedorCentral = new VBox(canvasCentral);
+
+		stackPaneCentral = new StackPane();
+		
+		VistaCampoDeBatalla vistaCampo = new VistaCampoDeBatalla(stackPaneCentral);
+		vistaCampo.dibuajarTodoElCampo();
+		
+		contenedorCentral = new VBox(stackPaneCentral);
         contenedorCentral.setAlignment(Pos.TOP_CENTER);
-        contenedorCentral.setSpacing(20);
-        contenedorCentral.setPadding(new Insets(25));
+        contenedorCentral.setPadding(new Insets(20));
+
         Image imagen = new Image("file:src/vista/imagenes/red-checkered.jpg");
         BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
         contenedorCentral.setBackground(new Background(imagenDeFondo));

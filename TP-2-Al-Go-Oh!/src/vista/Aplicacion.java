@@ -3,6 +3,8 @@ package vista;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import modelo.aplicacion.AlGoOh;
+import modelo.tablero.CampoDeBatalla;
 import vista.handlers.AplicacionOnKeyPressEventHandler;
 
 public class Aplicacion extends Application{
@@ -15,6 +17,9 @@ public class Aplicacion extends Application{
 	public void start(final Stage stage) throws Exception {
 		
 		stage.setTitle("AlGoOh!");
+		
+		
+
 		
 		ContenedorFaseMagia contenedorFaseMagia = new ContenedorFaseMagia(stage);
 		Scene escenaMagia = new Scene(contenedorFaseMagia, 640, 480);
@@ -55,5 +60,6 @@ public class Aplicacion extends Application{
 
         stage.show();
 	}
+
 
 }
