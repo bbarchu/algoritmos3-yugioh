@@ -1,5 +1,7 @@
 package modelo.aplicacion;
 
+import java.util.Hashtable;
+
 import modelo.cartasEspecificas.AgujeroNegro;
 import modelo.cartasEspecificas.CilindroMagico;
 import modelo.cartasEspecificas.DragonDefinitivoDeOjosAzules;
@@ -12,6 +14,7 @@ import modelo.cartasEspecificas.Sogen;
 import modelo.cartasEspecificas.Wasteland;
 import modelo.cartasGenericas.BocaAbajo;
 import modelo.cartasGenericas.BocaArriba;
+import modelo.cartasGenericas.Carta;
 import modelo.cartasGenericas.CartaMonstruo;
 import modelo.cartasGenericas.ModoAtaque;
 import modelo.cartasGenericas.ModoDefensa;
@@ -22,11 +25,17 @@ public class AlGoOh {
 	Jugador jugadorNumeroUno;
 	Jugador jugadorNumeroDos;
 	
+	Hashtable<String, Carta> cartasJugadorUno;
+	Hashtable<String, Carta> cartasJugadorDos;
+	
 	public AlGoOh(){
 		
 		//creacion de jugadores.
 		jugadorNumeroUno = new Jugador();
 		jugadorNumeroDos = new Jugador();
+		//creacion del diccionario de cartas de ambos jugadores.
+		cartasJugadorUno = new Hashtable<String, Carta>();
+		cartasJugadorDos = new Hashtable<String, Carta>();
 		
 		BocaAbajo bocaAbajo = new BocaAbajo();
 		BocaArriba bocaArriba = new BocaArriba();
@@ -42,6 +51,9 @@ public class AlGoOh {
 		this.jugadorNumeroUno.agregarCartaAlMazo(agujeroNegroUno);
 		this.jugadorNumeroDos.agregarCartaAlMazo(agujeroNegroDos);
 		
+		this.cartasJugadorUno.put("AgujeroOscuro", agujeroNegroUno);
+		this.cartasJugadorDos.put("AgujeroOscuro", agujeroNegroDos);
+		
 		//2° carta BrazoDerechoDelProhibido
 		
 		CartaMonstruo brazoDerechoDelProhibidoUno = new CartaMonstruo(200,300,1,modoAtaque,jugadorNumeroUno, "BrazoDerechoDelProhibido");
@@ -49,6 +61,9 @@ public class AlGoOh {
 	
 		this.jugadorNumeroUno.agregarCartaAlMazo(brazoDerechoDelProhibidoUno);
 		this.jugadorNumeroDos.agregarCartaAlMazo(brazoDerechoDelProhibidoDos);
+		
+		this.cartasJugadorUno.put("BrazoDerechoDelProhibido", brazoDerechoDelProhibidoUno);
+		this.cartasJugadorDos.put("BrazoDerechoDelProhibido", brazoDerechoDelProhibidoDos);
 		
 		//3° carta BrazoIzquierdoDelProhibido
 		
@@ -58,6 +73,9 @@ public class AlGoOh {
 		this.jugadorNumeroUno.agregarCartaAlMazo(brazoIzquierdoDelProhibidoUno);
 		this.jugadorNumeroDos.agregarCartaAlMazo(brazoIzquierdoDelProhibidoDos);
 		
+		this.cartasJugadorUno.put("BrazoIzquierdoDelProhibido", brazoIzquierdoDelProhibidoUno);
+		this.cartasJugadorDos.put("BrazoIzquierdoDelProhibido", brazoIzquierdoDelProhibidoDos);
+		
 		//4° carta BueyDeBatalla
 		
 		CartaMonstruo bueyDeBatallaUno = new CartaMonstruo(1700,1000,4,modoAtaque,jugadorNumeroUno,"BueyDeBatalla");
@@ -65,6 +83,9 @@ public class AlGoOh {
 		
 		this.jugadorNumeroUno.agregarCartaAlMazo(bueyDeBatallaUno);
 		this.jugadorNumeroDos.agregarCartaAlMazo(bueyDeBatallaDos);
+		
+		this.cartasJugadorUno.put("BueyDeBatalla", bueyDeBatallaUno);
+		this.cartasJugadorDos.put("BueyDeBatalla", bueyDeBatallaDos);
 		
 		//5° carta CaballoDeMar
 		
@@ -74,6 +95,9 @@ public class AlGoOh {
 		this.jugadorNumeroUno.agregarCartaAlMazo(caballoDeMarUno);
 		this.jugadorNumeroDos.agregarCartaAlMazo(caballoDeMarDos);
 		
+		this.cartasJugadorUno.put("CaballoDeMar", caballoDeMarUno);
+		this.cartasJugadorDos.put("CaballoDeMar", caballoDeMarDos);
+		
 		//6° carta CilindroMagico
 		
 		CilindroMagico cilindroMagicoUno = new CilindroMagico("CilindroMagico");
@@ -81,6 +105,9 @@ public class AlGoOh {
 		
 		this.jugadorNumeroUno.agregarCartaAlMazo(cilindroMagicoUno);
 		this.jugadorNumeroDos.agregarCartaAlMazo(cilindroMagicoDos);
+		
+		this.cartasJugadorUno.put("CilindroMagico", cilindroMagicoUno);
+		this.cartasJugadorDos.put("CilindroMagico", cilindroMagicoDos);
 		
 		//7° carta Craneo
 		
@@ -90,6 +117,9 @@ public class AlGoOh {
 		this.jugadorNumeroUno.agregarCartaAlMazo(craneoUno);
 		this.jugadorNumeroDos.agregarCartaAlMazo(craneoDos);
 		
+		this.cartasJugadorUno.put("Craneo", craneoUno);
+		this.cartasJugadorDos.put("Craneo", craneoDos);
+		
 		//8° carta DarkMaster
 		
 		CartaMonstruo darkMasterUno = new CartaMonstruo(30000, 30000, 12, modoAtaque, jugadorNumeroUno, "DarkMaster");
@@ -97,6 +127,9 @@ public class AlGoOh {
 		
 		this.jugadorNumeroUno.agregarCartaAlMazo(darkMasterUno);
 		this.jugadorNumeroDos.agregarCartaAlMazo(darkMasterDos);
+		
+		this.cartasJugadorUno.put("DarkMaster", darkMasterUno);
+		this.cartasJugadorDos.put("DarkMaster", darkMasterDos);
 		
 		//9° carta DemonioElemental
 		
@@ -106,6 +139,9 @@ public class AlGoOh {
 		this.jugadorNumeroUno.agregarCartaAlMazo(demonioElementalUno);
 		this.jugadorNumeroDos.agregarCartaAlMazo(demonioElementalDos);
 		
+		this.cartasJugadorUno.put("DemonioElemental", demonioElementalUno);
+		this.cartasJugadorDos.put("DemonioElemental", demonioElementalDos);
+		
 		//10° carta DragonArmadoOscuro
 		
 		CartaMonstruo dorsoUno = new CartaMonstruo(2800,1000,7,modoAtaque,jugadorNumeroUno,"DragonArmadoOscuro");
@@ -113,6 +149,9 @@ public class AlGoOh {
 		
 		this.jugadorNumeroUno.agregarCartaAlMazo(dorsoUno);
 		this.jugadorNumeroDos.agregarCartaAlMazo(dorsoDos);
+		
+		this.cartasJugadorUno.put("DragonArmadoOscuro", dorsoUno);
+		this.cartasJugadorDos.put("DragonArmadoOscuro", dorsoDos);
 		
 		//11° carta DragonBlancoDeOjosAzules
 		
@@ -122,6 +161,9 @@ public class AlGoOh {
 		this.jugadorNumeroUno.agregarCartaAlMazo(dragonBlancoDeOjosAzulesUno);
 		this.jugadorNumeroDos.agregarCartaAlMazo(dragonBlancoDeOjosAzulesDos);
 		
+		this.cartasJugadorUno.put("DragonBlancoDeOjosAzules", dragonBlancoDeOjosAzulesUno);
+		this.cartasJugadorDos.put("DragonBlancoDeOjosAzules", dragonBlancoDeOjosAzulesDos);
+		
 		//12° carta DragonDeCuernoBlanco
 		
 		CartaMonstruo dragonDeCuernoBlancoUno = new CartaMonstruo(2200,1400,6,modoAtaque,jugadorNumeroUno,"DragonDeCuernoBlanco");
@@ -129,6 +171,9 @@ public class AlGoOh {
 		
 		this.jugadorNumeroUno.agregarCartaAlMazo(dragonDeCuernoBlancoUno);
 		this.jugadorNumeroDos.agregarCartaAlMazo(dragonDeCuernoBlancoDos);
+		
+		this.cartasJugadorUno.put("DragonDeCuernoBlanco", dragonDeCuernoBlancoUno);
+		this.cartasJugadorDos.put("DragonDeCuernoBlanco", dragonDeCuernoBlancoDos);
 		
 		//13° carta DragonDeLaMuerte
 		
@@ -138,6 +183,9 @@ public class AlGoOh {
 		this.jugadorNumeroUno.agregarCartaAlMazo(dragonDeLaMuerteUno);
 		this.jugadorNumeroDos.agregarCartaAlMazo(dragonDeLaMuerteDos);
 		
+		this.cartasJugadorUno.put("DragonDeLaMuerte", dragonDeLaMuerteUno);
+		this.cartasJugadorDos.put("DragonDeLaMuerte", dragonDeLaMuerteDos);
+		
 		//14° carta DragonDeOjosAzulesDefinitivo
 		
 		DragonDefinitivoDeOjosAzules dragonDefinitivoDeOjosAzulesUno= new DragonDefinitivoDeOjosAzules(modoAtaque,jugadorNumeroUno);
@@ -145,6 +193,9 @@ public class AlGoOh {
 		
 		this.jugadorNumeroUno.agregarCartaAlMazo(dragonDefinitivoDeOjosAzulesUno);
 		this.jugadorNumeroDos.agregarCartaAlMazo(dragonDefinitivoDeOjosAzulesDos);
+		
+		this.cartasJugadorUno.put("DragonDeOjosAzulesDefinitivo", dragonDefinitivoDeOjosAzulesUno);
+		this.cartasJugadorDos.put("DragonDeOjosAzulesDefinitivo", dragonDefinitivoDeOjosAzulesDos);
 		
 		//15° carta DragonElemental
 		
@@ -154,6 +205,9 @@ public class AlGoOh {
 		this.jugadorNumeroUno.agregarCartaAlMazo(dragonElementalUno);
 		this.jugadorNumeroDos.agregarCartaAlMazo(dragonElementalDos);
 		
+		this.cartasJugadorUno.put("DragonElemental", dragonElementalUno);
+		this.cartasJugadorDos.put("DragonElemental", dragonElementalDos);
+		
 		//16° carta ExodiaElProhibido
 		
 		CartaMonstruo exodiaElProhibidoUno = new CartaMonstruo(1000,1000,3,modoAtaque,jugadorNumeroUno,"ExodiaElProhibido");
@@ -162,6 +216,9 @@ public class AlGoOh {
 		this.jugadorNumeroUno.agregarCartaAlMazo(exodiaElProhibidoUno);
 		this.jugadorNumeroDos.agregarCartaAlMazo(exodiaElProhibidoDos);
 		
+		this.cartasJugadorUno.put("ExodiaElProhibido", exodiaElProhibidoUno);
+		this.cartasJugadorDos.put("ExodiaElProhibido", exodiaElProhibidoDos);
+		
 		//17° carta Fisura
 		
 		Fisura fisuraUno = new Fisura(bocaAbajo,jugadorNumeroUno);
@@ -169,6 +226,8 @@ public class AlGoOh {
 		
 		this.jugadorNumeroUno.agregarCartaAlMazo(fisuraUno);
 		this.jugadorNumeroDos.agregarCartaAlMazo(fisuraDos);
+		
+		
 		
 		//18° carta Girochin
 		
