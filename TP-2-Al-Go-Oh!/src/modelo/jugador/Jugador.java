@@ -1,5 +1,7 @@
 package modelo.jugador;
 
+import java.util.LinkedList;
+
 import excepciones.ElJugadorNoPuedeAtacarASusPropiasCartasError;
 import modelo.cartasEspecificas.Jinzo7;
 import modelo.cartasGenericas.Carta;
@@ -51,10 +53,6 @@ public class Jugador implements OponenteAtacable, JugadorModificable{
 		return this.nombre;
 	}
 
-	//bar: Por que el jugador puede agregar una carta al mazo?
-	//Lucas: Respuesta -> es para controlar el comportamiento mientras se desarrolla el TP, en algun 
-	//			momento este metodo va a pasar a ser privado y llamado únicamente en el constructor (cuando se llena el mazo).
-	
 	public void agregarCartaAlMazo(Carta unMonstruo) {
 		this.mazo.agregarUnaCarta(unMonstruo);
 	}
@@ -192,6 +190,47 @@ public class Jugador implements OponenteAtacable, JugadorModificable{
 	
 	public void convertirEnPerdedor() {
 		this.perdioLaPartida = false;
+	}
+
+	public LinkedList<String> obtenerNombresDeCartasMonstruoBocaArriba() {
+		
+		LinkedList<Carta> cartas = this.campoDelJugador.verCartasMonstruo();
+		
+		return (pasarNombreDeLasCartasAUnaLista(cartas));
+	}
+
+	public LinkedList<String> obtenerNombresDeCartaTrampaBocaArriba() {
+		
+		LinkedList<Carta> cartas = this.campoDelJugador.verCartasTrampa();
+		
+		return (pasarNombreDeLasCartasAUnaLista(cartas));	
+	}
+	
+	public LinkedList<String> obtenerNombresDeCartaMagiaBocaArriba() {
+		
+		LinkedList<Carta> cartas = this.campoDelJugador.verCartasMagicas();
+		
+		return (pasarNombreDeLasCartasAUnaLista(cartas));	
+	}
+	
+	private LinkedList<String> pasarNombreDeLasCartasAUnaLista(LinkedList<Carta> cartas) {
+		
+		LinkedList<String> nombres = new LinkedList<String>();
+		
+		for(int i = 0 ; i < cartas.size() ; i++) {
+			
+			ombres.add(cartas.get(i).getNombre());
+			else nombres.add("Dorso");
+		}
+		
+		return nombres;
+	}
+
+	public LinkedList<String> obtenerNombresDeCartaEnLaMano() {
+		
+		LinkedList<Carta> cartas = this.mano.verCartas();
+		
+		return (pasarNombreDeLasCartasAUnaLista(cartas));
 	}
 	
 

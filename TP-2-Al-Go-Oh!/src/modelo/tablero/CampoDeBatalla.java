@@ -1,5 +1,6 @@
 package modelo.tablero;
 
+import java.util.Collection;
 import java.util.LinkedList;
 
 import modelo.cartasEspecificas.AgujeroNegro;
@@ -210,6 +211,16 @@ public class CampoDeBatalla {
 		 
 		 return(this.cartasTrampa.contiene(carta));
 	 }
+
+	public LinkedList<Carta> verCartasMagicas() {
+		
+		return (this.cartasMagia.verCartas());
+	}
+
+	public LinkedList<Carta> verCartasTrampa() {
+		
+		return( this.cartasTrampa.verCartas());
+	}
 	
 /*	public Boolean hayCartasEnElCementerio() {
 	

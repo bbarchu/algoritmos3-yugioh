@@ -521,13 +521,16 @@ public class AlGoOh {
 	}
 
 	public void colocarEnElCampoDelJugadorActual(String text) {
-		// TODO Auto-generated method stub
+		
+		Carta carta = this.cartasJugadorActual.get(text);
+		
+		this.jugadorActual.invocar(carta);
 		
 	}
 
 	public void jugadorActualTomaUnaCarta() {
-		// TODO Auto-generated method stub
 		
+		this.jugadorActual.tomarCartaDelMazo();
 	}
 
 	public String getPuntosJugador1() {
@@ -539,50 +542,101 @@ public class AlGoOh {
 		int puntosDeVida = jugadorNumeroDos.obtenerPuntosDeVida();
 		return Integer.toString(puntosDeVida);
 	}
+	
+	private void rellenarListaDeNombres(LinkedList<String> nombres, int tamaño) {
+		
+		for(int i = nombres.size() ; i < tamaño ; i++) nombres.add("");
+	}
 
 	public LinkedList<String> obtenerArregloDe5CartasMagiaTrampaRival() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		int tamañoEsperado = 5;
+		
+		LinkedList<String> nombres = this.jugadorRival.obtenerNombresDeCartaMagiaBocaArriba();
+		nombres.addAll(this.jugadorRival.obtenerNombresDeCartaTrampaBocaArriba());
+		
+		if(nombres.size() < tamañoEsperado) rellenarListaDeNombres(nombres,tamañoEsperado);
+		
+		return nombres;
 	}
 
 	public LinkedList<String> obtenerArregloDe5CartasMonstruoRival() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		int tamañoEsperado = 5;
+		
+		LinkedList<String> nombres = this.jugadorRival.obtenerNombresDeCartasMonstruoBocaArriba();
+		
+		if(nombres.size() < tamañoEsperado) rellenarListaDeNombres(nombres,tamañoEsperado);
+	
+		return nombres;
 	}
 
 	public LinkedList<String> obtenerArregloDe5CartasMonstruoJugadorActual() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		int tamañoEsperado = 5;
+		
+		LinkedList<String> nombres = this.jugadorActual.obtenerNombresDeCartasMonstruoBocaArriba();
+		
+		if(nombres.size() < tamañoEsperado) rellenarListaDeNombres(nombres,tamañoEsperado);
+	
+		return nombres;
 	}
 
 	public LinkedList<String> obtenerArregloDe5CartasMagiaTrampaJugadorActual() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		int tamañoEsperado = 5;
+		
+		LinkedList<String> nombres = this.jugadorActual.obtenerNombresDeCartaMagiaBocaArriba();
+		
+		nombres.addAll(this.jugadorActual.obtenerNombresDeCartaTrampaBocaArriba());
+		
+		if(nombres.size() < tamañoEsperado) rellenarListaDeNombres(nombres,tamañoEsperado);
+		
+		return nombres;
+		
 	}
 
 	public LinkedList<String> obtenerArregloDe10CartasEnLaManoDelJugadorActual() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		int tamañoEsperado = 10;
+		
+		LinkedList<String> nombres = this.jugadorActual.obtenerNombresDeCartaEnLaMano();
+		
+		if(nombres.size() < tamañoEsperado) rellenarListaDeNombres(nombres,tamañoEsperado);
+	
+		return nombres;
+	}
+	
+	private String concatenarNombresDeCartasBocaArriba(LinkedList<String> nombres) {
+		
+		String nombresConcatenados = " ";
+		
+		for(int i = 0 ; i < nombres.size() ; i++) {
+			
+			if(nombres.get(i) != "Dorso") nombresConcatenados.concat(nombres.get(i));
+		}
+		
+		return nombresConcatenados;
 	}
 
 	public String nombresConcatenadosCartasManoJugadorActual() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return(concatenarNombresDeCartasBocaArriba(this.jugadorActual.obtenerNombresDeCartaEnLaMano();
 	}
 
 	public String nombresConcatenadosCartasMagicasJugadorActual() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return (concatenarNombresDeCartasBocaArriba(this.jugadorActual.obtenerNombresDeCartaMagiaBocaArriba()));
 	}
 
 	public String nombresConcatenadosCartasMonstruoEnCampoJugadorActual() {
-		// TODO Auto-generated method stub
-		return null;
+	
+		return (concatenarNombresDeCartasBocaArriba(this.jugadorActual.obtenerNombresDeCartasMonstruoBocaArriba()));
 	}
 
 	public String nombresConcatenadosCartasMonstruoEnCampoRival() {
-		// TODO Auto-generated method stub
-		return null;
+	
+		return (concatenarNombresDeCartasBocaArriba(this.jugadorRival.obtenerNombresDeCartasMonstruoBocaArriba()));
 	}	
 
 }

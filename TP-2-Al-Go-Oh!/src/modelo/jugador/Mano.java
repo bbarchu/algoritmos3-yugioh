@@ -11,7 +11,7 @@ import modelo.cartasGenericas.CartaMonstruo;
 public class Mano {
 	int cantidad;
 	//bar = tiene capacidad infinita... o al menos de 40 cartas...
-	List<Carta> cartas;
+	LinkedList<Carta> cartas;
 	
 	Mano(){
 		cantidad = 0;
@@ -100,5 +100,10 @@ public class Mano {
 			return false;
 		}
 		return true;
+	}
+	
+	public LinkedList<Carta> verCartas(){
+		
+		return this.cartas;
 	}
 }
