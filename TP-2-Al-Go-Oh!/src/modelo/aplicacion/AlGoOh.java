@@ -22,9 +22,14 @@ import modelo.cartasGenericas.ModoDefensa;
 import modelo.jugador.Jugador;
 
 public class AlGoOh {
+	Jugador jugadorActual;
+	Jugador jugadorRival;
 	
 	Jugador jugadorNumeroUno;
 	Jugador jugadorNumeroDos;
+	
+	Hashtable<String, Carta> cartasJugadorActual;
+	Hashtable<String, Carta> cartasJugadorRival;
 	
 	Hashtable<String, Carta> cartasJugadorUno;
 	Hashtable<String, Carta> cartasJugadorDos;
@@ -34,6 +39,14 @@ public class AlGoOh {
 		//creacion de jugadores.
 		jugadorNumeroUno = new Jugador();
 		jugadorNumeroDos = new Jugador();
+		
+		//Asigno el primer turno a el jugador numero uno.
+		jugadorActual = jugadorNumeroUno;
+		cartasJugadorActual = cartasJugadorUno;
+		
+		jugadorRival = jugadorNumeroDos;
+		cartasJugadorRival = cartasJugadorDos;
+		
 		//creacion del diccionario de cartas de ambos jugadores.
 		cartasJugadorUno = new Hashtable<String, Carta>();
 		cartasJugadorDos = new Hashtable<String, Carta>();
@@ -228,7 +241,8 @@ public class AlGoOh {
 		this.jugadorNumeroUno.agregarCartaAlMazo(fisuraUno);
 		this.jugadorNumeroDos.agregarCartaAlMazo(fisuraDos);
 		
-		
+		this.cartasJugadorUno.put("Fisura", fisuraUno);
+		this.cartasJugadorDos.put("Fisura", fisuraDos);
 		
 		//18° carta Girochin
 		
@@ -238,6 +252,9 @@ public class AlGoOh {
 		this.jugadorNumeroUno.agregarCartaAlMazo(girochinUno);
 		this.jugadorNumeroDos.agregarCartaAlMazo(girochinDos);
 		
+		this.cartasJugadorUno.put("Girochin", girochinUno);
+		this.cartasJugadorDos.put("Girochin", girochinDos);
+		
 		//19° carta GuardianDeLaPuerta
 		
 		CartaMonstruo guardianDeLaPuertaUno = new CartaMonstruo(3750, 3400, 11, modoAtaque, jugadorNumeroUno, "GuardianDeLaPuerta");
@@ -245,6 +262,9 @@ public class AlGoOh {
 	
 		this.jugadorNumeroUno.agregarCartaAlMazo(guardianDeLaPuertaUno);
 		this.jugadorNumeroDos.agregarCartaAlMazo(guardianDeLaPuertaDos);
+		
+		this.cartasJugadorUno.put("GuardianDeLaPuerta", guardianDeLaPuertaUno);
+		this.cartasJugadorDos.put("GuardianDeLaPuerta", guardianDeLaPuertaDos);
 		
 		//20° carta HaneHane
 		
@@ -254,6 +274,9 @@ public class AlGoOh {
 		this.jugadorNumeroUno.agregarCartaAlMazo(haneHaneUno);
 		this.jugadorNumeroDos.agregarCartaAlMazo(haneHaneDos);
 		
+		this.cartasJugadorUno.put("HaneHane", haneHaneUno);
+		this.cartasJugadorDos.put("HaneHane", haneHaneDos);
+		
 		//21° carta HojaOscura
 		
 		CartaMonstruo hojaOscuraUno = new CartaMonstruo(1800, 1500, 4, modoAtaque, jugadorNumeroUno, "HojaOscura");
@@ -261,6 +284,9 @@ public class AlGoOh {
 		
 		this.jugadorNumeroUno.agregarCartaAlMazo(hojaOscuraUno);
 		this.jugadorNumeroDos.agregarCartaAlMazo(hojaOscuraDos);
+		
+		this.cartasJugadorUno.put("HojaOscura", hojaOscuraUno);
+		this.cartasJugadorDos.put("HojaOscura", hojaOscuraDos);
 		
 		//22° carta InsectoComeHombres
 		
@@ -270,6 +296,9 @@ public class AlGoOh {
 		this.jugadorNumeroUno.agregarCartaAlMazo(insectoUno);
 		this.jugadorNumeroDos.agregarCartaAlMazo(insectoDos);
 		
+		this.cartasJugadorUno.put("InsectoComeHombres", insectoUno);
+		this.cartasJugadorDos.put("InsectoComeHombres", insectoDos);
+		
 		//23° carta JineteMistico
 		
 		CartaMonstruo jineteUno = new CartaMonstruo(1300, 1550, 4, modoAtaque, jugadorNumeroUno, "JineteMistico");
@@ -277,6 +306,9 @@ public class AlGoOh {
 		
 		this.jugadorNumeroUno.agregarCartaAlMazo(jineteUno);
 		this.jugadorNumeroDos.agregarCartaAlMazo(jineteDos);
+		
+		this.cartasJugadorUno.put("JineteMistico", jineteUno);
+		this.cartasJugadorDos.put("JineteMistico", jineteDos);
 		
 		//24° carta Jinzo7
 		
@@ -286,6 +318,9 @@ public class AlGoOh {
 		this.jugadorNumeroUno.agregarCartaAlMazo(jinzoUno);
 		this.jugadorNumeroDos.agregarCartaAlMazo(jinzoDos);
 		
+		this.cartasJugadorUno.put("Jinzo7", jinzoUno);
+		this.cartasJugadorDos.put("Jinzo7", jinzoDos);
+		
 		//25° carta Kuriboh
 		
 		CartaMonstruo kuribohUno = new CartaMonstruo(300, 200, 1, modoAtaque, jugadorNumeroUno, "Kuriboh");
@@ -293,6 +328,9 @@ public class AlGoOh {
 		
 		this.jugadorNumeroUno.agregarCartaAlMazo(kuribohUno);
 		this.jugadorNumeroDos.agregarCartaAlMazo(kuribohDos);
+		
+		this.cartasJugadorUno.put("Kuriboh", kuribohUno);
+		this.cartasJugadorDos.put("Kuriboh", kuribohDos);
 		
 		//26° carta KuribohAlado
 		
@@ -302,6 +340,9 @@ public class AlGoOh {
 		this.jugadorNumeroUno.agregarCartaAlMazo(kuribohAladoUno);
 		this.jugadorNumeroDos.agregarCartaAlMazo(kuribohAladoDos);
 		
+		this.cartasJugadorUno.put("KuribohAlado", kuribohAladoUno);
+		this.cartasJugadorDos.put("KuribohAlado", kuribohAladoDos);
+		
 		//27° carta LordOfD
 		
 		CartaMonstruo lordUno = new CartaMonstruo(1200, 1100, 4, modoAtaque, jugadorNumeroUno, "LordOfD");
@@ -309,6 +350,9 @@ public class AlGoOh {
 		
 		this.jugadorNumeroUno.agregarCartaAlMazo(lordUno);
 		this.jugadorNumeroDos.agregarCartaAlMazo(lordDos);
+		
+		this.cartasJugadorUno.put("LordOfD", lordUno);
+		this.cartasJugadorDos.put("LordOfD", lordDos);
 		
 		//28° carta MagoOscuro
 		
@@ -318,6 +362,9 @@ public class AlGoOh {
 		this.jugadorNumeroUno.agregarCartaAlMazo(magoOscuroUno);
 		this.jugadorNumeroDos.agregarCartaAlMazo(magoOscuroDos);
 		
+		this.cartasJugadorUno.put("MagoOscuro", magoOscuroUno);
+		this.cartasJugadorDos.put("MagoOscuro", magoOscuroDos);
+		
 		//29° carta Obelisk
 		
 		CartaMonstruo obeliskUno = new CartaMonstruo(4000, 4000, 10, modoAtaque, jugadorNumeroUno, "Obelisk");
@@ -325,6 +372,9 @@ public class AlGoOh {
 		
 		this.jugadorNumeroUno.agregarCartaAlMazo(obeliskUno);
 		this.jugadorNumeroDos.agregarCartaAlMazo(obeliskDos);
+		
+		this.cartasJugadorUno.put("Obelisk", obeliskUno);
+		this.cartasJugadorDos.put("Obelisk", obeliskDos);
 		
 		//30° carta OgroGrotto
 		
@@ -334,6 +384,9 @@ public class AlGoOh {
 		this.jugadorNumeroUno.agregarCartaAlMazo(ogroUno);
 		this.jugadorNumeroDos.agregarCartaAlMazo(ogroDos);
 		
+		this.cartasJugadorUno.put("OgroGrotto", ogroUno);
+		this.cartasJugadorDos.put("OgroGrotto", ogroDos);
+		
 		//31° carta OllaDeLaCodicia
 		
 		OllaDeLaCodicia ollaUno = new OllaDeLaCodicia(bocaAbajo, jugadorNumeroUno);
@@ -341,6 +394,9 @@ public class AlGoOh {
 		
 		this.jugadorNumeroUno.agregarCartaAlMazo(ollaUno);
 		this.jugadorNumeroDos.agregarCartaAlMazo(ollaDos);
+		
+		this.cartasJugadorUno.put("OllaDeLaCodicia", ollaUno);
+		this.cartasJugadorDos.put("OllaDeLaCodicia", ollaDos);
 		
 		//32° carta PiernaDerechaDelProhibido
 		
@@ -350,6 +406,9 @@ public class AlGoOh {
 		this.jugadorNumeroUno.agregarCartaAlMazo(piernaDerechaDelProhibidoUno);
 		this.jugadorNumeroDos.agregarCartaAlMazo(piernaDerechaDelProhibidoDos);
 		
+		this.cartasJugadorUno.put("PiernaDerechaDelProhibido", piernaDerechaDelProhibidoUno);
+		this.cartasJugadorDos.put("PiernaDerechaDelProhibido", piernaDerechaDelProhibidoDos);
+		
 		//33° carta PiernaIzquierdaDelProhibido
 		
 		CartaMonstruo piernaIzquierdaDelProhibidoUno = new CartaMonstruo(200, 300, 1, modoAtaque, jugadorNumeroUno, "PiernaIzquierdaDelProhibido");
@@ -357,6 +416,9 @@ public class AlGoOh {
 			
 		this.jugadorNumeroUno.agregarCartaAlMazo(piernaIzquierdaDelProhibidoUno);
 		this.jugadorNumeroDos.agregarCartaAlMazo(piernaIzquierdaDelProhibidoDos);
+		
+		this.cartasJugadorUno.put("PiernaIzquierdaDelProhibido", piernaIzquierdaDelProhibidoUno);
+		this.cartasJugadorDos.put("PiernaIzquierdaDelProhibido", piernaIzquierdaDelProhibidoDos);
 		
 		//34° carta Reinforcements
 		
@@ -366,6 +428,9 @@ public class AlGoOh {
 		this.jugadorNumeroUno.agregarCartaAlMazo(reinforcementsUno);
 		this.jugadorNumeroDos.agregarCartaAlMazo(reinforcementsDos);
 		
+		this.cartasJugadorUno.put("Reinforcements", reinforcementsUno);
+		this.cartasJugadorDos.put("Reinforcements", reinforcementsDos);
+		
 		//35° carta Ryu
 		
 		CartaMonstruo ryuUno = new CartaMonstruo(1600, 1200, 4, modoAtaque, jugadorNumeroUno, "Ryu");
@@ -373,6 +438,9 @@ public class AlGoOh {
 		
 		this.jugadorNumeroUno.agregarCartaAlMazo(ryuUno);
 		this.jugadorNumeroDos.agregarCartaAlMazo(ryuDos);
+		
+		this.cartasJugadorUno.put("Ryu", ryuUno);
+		this.cartasJugadorDos.put("Ryu", ryuDos);
 		
 		//36° carta Segadora
 		
@@ -382,6 +450,9 @@ public class AlGoOh {
 		this.jugadorNumeroUno.agregarCartaAlMazo(segadoraUno);
 		this.jugadorNumeroDos.agregarCartaAlMazo(segadoraDos);
 		
+		this.cartasJugadorUno.put("Segadora", segadoraUno);
+		this.cartasJugadorDos.put("Segadora", segadoraDos);
+		
 		//37° carta Slifer
 		
 		CartaMonstruo sliferUno = new CartaMonstruo(20000,20000, 10, modoAtaque, jugadorNumeroUno,"Slifer");
@@ -389,6 +460,9 @@ public class AlGoOh {
 		
 		this.jugadorNumeroUno.agregarCartaAlMazo(sliferUno);
 		this.jugadorNumeroDos.agregarCartaAlMazo(sliferDos);
+		
+		this.cartasJugadorUno.put("Slifer", sliferUno);
+		this.cartasJugadorDos.put("Slifer", sliferDos);
 		
 		//38° carta Sogen
 		
@@ -398,31 +472,51 @@ public class AlGoOh {
 		this.jugadorNumeroUno.agregarCartaAlMazo(sogenUno);
 		this.jugadorNumeroDos.agregarCartaAlMazo(sogenDos);
 		
+		this.cartasJugadorUno.put("Sogen", sogenUno);
+		this.cartasJugadorDos.put("Sogen", sogenDos);
+		
 		//39° carta Wasteland
 		
 		Wasteland wastelandUno = new Wasteland(jugadorNumeroUno);
 		Wasteland wastelandDos = new Wasteland(jugadorNumeroDos);
 		
 		this.jugadorNumeroUno.agregarCartaAlMazo(wastelandUno);
-		this.jugadorNumeroDos.agregarCartaAlMazo(wastelandUno);
+		this.jugadorNumeroDos.agregarCartaAlMazo(wastelandDos);
+		
+		this.cartasJugadorUno.put("Wasteland", wastelandUno);
+		this.cartasJugadorDos.put("Wasteland", wastelandDos);
 		
 	}
 
 //----------------------------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------------------
 	
-	public void activarCartaMagicaDelJugadorActual(String text) {
-		// TODO Auto-generated method stub
+	public void activarCartaMagicaDelJugadorActual(String nombreCarta) {
+		Carta cartaMagica;
+		cartaMagica = cartasJugadorActual.get(nombreCarta);
+		jugadorActual.invocar(cartaMagica);
+		
 		
 	}
 
-	public void jugadorActualAtacaConA(String text, String text2) {
-		// TODO Auto-generated method stub
-		
+	public void jugadorActualAtacaConA(String cartaAtacante, String cartaAtacada) {
+		CartaMonstruo cartaMonstruoAtacante;
+		CartaMonstruo cartaMonstruoAtacada;
+		cartaMonstruoAtacante = (CartaMonstruo)cartasJugadorActual.get(cartaAtacante);
+		cartaMonstruoAtacada = (CartaMonstruo)cartasJugadorRival.get(cartaAtacada);
+		jugadorActual.atacarConA(cartaMonstruoAtacante, cartaMonstruoAtacada);
 	}
 
 	public void cambiarDeTurno() {
-		// TODO Auto-generated method stub
+		//Swap jugadores.
+		Jugador aux = jugadorActual;
+		jugadorActual = jugadorRival;
+		jugadorRival = aux;
+		
+		//Swap cartas.
+		Hashtable<String, Carta> cartasAux = cartasJugadorActual;
+		cartasJugadorActual = cartasJugadorRival;
+		cartasJugadorRival = cartasAux;
 		
 	}
 
@@ -437,13 +531,13 @@ public class AlGoOh {
 	}
 
 	public String getPuntosJugador1() {
-		// TODO Auto-generated method stub
-		return null;
+		int puntosDeVida = jugadorNumeroUno.obtenerPuntosDeVida();
+		return Integer.toString(puntosDeVida);
 	}
 
 	public String getPuntosJugador2() {
-		// TODO Auto-generated method stub
-		return null;
+		int puntosDeVida = jugadorNumeroDos.obtenerPuntosDeVida();
+		return Integer.toString(puntosDeVida);
 	}
 
 	public LinkedList<String> obtenerArregloDe5CartasMagiaTrampaRival() {

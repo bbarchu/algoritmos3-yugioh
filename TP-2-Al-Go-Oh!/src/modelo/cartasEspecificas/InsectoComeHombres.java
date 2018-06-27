@@ -12,7 +12,7 @@ public class InsectoComeHombres extends CartaMonstruo{
 	
 	public InsectoComeHombres(ModoDeUso modo, Jugador jugador) {
 		
-		super(puntosDeAtaque, puntosDeDefensa, estrellas, modo, jugador);
+		super(puntosDeAtaque, puntosDeDefensa, estrellas, modo, jugador,"InsectoComeHombres");
 	}
 
 	@Override
