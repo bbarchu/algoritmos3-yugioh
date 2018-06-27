@@ -19,6 +19,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
+import modelo.aplicacion.AlGoOh;
 import vista.handlers.BotonActivarTrampasHandler;
 import vista.handlers.BotonTomarCartaHandler;
 
@@ -29,17 +30,17 @@ public class ContenedorFaseTrampas extends BorderPane{
 	StackPane stackPaneCentral;
 	StackPane stackPaneLateral;
 	
-	public ContenedorFaseTrampas(Stage stage, Scene escenaFaseAtaque) {
+	public ContenedorFaseTrampas(Stage stage, Scene escenaFaseAtaque, AlGoOh algooh) {
         this.setMenu(stage);
-        this.setCentro();
+        this.setCentro(algooh);
         
 	}
 	
-	private void setBotonera(Stage stage, Scene escenaFaseAtaque) {
+	private void setBotonera(Stage stage, Scene escenaFaseAtaque, AlGoOh algooh) {
         
 		stackPaneLateral = new StackPane();
 		
-		VistaPuntajes vistaPuntajes = new VistaPuntajes(stackPaneLateral);
+		VistaPuntajes vistaPuntajes = new VistaPuntajes(stackPaneLateral, algooh);
 		vistaPuntajes.dibujarAnotadorChico();
 		
 		
@@ -74,11 +75,11 @@ public class ContenedorFaseTrampas extends BorderPane{
         this.setRight(contenedorVertical);
 	}
 
-	private void setCentro() {
+	private void setCentro(AlGoOh algooh) {
 
 		stackPaneCentral = new StackPane();
 		
-		VistaCampoDeBatalla vistaCampo = new VistaCampoDeBatalla(stackPaneCentral);
+		VistaCampoDeBatalla vistaCampo = new VistaCampoDeBatalla(stackPaneCentral, algooh);
 		vistaCampo.dibuajarTodoElCampo();
 		
 		contenedorCentral = new VBox(stackPaneCentral);
@@ -101,7 +102,7 @@ public class ContenedorFaseTrampas extends BorderPane{
 		return menuBar;
 	}
 
-	public void asignarEscenaFaseAtaque(Stage stage, Scene escenaAtaque) {
-		this.setBotonera(stage, escenaAtaque);
+	public void asignarEscenaFaseAtaque(Stage stage, Scene escenaAtaque, AlGoOh algooh) {
+		this.setBotonera(stage, escenaAtaque, algooh);
 	}
 }

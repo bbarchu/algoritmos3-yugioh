@@ -18,31 +18,32 @@ public class Aplicacion extends Application{
 		
 		stage.setTitle("AlGoOh!");
 		
+		AlGoOh alGoOh = new AlGoOh();
 		
 		ContenedorCambioDeTurno contenedorCambioDeTurno = new ContenedorCambioDeTurno(stage);
 		Scene escenaCambioDeTurno = new Scene(contenedorCambioDeTurno, 640, 480);
 		
-		ContenedorFaseMagia contenedorFaseMagia = new ContenedorFaseMagia(stage, escenaCambioDeTurno);
+		ContenedorFaseMagia contenedorFaseMagia = new ContenedorFaseMagia(stage, escenaCambioDeTurno, alGoOh);
 		Scene escenaMagia = new Scene(contenedorFaseMagia, 640, 480);
 		
-		ContenedorFaseTrampas contenedorFaseTrampas = new ContenedorFaseTrampas(stage, escenaMagia);
+		ContenedorFaseTrampas contenedorFaseTrampas = new ContenedorFaseTrampas(stage, escenaMagia, alGoOh);
 		Scene escenaTrampas = new Scene(contenedorFaseTrampas, 640, 480);
 		
-		ContenedorFaseAtaque contenedorFaseAtaque = new ContenedorFaseAtaque(stage, escenaTrampas, escenaMagia);
+		ContenedorFaseAtaque contenedorFaseAtaque = new ContenedorFaseAtaque(stage, escenaTrampas, escenaMagia, alGoOh);
 		Scene escenaAtaque = new Scene(contenedorFaseAtaque, 640, 480);
 		
-		ContenedorFasePreparacion contenedorFasePreparacion = new ContenedorFasePreparacion(stage, escenaAtaque);
+		ContenedorFasePreparacion contenedorFasePreparacion = new ContenedorFasePreparacion(stage, escenaAtaque, alGoOh);
 		Scene escenaPreparacion = new Scene(contenedorFasePreparacion, 640, 480);
 		
-		ContenedorFaseInicial contenedorFaseInicial = new ContenedorFaseInicial(stage,escenaPreparacion);
+		ContenedorFaseInicial contenedorFaseInicial = new ContenedorFaseInicial(stage,escenaPreparacion, alGoOh);
 		Scene escenaFaseInicial = new Scene(contenedorFaseInicial, 640, 480);
 		
 	    ContenedorBienvenidos contenedorBienvenidos = new ContenedorBienvenidos(stage, escenaFaseInicial);    
 	    Scene escenaBienvenidos = new Scene(contenedorBienvenidos, 640, 480);
 		
-	    //Los siguientes dos métodos se encuentran separados debido a que necesitan tener creados los objetos de arriba
-	    contenedorFaseTrampas.asignarEscenaFaseAtaque(stage,escenaAtaque);
-	    contenedorCambioDeTurno.asignarEscenaFaseInicial(stage,escenaFaseInicial);
+	    
+	    contenedorFaseTrampas.asignarEscenaFaseAtaque(stage,escenaAtaque, alGoOh);
+	    contenedorCambioDeTurno.asignarEscenaFaseInicial(stage,escenaFaseInicial, alGoOh);
 	    
 		AplicacionOnKeyPressEventHandler bienvenidosHandler = new AplicacionOnKeyPressEventHandler(stage, contenedorFaseInicial.getBarraDeMenu());
 		escenaFaseInicial.setOnKeyPressed(bienvenidosHandler);
@@ -61,6 +62,7 @@ public class Aplicacion extends Application{
 
         stage.show();
 	}
+
 
 
 }

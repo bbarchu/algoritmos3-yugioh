@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundImage;
@@ -19,6 +20,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
+import modelo.aplicacion.AlGoOh;
+import vista.handlers.BotonColocarCartaHandler;
 import vista.handlers.BotonPasarDeFaseHandler;
 import vista.handlers.BotonTomarCartaHandler;
 
@@ -27,26 +30,42 @@ public class ContenedorFasePreparacion extends BorderPane {
 	BarraDeMenu menuBar;
 	VBox contenedorCentral;
 	StackPane stackPaneCentral;
+	VistaCampoDeBatalla vistaCampo;
 
-	public ContenedorFasePreparacion(Stage stage, Scene escenaFaseAtaque) {
+	public ContenedorFasePreparacion(Stage stage, Scene escenaFaseAtaque, AlGoOh algooh) {
         this.setMenu(stage);
-        this.setCentro();
-        this.setBotonera(stage, escenaFaseAtaque);
+        this.setCentro(algooh);
+        this.setBotonera(stage, escenaFaseAtaque, algooh);
 
 	}
 	
 	
-	private void setBotonera(Stage stage, Scene proximaEscena) {
+	private void setBotonera(Stage stage, Scene proximaEscena, AlGoOh algooh) {
 		
 		Label nombreFase = new Label();
 		nombreFase.setText("Fase Preparacion");
 		nombreFase.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 25));
 		nombreFase.setTextFill(Color.BLACK);
 		
+		Label titulo = new Label();
+		titulo.setText("Sus cartas");
+		titulo.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 20));
+		titulo.setTextFill(Color.BLACK);
+		
+		Label cartas = new Label();
+		cartas.setText(algooh.nombresConcatenadosCartasManoJugadorActual());
+		cartas.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 10));
+		cartas.setTextFill(Color.BLACK);
+		
+		TextField cuadroDeTextoCartaPropia = new TextField("Ingrese el nombre de la carta a colocar");
+		
         Button botonColocarCarta = new Button();
         botonColocarCarta.setText("Colocar una carta");
         botonColocarCarta.setMaxWidth(200);
 	    botonColocarCarta.setStyle("-fx-font: 19 arial; -fx-base: #b6e7c9;");
+	    
+	    BotonColocarCartaHandler botonColocarCartaHandler = new BotonColocarCartaHandler(vistaCampo, algooh, cuadroDeTextoCartaPropia);
+	    botonColocarCarta.setOnAction(botonColocarCartaHandler);
 	    
 		Button botonPasarDeFase = new Button();
         botonPasarDeFase.setText("Pasar de fase");
@@ -56,8 +75,8 @@ public class ContenedorFasePreparacion extends BorderPane {
 	    BotonPasarDeFaseHandler botonPasarDeFaseHandler = new BotonPasarDeFaseHandler(stage, proximaEscena);
 	    botonPasarDeFase.setOnAction(botonPasarDeFaseHandler);
 
-        VBox contenedorVertical = new VBox(nombreFase, botonColocarCarta, botonPasarDeFase);
-        contenedorVertical.setSpacing(290);
+        VBox contenedorVertical = new VBox(nombreFase, titulo, cartas,cuadroDeTextoCartaPropia,botonColocarCarta, botonPasarDeFase);
+        contenedorVertical.setSpacing(100);
         contenedorVertical.setAlignment(Pos.TOP_CENTER);
         contenedorVertical.setPadding(new Insets(20));
         contenedorVertical.setPrefWidth(300);
@@ -68,11 +87,11 @@ public class ContenedorFasePreparacion extends BorderPane {
         this.setRight(contenedorVertical);
 	}
 
-	private void setCentro() {
+	private void setCentro(AlGoOh algooh) {
 
 		stackPaneCentral = new StackPane();
 		
-		VistaCampoDeBatalla vistaCampo = new VistaCampoDeBatalla(stackPaneCentral);
+		vistaCampo = new VistaCampoDeBatalla(stackPaneCentral, algooh);
 		vistaCampo.dibuajarManoYCampoPropio();
 		
 		contenedorCentral = new VBox(stackPaneCentral);

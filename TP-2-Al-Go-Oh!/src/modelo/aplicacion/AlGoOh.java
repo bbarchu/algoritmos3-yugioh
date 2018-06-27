@@ -1,6 +1,7 @@
 package modelo.aplicacion;
 
 import java.util.Hashtable;
+import java.util.LinkedList;
 
 import modelo.cartasEspecificas.AgujeroNegro;
 import modelo.cartasEspecificas.CilindroMagico;
@@ -405,6 +406,89 @@ public class AlGoOh {
 		this.jugadorNumeroUno.agregarCartaAlMazo(wastelandUno);
 		this.jugadorNumeroDos.agregarCartaAlMazo(wastelandUno);
 		
+	}
+
+//----------------------------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------------------------
+	
+	public void activarCartaMagicaDelJugadorActual(String text) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void jugadorActualAtacaConA(String text, String text2) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void cambiarDeTurno() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void colocarEnElCampoDelJugadorActual(String text) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void jugadorActualTomaUnaCarta() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public String getPuntosJugador1() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String getPuntosJugador2() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public LinkedList<String> obtenerArregloDe5CartasMagiaTrampaRival() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public LinkedList<String> obtenerArregloDe5CartasMonstruoRival() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public LinkedList<String> obtenerArregloDe5CartasMonstruoJugadorActual() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public LinkedList<String> obtenerArregloDe5CartasMagiaTrampaJugadorActual() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public LinkedList<String> obtenerArregloDe10CartasEnLaManoDelJugadorActual() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String nombresConcatenadosCartasManoJugadorActual() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String nombresConcatenadosCartasMagicasJugadorActual() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String nombresConcatenadosCartasMonstruoEnCampoJugadorActual() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String nombresConcatenadosCartasMonstruoEnCampoRival() {
+		// TODO Auto-generated method stub
+		return null;
 	}	
 
 }

@@ -20,6 +20,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
+import modelo.aplicacion.AlGoOh;
 import vista.handlers.BotonAtacarHandler;
 import vista.handlers.BotonPasarDeFaseHandler;
 import vista.handlers.BotonTomarCartaHandler;
@@ -30,22 +31,43 @@ public class ContenedorFaseAtaque extends BorderPane{
 	VBox contenedorCentral;
 	StackPane stackPaneCentral;
 	
-	public ContenedorFaseAtaque(Stage stage, Scene escenaFaseTrampas, Scene escenaFaseMagia) {
+	public ContenedorFaseAtaque(Stage stage, Scene escenaFaseTrampas, Scene escenaFaseMagia, AlGoOh algooh) {
         this.setMenu(stage);
-        this.setCentro();
-        this.setBotonera(stage, escenaFaseTrampas, escenaFaseMagia);
+        this.setCentro(algooh);
+        this.setBotonera(stage, escenaFaseTrampas, escenaFaseMagia, algooh);
         
 	}
 	
-	private void setBotonera(Stage stage, Scene escenaFaseTrampas, Scene escenaFaseMagia) {
+	private void setBotonera(Stage stage, Scene escenaFaseTrampas, Scene escenaFaseMagia, AlGoOh algooh) {
 		
 		Label nombreFase = new Label();
 		nombreFase.setText("Fase Ataque");
 		nombreFase.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 25));
 		nombreFase.setTextFill(Color.BLACK);
 		
-		TextField cuadroDeTextoCartaPropia = new TextField("Ingrese el nombre de SU carta");
-		TextField cuadroDeTextoCartaRival = new TextField("Ingrese el nombre de la carta del RIVAL");
+		Label titulo1 = new Label();
+		titulo1.setText("Sus cartas");
+		titulo1.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 20));
+		titulo1.setTextFill(Color.BLACK);
+		
+		Label cartasJugador= new Label();
+		cartasJugador.setText(algooh.nombresConcatenadosCartasMonstruoEnCampoJugadorActual());
+		cartasJugador.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 10));
+		cartasJugador.setTextFill(Color.BLACK);
+		
+		Label titulo2 = new Label();
+		titulo2.setText("Cartas del rival");
+		titulo2.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 20));
+		titulo2.setTextFill(Color.BLACK);
+		
+		Label cartasRival= new Label();
+		cartasRival.setText(algooh.nombresConcatenadosCartasMonstruoEnCampoRival());
+		cartasRival.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 10));
+		cartasRival.setTextFill(Color.BLACK);
+		
+		TextField cuadroPropio = new TextField("Ingrese el nombre de SU carta");
+		TextField cuadroRival = new TextField("Ingrese el nombre de la carta del RIVAL");
+		
 		
         Button botonAtacar = new Button();
         botonAtacar.setText("Atacar");
@@ -57,7 +79,7 @@ public class ContenedorFaseAtaque extends BorderPane{
         botonPasarDeFase.setMaxWidth(150);
 	    botonPasarDeFase.setStyle("-fx-font: 15 arial; -fx-base: #b6e7c9;");
 	    
-	    BotonAtacarHandler botonAtacarHandler = new BotonAtacarHandler(stage, escenaFaseTrampas);
+	    BotonAtacarHandler botonAtacarHandler = new BotonAtacarHandler(stage, escenaFaseTrampas, algooh, cuadroPropio, cuadroRival);
 	    botonAtacar.setOnAction(botonAtacarHandler);
 	    
 	    BotonPasarDeFaseHandler botonPasarDeFaseHandler = new BotonPasarDeFaseHandler(stage, escenaFaseMagia);
@@ -67,13 +89,13 @@ public class ContenedorFaseAtaque extends BorderPane{
         contenedorVerticalBotones.setSpacing(120);
         contenedorVerticalBotones.setAlignment(Pos.TOP_CENTER);
         
-        VBox contenedorVerticalTexto = new VBox(cuadroDeTextoCartaPropia, cuadroDeTextoCartaRival);
+        VBox contenedorVerticalTexto = new VBox(cuadroPropio, cuadroRival);
         contenedorVerticalTexto.setSpacing(50);
         contenedorVerticalTexto.setAlignment(Pos.TOP_CENTER);
 
 	    
-        VBox contenedorVerticalPrincipal = new VBox(nombreFase, contenedorVerticalTexto, contenedorVerticalBotones);
-        contenedorVerticalPrincipal.setSpacing(180);
+        VBox contenedorVerticalPrincipal = new VBox(nombreFase, titulo1, titulo2, cartasJugador, cartasRival, contenedorVerticalTexto, contenedorVerticalBotones);
+        contenedorVerticalPrincipal.setSpacing(50);
         contenedorVerticalPrincipal.setAlignment(Pos.TOP_CENTER);
         contenedorVerticalPrincipal.setPadding(new Insets(20));
         contenedorVerticalPrincipal.setPrefWidth(300);
@@ -85,10 +107,10 @@ public class ContenedorFaseAtaque extends BorderPane{
         this.setRight(contenedorVerticalPrincipal);
 	}
 
-	private void setCentro() {
+	private void setCentro(AlGoOh algooh) {
 		stackPaneCentral = new StackPane();
 		
-		VistaCampoDeBatalla vistaCampo = new VistaCampoDeBatalla(stackPaneCentral);
+		VistaCampoDeBatalla vistaCampo = new VistaCampoDeBatalla(stackPaneCentral, algooh);
 		vistaCampo.dibuajarTodoElCampo();
 		
 		contenedorCentral = new VBox(stackPaneCentral);

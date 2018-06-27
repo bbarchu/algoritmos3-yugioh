@@ -3,7 +3,6 @@ package vista;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -19,9 +18,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
-import modelo.tablero.CampoDeBatalla;
-import vista.handlers.BotonEntrarEventHandler;
-import vista.handlers.BotonPasarDeFaseHandler;
+import modelo.aplicacion.AlGoOh;
 import vista.handlers.BotonTomarCartaHandler;
 
 
@@ -33,14 +30,14 @@ public class ContenedorFaseInicial extends BorderPane {
 	StackPane stackPaneCentral;
 
 	
-    public ContenedorFaseInicial(Stage stage, Scene escenaFasePreparacion) {
+    public ContenedorFaseInicial(Stage stage, Scene escenaFasePreparacion, AlGoOh algooh) {
         this.setMenu(stage);
-        this.setCentro();
-        this.setBotonera(stage, escenaFasePreparacion);
+        this.setCentro(algooh);
+        this.setBotonera(stage, escenaFasePreparacion, algooh);
         
     }
 
-	private void setBotonera(Stage stage, Scene proximaEscena) {
+	private void setBotonera(Stage stage, Scene proximaEscena, AlGoOh algooh) {
         
 		Label nombreFase = new Label();
 		nombreFase.setText("Fase Inicial");
@@ -52,7 +49,7 @@ public class ContenedorFaseInicial extends BorderPane {
         botonTomarCarta.setMaxWidth(200);
 	    botonTomarCarta.setStyle("-fx-font: 22 arial; -fx-base: #b6e7c9;");
 	    
-	    BotonTomarCartaHandler botonTomarCartaHandler = new BotonTomarCartaHandler(stage, proximaEscena);
+	    BotonTomarCartaHandler botonTomarCartaHandler = new BotonTomarCartaHandler(stage, proximaEscena, algooh);
 	    botonTomarCarta.setOnAction(botonTomarCartaHandler);
 
 	    contenedorVertical = new VBox(nombreFase, botonTomarCarta);
@@ -67,11 +64,11 @@ public class ContenedorFaseInicial extends BorderPane {
         this.setRight(contenedorVertical);
 	}
 
-	private void setCentro() {
+	private void setCentro(AlGoOh algooh) {
 		
 		stackPaneCentral = new StackPane();
 		
-		VistaCampoDeBatalla vistaCampo = new VistaCampoDeBatalla(stackPaneCentral);
+		VistaCampoDeBatalla vistaCampo = new VistaCampoDeBatalla(stackPaneCentral, algooh);
 		vistaCampo.dibuajarTodoElCampo();
 		
 		contenedorCentral = new VBox(stackPaneCentral);

@@ -9,15 +9,18 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import modelo.aplicacion.AlGoOh;
 
 public class VistaPuntajes {
 
 	Canvas canvas;
 	StackPane stack;
+	AlGoOh algooh;
 	
-	public VistaPuntajes(StackPane stackPaneCentral) {
+	public VistaPuntajes(StackPane stackPaneCentral, AlGoOh algooh) {
 		
 		this.stack = stackPaneCentral;
+		this.algooh = algooh;
 		
 	}
 
@@ -27,12 +30,12 @@ public class VistaPuntajes {
 		this.setFondoAnotadorGrande();
 		
 		Label jugador1 = new Label();
-		jugador1.setText("Jugador 1: "+"8000");
+		jugador1.setText("Jugador 1: "+ (algooh.getPuntosJugador1()) );
 		jugador1.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 25));
 		jugador1.setTextFill(Color.BLACK);
 		
 		Label jugador2 = new Label();
-		jugador2.setText("Jugador 2: "+"8000");
+		jugador2.setText("Jugador 2: "+(algooh.getPuntosJugador2()));
 		jugador2.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 25));
 		jugador2.setTextFill(Color.BLACK);
 		
@@ -66,12 +69,12 @@ public class VistaPuntajes {
 		this.setFondoAnotadorChico();
 		
 		Label jugador1 = new Label();
-		jugador1.setText("Jugador 1: "+"8000");
+		jugador1.setText("Jugador 1: "+ (algooh.getPuntosJugador1().toString()) );
 		jugador1.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 20));
 		jugador1.setTextFill(Color.BLACK);
 		
 		Label jugador2 = new Label();
-		jugador2.setText("Jugador 2: "+"8000");
+		jugador2.setText("Jugador 2: "+ (algooh.getPuntosJugador2().toString()) );
 		jugador2.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 20));
 		jugador2.setTextFill(Color.BLACK);
 		

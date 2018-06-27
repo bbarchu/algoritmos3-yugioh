@@ -20,6 +20,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
+import modelo.aplicacion.AlGoOh;
 import vista.handlers.BotonCambiarDeTurnoHandler;
 import vista.handlers.BotonPasarDeFaseHandler;
 
@@ -33,7 +34,7 @@ public class ContenedorCambioDeTurno extends BorderPane{
 		this.setMenu(stage);
         this.setCentro();
 	}
-	private void setBotonera(Stage stage, Scene proximaEscena) {
+	private void setBotonera(Stage stage, Scene proximaEscena, AlGoOh algooh) {
 		
 		Label atencion = new Label();
 		atencion.setText("Puntos de Vida");
@@ -56,12 +57,12 @@ public class ContenedorCambioDeTurno extends BorderPane{
         botonPasarDeFase.setMaxWidth(200);
 	    botonPasarDeFase.setStyle("-fx-font: 20 arial; -fx-base: #b6e7c9;");
 	    
-	    BotonCambiarDeTurnoHandler BotonCambiarDeTurnoHandler = new BotonCambiarDeTurnoHandler(stage, proximaEscena);
+	    BotonCambiarDeTurnoHandler BotonCambiarDeTurnoHandler = new BotonCambiarDeTurnoHandler(stage, proximaEscena, algooh);
 	    botonPasarDeFase.setOnAction(BotonCambiarDeTurnoHandler);
 	    
 		stackPaneCentral = new StackPane();
 	
-		VistaPuntajes vistaPuntajes = new VistaPuntajes(stackPaneCentral);
+		VistaPuntajes vistaPuntajes = new VistaPuntajes(stackPaneCentral, algooh);
 		vistaPuntajes.dibujarAnotadorGrande();
 		
 
@@ -111,8 +112,8 @@ public class ContenedorCambioDeTurno extends BorderPane{
         this.setTop(menuBar);		
 	}
 	
-	public void asignarEscenaFaseInicial(Stage stage, Scene escenaFaseInicial) {
-		this.setBotonera(stage,escenaFaseInicial);
+	public void asignarEscenaFaseInicial(Stage stage, Scene escenaFaseInicial, AlGoOh algooh) {
+		this.setBotonera(stage,escenaFaseInicial, algooh);
 		
 	}
 }
