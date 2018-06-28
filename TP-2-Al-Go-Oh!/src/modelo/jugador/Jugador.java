@@ -151,6 +151,7 @@ public class Jugador implements OponenteAtacable, JugadorModificable{
 		while (iterador.hasNext()) {
 			CartaMonstruo cartaActual = iterador.next();
 			cartaActual.habilitar();	
+			iterador.remove();
 		}
 	}
 	

@@ -10,9 +10,6 @@ public class AlGoOhTests {
 	
 	@Test
 	public void test() {
-		
-		Carta carta = new AgujeroNegro(new BocaAbajo(), new Jugador());
-		
-		AlgoOh
+	
 	}
 }
