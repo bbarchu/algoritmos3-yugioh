@@ -17,6 +17,7 @@ public class CartaMonstruo extends Carta{
 	private Estado estado;
 	protected Sacrificio sacrificioRequerido;
 	
+	
 	//Efecto (puede tener o no un efecto)
 	
 	
@@ -215,5 +216,14 @@ public class CartaMonstruo extends Carta{
 	public void restarVidaAlInvocadorDeSiCorresponde(CartaMonstruo cartaPerdedora, int danio) {
 		
 		this.modo.restarVidaDelInvocadorDe(cartaPerdedora, danio);
+	}
+	
+	public void inhabilitar() {
+		this.modo = new ModoInhabilitada();
+	}
+
+	public void habilitar() {
+		this.modo = new ModoAtaque();
+		
 	}
 }

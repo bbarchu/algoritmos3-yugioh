@@ -1,5 +1,7 @@
 package modelo.jugador;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.LinkedList;
 
 import excepciones.ElJugadorNoPuedeAtacarASusPropiasCartasError;
@@ -25,6 +27,7 @@ public class Jugador implements OponenteAtacable, JugadorModificable{
 		boolean perdioLaPartida;
 		boolean ganoLaPartida;
 		String nombre;
+		ArrayList<CartaMonstruo> cartasInhabilitadas;
 	
 	public Jugador() {
 		
@@ -36,6 +39,7 @@ public class Jugador implements OponenteAtacable, JugadorModificable{
 		this.jugadorRival = null;
 		this.ganoLaPartida = false;
 		this.perdioLaPartida = false;
+		this.cartasInhabilitadas = new ArrayList<CartaMonstruo>();
 		
 	}
 	
@@ -135,9 +139,20 @@ public class Jugador implements OponenteAtacable, JugadorModificable{
 			throw new ElJugadorNoPuedeAtacarASusPropiasCartasError();
 		}
 		carta.atacar(otraCarta);
+		carta.inhabilitar();
+		this.cartasInhabilitadas.add(carta);
 		
 	}
-
+	
+	public void habilitarCartas() {
+		//Habilito todas las cartas que han sido inhabilitadas al atacar.
+		Iterator<CartaMonstruo> iterador = this.cartasInhabilitadas.iterator();
+		
+		while (iterador.hasNext()) {
+			CartaMonstruo cartaActual = iterador.next();
+			cartaActual.habilitar();	
+		}
+	}
 	
 	// Lucas: me parece un poco raro que un metodo que mata al jugador sea publico
 	public void restarVida(int decrementoVida) {

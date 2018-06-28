@@ -512,6 +512,9 @@ public class AlGoOh {
 	}
 
 	public void cambiarDeTurno() {
+		
+		jugadorActual.habilitarCartas();
+		
 		//Swap jugadores.
 		Jugador aux = jugadorActual;
 		jugadorActual = jugadorRival;
@@ -521,7 +524,6 @@ public class AlGoOh {
 		Hashtable<String, Carta> cartasAux = cartasJugadorActual;
 		cartasJugadorActual = cartasJugadorRival;
 		cartasJugadorRival = cartasAux;
-		
 	}
 
 	public void colocarEnElCampoDelJugadorActual(String text) {

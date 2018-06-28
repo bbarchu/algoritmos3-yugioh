@@ -231,6 +231,7 @@ class PruebasDeIntegracion {
 			//que el atacante va a perder la batalla y va a perder puntos de vida porque
 			//la carta atacada esta en modo ataque.
 			
+			unJugador.habilitarCartas();
 			unJugador.atacarConA(monstruoNormalDeUnJugador2, monstruoNormalDeOtroJugador2);
 			
 			puntosDeVidaEsperadosDeUnJugador = 4000;
