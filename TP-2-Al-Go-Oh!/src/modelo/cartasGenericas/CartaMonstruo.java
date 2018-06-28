@@ -120,7 +120,6 @@ public class CartaMonstruo extends Carta{
 		
 		if(this.estaBocaArriba()) this.modo.atacarSiCorresponde(this, otraCarta);
 		
-		else throw(new ErrorCartaBocaAbajoAtaqueInvalido());
 	}
 	
 	public void atacarA(CartaMonstruo cartaAtacada) {

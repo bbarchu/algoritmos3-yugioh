@@ -1,5 +1,7 @@
 package unitTests;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.LinkedList;
 
 import org.junit.Test;
@@ -92,7 +94,43 @@ public class AlGoOhTests {
 		System.out.println("\n\tCartas Magicas Invocadas ( las activadas deberian decir sus nombres y las que dicen Dorso deben ser Trampas, si dice vacio es por no habia la cartas suficiente y se relleno)\n");
 		for(int i = 0 ; i < nombresDeCartasMagiaInvocadas.size() ; i++) System.out.println(nombresDeCartasMagiaInvocadas.get(i));
 		
-		 
+		
 	
+	}
+	
+	@Test
+	public void test() {
+		
+		AlGoOh juego = new AlGoOh();
+		
+		//invoca todas sus cartas el jugador
+		
+		LinkedList<String> nombresCartasEnLaMano = juego.obtenerArregloDe10CartasEnLaManoDelJugadorActual();
+		for(int i = 0 ; i < nombresCartasEnLaMano.size(); i++) {
+			
+			System.out.println(nombresCartasEnLaMano.get(i));
+			juego.colocarEnElCampoDelJugadorActual(nombresCartasEnLaMano.get(i));
+		}
+		
+		juego.cambiarDeTurno();
+		
+		//invoca todas sus cartas el otro jugador
+		
+		for(int i = 0 ; i < nombresCartasEnLaMano.size(); i++) juego.colocarEnElCampoDelJugadorActual(nombresCartasEnLaMano.get(i));
+		for(int i = 0 ; i < nombresCartasEnLaMano.size(); i++) juego.colocarEnElCampoDelJugadorActual(nombresCartasEnLaMano.get(i));
+		
+		//no deberia poder atacar, porque es el primer turno y sus monstruos estan bocas abajo
+		juego.jugadorActualAtacaConA("BueyDeBatalla","BrazoIzquierdoDelProhibido");
+		
+		System.out.println("\nSi hubiera atacado el brazoIzquierdo no deberia aparecer en el campo");
+		
+		LinkedList<String> monstruosEnElCampo = juego.obtenerArregloDe5CartasMonstruoRival();
+		
+		for(int i = 0 ; i < monstruosEnElCampo.size() ; i++) System.out.println(monstruosEnElCampo.get(i));
+		
+		assertEquals(Integer.toString(8000), juego.getPuntosJugador1());
+		assertEquals(Integer.toString(8000), juego.getPuntosJugador2());
+		
+		//despues sigo con dar vueltas monstruos y realizar ataques, cuando nacho agregue los metodos
 	}
 }
