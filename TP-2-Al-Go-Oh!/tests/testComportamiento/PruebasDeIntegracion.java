@@ -227,6 +227,17 @@ class PruebasDeIntegracion {
 			assertEquals(puntosDeVidaEsperadosDeOtroJugador, otroJugador.obtenerPuntosDeVida());
 			assertEquals(puntosDeVidaEsperadosDeUnJugador, unJugador.obtenerPuntosDeVida());
 			
+			//El cilindro ya debió de haberse destruido, y pruebo volver a atacar, sabiendo
+			//que el atacante va a perder la batalla y va a perder puntos de vida porque
+			//la carta atacada esta en modo ataque.
+			
+			unJugador.atacarConA(monstruoNormalDeUnJugador2, monstruoNormalDeOtroJugador2);
+			
+			puntosDeVidaEsperadosDeUnJugador = 4000;
+			
+			assertEquals(puntosDeVidaEsperadosDeOtroJugador, otroJugador.obtenerPuntosDeVida());
+			assertEquals(puntosDeVidaEsperadosDeUnJugador, unJugador.obtenerPuntosDeVida());
+			
 		}
 }
 

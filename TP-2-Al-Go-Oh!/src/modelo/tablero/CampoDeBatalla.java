@@ -105,6 +105,15 @@ public class CampoDeBatalla {
 		cementerio.agregarCarta(unaCartaMagica);
 	}
 	
+	public void destruir(CartaTrampa unaCartaTrampa) {
+		
+		// Aca puede lanzar una excepcion si no la encuentra
+		
+		
+		cartasTrampa.eliminarCarta(unaCartaTrampa);
+		cementerio.agregarCarta(unaCartaTrampa);
+	}
+	
 	public void destruirUnMonstruo() {
 		
 		cementerio.agregarCarta(cartasMonstruo.eliminarCartaMasAntigua());
@@ -172,12 +181,12 @@ public class CampoDeBatalla {
 
  	public void activarCartaTrampa(CartaMonstruo cartaAtacante, CartaMonstruo cartaAtacada) {
 	
-	this.cartasTrampa.activarCartaTrampa(cartaAtacante, cartaAtacada);
+ 		this.cartasTrampa.activarCartaTrampa(cartaAtacante, cartaAtacada);
  	}
 
  	public void desactivarCartaTrampa(CartaMonstruo cartaAtacante, CartaMonstruo cartaAtacada) {
 	
-	this.cartasTrampa.desactivarCartaTrampa(cartaAtacante, cartaAtacada);
+ 		this.cartasTrampa.desactivarCartaTrampa(this);
  	}
 
  	public CartaMonstruo buscarMonstruoParaSacrificar(String nombreMonstruo) {

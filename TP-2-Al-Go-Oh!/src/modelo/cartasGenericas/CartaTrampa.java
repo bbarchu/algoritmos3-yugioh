@@ -29,7 +29,7 @@ public class CartaTrampa extends Carta{
 		this.estado = new BocaArriba();
 	}
 	
-	public void desactivarEfecto(CartaMonstruo atacante, CartaMonstruo atacado) {
+	public void desactivarEfecto() {
 		
 	}
 	
@@ -47,7 +47,7 @@ public class CartaTrampa extends Carta{
 
 	@Override
 	public void destruite(CampoDeBatalla campoDeBatalla) {
-		// TODO Auto-generated method stub
+		campoDeBatalla.destruir(this);
 		
 	}
 

@@ -22,6 +22,7 @@ public class ModoAtaque extends ModoDeUso {
 		
 		atacada.activarCartaTrampa(atacante);
 		atacante.atacarA(atacada);
+		atacada.desactivarCartaTrampa(atacante);
 	}
 	
 	public void realizarEnfrentamiento(CartaMonstruo atacante, CartaMonstruo atacada) {

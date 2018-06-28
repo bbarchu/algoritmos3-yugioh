@@ -39,11 +39,17 @@ public class ZonaTrampa extends Zona implements Observable, Observador{
 		}
 	}
 	
-	public void desactivarCartaTrampa(CartaMonstruo atacante, CartaMonstruo atacado) {
+	public void desactivarCartaTrampa(CampoDeBatalla campo) {
 		
-		CartaTrampa cartaTrampa = obtenerPrimerCartaTrampa();
+		if(!this.estaVacio()) {
+			
+			CartaTrampa cartaTrampa = obtenerPrimerCartaTrampa();
+			
+			cartaTrampa.desactivarEfecto();
+			
+			cartaTrampa.destruite(campo);
+		}
 		
-		cartaTrampa.desactivarEfecto(atacante, atacado);
 	}
 	
 	private CartaTrampa obtenerPrimerCartaTrampa() {
