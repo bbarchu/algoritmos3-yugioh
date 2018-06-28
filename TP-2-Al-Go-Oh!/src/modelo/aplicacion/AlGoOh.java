@@ -36,6 +36,10 @@ public class AlGoOh {
 	
 	public AlGoOh(){
 		
+		//creacion del diccionario de cartas de ambos jugadores.
+		cartasJugadorUno = new Hashtable<String, Carta>();
+		cartasJugadorDos = new Hashtable<String, Carta>();
+		
 		//creacion de jugadores.
 		jugadorNumeroUno = new Jugador();
 		jugadorNumeroDos = new Jugador();
@@ -46,10 +50,6 @@ public class AlGoOh {
 		
 		jugadorRival = jugadorNumeroDos;
 		cartasJugadorRival = cartasJugadorDos;
-		
-		//creacion del diccionario de cartas de ambos jugadores.
-		cartasJugadorUno = new Hashtable<String, Carta>();
-		cartasJugadorDos = new Hashtable<String, Carta>();
 		
 		BocaAbajo bocaAbajo = new BocaAbajo();
 		BocaArriba bocaArriba = new BocaArriba();
@@ -487,6 +487,7 @@ public class AlGoOh {
 		this.cartasJugadorDos.put("Wasteland", wastelandDos);
 	
 		this.jugadorActual.tomarCincoCartasDelMazo();
+	
 		this.jugadorRival.tomarCincoCartasDelMazo();
 		
 	}
@@ -525,11 +526,9 @@ public class AlGoOh {
 
 	public void colocarEnElCampoDelJugadorActual(String text) {
 		
-		System.out.println(text);
-		
 		Carta carta = this.cartasJugadorActual.get(text);
 		
-		//this.jugadorActual.invocar(carta);
+		this.jugadorActual.invocar(carta);
 		
 	}
 
