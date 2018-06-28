@@ -615,13 +615,13 @@ public class AlGoOh {
 	
 	private String concatenarNombresDeCartas(LinkedList<String> nombres) {
 		
-		String nombresConcatenados = " ";
+		String nombresConcatenados = null;
 		
 		for(int i = 0 ; i < nombres.size() ; i++) {
 			
 			nombresConcatenados = nombresConcatenados + nombres.get(i) + " / ";
 		}
-		if (nombresConcatenados.isEmpty()) nombresConcatenados = "NoHayCartas";
+		if (nombresConcatenados == null) nombresConcatenados = "NoHayCartas";
 		
 		return nombresConcatenados;
 	}
