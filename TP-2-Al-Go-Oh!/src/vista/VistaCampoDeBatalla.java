@@ -70,9 +70,6 @@ public class VistaCampoDeBatalla {
 		ImageView imagen19 = imagenes.get(cartasMagiaJugador.get(3));
 		ImageView imagen20 = imagenes.get(cartasMagiaJugador.get(4));
 		
-		System.out.println ("Concatenado monstruos "+algooh.nombresConcatenadosCartasMonstruoEnCampoJugadorActual());
-		System.out.println ("Concatenado magia "+algooh.nombresConcatenadosCartasMagicasJugadorActual());
-		System.out.println ("Concatenado monstruos Rival "+algooh.nombresConcatenadosCartasMonstruoEnCampoRival());
 		
 		HBox contenedorMagiaRival = new HBox(imagen1,imagen2,imagen3,imagen4,imagen5);
 		contenedorMagiaRival.setAlignment(Pos.CENTER);

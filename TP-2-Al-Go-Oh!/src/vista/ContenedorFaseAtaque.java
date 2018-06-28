@@ -57,7 +57,6 @@ public class ContenedorFaseAtaque extends BorderPane{
 		
 		cartasJugador= new Label();
 		cartasJugador.setText(algooh.nombresConcatenadosCartasMonstruoEnCampoJugadorActual());
-		System.out.println ("Concatenado monstruos "+algooh.nombresConcatenadosCartasMonstruoEnCampoJugadorActual());
 		cartasJugador.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 10));
 		cartasJugador.setTextFill(Color.BLACK);
 		

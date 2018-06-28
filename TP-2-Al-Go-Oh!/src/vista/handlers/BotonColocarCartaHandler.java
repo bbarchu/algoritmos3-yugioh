@@ -28,7 +28,7 @@ public class BotonColocarCartaHandler implements EventHandler<ActionEvent> {
 		this.vistaCampo.actualizarManoYCampoPropio();
 		this.contenedor.actualizarLabel();
 		
-		System.out.println ("Debería actualizar la mano");
+		
 		
 	}
 

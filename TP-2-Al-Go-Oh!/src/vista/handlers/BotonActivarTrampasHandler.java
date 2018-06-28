@@ -29,12 +29,12 @@ public class BotonActivarTrampasHandler implements EventHandler<ActionEvent>  {
   @Override
   public void handle(ActionEvent actionEvent) {
 	  if(contador == 0) {
-		  this.vistaCampo.actualizarCampoDeBatalla();
+		  //this.vistaCampo.actualizarCampoDeBatalla();
 		  contador ++;
 	  }
 	  else {
 	      stage.setScene(proximaEscena);
-	      this.vistaCampo.actualizarCampoDeBatalla();
+	     // this.vistaCampo.actualizarCampoDeBatalla();
 	      stage.setFullScreenExitHint("");
 	      stage.setFullScreen(true);
 	  }

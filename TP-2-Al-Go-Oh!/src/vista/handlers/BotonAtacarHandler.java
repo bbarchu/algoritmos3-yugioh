@@ -1,5 +1,7 @@
 package vista.handlers;
 
+import java.util.LinkedList;
+
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -38,8 +40,11 @@ public class BotonAtacarHandler implements EventHandler<ActionEvent>  {
 
   @Override
   public void handle(ActionEvent actionEvent) {
-      contador = 0;
-	  if(this.contador == 0) {
+	 
+	  
+	  LinkedList<String> cartasMonstruoJugador = algooh.obtenerArregloDe5CartasMonstruoJugadorActual();
+
+		if(!cartasMonstruoJugador.contains(textoPropio.getText())) {
     	  this.vistaCampo.actualizarCampoDeBatalla();
     	  this.contenedor.actualizarLabel();
     	  contador++;
