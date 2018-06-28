@@ -36,14 +36,14 @@ public class CartaTrampa extends Carta{
 	
 	@Override
 	public void colocateEn(CampoDeBatalla campoDeBatalla) {
-		// TODO Auto-generated method stub
+	
 		campoDeBatalla.colocar(this);
 	}
 
 	@Override
 	public void invocate(Jugador jugador) {
-		// TODO Auto-generated method stub
 		
+		this.colocateEn(jugador.obtenerCampoDeBatalla());
 	}
 
 	@Override

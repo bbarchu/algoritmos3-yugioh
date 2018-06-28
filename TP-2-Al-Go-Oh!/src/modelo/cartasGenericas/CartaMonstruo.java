@@ -92,10 +92,7 @@ public class CartaMonstruo extends Carta{
 		
 		campoDeBatalla.colocar(this);
 	}
-		
-	//Bar: agrego esta linea para verificar que existan en el cementerio.
-	//Lucas: comento este metodo porque el campo elimina las cartas, y no las cartas a ellas mismas.
-	
+
 	public void destruirCarta() {
 		this.destruite(jugador.obtenerCampoDeBatalla());
 	}
@@ -120,8 +117,7 @@ public class CartaMonstruo extends Carta{
 	
 	public void atacar(CartaMonstruo otraCarta) {
 		
-		if(this.estaBocaArriba()) this.modo.atacarSiCorresponde(this, otraCarta);
-		
+		if(this.estaBocaArriba()) this.modo.atacarSiCorresponde(this, otraCarta);	
 	}
 	
 	public void atacarA(CartaMonstruo cartaAtacada) {
