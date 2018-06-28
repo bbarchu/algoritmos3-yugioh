@@ -31,11 +31,14 @@ public class ContenedorFasePreparacion extends BorderPane {
 	VBox contenedorCentral;
 	StackPane stackPaneCentral;
 	VistaCampoDeBatalla vistaCampo;
+	Label cartas;
+	AlGoOh algooh;
 
 	public ContenedorFasePreparacion(Stage stage, Scene escenaFaseAtaque, AlGoOh algooh) {
         this.setMenu(stage);
         this.setCentro(algooh);
         this.setBotonera(stage, escenaFaseAtaque, algooh);
+        this.algooh = algooh;
 
 	}
 	
@@ -52,9 +55,9 @@ public class ContenedorFasePreparacion extends BorderPane {
 		titulo.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 20));
 		titulo.setTextFill(Color.BLACK);
 		
-		Label cartas = new Label();
+		cartas = new Label();
 		cartas.setText(algooh.nombresConcatenadosCartasManoJugadorActual().toString());
-		cartas.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 5));
+		cartas.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 10));
 		cartas.setTextFill(Color.BLACK);
 		
 		TextField cuadroDeTextoCartaPropia = new TextField("Ingrese el nombre de la carta a colocar");
@@ -64,7 +67,7 @@ public class ContenedorFasePreparacion extends BorderPane {
         botonColocarCarta.setMaxWidth(200);
 	    botonColocarCarta.setStyle("-fx-font: 19 arial; -fx-base: #b6e7c9;");
 	    
-	    BotonColocarCartaHandler botonColocarCartaHandler = new BotonColocarCartaHandler(vistaCampo, algooh, cuadroDeTextoCartaPropia);
+	    BotonColocarCartaHandler botonColocarCartaHandler = new BotonColocarCartaHandler(vistaCampo, algooh, cuadroDeTextoCartaPropia, this);
 	    botonColocarCarta.setOnAction(botonColocarCartaHandler);
 	    
 		Button botonPasarDeFase = new Button();
@@ -115,5 +118,15 @@ public class ContenedorFasePreparacion extends BorderPane {
 	public BarraDeMenu getBarraDeMenu() {
 		return menuBar;
 	}
+
+
+	public void actualizarLabel() {
+		cartas.setText(algooh.nombresConcatenadosCartasManoJugadorActual().toString());
+		cartas.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 10));
+		cartas.setTextFill(Color.BLACK);		
+	}
+
+
+
 	
 }

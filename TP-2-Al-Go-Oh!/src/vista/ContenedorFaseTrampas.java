@@ -29,6 +29,7 @@ public class ContenedorFaseTrampas extends BorderPane{
 	VBox contenedorCentral;
 	StackPane stackPaneCentral;
 	StackPane stackPaneLateral;
+	VistaCampoDeBatalla vistaCampo;
 	
 	public ContenedorFaseTrampas(Stage stage, Scene escenaFaseAtaque, AlGoOh algooh) {
         this.setMenu(stage);
@@ -59,7 +60,7 @@ public class ContenedorFaseTrampas extends BorderPane{
         botonActivarTrampas.setMaxWidth(250);
 	    botonActivarTrampas.setStyle("-fx-font: 18 arial; -fx-base: #b6e7c9;");
 	    
-        BotonActivarTrampasHandler tomarCartaHandler = new BotonActivarTrampasHandler(stage, escenaFaseAtaque);
+        BotonActivarTrampasHandler tomarCartaHandler = new BotonActivarTrampasHandler(stage, escenaFaseAtaque, vistaCampo);
         botonActivarTrampas.setOnAction(tomarCartaHandler);
 
         VBox contenedorVertical = new VBox(nombreFase,stackPaneLateral, recordatorio, botonActivarTrampas);
@@ -79,7 +80,7 @@ public class ContenedorFaseTrampas extends BorderPane{
 
 		stackPaneCentral = new StackPane();
 		
-		VistaCampoDeBatalla vistaCampo = new VistaCampoDeBatalla(stackPaneCentral, algooh);
+		vistaCampo = new VistaCampoDeBatalla(stackPaneCentral, algooh);
 		vistaCampo.dibuajarTodoElCampo();
 		
 		contenedorCentral = new VBox(stackPaneCentral);

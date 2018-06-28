@@ -28,6 +28,7 @@ public class ContenedorFaseInicial extends BorderPane {
 	VBox contenedorCentral;
 	VBox contenedorVertical;
 	StackPane stackPaneCentral;
+	VistaCampoDeBatalla vistaCampo;
 
 	
     public ContenedorFaseInicial(Stage stage, Scene escenaFasePreparacion, AlGoOh algooh) {
@@ -49,7 +50,7 @@ public class ContenedorFaseInicial extends BorderPane {
         botonTomarCarta.setMaxWidth(200);
 	    botonTomarCarta.setStyle("-fx-font: 22 arial; -fx-base: #b6e7c9;");
 	    
-	    BotonTomarCartaHandler botonTomarCartaHandler = new BotonTomarCartaHandler(stage, proximaEscena, algooh);
+	    BotonTomarCartaHandler botonTomarCartaHandler = new BotonTomarCartaHandler(stage, proximaEscena, algooh, vistaCampo);
 	    botonTomarCarta.setOnAction(botonTomarCartaHandler);
 
 	    contenedorVertical = new VBox(nombreFase, botonTomarCarta);
@@ -68,7 +69,7 @@ public class ContenedorFaseInicial extends BorderPane {
 		
 		stackPaneCentral = new StackPane();
 		
-		VistaCampoDeBatalla vistaCampo = new VistaCampoDeBatalla(stackPaneCentral, algooh);
+		vistaCampo = new VistaCampoDeBatalla(stackPaneCentral, algooh);
 		vistaCampo.dibuajarTodoElCampo();
 		
 		contenedorCentral = new VBox(stackPaneCentral);

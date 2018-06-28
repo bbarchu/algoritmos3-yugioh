@@ -82,8 +82,6 @@ public class CatalogoImagenes {
 		imagen.setFitHeight(150);
 		imagen.setFitWidth(100);
 		
-		(this.mapaImagenes).getOrDefault(nombreCarta, ocurrioUnError);
-		
 		return (imagen);
 		
 	}

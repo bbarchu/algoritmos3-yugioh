@@ -32,12 +32,16 @@ public class ContenedorFaseMagia extends BorderPane {
 	VBox contenedorCentral;
 	StackPane stackPaneCentral;
 	VistaCampoDeBatalla vistaCampo;
+	Label cartas;
+	AlGoOh algooh;
 	
 	public ContenedorFaseMagia(Stage stage, Scene escenaCambioDeTurno, AlGoOh algooh) {
         
 		this.setMenu(stage);
         this.setCentro(algooh);
         this.setBotonera(stage, escenaCambioDeTurno, algooh);
+        
+        this.algooh = algooh;
 	}
 	
 	private void setBotonera(Stage stage, Scene proximaEscena, AlGoOh algooh) {
@@ -47,7 +51,7 @@ public class ContenedorFaseMagia extends BorderPane {
 		nombreFase.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 25));
 		nombreFase.setTextFill(Color.BLACK);
 		
-		Label cartas = new Label();
+		cartas = new Label();
 		cartas.setText(algooh.nombresConcatenadosCartasMagicasJugadorActual());
 		cartas.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 10));
 		cartas.setTextFill(Color.BLACK);
@@ -59,7 +63,7 @@ public class ContenedorFaseMagia extends BorderPane {
         botonActivarCartaMagia.setMaxWidth(200);
 	    botonActivarCartaMagia.setStyle("-fx-font: 19 arial; -fx-base: #b6e7c9;");
 	    
-	    BotonActivarCartaMagicaHandler botonActivarCartaMagicaHandler = new BotonActivarCartaMagicaHandler(vistaCampo, algooh, cuadroPropio);
+	    BotonActivarCartaMagicaHandler botonActivarCartaMagicaHandler = new BotonActivarCartaMagicaHandler(vistaCampo, algooh, cuadroPropio, this);
 	    botonActivarCartaMagia.setOnAction(botonActivarCartaMagicaHandler);
 	   
 		Button botonPasarDeFase = new Button();
@@ -108,6 +112,12 @@ public class ContenedorFaseMagia extends BorderPane {
 	
 	public BarraDeMenu getBarraDeMenu() {
 		return menuBar;
+	}
+	
+	public void actualizarLabel() {
+		cartas.setText(algooh.nombresConcatenadosCartasMagicasJugadorActual());
+		cartas.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 10));
+		cartas.setTextFill(Color.BLACK);
 	}
 
 

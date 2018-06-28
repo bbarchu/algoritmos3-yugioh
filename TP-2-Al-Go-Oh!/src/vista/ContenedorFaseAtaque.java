@@ -30,11 +30,16 @@ public class ContenedorFaseAtaque extends BorderPane{
 	BarraDeMenu menuBar;
 	VBox contenedorCentral;
 	StackPane stackPaneCentral;
+	VistaCampoDeBatalla vistaCampo;
+	AlGoOh algooh;
+	Label cartasJugador;
+	Label cartasRival;
 	
 	public ContenedorFaseAtaque(Stage stage, Scene escenaFaseTrampas, Scene escenaFaseMagia, AlGoOh algooh) {
         this.setMenu(stage);
         this.setCentro(algooh);
         this.setBotonera(stage, escenaFaseTrampas, escenaFaseMagia, algooh);
+        this.algooh = algooh;
         
 	}
 	
@@ -50,8 +55,9 @@ public class ContenedorFaseAtaque extends BorderPane{
 		titulo1.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 20));
 		titulo1.setTextFill(Color.BLACK);
 		
-		Label cartasJugador= new Label();
+		cartasJugador= new Label();
 		cartasJugador.setText(algooh.nombresConcatenadosCartasMonstruoEnCampoJugadorActual());
+		System.out.println ("Concatenado monstruos "+algooh.nombresConcatenadosCartasMonstruoEnCampoJugadorActual());
 		cartasJugador.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 10));
 		cartasJugador.setTextFill(Color.BLACK);
 		
@@ -60,7 +66,7 @@ public class ContenedorFaseAtaque extends BorderPane{
 		titulo2.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 20));
 		titulo2.setTextFill(Color.BLACK);
 		
-		Label cartasRival= new Label();
+		cartasRival= new Label();
 		cartasRival.setText(algooh.nombresConcatenadosCartasMonstruoEnCampoRival());
 		cartasRival.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 10));
 		cartasRival.setTextFill(Color.BLACK);
@@ -79,7 +85,7 @@ public class ContenedorFaseAtaque extends BorderPane{
         botonPasarDeFase.setMaxWidth(150);
 	    botonPasarDeFase.setStyle("-fx-font: 15 arial; -fx-base: #b6e7c9;");
 	    
-	    BotonAtacarHandler botonAtacarHandler = new BotonAtacarHandler(stage, escenaFaseTrampas, algooh, cuadroPropio, cuadroRival);
+	    BotonAtacarHandler botonAtacarHandler = new BotonAtacarHandler(stage, escenaFaseTrampas, algooh, cuadroPropio, cuadroRival, vistaCampo,this);
 	    botonAtacar.setOnAction(botonAtacarHandler);
 	    
 	    BotonPasarDeFaseHandler botonPasarDeFaseHandler = new BotonPasarDeFaseHandler(stage, escenaFaseMagia);
@@ -94,7 +100,7 @@ public class ContenedorFaseAtaque extends BorderPane{
         contenedorVerticalTexto.setAlignment(Pos.TOP_CENTER);
 
 	    
-        VBox contenedorVerticalPrincipal = new VBox(nombreFase, titulo1, titulo2, cartasJugador, cartasRival, contenedorVerticalTexto, contenedorVerticalBotones);
+        VBox contenedorVerticalPrincipal = new VBox(nombreFase, titulo1,  cartasJugador, titulo2, cartasRival, contenedorVerticalTexto, contenedorVerticalBotones);
         contenedorVerticalPrincipal.setSpacing(50);
         contenedorVerticalPrincipal.setAlignment(Pos.TOP_CENTER);
         contenedorVerticalPrincipal.setPadding(new Insets(20));
@@ -110,7 +116,7 @@ public class ContenedorFaseAtaque extends BorderPane{
 	private void setCentro(AlGoOh algooh) {
 		stackPaneCentral = new StackPane();
 		
-		VistaCampoDeBatalla vistaCampo = new VistaCampoDeBatalla(stackPaneCentral, algooh);
+		vistaCampo = new VistaCampoDeBatalla(stackPaneCentral, algooh);
 		vistaCampo.dibuajarTodoElCampo();
 		
 		contenedorCentral = new VBox(stackPaneCentral);
@@ -131,5 +137,15 @@ public class ContenedorFaseAtaque extends BorderPane{
 	
 	public BarraDeMenu getBarraDeMenu() {
 		return menuBar;
+	}
+	
+	public void actualizarLabel() {
+		cartasJugador.setText(algooh.nombresConcatenadosCartasMonstruoEnCampoJugadorActual());
+		cartasJugador.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 10));
+		cartasJugador.setTextFill(Color.BLACK);		
+		
+		cartasRival.setText(algooh.nombresConcatenadosCartasMonstruoEnCampoRival());
+		cartasRival.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 10));
+		cartasRival.setTextFill(Color.BLACK);		
 	}
 }

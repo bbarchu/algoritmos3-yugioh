@@ -21,6 +21,12 @@ public class VistaCampoDeBatalla {
 	StackPane stack;
 	CatalogoImagenes imagenes;
 	AlGoOh algooh;
+	int contador1;
+	int contador2;
+	ContenedorFasePreparacion contenedor;
+
+	
+
 	
 	public VistaCampoDeBatalla(StackPane stackPaneCentral, AlGoOh algooh){
 		
@@ -28,6 +34,10 @@ public class VistaCampoDeBatalla {
 		this.canvas = new Canvas(900, 900);
 		this.imagenes = new CatalogoImagenes();
 		this.algooh = algooh;
+		this.contador1 = 0;
+		this.contador2 = 0;
+		
+	
 	}
 
 	public void dibuajarTodoElCampo() {
@@ -55,12 +65,14 @@ public class VistaCampoDeBatalla {
 		ImageView imagen14 = imagenes.get(cartasMonstruoJugador.get(3));
 		ImageView imagen15 = imagenes.get(cartasMonstruoJugador.get(4));
 		ImageView imagen16 = imagenes.get(cartasMagiaJugador.get(0));
-		ImageView imagen17 = imagenes.get(cartasMagiaJugador.get(0));
-		ImageView imagen18 = imagenes.get(cartasMagiaJugador.get(0));
-		ImageView imagen19 = imagenes.get(cartasMagiaJugador.get(0));
-		ImageView imagen20 = imagenes.get(cartasMagiaJugador.get(0));
+		ImageView imagen17 = imagenes.get(cartasMagiaJugador.get(1));
+		ImageView imagen18 = imagenes.get(cartasMagiaJugador.get(2));
+		ImageView imagen19 = imagenes.get(cartasMagiaJugador.get(3));
+		ImageView imagen20 = imagenes.get(cartasMagiaJugador.get(4));
 		
-		
+		System.out.println ("Concatenado monstruos "+algooh.nombresConcatenadosCartasMonstruoEnCampoJugadorActual());
+		System.out.println ("Concatenado magia "+algooh.nombresConcatenadosCartasMagicasJugadorActual());
+		System.out.println ("Concatenado monstruos Rival "+algooh.nombresConcatenadosCartasMonstruoEnCampoRival());
 		
 		HBox contenedorMagiaRival = new HBox(imagen1,imagen2,imagen3,imagen4,imagen5);
 		contenedorMagiaRival.setAlignment(Pos.CENTER);
@@ -83,13 +95,19 @@ public class VistaCampoDeBatalla {
 		contenedorPrincipal.setPadding(new Insets(10));
 		contenedorPrincipal.setSpacing(30);
 		
+		stack.getChildren().clear();	
 		stack.getChildren().addAll(canvas,contenedorPrincipal);
 		stack.setAlignment(Pos.CENTER);
+			
+	
 		
 	}
 
 
 	public void dibuajarManoYCampoPropio() {
+		
+		
+		
 		this.setFondoManoYCampoPropio();
 		
 		LinkedList<String> cartasMonstruoJugador = algooh.obtenerArregloDe5CartasMonstruoJugadorActual();
@@ -117,8 +135,6 @@ public class VistaCampoDeBatalla {
 		ImageView imagen19 = imagenes.get(cartasManoJugador.get(8));
 		ImageView imagen20 = imagenes.get(cartasManoJugador.get(9));
 		
-		System.out.println (cartasManoJugador.get(0));
-		System.out.println (algooh.nombresConcatenadosCartasManoJugadorActual());
 		
 		
 		HBox contenedorMonstruosJugador = new HBox(imagen1,imagen2,imagen3,imagen4,imagen5);
@@ -144,9 +160,15 @@ public class VistaCampoDeBatalla {
 		VBox contenedorPrincipal = new VBox(contenedorAuxiliar, contenedorManoJugador);
 		contenedorPrincipal.setPadding(new Insets(80));
 		contenedorPrincipal.setSpacing(100);
+	
 		
-		stack.getChildren().addAll(canvas, contenedorPrincipal);
+		stack.getChildren().clear();
+		stack.getChildren().addAll(canvas,contenedorPrincipal);
+		
 		stack.setAlignment(Pos.CENTER);
+
+		
+		
 	}
 	
 
@@ -178,10 +200,13 @@ public class VistaCampoDeBatalla {
 	}
 	
 	public void actualizarManoYCampoPropio() {
+
 		this.dibuajarManoYCampoPropio();
+		
 	}
 	
 	public void actualizarCampoDeBatalla() {
+		
 		this.dibuajarTodoElCampo();
 	}
 }
