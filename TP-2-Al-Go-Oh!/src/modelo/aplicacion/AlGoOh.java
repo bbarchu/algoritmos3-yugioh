@@ -530,7 +530,7 @@ public class AlGoOh {
 		
 		Carta carta = this.cartasJugadorActual.get(text);
 		
-		this.jugadorActual.invocar(carta);
+		if(carta != null) this.jugadorActual.invocar(carta);
 		
 	}
 
