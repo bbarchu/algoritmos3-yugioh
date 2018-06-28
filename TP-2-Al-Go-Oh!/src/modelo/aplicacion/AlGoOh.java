@@ -545,7 +545,7 @@ public class AlGoOh {
 	
 	private void rellenarListaDeNombres(LinkedList<String> nombres, int tamaño) {
 		
-		for(int i = nombres.size() ; i < tamaño ; i++) nombres.add("");
+		for(int i = nombres.size() ; i < tamaño ; i++) nombres.add("Vacio");
 	}
 
 	public LinkedList<String> obtenerArregloDe5CartasMagiaTrampaRival() {
@@ -615,6 +615,7 @@ public class AlGoOh {
 			
 			nombresConcatenados = nombresConcatenados + nombres.get(i) + " / ";
 		}
+		if (nombresConcatenados.isEmpty()) nombresConcatenados = "NoHayCartas";
 		
 		return nombresConcatenados;
 	}
