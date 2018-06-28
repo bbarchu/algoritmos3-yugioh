@@ -196,31 +196,43 @@ public class Jugador implements OponenteAtacable, JugadorModificable{
 		
 		LinkedList<Carta> cartas = this.campoDelJugador.verCartasMonstruo();
 		
-		return (pasarNombreDeLasCartasAUnaLista(cartas));
+		return (pasarNombresDeLasCartasBocaArriba(cartas));
 	}
 
 	public LinkedList<String> obtenerNombresDeCartaTrampaBocaArriba() {
 		
 		LinkedList<Carta> cartas = this.campoDelJugador.verCartasTrampa();
 		
-		return (pasarNombreDeLasCartasAUnaLista(cartas));	
+		return (pasarNombresDeLasCartasBocaArriba(cartas));	
 	}
 	
 	public LinkedList<String> obtenerNombresDeCartaMagiaBocaArriba() {
 		
 		LinkedList<Carta> cartas = this.campoDelJugador.verCartasMagicas();
 		
-		return (pasarNombreDeLasCartasAUnaLista(cartas));	
+		return (pasarNombresDeLasCartasBocaArriba(cartas));	
 	}
 	
-	private LinkedList<String> pasarNombreDeLasCartasAUnaLista(LinkedList<Carta> cartas) {
+	private LinkedList<String> pasarNombresDeLasCartasBocaArriba(LinkedList<Carta> cartas) {
 		
 		LinkedList<String> nombres = new LinkedList<String>();
 		
 		for(int i = 0 ; i < cartas.size() ; i++) {
 			
-			ombres.add(cartas.get(i).getNombre());
+			if((cartas.get(i).estaBocaArriba())) nombres.add(cartas.get(i).getNombre());
 			else nombres.add("Dorso");
+		}
+		
+		return nombres;
+	}
+	
+	private LinkedList<String> pasarNombresDeTodasLasCartas(LinkedList<Carta> cartas){
+		
+		LinkedList<String> nombres = new LinkedList<String>();
+		
+		for(int i = 0 ; i < cartas.size() ; i++) {
+			
+			nombres.add(cartas.get(i).getNombre());
 		}
 		
 		return nombres;
@@ -230,7 +242,17 @@ public class Jugador implements OponenteAtacable, JugadorModificable{
 		
 		LinkedList<Carta> cartas = this.mano.verCartas();
 		
-		return (pasarNombreDeLasCartasAUnaLista(cartas));
+		return (pasarNombresDeTodasLasCartas(cartas));
+	}
+
+	public LinkedList<String> obtenerNombresDeCartaMagia() {
+		
+		return (pasarNombresDeTodasLasCartas(this.campoDelJugador.verCartasMagicas()));
+	}
+
+	public LinkedList<String> obtenerNombresDeCartasMonstruo() {
+		
+		return (pasarNombresDeTodasLasCartas(this.campoDelJugador.verCartasMonstruo()));
 	}
 	
 

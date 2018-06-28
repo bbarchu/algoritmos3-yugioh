@@ -607,13 +607,13 @@ public class AlGoOh {
 		return nombres;
 	}
 	
-	private String concatenarNombresDeCartasBocaArriba(LinkedList<String> nombres) {
+	private String concatenarNombresDeCartas(LinkedList<String> nombres) {
 		
 		String nombresConcatenados = " ";
 		
 		for(int i = 0 ; i < nombres.size() ; i++) {
 			
-			if(nombres.get(i) != "Dorso") nombresConcatenados.concat(nombres.get(i));
+			nombresConcatenados = nombresConcatenados + nombres.get(i) + " / ";
 		}
 		
 		return nombresConcatenados;
@@ -621,22 +621,22 @@ public class AlGoOh {
 
 	public String nombresConcatenadosCartasManoJugadorActual() {
 		
-		return(concatenarNombresDeCartasBocaArriba(this.jugadorActual.obtenerNombresDeCartaEnLaMano();
+		return(concatenarNombresDeCartas(this.jugadorActual.obtenerNombresDeCartaEnLaMano()));
 	}
 
 	public String nombresConcatenadosCartasMagicasJugadorActual() {
 		
-		return (concatenarNombresDeCartasBocaArriba(this.jugadorActual.obtenerNombresDeCartaMagiaBocaArriba()));
+		return (concatenarNombresDeCartas(this.jugadorActual.obtenerNombresDeCartaMagia()));
 	}
 
 	public String nombresConcatenadosCartasMonstruoEnCampoJugadorActual() {
 	
-		return (concatenarNombresDeCartasBocaArriba(this.jugadorActual.obtenerNombresDeCartasMonstruoBocaArriba()));
+		return (concatenarNombresDeCartas(this.jugadorActual.obtenerNombresDeCartasMonstruo()));
 	}
 
 	public String nombresConcatenadosCartasMonstruoEnCampoRival() {
 	
-		return (concatenarNombresDeCartasBocaArriba(this.jugadorRival.obtenerNombresDeCartasMonstruoBocaArriba()));
+		return (concatenarNombresDeCartas(this.jugadorRival.obtenerNombresDeCartasMonstruo()));
 	}	
 
 }
