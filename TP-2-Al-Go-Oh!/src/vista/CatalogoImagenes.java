@@ -6,11 +6,11 @@ import javafx.scene.image.ImageView;
 
 public class CatalogoImagenes {
 	
-	private HashMap<String,ImageView> mapaImagenes;
+	private HashMap<String,String> mapaImagenes;
 
 	public CatalogoImagenes() {
 		
-		this.mapaImagenes = new HashMap<String,ImageView>();
+		this.mapaImagenes = new HashMap<String,String>();
 		this.rellenarMapa();
 	}
 
@@ -56,30 +56,35 @@ public class CatalogoImagenes {
 		this.colocarEnElMapa("Segadora");
 		this.colocarEnElMapa("Slifer");
 		this.colocarEnElMapa("Sogen");
-		this.colocarEnElMapa("Wasteland");			
+		this.colocarEnElMapa("Wasteland");
+		
+		this.colocarEnElMapa("Vacio");	
 		
 	}
 	
 	private void colocarEnElMapa(String nombreCarta) {
 		
-		this.mapaImagenes.put(nombreCarta, crearImageView(nombreCarta+".jpg"));		
+		this.mapaImagenes.put(nombreCarta, crearPathImageView(nombreCarta+".jpg"));		
 	}
 
-	private ImageView crearImageView(String nombreArchivo) {
-		ImageView imagen = new ImageView("file:src/vista/imagenes/cartas/"+nombreArchivo);
-		imagen.setFitHeight(150);
-		imagen.setFitWidth(100);
+	private String crearPathImageView(String nombreArchivo) {
+		String imagen = ("file:src/vista/imagenes/cartas/"+nombreArchivo);
 		
 		return imagen;
 	}
 	
 	public ImageView get(String nombreCarta){
 		
-		ImageView ocurrioUnError = new ImageView("file:src/vista/imagenes/cartas/ChuckNorris.jpg");
-		ocurrioUnError.setFitHeight(150);
-		ocurrioUnError.setFitWidth(100);
+		String ocurrioUnError = ("file:src/vista/imagenes/cartas/ChuckNorris.jpg");
+	
 		
-		return (this.mapaImagenes).getOrDefault(nombreCarta, ocurrioUnError);
+		ImageView imagen = new ImageView(mapaImagenes.getOrDefault(nombreCarta, ocurrioUnError));
+		imagen.setFitHeight(150);
+		imagen.setFitWidth(100);
+		
+		(this.mapaImagenes).getOrDefault(nombreCarta, ocurrioUnError);
+		
+		return (imagen);
 		
 	}
 }

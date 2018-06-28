@@ -53,8 +53,8 @@ public class ContenedorFasePreparacion extends BorderPane {
 		titulo.setTextFill(Color.BLACK);
 		
 		Label cartas = new Label();
-		cartas.setText(algooh.nombresConcatenadosCartasManoJugadorActual());
-		cartas.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 10));
+		cartas.setText(algooh.nombresConcatenadosCartasManoJugadorActual().toString());
+		cartas.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 5));
 		cartas.setTextFill(Color.BLACK);
 		
 		TextField cuadroDeTextoCartaPropia = new TextField("Ingrese el nombre de la carta a colocar");
@@ -97,6 +97,8 @@ public class ContenedorFasePreparacion extends BorderPane {
 		contenedorCentral = new VBox(stackPaneCentral);
         contenedorCentral.setAlignment(Pos.TOP_CENTER);
         contenedorCentral.setPadding(new Insets(20));
+       
+      
         
         Image imagen = new Image("file:src/vista/imagenes/red-checkered.jpg");
         BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);

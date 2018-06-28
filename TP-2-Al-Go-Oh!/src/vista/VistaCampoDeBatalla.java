@@ -117,6 +117,8 @@ public class VistaCampoDeBatalla {
 		ImageView imagen19 = imagenes.get(cartasManoJugador.get(8));
 		ImageView imagen20 = imagenes.get(cartasManoJugador.get(9));
 		
+		System.out.println (cartasManoJugador.get(0));
+		System.out.println (algooh.nombresConcatenadosCartasManoJugadorActual());
 		
 		
 		HBox contenedorMonstruosJugador = new HBox(imagen1,imagen2,imagen3,imagen4,imagen5);
@@ -127,9 +129,12 @@ public class VistaCampoDeBatalla {
 		contenedorMagiaJugador.setAlignment(Pos.CENTER);
 		contenedorMagiaJugador.setSpacing(50);
 
-		HBox contenedorManoJugador = new HBox(imagen11,imagen12,imagen13,imagen14,imagen15, imagen16, imagen17, imagen18, imagen19, imagen20);
+		//Limito a 6 Cartas en la mano
+		
+		HBox contenedorManoJugador = new HBox(imagen11,imagen12,imagen13,imagen14,imagen15, imagen16);
 		contenedorManoJugador.setAlignment(Pos.CENTER);
 		contenedorManoJugador.setSpacing(10);
+		
 
 		
 		VBox contenedorAuxiliar = new VBox(contenedorMonstruosJugador, contenedorMagiaJugador);
@@ -140,7 +145,7 @@ public class VistaCampoDeBatalla {
 		contenedorPrincipal.setPadding(new Insets(80));
 		contenedorPrincipal.setSpacing(100);
 		
-		stack.getChildren().addAll(canvas,contenedorPrincipal);
+		stack.getChildren().addAll(canvas, contenedorPrincipal);
 		stack.setAlignment(Pos.CENTER);
 	}
 	
