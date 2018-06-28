@@ -487,7 +487,6 @@ public class AlGoOh {
 		this.cartasJugadorDos.put("Wasteland", wastelandDos);
 	
 		this.jugadorActual.tomarCincoCartasDelMazo();
-		this.jugadorActual.tomarCartaDelMazo();
 		this.jugadorRival.tomarCincoCartasDelMazo();
 		
 	}
@@ -525,6 +524,8 @@ public class AlGoOh {
 	}
 
 	public void colocarEnElCampoDelJugadorActual(String text) {
+		
+		System.out.println(text);
 		
 		Carta carta = this.cartasJugadorActual.get(text);
 		
