@@ -28,6 +28,9 @@ public class CilindroMagico extends CartaTrampa{
 	}
 	
 	public void activarEfecto(CartaMonstruo atacante, CartaMonstruo atacado) {
+		
+		super.voltearCarta();
+		
 		this.cartaAtacada = atacado;
 		this.cartaAtacante = atacante;
 		

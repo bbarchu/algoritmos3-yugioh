@@ -18,11 +18,11 @@ public class AgujeroNegro extends CartaMagica {
 		super(nombreDeLaCarta,unEstado, unJugador);
 	}
 	
-	
+	@Override
 	public void activarEfecto() {
 		
 		CampoDeBatalla unCampo = this.jugador.obtenerCampoDeBatalla();
-		CampoDeBatalla otroCampo = this.jugador.obtenerJugadorRival().obtenerCampoDeBatalla();
+		CampoDeBatalla otroCampo = (this.jugador.obtenerJugadorRival()).obtenerCampoDeBatalla();
 		
 		unCampo.activarEfectoDe(this);
 		otroCampo.activarEfectoDe(this);

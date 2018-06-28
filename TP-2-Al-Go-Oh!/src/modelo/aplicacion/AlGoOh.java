@@ -16,6 +16,7 @@ import modelo.cartasEspecificas.Wasteland;
 import modelo.cartasGenericas.BocaAbajo;
 import modelo.cartasGenericas.BocaArriba;
 import modelo.cartasGenericas.Carta;
+import modelo.cartasGenericas.CartaMagica;
 import modelo.cartasGenericas.CartaMonstruo;
 import modelo.cartasGenericas.ModoAtaque;
 import modelo.cartasGenericas.ModoDefensa;
@@ -43,6 +44,9 @@ public class AlGoOh {
 		//creacion de jugadores.
 		jugadorNumeroUno = new Jugador();
 		jugadorNumeroDos = new Jugador();
+		
+		jugadorNumeroUno.presentarJugadorRival(jugadorNumeroDos);
+		jugadorNumeroDos.presentarJugadorRival(jugadorNumeroUno);
 		
 		//Asigno el primer turno a el jugador numero uno.
 		jugadorActual = jugadorNumeroUno;
@@ -496,11 +500,14 @@ public class AlGoOh {
 //----------------------------------------------------------------------------------------------------------------
 	
 	public void activarCartaMagicaDelJugadorActual(String nombreCarta) {
+		
 		Carta cartaMagica;
 		cartaMagica = cartasJugadorActual.get(nombreCarta);
-		jugadorActual.invocar(cartaMagica);
 		
-		
+		if(cartaMagica != null && cartaMagica instanceof CartaMagica) {
+			
+			jugadorActual.voltearCarta(cartaMagica);
+		}
 	}
 
 	public void jugadorActualAtacaConA(String cartaAtacante, String cartaAtacada) {
@@ -617,13 +624,13 @@ public class AlGoOh {
 	
 	private String concatenarNombresDeCartas(LinkedList<String> nombres) {
 		
-		String nombresConcatenados = null;
+		String nombresConcatenados = "";
 		
 		for(int i = 0 ; i < nombres.size() ; i++) {
 			
 			nombresConcatenados = nombresConcatenados + nombres.get(i) + " / ";
 		}
-		if (nombresConcatenados == null) nombresConcatenados = "NoHayCartas";
+		if (nombresConcatenados == "") nombresConcatenados = "NoHayCartas";
 		
 		return nombresConcatenados;
 	}

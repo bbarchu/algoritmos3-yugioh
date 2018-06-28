@@ -54,7 +54,9 @@ public class CartaMagica extends Carta {
 	
 	public void voltearCarta() {
 		
+		this.estado = new BocaArriba();
 		activarEfecto();
+		this.destruite(jugador.obtenerCampoDeBatalla());
 	}
 
 	public void activarEfecto() {

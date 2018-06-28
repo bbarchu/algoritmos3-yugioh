@@ -21,6 +21,7 @@ public class CartaTrampa extends Carta{
 	}
 	
 	public void activarEfecto(CartaMonstruo atacante, CartaMonstruo atacado) {
+	
 		
 	}
 	
