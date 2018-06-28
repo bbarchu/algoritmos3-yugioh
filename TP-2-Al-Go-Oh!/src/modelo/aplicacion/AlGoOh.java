@@ -511,15 +511,19 @@ public class AlGoOh {
 	}
 
 	public void jugadorActualAtacaConA(String cartaAtacante, String cartaAtacada) {
+		
 		CartaMonstruo cartaMonstruoAtacante;
 		CartaMonstruo cartaMonstruoAtacada;
+		
 		cartaMonstruoAtacante = (CartaMonstruo)cartasJugadorActual.get(cartaAtacante);
 		cartaMonstruoAtacada = (CartaMonstruo)cartasJugadorRival.get(cartaAtacada);
-		jugadorActual.atacarConA(cartaMonstruoAtacante, cartaMonstruoAtacada);
+		
+		if(cartaMonstruoAtacante != null && cartaMonstruoAtacada != null) jugadorActual.atacarConA(cartaMonstruoAtacante, cartaMonstruoAtacada);
 	}
 
 	public void cambiarDeTurno() {
 		
+		this.jugadorActual.voltearLasCartasMonstruos();
 		jugadorActual.habilitarCartas();
 		
 		//Swap jugadores.
@@ -531,6 +535,8 @@ public class AlGoOh {
 		Hashtable<String, Carta> cartasAux = cartasJugadorActual;
 		cartasJugadorActual = cartasJugadorRival;
 		cartasJugadorRival = cartasAux;
+		
+		
 	}
 
 	public void colocarEnElCampoDelJugadorActual(String text) {

@@ -1,6 +1,6 @@
 package modelo.cartasGenericas;
 
-import excepciones.ErrorCartaBocaAbajoAtaqueInvalido;
+
 import modelo.jugador.Jugador;
 import modelo.jugador.JugadorModificable;
 import modelo.jugador.OponenteAtacable;
@@ -15,8 +15,7 @@ public class CartaMonstruo extends Carta{
 	
 	protected ModoDeUso modo;
 	private Estado estado;
-	protected Sacrificio sacrificioRequerido;
-	
+	protected Sacrificio sacrificioRequerido;	
 	
 	//Efecto (puede tener o no un efecto)
 	
@@ -24,11 +23,14 @@ public class CartaMonstruo extends Carta{
 	public CartaMonstruo(int puntosATK, int puntosDEF, int estrellas, ModoDeUso unModo, Jugador jugador, String nombre) {
 		
 		this.nombre = nombre;
+	
 		this.puntosDeAtaque = puntosATK;
 		this.puntosDeDefensa = puntosDEF;
+		
 		this.modo = unModo;
 		this.jugador = jugador;
 		this.estado = new BocaAbajo();
+		
 		//Esta parte despues se puede modificar para sacar los if
 		if(estrellas <= 4) {
 			this.sacrificioRequerido = new NoRequiereSacrificio();

@@ -271,6 +271,15 @@ public class Jugador implements OponenteAtacable, JugadorModificable{
 		return (pasarNombresDeTodasLasCartas(this.campoDelJugador.verCartasMonstruo()));
 	}
 	
+	public void voltearLasCartasMonstruos() {
+		
+		LinkedList<Carta> cartas = this.campoDelJugador.verCartasMonstruo();
+		
+		for(int i = 0 ; i < cartas.size() ; i++) cartas.get(i).voltearCarta();
+		
+		
+	}
+	
 
 	
 }
