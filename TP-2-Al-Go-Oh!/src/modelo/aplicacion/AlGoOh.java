@@ -549,9 +549,11 @@ public class AlGoOh {
 		return Integer.toString(puntosDeVida);
 	}
 	
-	private void rellenarListaDeNombres(LinkedList<String> nombres, int tamaño) {
+	private LinkedList<String> rellenarListaDeNombres(LinkedList<String> nombres, int tamaño) {
 		
 		for(int i = nombres.size() ; i < tamaño ; i++) nombres.add("Vacio");
+		
+		return nombres;
 	}
 
 	public LinkedList<String> obtenerArregloDe5CartasMagiaTrampaRival() {
@@ -561,7 +563,7 @@ public class AlGoOh {
 		LinkedList<String> nombres = this.jugadorRival.obtenerNombresDeCartaMagiaBocaArriba();
 		nombres.addAll(this.jugadorRival.obtenerNombresDeCartaTrampaBocaArriba());
 		
-		if(nombres.size() < tamañoEsperado) rellenarListaDeNombres(nombres,tamañoEsperado);
+		if(nombres.size() < tamañoEsperado) nombres = rellenarListaDeNombres(nombres,tamañoEsperado);
 		
 		return nombres;
 	}
@@ -572,7 +574,7 @@ public class AlGoOh {
 		
 		LinkedList<String> nombres = this.jugadorRival.obtenerNombresDeCartasMonstruoBocaArriba();
 		
-		if(nombres.size() < tamañoEsperado) rellenarListaDeNombres(nombres,tamañoEsperado);
+		if(nombres.size() < tamañoEsperado) nombres = rellenarListaDeNombres(nombres,tamañoEsperado);
 	
 		return nombres;
 	}
@@ -583,7 +585,7 @@ public class AlGoOh {
 		
 		LinkedList<String> nombres = this.jugadorActual.obtenerNombresDeCartasMonstruoBocaArriba();
 		
-		if(nombres.size() < tamañoEsperado) rellenarListaDeNombres(nombres,tamañoEsperado);
+		if(nombres.size() < tamañoEsperado) nombres = rellenarListaDeNombres(nombres,tamañoEsperado);
 	
 		return nombres;
 	}
@@ -596,7 +598,7 @@ public class AlGoOh {
 		
 		nombres.addAll(this.jugadorActual.obtenerNombresDeCartaTrampaBocaArriba());
 		
-		if(nombres.size() < tamañoEsperado) rellenarListaDeNombres(nombres,tamañoEsperado);
+		if(nombres.size() < tamañoEsperado) nombres = rellenarListaDeNombres(nombres,tamañoEsperado);
 		
 		return nombres;
 		
@@ -608,7 +610,7 @@ public class AlGoOh {
 		
 		LinkedList<String> nombres = this.jugadorActual.obtenerNombresDeCartaEnLaMano();
 		
-		if(nombres.size() < tamañoEsperado) rellenarListaDeNombres(nombres,tamañoEsperado);
+		if(nombres.size() < tamañoEsperado) nombres = rellenarListaDeNombres(nombres,tamañoEsperado);
 	
 		return nombres;
 	}
