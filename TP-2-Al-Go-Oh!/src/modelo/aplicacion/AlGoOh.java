@@ -485,6 +485,10 @@ public class AlGoOh {
 		
 		this.cartasJugadorUno.put("Wasteland", wastelandUno);
 		this.cartasJugadorDos.put("Wasteland", wastelandDos);
+	
+		this.jugadorActual.tomarCincoCartasDelMazo();
+		this.jugadorActual.tomarCartaDelMazo();
+		this.jugadorRival.tomarCincoCartasDelMazo();
 		
 	}
 
