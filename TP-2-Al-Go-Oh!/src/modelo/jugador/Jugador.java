@@ -73,7 +73,7 @@ public class Jugador implements OponenteAtacable, JugadorModificable{
 	}
 	
 	public void tomarCincoCartasDelMazo() {
-		for(int i =0 ; i < 6 ; i++) {
+		for(int i =0 ; i < 5 ; i++) {
 			tomarCartaDelMazo();			
 		}
 	}
