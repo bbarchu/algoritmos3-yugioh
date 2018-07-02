@@ -662,14 +662,18 @@ public class AlGoOh {
 	}
 
 	public boolean terminoLaPartida() {
-		// TODO Auto-generated method stub
-		return true;
+		
+		return (this.jugadorActual.ganoLaPartida() || this.jugadorActual.perdioLaPartida());
+		
+		
 	}
 
 	public boolean ganoJugador1() {
-		// TODO Auto-generated method stub
-		return true;
+		return this.jugadorNumeroUno.ganoLaPartida();
+		
 	}	
+	
+	
 
 }
 
