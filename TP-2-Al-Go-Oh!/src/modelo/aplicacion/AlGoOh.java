@@ -659,6 +659,16 @@ public class AlGoOh {
 	public String nombresConcatenadosCartasMonstruoEnCampoRival() {
 	
 		return (concatenarNombresDeCartas(this.jugadorRival.obtenerNombresDeCartasMonstruo()));
+	}
+
+	public boolean terminoLaPartida() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	public boolean ganoJugador1() {
+		// TODO Auto-generated method stub
+		return true;
 	}	
 
 }

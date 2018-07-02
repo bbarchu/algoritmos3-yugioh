@@ -3,10 +3,8 @@ package vista;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundImage;
@@ -22,7 +20,6 @@ import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import modelo.aplicacion.AlGoOh;
 import vista.handlers.BotonCambiarDeTurnoHandler;
-import vista.handlers.BotonPasarDeFaseHandler;
 
 public class ContenedorCambioDeTurno extends BorderPane implements Contenedor{
 	
@@ -58,9 +55,20 @@ public class ContenedorCambioDeTurno extends BorderPane implements Contenedor{
         botonPasarDeFase.setText("Comenzar Turno");
         botonPasarDeFase.setMaxWidth(200);
 	    botonPasarDeFase.setStyle("-fx-font: 20 arial; -fx-base: #b6e7c9;");
+	
+	    BotonCambiarDeTurnoHandler botonCambiarDeTurnoHandler;
 	    
-	    BotonCambiarDeTurnoHandler BotonCambiarDeTurnoHandler = new BotonCambiarDeTurnoHandler(stage, proximaEscena, algooh);
-	    botonPasarDeFase.setOnAction(BotonCambiarDeTurnoHandler);
+	    if(algooh.terminoLaPartida()) {
+	    	ContenedorFinal contenedorFinal = new ContenedorFinal(stage, algooh);
+	    	Scene escenaFinal = new Scene(contenedorFinal, 640, 480);
+	    	botonCambiarDeTurnoHandler = new BotonCambiarDeTurnoHandler(stage, escenaFinal, algooh);
+	    }
+	    else {
+	    	botonCambiarDeTurnoHandler = new BotonCambiarDeTurnoHandler(stage, proximaEscena, algooh);    
+	    }
+	    
+	    botonPasarDeFase.setOnAction(botonCambiarDeTurnoHandler);
+		    
 	    
 		stackPaneCentral = new StackPane();
 	
