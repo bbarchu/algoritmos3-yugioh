@@ -31,9 +31,6 @@ public class BotonActivarCartaMagicaHandler implements EventHandler<ActionEvent>
 	public void handle(ActionEvent event) {
 
 			this.algooh.activarCartaMagicaDelJugadorActual(texto.getText());
-			this.vistaCampo.actualizarCampoDeBatalla();
-			this.contenedor.actualizarLabel();
-		
 		
 	}
 	

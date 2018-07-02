@@ -22,7 +22,6 @@ public class BotonAtacarHandler implements EventHandler<ActionEvent>  {
   TextField textoRival;
   VistaCampoDeBatalla vistaCampo;
   ContenedorFaseAtaque contenedor;
-  int contador;
 
   public BotonAtacarHandler(Stage stage, Scene proximaEscena, AlGoOh algooh, TextField textoPropio, TextField textoRival, VistaCampoDeBatalla vistaCampo, ContenedorFaseAtaque contenedor) {
       
@@ -34,8 +33,6 @@ public class BotonAtacarHandler implements EventHandler<ActionEvent>  {
       this.vistaCampo = vistaCampo;
       this.contenedor = contenedor;
       
-      
-      this.contador = 0;
   }
 
   @Override
@@ -44,15 +41,11 @@ public class BotonAtacarHandler implements EventHandler<ActionEvent>  {
 	  
 	  LinkedList<String> cartasMonstruoJugador = algooh.obtenerArregloDe5CartasMonstruoJugadorActual();
 
-		if(!cartasMonstruoJugador.contains(textoPropio.getText())) {
-    	  this.vistaCampo.actualizarCampoDeBatalla();
-    	  this.contenedor.actualizarLabel();
-    	  contador++;
-      }
-      else {
+		if(cartasMonstruoJugador.contains(textoPropio.getText())) {
+  
     	  this.algooh.jugadorActualAtacaConA(textoPropio.getText(), textoRival.getText());
-    	  this.vistaCampo.actualizarCampoDeBatalla();
-    	  this.contenedor.actualizarLabel();
+    	  this.contenedor.actualizar();
+
     	  stage.setScene(proximaEscena);
           stage.setFullScreenExitHint("");
           stage.setFullScreen(true);

@@ -26,7 +26,7 @@ import vista.handlers.BotonAtacarHandler;
 import vista.handlers.BotonPasarDeFaseHandler;
 import vista.handlers.BotonTomarCartaHandler;
 
-public class ContenedorFaseMagia extends BorderPane {
+public class ContenedorFaseMagia extends BorderPane implements Contenedor{
 
 	BarraDeMenu menuBar;
 	VBox contenedorCentral;
@@ -34,6 +34,7 @@ public class ContenedorFaseMagia extends BorderPane {
 	VistaCampoDeBatalla vistaCampo;
 	Label cartas;
 	AlGoOh algooh;
+	TextField cuadroPropio = new TextField("Ingrese el nombre de SU carta");
 	
 	public ContenedorFaseMagia(Stage stage, Scene escenaCambioDeTurno, AlGoOh algooh) {
         
@@ -56,7 +57,7 @@ public class ContenedorFaseMagia extends BorderPane {
 		cartas.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 10));
 		cartas.setTextFill(Color.BLACK);
 		
-		TextField cuadroPropio = new TextField("Ingrese el nombre de SU carta");
+		
 		
         Button botonActivarCartaMagia = new Button();
         botonActivarCartaMagia.setText("Activar carta magica");
@@ -118,6 +119,17 @@ public class ContenedorFaseMagia extends BorderPane {
 		cartas.setText(algooh.nombresConcatenadosCartasMagicasJugadorActual());
 		cartas.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 10));
 		cartas.setTextFill(Color.BLACK);
+	}
+
+	public void setCardValue(String value) {
+		cuadroPropio.setText(value);
+	}
+
+	@Override
+	public void actualizar() {
+		this.vistaCampo.actualizarCampoDeBatalla();
+		this.actualizarLabel();
+			
 	}
 
 

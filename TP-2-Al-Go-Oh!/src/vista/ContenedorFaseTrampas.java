@@ -23,13 +23,14 @@ import modelo.aplicacion.AlGoOh;
 import vista.handlers.BotonActivarTrampasHandler;
 import vista.handlers.BotonTomarCartaHandler;
 
-public class ContenedorFaseTrampas extends BorderPane{
+public class ContenedorFaseTrampas extends BorderPane implements Contenedor{
 
 	BarraDeMenu menuBar;
 	VBox contenedorCentral;
 	StackPane stackPaneCentral;
 	StackPane stackPaneLateral;
 	VistaCampoDeBatalla vistaCampo;
+	VistaPuntajes vistaPuntajes;
 	
 	public ContenedorFaseTrampas(Stage stage, Scene escenaFaseAtaque, AlGoOh algooh) {
         this.setMenu(stage);
@@ -41,7 +42,7 @@ public class ContenedorFaseTrampas extends BorderPane{
         
 		stackPaneLateral = new StackPane();
 		
-		VistaPuntajes vistaPuntajes = new VistaPuntajes(stackPaneLateral, algooh);
+		vistaPuntajes = new VistaPuntajes(stackPaneLateral, algooh);
 		vistaPuntajes.dibujarAnotadorChico();
 		
 		
@@ -60,8 +61,8 @@ public class ContenedorFaseTrampas extends BorderPane{
         botonActivarTrampas.setMaxWidth(250);
 	    botonActivarTrampas.setStyle("-fx-font: 18 arial; -fx-base: #b6e7c9;");
 	    
-        BotonActivarTrampasHandler tomarCartaHandler = new BotonActivarTrampasHandler(stage, escenaFaseAtaque, vistaCampo);
-        botonActivarTrampas.setOnAction(tomarCartaHandler);
+        BotonActivarTrampasHandler activarTrampasHandler = new BotonActivarTrampasHandler(stage, escenaFaseAtaque, vistaCampo, this);
+        botonActivarTrampas.setOnAction(activarTrampasHandler);
 
         VBox contenedorVertical = new VBox(nombreFase,stackPaneLateral, recordatorio, botonActivarTrampas);
         contenedorVertical.setSpacing(100);
@@ -105,5 +106,13 @@ public class ContenedorFaseTrampas extends BorderPane{
 
 	public void asignarEscenaFaseAtaque(Stage stage, Scene escenaAtaque, AlGoOh algooh) {
 		this.setBotonera(stage, escenaAtaque, algooh);
+	}
+
+	@Override
+	public void actualizar() {
+		this.vistaCampo.actualizarCampoDeBatalla();
+		this.vistaPuntajes.actualizarAnotadorChico();
+		
+		
 	}
 }

@@ -101,7 +101,14 @@ public class VistaPuntajes {
 		canvas.getGraphicsContext2D().fillRect(245, 0, 5, 250);
 		canvas.getGraphicsContext2D().fillRect(0, 250, 250, 5);
 		
-		//canvas.setTranslateX(150);
+	}
+	
+	public void actualizarAnotadorChico() {
+		this.dibujarAnotadorChico();
+	}
+	
+	public void actualizarAnotadorGrande() {
+		this.dibujarAnotadorGrande();
 	}
 
 }

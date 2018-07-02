@@ -25,7 +25,7 @@ import vista.handlers.BotonAtacarHandler;
 import vista.handlers.BotonPasarDeFaseHandler;
 import vista.handlers.BotonTomarCartaHandler;
 
-public class ContenedorFaseAtaque extends BorderPane{
+public class ContenedorFaseAtaque extends BorderPane implements Contenedor{
 
 	BarraDeMenu menuBar;
 	VBox contenedorCentral;
@@ -34,6 +34,8 @@ public class ContenedorFaseAtaque extends BorderPane{
 	AlGoOh algooh;
 	Label cartasJugador;
 	Label cartasRival;
+	TextField cuadroPropio = new TextField("Ingrese el nombre de SU carta");
+	TextField cuadroRival = new TextField("Ingrese el nombre de la carta del RIVAL");
 	
 	public ContenedorFaseAtaque(Stage stage, Scene escenaFaseTrampas, Scene escenaFaseMagia, AlGoOh algooh) {
         this.setMenu(stage);
@@ -70,9 +72,6 @@ public class ContenedorFaseAtaque extends BorderPane{
 		cartasRival.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 10));
 		cartasRival.setTextFill(Color.BLACK);
 		
-		TextField cuadroPropio = new TextField("Ingrese el nombre de SU carta");
-		TextField cuadroRival = new TextField("Ingrese el nombre de la carta del RIVAL");
-		
 		
         Button botonAtacar = new Button();
         botonAtacar.setText("Atacar");
@@ -94,12 +93,12 @@ public class ContenedorFaseAtaque extends BorderPane{
         contenedorVerticalBotones.setSpacing(120);
         contenedorVerticalBotones.setAlignment(Pos.TOP_CENTER);
         
-        VBox contenedorVerticalTexto = new VBox(cuadroPropio, cuadroRival);
+        VBox contenedorVerticalTexto = new VBox(titulo2, cartasRival, cuadroRival,titulo1, cartasJugador, cuadroPropio);
         contenedorVerticalTexto.setSpacing(50);
         contenedorVerticalTexto.setAlignment(Pos.TOP_CENTER);
 
 	    
-        VBox contenedorVerticalPrincipal = new VBox(nombreFase, titulo1,  cartasJugador, titulo2, cartasRival, contenedorVerticalTexto, contenedorVerticalBotones);
+        VBox contenedorVerticalPrincipal = new VBox(nombreFase, contenedorVerticalTexto, contenedorVerticalBotones);
         contenedorVerticalPrincipal.setSpacing(50);
         contenedorVerticalPrincipal.setAlignment(Pos.TOP_CENTER);
         contenedorVerticalPrincipal.setPadding(new Insets(20));
@@ -146,5 +145,23 @@ public class ContenedorFaseAtaque extends BorderPane{
 		cartasRival.setText(algooh.nombresConcatenadosCartasMonstruoEnCampoRival());
 		cartasRival.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 10));
 		cartasRival.setTextFill(Color.BLACK);		
+	}
+
+	public void setCardValue(String nombreCarta) {
+		
+		if(algooh.obtenerArregloDe5CartasMonstruoJugadorActual().contains(nombreCarta)) {
+			cuadroPropio.setText(nombreCarta);
+		}
+		else {
+			cuadroRival.setText(nombreCarta);
+		}
+			
+	}
+
+	@Override
+	public void actualizar() {
+		this.vistaCampo.actualizarCampoDeBatalla();
+		this.actualizarLabel();
+		
 	}
 }

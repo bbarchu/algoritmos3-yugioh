@@ -15,28 +15,22 @@ public class BotonActivarTrampasHandler implements EventHandler<ActionEvent>  {
 	Stage stage;
 	Scene proximaEscena;
 	VistaCampoDeBatalla vistaCampo;
-	
-	int contador;
+	ContenedorFaseTrampas contenedor;
  
 
-  public BotonActivarTrampasHandler(Stage stage, Scene proximaEscena, VistaCampoDeBatalla vistaCampo) {
+  public BotonActivarTrampasHandler(Stage stage, Scene proximaEscena, VistaCampoDeBatalla vistaCampo, ContenedorFaseTrampas contenedor) {
     this.stage = stage;
     this.proximaEscena = proximaEscena;
+    this.contenedor = contenedor;
   
-  	this.contador = 0;
   }
 
   @Override
   public void handle(ActionEvent actionEvent) {
-	  if(contador == 0) {
-		  //this.vistaCampo.actualizarCampoDeBatalla();
-		  contador ++;
-	  }
-	  else {
-	      stage.setScene(proximaEscena);
-	     // this.vistaCampo.actualizarCampoDeBatalla();
-	      stage.setFullScreenExitHint("");
-	      stage.setFullScreen(true);
-	  }
+
+      stage.setScene(proximaEscena);
+      stage.setFullScreenExitHint("");
+      stage.setFullScreen(true);
+  
   }
 }

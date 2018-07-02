@@ -22,7 +22,7 @@ import modelo.aplicacion.AlGoOh;
 import vista.handlers.BotonTomarCartaHandler;
 
 
-public class ContenedorFaseInicial extends BorderPane {
+public class ContenedorFaseInicial extends BorderPane implements Contenedor{
 	
 	BarraDeMenu menuBar;
 	VBox contenedorCentral;
@@ -91,28 +91,12 @@ public class ContenedorFaseInicial extends BorderPane {
 	public BarraDeMenu getBarraDeMenu() {
 		return menuBar;
 	}
-	
 
-	/*
-	public ContenedorPrincipal(Stage stage) {
-		
-		
-	    this.stage = stage;
-	
-
-	    this.setPadding(new Insets(25));
-	    Image imagen = new Image("file:src/vista/imagenes/red-checkered.jpg");
-	    BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
-	    this.setBackground(new Background(imagenDeFondo));
-	    
-	    Label etiqueta = new Label();
-	    etiqueta.setFont(Font.font("Tahoma", FontWeight.BOLD, 18));
-	
-	    etiqueta.setText("Algooh");
-	    etiqueta.setTextFill(Color.web("#66A7C5"));
-	
-	        this.getChildren().addAll(etiqueta);
+	public void actualizar() {
+		this.vistaCampo.actualizarCampoDeBatalla();
 	}
-*/
+	
+
+
 
 }

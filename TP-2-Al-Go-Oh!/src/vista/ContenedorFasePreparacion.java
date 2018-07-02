@@ -25,7 +25,7 @@ import vista.handlers.BotonColocarCartaHandler;
 import vista.handlers.BotonPasarDeFaseHandler;
 import vista.handlers.BotonTomarCartaHandler;
 
-public class ContenedorFasePreparacion extends BorderPane {
+public class ContenedorFasePreparacion extends BorderPane implements Contenedor{
 	
 	BarraDeMenu menuBar;
 	VBox contenedorCentral;
@@ -33,7 +33,9 @@ public class ContenedorFasePreparacion extends BorderPane {
 	VistaCampoDeBatalla vistaCampo;
 	Label cartas;
 	AlGoOh algooh;
+	TextField cuadroDeTextoCartaPropia = new TextField("Ingrese el nombre de la carta a colocar");
 
+	
 	public ContenedorFasePreparacion(Stage stage, Scene escenaFaseAtaque, AlGoOh algooh) {
         this.setMenu(stage);
         this.setCentro(algooh);
@@ -60,7 +62,6 @@ public class ContenedorFasePreparacion extends BorderPane {
 		cartas.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 10));
 		cartas.setTextFill(Color.BLACK);
 		
-		TextField cuadroDeTextoCartaPropia = new TextField("Ingrese el nombre de la carta a colocar");
 		
         Button botonColocarCarta = new Button();
         botonColocarCarta.setText("Colocar una carta");
@@ -124,6 +125,20 @@ public class ContenedorFasePreparacion extends BorderPane {
 		cartas.setText(algooh.nombresConcatenadosCartasManoJugadorActual().toString());
 		cartas.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 10));
 		cartas.setTextFill(Color.BLACK);		
+	}
+
+
+	public void setCardValue(String nombreCarta) {
+		cuadroDeTextoCartaPropia.setText(nombreCarta);
+	}
+
+
+	@Override
+	public void actualizar() {
+		this.vistaCampo.actualizarManoYCampoPropio();
+		this.actualizarLabel();
+		
+		
 	}
 
 

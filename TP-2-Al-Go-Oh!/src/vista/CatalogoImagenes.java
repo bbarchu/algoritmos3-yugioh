@@ -2,7 +2,11 @@ package vista;
 
 import java.util.HashMap;
 
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import vista.handlers.CartaClickeadaHandler;
 
 public class CatalogoImagenes {
 	
@@ -77,10 +81,15 @@ public class CatalogoImagenes {
 		
 		String ocurrioUnError = ("file:src/vista/imagenes/cartas/ChuckNorris.jpg");
 	
-		
 		ImageView imagen = new ImageView(mapaImagenes.getOrDefault(nombreCarta, ocurrioUnError));
+		
+		imagen.setAccessibleHelp(nombreCarta);
 		imagen.setFitHeight(150);
 		imagen.setFitWidth(100);
+		
+		CartaClickeadaHandler cartaClickeadaHandler = new CartaClickeadaHandler();
+		
+		imagen.setOnMouseClicked(cartaClickeadaHandler); 
 		
 		return (imagen);
 		

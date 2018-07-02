@@ -24,12 +24,9 @@ public class BotonColocarCartaHandler implements EventHandler<ActionEvent> {
 	
 	@Override
 	public void handle(ActionEvent event) {
+		
 		this.algooh.colocarEnElCampoDelJugadorActual(texto.getText());
-		this.vistaCampo.actualizarManoYCampoPropio();
-		this.contenedor.actualizarLabel();
-		
-		
-		
+		this.contenedor.actualizar();
 	}
 
 	

@@ -24,10 +24,12 @@ import modelo.aplicacion.AlGoOh;
 import vista.handlers.BotonCambiarDeTurnoHandler;
 import vista.handlers.BotonPasarDeFaseHandler;
 
-public class ContenedorCambioDeTurno extends BorderPane{
+public class ContenedorCambioDeTurno extends BorderPane implements Contenedor{
+	
 	BarraDeMenu menuBar;
 	VBox contenedorCentral;
 	StackPane stackPaneCentral;
+	VistaPuntajes vistaPuntajes;
 	
 	public ContenedorCambioDeTurno(Stage stage) {
         
@@ -62,7 +64,7 @@ public class ContenedorCambioDeTurno extends BorderPane{
 	    
 		stackPaneCentral = new StackPane();
 	
-		VistaPuntajes vistaPuntajes = new VistaPuntajes(stackPaneCentral, algooh);
+		vistaPuntajes = new VistaPuntajes(stackPaneCentral, algooh);
 		vistaPuntajes.dibujarAnotadorGrande();
 		
 
@@ -114,6 +116,11 @@ public class ContenedorCambioDeTurno extends BorderPane{
 	
 	public void asignarEscenaFaseInicial(Stage stage, Scene escenaFaseInicial, AlGoOh algooh) {
 		this.setBotonera(stage,escenaFaseInicial, algooh);
+		
+	}
+	@Override
+	public void actualizar() {
+		this.vistaPuntajes.actualizarAnotadorGrande();
 		
 	}
 }
