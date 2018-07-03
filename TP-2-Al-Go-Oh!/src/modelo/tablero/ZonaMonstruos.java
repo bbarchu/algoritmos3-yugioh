@@ -99,6 +99,11 @@ public class ZonaMonstruos extends Zona {
 		 throw new NoSeEncontroLaCartaEnLaZonaError();
 		 
 	 }
+
+	public int obtenerCantidadDeMonstruos() {
+		
+		return this.cantidadDeCartas;
+	}
 	
 	 
 }

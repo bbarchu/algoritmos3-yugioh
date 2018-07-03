@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 
 import excepciones.ElJugadorNoPuedeAtacarASusPropiasCartasError;
-import modelo.cartasEspecificas.Jinzo7;
+import excepciones.ErrorSacrificiosInsuficientes;
 import modelo.cartasGenericas.Carta;
 import modelo.cartasGenericas.CartaCampo;
 import modelo.cartasGenericas.CartaMagica;
@@ -84,10 +84,17 @@ public class Jugador implements OponenteAtacable, JugadorModificable{
 	
 	public void invocar(CartaMonstruo unMonstruo) {
 		
-		if(this.mano.contiene(unMonstruo)){
+		try {
 			
-			campoDelJugador.colocar(unMonstruo);
-			this.eliminarDeLaMano(unMonstruo);
+			if(this.mano.contiene(unMonstruo)){
+				
+				campoDelJugador.colocar(unMonstruo);
+				this.eliminarDeLaMano(unMonstruo);
+			}
+		}catch(ErrorSacrificiosInsuficientes error) {
+			
+			//por el momento no se reaccion a la excepcion. Si no hay sacrificios suficientes,
+			//solo no se invoca a carta
 		}
 	
 	}

@@ -3,6 +3,8 @@ package modelo.cartasGenericas;
 import modelo.tablero.CampoDeBatalla;
 
 public class RequiereUnSacrificio extends Sacrificio {
+	
+	private static int cantidadDeSacrificios = 1;
 
 	@Override
 	public void sacrificarDeSerNecesario(CampoDeBatalla campoDeBatalla) {
@@ -21,8 +23,15 @@ public class RequiereUnSacrificio extends Sacrificio {
 		
 		campoDeBatalla.destruir(monstruoADestruir1);
 		*/
+			
+			campoDeBatalla.destruirUnMonstruo();
+
+	}
+	
+	@Override
+	public boolean sePuedeRealizarElSacrificio(CampoDeBatalla campoDeBatalla) {
 		
-		campoDeBatalla.destruirUnMonstruo();
+		return (super.hayLaCantidadDeMonstruosNecesarios(campoDeBatalla, cantidadDeSacrificios));
 	}
 
 }

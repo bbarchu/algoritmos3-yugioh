@@ -141,4 +141,73 @@ public class AlGoOhTests {
 		
 		//despues sigo con dar vueltas monstruos y realizar ataques, cuando nacho agregue los metodos
 	}
+	
+	@Test
+	public void testPProbarQueAlInvocarCilindroMagicoSeEliminaDeLaMano(){
+		
+		System.out.println("\ntestPProbarQueAlInvocarCilindroMagicoSeEliminaDeLaMano\n");
+		
+		AlGoOh juego = new AlGoOh();
+		
+		juego.jugadorActualTomaUnaCarta();
+			
+		LinkedList<String> nombresCartasEnLaMano = juego.obtenerArregloDe10CartasEnLaManoDelJugadorActual();
+		
+		System.out.println("Cartas en la mano inicialmente\n");
+		
+		for(int i = 0 ; i < nombresCartasEnLaMano.size(); i++) {
+			
+			System.out.println(nombresCartasEnLaMano.get(i));
+			juego.colocarEnElCampoDelJugadorActual(nombresCartasEnLaMano.get(i));
+		}
+		
+		System.out.println("\nCartas en la mano luego de invocar todas (deberia decir vacio en todas)\n");
+		
+		nombresCartasEnLaMano = juego.obtenerArregloDe10CartasEnLaManoDelJugadorActual();
+		
+		for(int i = 0 ; i < nombresCartasEnLaMano.size(); i++) System.out.println(nombresCartasEnLaMano.get(i));
+	
+}
+
+@Test
+public void testProbarCapacidadDeLaZonaMonstruo(){
+	
+	System.out.println("\ntestProbarCapacidadDeLaZonaMonstruo\n");
+	
+	AlGoOh juego = new AlGoOh();
+	
+	juego.jugadorActualTomaUnaCarta();
+	juego.jugadorActualTomaUnaCarta();
+	juego.jugadorActualTomaUnaCarta();
+		
+	LinkedList<String> nombresCartasEnLaMano = juego.obtenerArregloDe10CartasEnLaManoDelJugadorActual();
+	
+	System.out.println("Cartas en la mano inicialmente\n");
+	
+	for(int i = 0 ; i < nombresCartasEnLaMano.size(); i++) {
+		
+		System.out.println(nombresCartasEnLaMano.get(i));
+	}
+	
+	for(int i = 0 ; i < nombresCartasEnLaMano.size(); i++) {
+		
+		juego.colocarEnElCampoDelJugadorActual(nombresCartasEnLaMano.get(i));
+	}
+	
+	
+	System.out.println("\nCartas monstruos en el campo (deben ser 5)\n");
+	
+	LinkedList<String> monstruosEnElCampo = juego.obtenerArregloDe5CartasMonstruoJugadorActual();
+	
+	for(int i = 0 ; i < monstruosEnElCampo.size(); i++) System.out.println(monstruosEnElCampo.get(i));
+	
+	
+	System.out.println("\nCartas en la mano luego de invocar todas (deberia decir vacio exceptos en las que no fueron invocadas)\n");
+	
+	nombresCartasEnLaMano = juego.obtenerArregloDe10CartasEnLaManoDelJugadorActual();
+	
+	for(int i = 0 ; i < nombresCartasEnLaMano.size(); i++) System.out.println(nombresCartasEnLaMano.get(i));
+	
+	
+	}
 }

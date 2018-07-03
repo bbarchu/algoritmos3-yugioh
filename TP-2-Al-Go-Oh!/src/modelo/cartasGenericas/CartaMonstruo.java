@@ -223,4 +223,9 @@ public class CartaMonstruo extends Carta{
 		this.modo = new ModoAtaque();
 		
 	}
+	
+	public boolean siHayLaCantidadDeSacrificiosNecesarios(CampoDeBatalla campo) {
+		
+		return (this.sacrificioRequerido.sePuedeRealizarElSacrificio(campo));
+	}
 }

@@ -3,6 +3,7 @@ package modelo.tablero;
 import java.util.Collection;
 import java.util.LinkedList;
 
+import excepciones.ErrorSacrificiosInsuficientes;
 import modelo.cartasEspecificas.AgujeroNegro;
 import modelo.cartasEspecificas.Fisura;
 import modelo.cartasEspecificas.Sogen;
@@ -74,8 +75,12 @@ public class CampoDeBatalla {
 	
 	public void colocar(CartaMonstruo unMonstruo) {
 		
-		verificarEstrellasDelMonstruo(unMonstruo);
-		this.cartasMonstruo.agregarCarta(unMonstruo);
+		if(unMonstruo.siHayLaCantidadDeSacrificiosNecesarios(this)) {
+			
+			verificarEstrellasDelMonstruo(unMonstruo);
+			this.cartasMonstruo.agregarCarta(unMonstruo);
+		}
+		else throw(new ErrorSacrificiosInsuficientes());
 	}
 	
 	private void verificarEstrellasDelMonstruo(CartaMonstruo unMonstruo) {
@@ -117,6 +122,11 @@ public class CampoDeBatalla {
 	public void destruirUnMonstruo() {
 		
 		cementerio.agregarCarta(cartasMonstruo.eliminarCartaMasAntigua());
+	}
+	
+	public int obtenerCantidadDeMonstruosEnElCampo() {
+		
+		return (this.cartasMonstruo.obtenerCantidadDeMonstruos());
 	}
 	
 	// Lucas: Los metodos HayCartas deberían ser eliminados ya que se crearon solo para las pruebas

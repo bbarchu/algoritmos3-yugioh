@@ -3,6 +3,7 @@ package modelo.aplicacion;
 import java.util.Hashtable;
 import java.util.LinkedList;
 
+import excepciones.ErrorZonaSinCapacidad;
 import modelo.cartasEspecificas.AgujeroNegro;
 import modelo.cartasEspecificas.CilindroMagico;
 import modelo.cartasEspecificas.DragonDefinitivoDeOjosAzules;
@@ -541,9 +542,18 @@ public class AlGoOh {
 
 	public void colocarEnElCampoDelJugadorActual(String text) {
 		
-		Carta carta = this.cartasJugadorActual.get(text);
+		try {
+			
+			Carta carta = this.cartasJugadorActual.get(text);
+			
+			if(carta != null) this.jugadorActual.invocar(carta);
 		
-		if(carta != null) this.jugadorActual.invocar(carta);
+		}catch(ErrorZonaSinCapacidad error) {
+			
+			System.out.println("\n\nError. Capacidad Maxima\n\n");
+			//por el momento no se reacciona ante la excepcion, simplemente no se
+			//coloca la carta
+		}
 		
 	}
 

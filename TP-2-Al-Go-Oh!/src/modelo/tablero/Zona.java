@@ -4,6 +4,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 
 import excepciones.ErrorZonaSinCapacidad;
+import excepciones.NoSeEncontroLaCartaEnLaZonaError;
 import modelo.cartasGenericas.Carta;
 
 public abstract class Zona {
@@ -33,7 +34,6 @@ public abstract class Zona {
 			cantidadDeCartas++;
 		}
 		else throw(new ErrorZonaSinCapacidad());
-		//else {La ZONA esta llena! MovimientoIncorrectoError }
 	}
 	
 	public boolean contiene (Carta unaCarta){
@@ -42,15 +42,12 @@ public abstract class Zona {
 	
 	public void eliminarCarta(Carta carta) {
 		
-		if(estaVacio()) {
-			//lanzar excepcion
-		}
+		if(estaVacio()) throw (new NoSeEncontroLaCartaEnLaZonaError());
 		
 		cartas.remove(carta);
-/*		if (!cartas.remove(carta)) {
-			throw new NoSeEncontroLaCartaEnLaZonaError();
-		}
-*/	}
+		
+		this.cantidadDeCartas--;
+}
 
 	public boolean estaVacio() {
 		
@@ -65,6 +62,9 @@ public abstract class Zona {
 		
 		Carta cartaAEliminar = cartas.get(0);
 		this.cartas.remove(0);
+		
+		this.cantidadDeCartas--;
+		
 		return (cartaAEliminar);
 	}
 

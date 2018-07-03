@@ -4,6 +4,7 @@ import modelo.tablero.CampoDeBatalla;
 
 public class RequiereDosSacrificios extends Sacrificio {
 
+	private static int cantidadDeSacrificios = 2;
 	
 	@Override
 	public void sacrificarDeSerNecesario(CampoDeBatalla campoDeBatalla) {
@@ -30,8 +31,22 @@ public class RequiereDosSacrificios extends Sacrificio {
 		campoDeBatalla.destruir(monstruoADestruir1);
 		campoDeBatalla.destruir(monstruoADestruir2);*/
 		
-		campoDeBatalla.destruirUnMonstruo();
-		campoDeBatalla.destruirUnMonstruo();
 		
+	
+			
+			campoDeBatalla.destruirUnMonstruo();
+			campoDeBatalla.destruirUnMonstruo();	
+		}
+		
+		
+	
+
+	@Override
+	public boolean sePuedeRealizarElSacrificio(CampoDeBatalla campoDeBatalla) {
+	
+		return (super.hayLaCantidadDeMonstruosNecesarios(campoDeBatalla, cantidadDeSacrificios));
 	}
+	
 }
+		
+		

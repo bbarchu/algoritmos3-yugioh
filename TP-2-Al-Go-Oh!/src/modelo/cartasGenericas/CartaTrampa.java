@@ -43,7 +43,7 @@ public class CartaTrampa extends Carta{
 	@Override
 	public void invocate(Jugador jugador) {
 		
-		this.colocateEn(jugador.obtenerCampoDeBatalla());
+		jugador.invocar(this);
 	}
 
 	@Override
