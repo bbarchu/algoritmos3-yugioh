@@ -23,7 +23,7 @@ public class ContenedorFinal extends VBox{
 
 	Stage stage;
 	
-	ContenedorFinal(Stage stage, AlGoOh algooh){
+	public ContenedorFinal(Stage stage, AlGoOh algooh){
 	    
 		super();
 		

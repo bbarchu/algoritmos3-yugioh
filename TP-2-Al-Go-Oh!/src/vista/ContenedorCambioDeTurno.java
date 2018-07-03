@@ -27,6 +27,10 @@ public class ContenedorCambioDeTurno extends BorderPane implements Contenedor{
 	VBox contenedorCentral;
 	StackPane stackPaneCentral;
 	VistaPuntajes vistaPuntajes;
+	AlGoOh algooh;
+	BotonCambiarDeTurnoHandler botonCambiarDeTurnoHandler;
+	Stage stage;
+	private Scene proximaEscena;
 	
 	public ContenedorCambioDeTurno(Stage stage) {
         
@@ -56,16 +60,10 @@ public class ContenedorCambioDeTurno extends BorderPane implements Contenedor{
         botonPasarDeFase.setMaxWidth(200);
 	    botonPasarDeFase.setStyle("-fx-font: 20 arial; -fx-base: #b6e7c9;");
 	
-	    BotonCambiarDeTurnoHandler botonCambiarDeTurnoHandler;
-	    
-	    if(algooh.terminoLaPartida()) {
-	    	ContenedorFinal contenedorFinal = new ContenedorFinal(stage, algooh);
-	    	Scene escenaFinal = new Scene(contenedorFinal, 640, 480);
-	    	botonCambiarDeTurnoHandler = new BotonCambiarDeTurnoHandler(stage, escenaFinal, algooh);
-	    }
-	    else {
-	    	botonCambiarDeTurnoHandler = new BotonCambiarDeTurnoHandler(stage, proximaEscena, algooh);    
-	    }
+	    	    
+	   
+
+	   	botonCambiarDeTurnoHandler = new BotonCambiarDeTurnoHandler(stage, proximaEscena, algooh);
 	    
 	    botonPasarDeFase.setOnAction(botonCambiarDeTurnoHandler);
 		    
@@ -124,11 +122,15 @@ public class ContenedorCambioDeTurno extends BorderPane implements Contenedor{
 	
 	public void asignarEscenaFaseInicial(Stage stage, Scene escenaFaseInicial, AlGoOh algooh) {
 		this.setBotonera(stage,escenaFaseInicial, algooh);
+		this.algooh = algooh;
+		this.stage = stage;
+		this.proximaEscena = escenaFaseInicial;
 		
 	}
 	@Override
 	public void actualizar() {
 		this.vistaPuntajes.actualizarAnotadorGrande();
+	 
 		
 	}
 }

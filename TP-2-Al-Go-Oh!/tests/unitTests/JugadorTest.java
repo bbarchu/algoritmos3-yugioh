@@ -1,6 +1,8 @@
 package unitTests;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
@@ -243,6 +245,38 @@ public class JugadorTest {
 		assertEquals(puntosDeVidaIniciales, unJugador.obtenerPuntosDeVida());
 		assertEquals(puntosDeVidaIniciales,otroJugador.obtenerPuntosDeVida());
 		
+	}
+	
+	@Test
+	public void testElJugadorPierdeLaPartidaAlQuedarConVidaNegativa() {
+		Jugador unJugador = new Jugador();
+		Jugador otroJugador = new Jugador();
+		
+		unJugador.presentarJugadorRival(otroJugador);
+		otroJugador.presentarJugadorRival(unJugador);
+		
+		unJugador.restarVida(8100);
+
+		
+		assertEquals(-100, unJugador.obtenerPuntosDeVida());
+		assertEquals(true, unJugador.perdioLaPartida());
+		assertFalse(unJugador.ganoLaPartida());
+	}
+	
+	@Test
+	public void testElJugadorNoPierdeLaPartidaAlrestarleVida() {
+		Jugador unJugador = new Jugador();
+		Jugador otroJugador = new Jugador();
+		
+		unJugador.presentarJugadorRival(otroJugador);
+		otroJugador.presentarJugadorRival(unJugador);
+		
+		unJugador.restarVida(100);
+
+		
+		assertEquals(7900, unJugador.obtenerPuntosDeVida());
+		assertEquals(false, unJugador.perdioLaPartida());
+		assertFalse(unJugador.ganoLaPartida());
 	}
 	
 }

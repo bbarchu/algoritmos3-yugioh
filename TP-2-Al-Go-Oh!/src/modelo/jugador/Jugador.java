@@ -15,10 +15,6 @@ import modelo.tablero.CampoDeBatalla;
 
 public class Jugador implements OponenteAtacable, JugadorModificable{
 		
-	//Lucas: el jugador debe poder interactuar con el jugadorRival para atacarlo
-	//Lucas: considero que no es una buena solucion ya que el jugador no debería poder ver los metodos
-	//			del otro jugador, debeía implementarse una interfaz que controle ese comportamiento
-	//			Ej: interfaz obserbable, que solo permita ver las cartas del campo rival.
 		int puntosDeVida;
 		Mazo mazo;
 		Mano mano;
@@ -152,7 +148,7 @@ public class Jugador implements OponenteAtacable, JugadorModificable{
 	}
 	
 	public void habilitarCartas() {
-		//Habilito todas las cartas que han sido inhabilitadas al atacar.
+		
 		Iterator<CartaMonstruo> iterador = this.cartasInhabilitadas.iterator();
 		
 		while (iterador.hasNext()) {
@@ -162,9 +158,12 @@ public class Jugador implements OponenteAtacable, JugadorModificable{
 		}
 	}
 	
-	// Lucas: me parece un poco raro que un metodo que mata al jugador sea publico
+	
 	public void restarVida(int decrementoVida) {
-		this.puntosDeVida -= decrementoVida;
+		
+		int vida = this.puntosDeVida - decrementoVida;
+		
+		this.puntosDeVida = vida;
 		
 		if(puntosDeVida <= 0) {
 			this.perdioLaPartida = true;
@@ -190,7 +189,7 @@ public class Jugador implements OponenteAtacable, JugadorModificable{
 		return jugadorRival;
 	}
 	
-	// este metodo fue creado para verificar el resultado de una prueba. Debe ser eliminado
+	
 	public int cantidadDeCartasEnLaMano(){
 		int cantidad;
 		

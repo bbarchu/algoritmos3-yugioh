@@ -673,13 +673,14 @@ public class AlGoOh {
 
 	public boolean terminoLaPartida() {
 		
-		return (this.jugadorActual.ganoLaPartida() || this.jugadorActual.perdioLaPartida());
-		
-		
+		if(jugadorActual.perdioLaPartida() || jugadorRival.perdioLaPartida() || jugadorActual.ganoLaPartida() || jugadorRival.ganoLaPartida()) {
+			return true;
+		}
+		return false;
 	}
 
 	public boolean ganoJugador1() {
-		return this.jugadorNumeroUno.ganoLaPartida();
+		return (this.jugadorNumeroUno.ganoLaPartida() || jugadorNumeroDos.perdioLaPartida());
 		
 	}	
 	
