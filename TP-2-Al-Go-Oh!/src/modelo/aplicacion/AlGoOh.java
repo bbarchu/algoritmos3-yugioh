@@ -550,7 +550,6 @@ public class AlGoOh {
 		
 		}catch(ErrorZonaSinCapacidad error) {
 			
-			System.out.println("\n\nError. Capacidad Maxima\n\n");
 			//por el momento no se reacciona ante la excepcion, simplemente no se
 			//coloca la carta
 		}
@@ -685,7 +684,22 @@ public class AlGoOh {
 	}
 
 	public void colocarEnElCampoDelJugadorActualEnDefensa(String text) {
-		// TODO Auto-generated method stub
+		
+		try {
+			
+			CartaMonstruo carta = (CartaMonstruo)this.cartasJugadorActual.get(text);
+			
+			if(carta != null && carta instanceof CartaMonstruo) {
+				
+				 carta.cambiarModoDeUso(new ModoDefensa());
+				 this.jugadorActual.invocar(carta);
+			}
+		
+		}catch(ErrorZonaSinCapacidad error) {
+			
+			//por el momento no se reacciona ante la excepcion, simplemente no
+			//coloca la carta
+		}
 		
 	}	
 	

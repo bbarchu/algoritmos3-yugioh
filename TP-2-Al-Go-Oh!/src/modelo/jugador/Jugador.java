@@ -241,8 +241,21 @@ public class Jugador implements OponenteAtacable, JugadorModificable{
 		
 		for(int i = 0 ; i < cartas.size() ; i++) {
 			
-			if((cartas.get(i).estaBocaArriba())) nombres.add(cartas.get(i).getNombre());
-			else nombres.add("Dorso");
+			CartaMonstruo cartaActual = (CartaMonstruo)cartas.get(i);
+			
+			if((cartaActual.estaBocaArriba())) {
+				
+				if(cartaActual.estaEnModoDefensa()) nombres.add( (cartaActual.getNombre()) + "-DEF");
+				else  nombres.add( (cartaActual.getNombre()));
+			}
+			
+			else{
+				
+				if(cartaActual.estaEnModoDefensa()) nombres.add("Dorso-DEF");
+				else  nombres.add("Dorso");
+			}
+			
+			
 		}
 		
 		return nombres;

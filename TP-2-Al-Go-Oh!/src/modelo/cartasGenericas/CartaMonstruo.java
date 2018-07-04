@@ -69,6 +69,11 @@ public class CartaMonstruo extends Carta{
 		}
 	}
 	
+	public boolean estaEnModoDefensa() {
+		
+		return (this.modo instanceof ModoDefensa);
+	}
+	
 	public void cambiarModoDeUso (ModoDeUso nuevoModo) {
 		this.modo = nuevoModo;
 	}
