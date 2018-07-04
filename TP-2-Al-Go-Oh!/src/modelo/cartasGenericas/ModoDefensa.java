@@ -59,4 +59,11 @@ public class ModoDefensa extends ModoDeUso {
 		throw(new ErrorAtaqueNoPermitido());
 		
 	}
+
+
+	@Override
+	public boolean modoDefensa() {
+		// TODO Auto-generated method stub
+		return true;
+	}
 }

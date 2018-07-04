@@ -59,6 +59,14 @@ public class ModoAtaque extends ModoDeUso {
 		oponente.restarVida(carta.obtenerPuntosDeAtaque());
 	}
 
+	@Override
+	public boolean modoDefensa() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
+	
+
 
 
 }

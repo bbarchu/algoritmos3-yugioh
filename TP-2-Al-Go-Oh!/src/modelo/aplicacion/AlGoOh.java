@@ -687,11 +687,13 @@ public class AlGoOh {
 		
 		try {
 			
-			CartaMonstruo carta = (CartaMonstruo)this.cartasJugadorActual.get(text);
+			Carta carta = this.cartasJugadorActual.get(text);
 			
-			if(carta != null && carta instanceof CartaMonstruo) {
+			if(carta != null && carta.getClass() == CartaMonstruo.class) {
 				
-				 carta.cambiarModoDeUso(new ModoDefensa());
+				 CartaMonstruo cartaMonstruo = (CartaMonstruo) carta;
+				
+				 cartaMonstruo.cambiarModoDeUso(new ModoDefensa());
 				 this.jugadorActual.invocar(carta);
 			}
 		

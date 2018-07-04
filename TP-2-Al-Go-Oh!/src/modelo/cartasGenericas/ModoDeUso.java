@@ -21,4 +21,6 @@ public abstract class ModoDeUso {
 	public abstract void restarVidaDelInvocadorDe(CartaMonstruo cartaPerdedora, int danio);
 
 	public abstract void restarVidaDeMiInvocador(CartaMonstruo carta, int daño);
+	
+	public abstract boolean modoDefensa();
 }

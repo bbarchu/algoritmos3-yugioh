@@ -57,4 +57,10 @@ public class ModoInhabilitada extends ModoDeUso{
 	
 	}
 
+	@Override
+	public boolean modoDefensa() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }
