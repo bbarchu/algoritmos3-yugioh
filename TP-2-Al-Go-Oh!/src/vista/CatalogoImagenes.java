@@ -64,8 +64,11 @@ public class CatalogoImagenes {
 		
 		this.colocarEnElMapa("Vacio");	
 		
+
+		
 	}
 	
+
 	private void colocarEnElMapa(String nombreCarta) {
 		
 		this.mapaImagenes.put(nombreCarta, crearPathImageView(nombreCarta+".jpg"));		
@@ -83,9 +86,14 @@ public class CatalogoImagenes {
 	
 		ImageView imagen = new ImageView(mapaImagenes.getOrDefault(nombreCarta, ocurrioUnError));
 		
+			
 		imagen.setAccessibleHelp(nombreCarta);
 		imagen.setFitHeight(150);
 		imagen.setFitWidth(100);
+		
+		if(nombreCarta.contains("-DEF")){
+			imagen.setRotate(90);
+		}
 		
 		CartaClickeadaHandler cartaClickeadaHandler = new CartaClickeadaHandler();
 		

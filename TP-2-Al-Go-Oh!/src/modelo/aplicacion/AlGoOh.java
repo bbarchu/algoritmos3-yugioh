@@ -682,6 +682,11 @@ public class AlGoOh {
 	public boolean ganoJugador1() {
 		return (this.jugadorNumeroUno.ganoLaPartida() || jugadorNumeroDos.perdioLaPartida());
 		
+	}
+
+	public void colocarEnElCampoDelJugadorActualEnDefensa(String text) {
+		// TODO Auto-generated method stub
+		
 	}	
 	
 	

@@ -76,7 +76,7 @@ public class ContenedorCambioDeTurno extends BorderPane implements Contenedor{
 
 	    
         VBox contenedorVertical = new VBox(atencion, stackPaneCentral, recordatorio1, recordatorio2, botonPasarDeFase);
-        contenedorVertical.setSpacing(50);
+        contenedorVertical.setSpacing(55);
         contenedorVertical.setAlignment(Pos.TOP_CENTER);
         contenedorVertical.setPadding(new Insets(20));
         contenedorVertical.setPrefWidth(600);

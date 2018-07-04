@@ -77,9 +77,9 @@ public class ContenedorFaseMagia extends BorderPane implements Contenedor{
 
 	    
         VBox contenedorVertical = new VBox(nombreFase, cartas, cuadroPropio, botonActivarCartaMagia, botonPasarDeFase);
-        contenedorVertical.setSpacing(100);
+        contenedorVertical.setSpacing(140);
         contenedorVertical.setAlignment(Pos.TOP_CENTER);
-        contenedorVertical.setPadding(new Insets(20));
+        contenedorVertical.setPadding(new Insets(35));
         contenedorVertical.setPrefWidth(300);
         Image imagen = new Image("file:src/vista/imagenes/fondoBotonera.jpg");
         BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT);

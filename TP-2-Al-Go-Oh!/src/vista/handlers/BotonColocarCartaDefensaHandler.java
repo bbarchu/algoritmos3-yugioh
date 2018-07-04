@@ -7,14 +7,15 @@ import modelo.aplicacion.AlGoOh;
 import vista.ContenedorFasePreparacion;
 import vista.VistaCampoDeBatalla;
 
-public class BotonColocarCartaHandler implements EventHandler<ActionEvent> {
+
+public class BotonColocarCartaDefensaHandler implements EventHandler<ActionEvent> {
 
 	VistaCampoDeBatalla vistaCampo;
 	AlGoOh algooh;
 	TextField texto;
 	ContenedorFasePreparacion contenedor;
 	
-	public BotonColocarCartaHandler(VistaCampoDeBatalla vistaCampo, AlGoOh algooh, TextField texto,ContenedorFasePreparacion contenedor) {
+	public BotonColocarCartaDefensaHandler(VistaCampoDeBatalla vistaCampo, AlGoOh algooh, TextField texto,ContenedorFasePreparacion contenedor) {
 		this.vistaCampo = vistaCampo;
 		this.algooh = algooh;
 		this.texto = texto;
@@ -25,7 +26,7 @@ public class BotonColocarCartaHandler implements EventHandler<ActionEvent> {
 	@Override
 	public void handle(ActionEvent event) {
 		
-		this.algooh.colocarEnElCampoDelJugadorActual(texto.getText());
+		this.algooh.colocarEnElCampoDelJugadorActualEnDefensa(texto.getText());
 		this.contenedor.actualizar();
 	}
 

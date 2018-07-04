@@ -31,7 +31,7 @@ public class VistaCampoDeBatalla {
 	public VistaCampoDeBatalla(StackPane stackPaneCentral, AlGoOh algooh){
 		
 		this.stack = stackPaneCentral;
-		this.canvas = new Canvas(900, 900);
+		this.canvas = new Canvas(950, 950);
 		this.imagenes = new CatalogoImagenes();
 		this.algooh = algooh;
 		this.contador1 = 0;
@@ -142,9 +142,9 @@ public class VistaCampoDeBatalla {
 		contenedorMagiaJugador.setAlignment(Pos.CENTER);
 		contenedorMagiaJugador.setSpacing(50);
 
-		//Limito a 6 Cartas en la mano
+		//Limite 8 Cartas en la mano
 		
-		HBox contenedorManoJugador = new HBox(imagen11,imagen12,imagen13,imagen14,imagen15, imagen16);
+		HBox contenedorManoJugador = new HBox(imagen11,imagen12,imagen13,imagen14,imagen15, imagen16, imagen17, imagen18);
 		contenedorManoJugador.setAlignment(Pos.CENTER);
 		contenedorManoJugador.setSpacing(10);
 		
@@ -157,6 +157,7 @@ public class VistaCampoDeBatalla {
 		VBox contenedorPrincipal = new VBox(contenedorAuxiliar, contenedorManoJugador);
 		contenedorPrincipal.setPadding(new Insets(80));
 		contenedorPrincipal.setSpacing(100);
+		
 	
 		
 		stack.getChildren().clear();
@@ -185,15 +186,22 @@ public class VistaCampoDeBatalla {
 
 	private void setFondoManoYCampoPropio() {
 		canvas.getGraphicsContext2D().setFill(Color.DARKRED);
-		canvas.getGraphicsContext2D().fillRect(0, 0, 900, 710);
+		canvas.getGraphicsContext2D().fillRect(20, 0, 900, 710);
 		
 		canvas.getGraphicsContext2D().setFill(Color.BLACK);
-		canvas.getGraphicsContext2D().fillRect(0, 500, 900, 5);
+		canvas.getGraphicsContext2D().fillRect(0, 495, 940, 5);
 		
-		canvas.getGraphicsContext2D().fillRect(0, 0, 900, 5);
-		canvas.getGraphicsContext2D().fillRect(0, 0, 5, 710);
-		canvas.getGraphicsContext2D().fillRect(895, 0, 5, 710);
-		canvas.getGraphicsContext2D().fillRect(0, 710, 900, 5);
+		canvas.getGraphicsContext2D().fillRect(20, 0, 900, 5);
+		canvas.getGraphicsContext2D().fillRect(20, 0, 5, 710);
+		canvas.getGraphicsContext2D().fillRect(915, 0, 5, 710);
+		
+		canvas.getGraphicsContext2D().setFill(Color.DARKRED);
+		canvas.getGraphicsContext2D().fillRect(0, 500, 940, 210);
+		
+		canvas.getGraphicsContext2D().setFill(Color.BLACK);
+		canvas.getGraphicsContext2D().fillRect(0, 710, 940, 5);
+		canvas.getGraphicsContext2D().fillRect(0, 500, 5, 210);
+		canvas.getGraphicsContext2D().fillRect(935, 500, 5, 210);
 	}
 	
 	public void actualizarManoYCampoPropio() {

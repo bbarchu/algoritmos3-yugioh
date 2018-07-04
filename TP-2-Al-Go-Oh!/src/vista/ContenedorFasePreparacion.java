@@ -3,7 +3,6 @@ package vista;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -14,6 +13,7 @@ import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -21,9 +21,9 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import modelo.aplicacion.AlGoOh;
-import vista.handlers.BotonColocarCartaHandler;
+import vista.handlers.BotonColocarCartaAtaqueHandler;
+import vista.handlers.BotonColocarCartaDefensaHandler;
 import vista.handlers.BotonPasarDeFaseHandler;
-import vista.handlers.BotonTomarCartaHandler;
 
 public class ContenedorFasePreparacion extends BorderPane implements Contenedor{
 	
@@ -57,6 +57,16 @@ public class ContenedorFasePreparacion extends BorderPane implements Contenedor{
 		titulo.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 20));
 		titulo.setTextFill(Color.BLACK);
 		
+		Label titulo2 = new Label();
+		titulo2.setText("Para Magia y Trampa");
+		titulo2.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 20));
+		titulo2.setTextFill(Color.BLACK);
+		
+		Label titulo3 = new Label();
+		titulo3.setText("Para Monstruos");
+		titulo3.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 20));
+		titulo3.setTextFill(Color.BLACK);
+		
 		cartas = new Label();
 		cartas.setText(algooh.nombresConcatenadosCartasManoJugadorActual().toString());
 		cartas.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 10));
@@ -64,12 +74,29 @@ public class ContenedorFasePreparacion extends BorderPane implements Contenedor{
 		
 		
         Button botonColocarCarta = new Button();
-        botonColocarCarta.setText("Colocar una carta");
+        botonColocarCarta.setText("Colocar carta");
         botonColocarCarta.setMaxWidth(200);
 	    botonColocarCarta.setStyle("-fx-font: 19 arial; -fx-base: #b6e7c9;");
 	    
-	    BotonColocarCartaHandler botonColocarCartaHandler = new BotonColocarCartaHandler(vistaCampo, algooh, cuadroDeTextoCartaPropia, this);
+        Button botonColocarCartaATK = new Button();
+        botonColocarCartaATK.setText("Modo Ataque");
+        botonColocarCartaATK.setMaxWidth(200);
+	    botonColocarCartaATK.setStyle("-fx-font: 15 arial; -fx-base: #b6e7c9;");
+        
+	    Button botonColocarCartaDEF = new Button();
+        botonColocarCartaDEF.setText("Modo Defensa");
+        botonColocarCartaDEF.setMaxWidth(200);
+	    botonColocarCartaDEF.setStyle("-fx-font: 15 arial; -fx-base: #b6e7c9;");
+	    
+	    BotonColocarCartaAtaqueHandler botonColocarCartaHandler = new BotonColocarCartaAtaqueHandler(vistaCampo, algooh, cuadroDeTextoCartaPropia, this);
 	    botonColocarCarta.setOnAction(botonColocarCartaHandler);
+	    
+	    BotonColocarCartaAtaqueHandler botonColocarCartaATKHandler = new BotonColocarCartaAtaqueHandler(vistaCampo, algooh, cuadroDeTextoCartaPropia, this);
+	    botonColocarCartaATK.setOnAction(botonColocarCartaATKHandler);
+	    
+	    BotonColocarCartaDefensaHandler botonColocarCartaDEFHandler = new BotonColocarCartaDefensaHandler(vistaCampo, algooh, cuadroDeTextoCartaPropia, this);
+	    botonColocarCartaDEF.setOnAction(botonColocarCartaDEFHandler);
+	    
 	    
 		Button botonPasarDeFase = new Button();
         botonPasarDeFase.setText("Pasar de fase");
@@ -79,8 +106,12 @@ public class ContenedorFasePreparacion extends BorderPane implements Contenedor{
 	    BotonPasarDeFaseHandler botonPasarDeFaseHandler = new BotonPasarDeFaseHandler(stage, proximaEscena);
 	    botonPasarDeFase.setOnAction(botonPasarDeFaseHandler);
 
-        VBox contenedorVertical = new VBox(nombreFase, titulo, cartas,cuadroDeTextoCartaPropia,botonColocarCarta, botonPasarDeFase);
-        contenedorVertical.setSpacing(100);
+	    HBox contenedorBotones = new HBox(botonColocarCartaATK, botonColocarCartaDEF);
+	    contenedorBotones.setSpacing(20);
+	    contenedorBotones.setAlignment(Pos.CENTER);
+	    
+        VBox contenedorVertical = new VBox(nombreFase, titulo, cartas,cuadroDeTextoCartaPropia, titulo2, botonColocarCarta, titulo3, contenedorBotones, botonPasarDeFase);
+        contenedorVertical.setSpacing(60);
         contenedorVertical.setAlignment(Pos.TOP_CENTER);
         contenedorVertical.setPadding(new Insets(20));
         contenedorVertical.setPrefWidth(300);

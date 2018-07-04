@@ -99,7 +99,7 @@ public class ContenedorFaseAtaque extends BorderPane implements Contenedor{
 
 	    
         VBox contenedorVerticalPrincipal = new VBox(nombreFase, contenedorVerticalTexto, contenedorVerticalBotones);
-        contenedorVerticalPrincipal.setSpacing(50);
+        contenedorVerticalPrincipal.setSpacing(55);
         contenedorVerticalPrincipal.setAlignment(Pos.TOP_CENTER);
         contenedorVerticalPrincipal.setPadding(new Insets(20));
         contenedorVerticalPrincipal.setPrefWidth(300);
