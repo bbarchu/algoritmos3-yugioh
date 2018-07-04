@@ -71,7 +71,9 @@ public class CatalogoImagenes {
 
 	private void colocarEnElMapa(String nombreCarta) {
 		
-		this.mapaImagenes.put(nombreCarta, crearPathImageView(nombreCarta+".jpg"));		
+		this.mapaImagenes.put(nombreCarta, crearPathImageView(nombreCarta+".jpg"));	
+		this.mapaImagenes.put(nombreCarta + "-DEF", crearPathImageView(nombreCarta+".jpg"));	
+		
 	}
 
 	private String crearPathImageView(String nombreArchivo) {
