@@ -52,20 +52,25 @@ public class ContenedorFaseTrampas extends BorderPane implements Contenedor{
 		nombreFase.setTextFill(Color.BLACK);
 		
 		Label recordatorio = new Label();
-		recordatorio.setText("Antes de calcular el daño...");
+		recordatorio.setText("Los puntos son:");
 		recordatorio.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 15));
 		recordatorio.setTextFill(Color.BLACK);
 		
+		Label recordatorio2 = new Label();
+		recordatorio2.setText("Las cartas trampa se activan automáticamente");
+		recordatorio2.setFont(Font.font("Impact", FontWeight.EXTRA_BOLD, 17));
+		recordatorio2.setTextFill(Color.DARKRED);
+		
 		Button botonActivarTrampas = new Button();
-        botonActivarTrampas.setText("Activar carta trampa Rival");
+        botonActivarTrampas.setText("Volver a Fase de Ataque");
         botonActivarTrampas.setMaxWidth(250);
 	    botonActivarTrampas.setStyle("-fx-font: 18 arial; -fx-base: #b6e7c9;");
 	    
         BotonActivarTrampasHandler activarTrampasHandler = new BotonActivarTrampasHandler(stage, escenaFaseAtaque, vistaCampo, this);
         botonActivarTrampas.setOnAction(activarTrampasHandler);
 
-        VBox contenedorVertical = new VBox(nombreFase,stackPaneLateral, recordatorio, botonActivarTrampas);
-        contenedorVertical.setSpacing(100);
+        VBox contenedorVertical = new VBox(nombreFase,recordatorio2,recordatorio,stackPaneLateral, botonActivarTrampas);
+        contenedorVertical.setSpacing(80);
         contenedorVertical.setAlignment(Pos.TOP_CENTER);
         contenedorVertical.setPadding(new Insets(20));
         contenedorVertical.setPrefWidth(400);
