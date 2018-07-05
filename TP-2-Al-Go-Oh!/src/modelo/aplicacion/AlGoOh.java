@@ -491,6 +491,7 @@ public class AlGoOh {
 		this.cartasJugadorUno.put("Wasteland", wastelandUno);
 		this.cartasJugadorDos.put("Wasteland", wastelandDos);
 	
+		
 		this.jugadorActual.tomarCincoCartasDelMazo();
 	
 		this.jugadorRival.tomarCincoCartasDelMazo();
@@ -532,7 +533,7 @@ public class AlGoOh {
 		jugadorActual = jugadorRival;
 		jugadorRival = aux;
 		
-		//Swap cartas.
+		//Swap diccionarios.
 		Hashtable<String, Carta> cartasAux = cartasJugadorActual;
 		cartasJugadorActual = cartasJugadorRival;
 		cartasJugadorRival = cartasAux;

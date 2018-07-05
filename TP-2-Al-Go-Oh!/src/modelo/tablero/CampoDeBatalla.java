@@ -51,9 +51,8 @@ public class CampoDeBatalla {
 		this.cartasMagia.agregarCarta(unaCartaMagica);
 		
 		if(unaCartaMagica.estaBocaArriba()) {		
-			unaCartaMagica.activarEfecto();
-			// Solo un uso van al cementerio : bar;
 			
+			unaCartaMagica.activarEfecto();
 			unaCartaMagica.destruite(this);
 		}
 	}
@@ -95,7 +94,7 @@ public class CampoDeBatalla {
 	
 	public void destruir(CartaMonstruo unMonstruo) {
 		
-		// Aca puede lanzar una excepcion si no la encuentra
+		
 		
 		cartasMonstruo.eliminarCarta(unMonstruo);
 		cementerio.agregarCarta(unMonstruo);
@@ -103,16 +102,12 @@ public class CampoDeBatalla {
 	
 	public void destruir(CartaMagica unaCartaMagica) {
 		
-		// Aca puede lanzar una excepcion si no la encuentra
-		
 		
 		cartasMagia.eliminarCarta(unaCartaMagica);
 		cementerio.agregarCarta(unaCartaMagica);
 	}
 	
 	public void destruir(CartaTrampa unaCartaTrampa) {
-		
-		// Aca puede lanzar una excepcion si no la encuentra
 		
 		
 		cartasTrampa.eliminarCarta(unaCartaTrampa);
@@ -129,8 +124,6 @@ public class CampoDeBatalla {
 		return (this.cartasMonstruo.obtenerCantidadDeMonstruos());
 	}
 	
-	// Lucas: Los metodos HayCartas deberían ser eliminados ya que se crearon solo para las pruebas
-	// Lucas: Dichas pruebas también deberían ser eliminadas ya que no prueban comportamiento
 	
 	public Boolean hayCartasMonstruo() {
 		
@@ -241,10 +234,5 @@ public class CampoDeBatalla {
 		return( this.cartasTrampa.verCartas());
 	}
 	
-/*	public Boolean hayCartasEnElCementerio() {
-	
-		return (!cementerio.estaVacio());
-	}
-*/	
 
 }

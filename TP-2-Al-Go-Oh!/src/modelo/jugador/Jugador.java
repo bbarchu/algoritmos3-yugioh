@@ -89,8 +89,7 @@ public class Jugador implements OponenteAtacable, JugadorModificable{
 			}
 		}catch(ErrorSacrificiosInsuficientes error) {
 			
-			//por el momento no se reaccion a la excepcion. Si no hay sacrificios suficientes,
-			//solo no se invoca a carta
+			//Si no hay sacrificios suficientes, no se invoca la carta.
 		}
 	
 	}

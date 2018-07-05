@@ -61,7 +61,7 @@ public class ModoAtaque extends ModoDeUso {
 
 	@Override
 	public boolean modoDefensa() {
-		// TODO Auto-generated method stub
+
 		return false;
 	}
 	

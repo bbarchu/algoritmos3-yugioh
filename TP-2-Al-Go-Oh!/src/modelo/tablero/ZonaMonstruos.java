@@ -69,7 +69,6 @@ public class ZonaMonstruos extends Zona {
 		 
 		 iteradorCarta = cartas.listIterator(0);
 		 
-		 //inicializo
 		 cartaADestruir = (CartaMonstruo) cartas.get(0);
 		 menorAtaque = cartaADestruir.obtenerPuntosDeAtaque();
 		 

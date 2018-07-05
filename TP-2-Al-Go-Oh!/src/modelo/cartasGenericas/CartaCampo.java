@@ -6,8 +6,7 @@ import modelo.tablero.CampoDeBatalla;
 
 public class CartaCampo extends Carta {
 	
-	// Efecto que abarca a todo el campo, camo amigo y campo enemigo, bar.
-	//Cuando se destrute una carta de campo? ya que no dice nada al respecto, no tiene un unico uso.
+
 	protected JugadorModificable jugador;
 
 	
@@ -26,9 +25,6 @@ public class CartaCampo extends Carta {
 		campoDeBatalla.colocar(this);		
 	}
 
-	/*public void invocate(Jugador jugador) {
-		jugador.invocar(this);
-	}*/
 	
 	@Override
 	public void invocate(Jugador jugador) {
@@ -44,21 +40,11 @@ public class CartaCampo extends Carta {
 	public boolean estaBocaArriba() {
 		return true;
 		
-		//Podes activar el efecto desde la mano colocandolas boca arriba! Siempre estan boca arriba, bar.
 	}
 	
 	public void activarEfecto() {
 		
 	}
-/*	public void invocar() {
-	
-	}
-	
-	public boolean estaBocaArriba() {
-		
-		return true;
-	}
-*/
 
 	@Override
 	public String getNombre() {
@@ -67,7 +53,7 @@ public class CartaCampo extends Carta {
 
 	@Override
 	public void voltearCarta() {
-		// TODO Auto-generated method stub
+		
 		
 	}
 

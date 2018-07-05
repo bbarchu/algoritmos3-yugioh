@@ -9,7 +9,6 @@ public class CartaMagica extends Carta {
 	private Estado estado;
 	protected JugadorModificable jugador;
 
-	// Efecto
 	
 	public CartaMagica(Estado unEstado, Jugador unJugador) {
 		
@@ -41,12 +40,7 @@ public class CartaMagica extends Carta {
 		campoDeBatalla.colocar(this);		
 	}
 
-/*	@Override
-	public void atacarA(Carta monstruoDelRival) {
-		// Deberia lanzar una excepcion ya que una carta de magia no puede atacar.
-		
-	}
-*/	
+
 	public boolean estaBocaArriba() {
 		
 		return (estado.estaActiva());

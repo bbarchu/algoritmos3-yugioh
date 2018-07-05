@@ -24,8 +24,7 @@ public class Reinforcements extends CartaTrampa {
 	public void desactivarEfecto() {
 		
 		this.cartaAtacada.disminuirPuntosDeAtaque(puntosDeAtaqueIncrementados);
-		//se tiene que destruir cuando termine el turno, tendra que verse como hacerlo desde
-		//el juego
+		
 	}
 
 }

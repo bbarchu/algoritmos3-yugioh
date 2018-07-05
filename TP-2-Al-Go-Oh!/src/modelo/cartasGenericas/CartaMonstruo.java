@@ -17,7 +17,6 @@ public class CartaMonstruo extends Carta{
 	private Estado estado;
 	protected Sacrificio sacrificioRequerido;	
 	
-	//Efecto (puede tener o no un efecto)
 	
 	
 	public CartaMonstruo(int puntosATK, int puntosDEF, int estrellas, ModoDeUso unModo, Jugador jugador, String nombre) {
@@ -31,7 +30,6 @@ public class CartaMonstruo extends Carta{
 		this.jugador = jugador;
 		this.estado = new BocaAbajo();
 		
-		//Esta parte despues se puede modificar para sacar los if
 		if(estrellas <= 4) {
 			this.sacrificioRequerido = new NoRequiereSacrificio();
 		}else if(estrellas <= 6) {
@@ -59,7 +57,7 @@ public class CartaMonstruo extends Carta{
 		this.jugador = jugador;
 		this.estado = new BocaAbajo();
 		
-		//Esta parte despues se puede modificar para sacar los if
+
 		if(estrellas <= 4) {
 			this.sacrificioRequerido = new NoRequiereSacrificio();
 		}else if(estrellas <= 6) {

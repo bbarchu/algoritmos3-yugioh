@@ -63,7 +63,7 @@ public class ModoDefensa extends ModoDeUso {
 
 	@Override
 	public boolean modoDefensa() {
-		// TODO Auto-generated method stub
+
 		return true;
 	}
 }

@@ -1,6 +1,5 @@
 package modelo.cartasGenericas;
 
-import excepciones.ErrorAtaqueNoPermitido;
 import excepciones.ErrorCartaInhabilitadaParaUnEnfrentamiento;
 import modelo.cartasEspecificas.Jinzo7;
 import modelo.jugador.OponenteAtacable;

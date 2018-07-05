@@ -68,14 +68,5 @@ public class CartaTrampa extends Carta{
 		return (campo.verificarQueEstaEnElCampo(this));
 	}
 	
-/*	public void invocar() {
-	
-		campoDeJuego.invocar(this);
-	}
-	
-	public boolean estaBocaArriba() {
-		
-		return (estado.estaActiva());
-	}
-*/
+
 }

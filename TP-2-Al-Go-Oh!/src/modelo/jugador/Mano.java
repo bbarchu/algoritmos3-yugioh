@@ -9,8 +9,8 @@ import modelo.cartasGenericas.Carta;
 import modelo.cartasGenericas.CartaMonstruo;
 
 public class Mano {
+	
 	int cantidad;
-	//bar = tiene capacidad infinita... o al menos de 40 cartas...
 	LinkedList<Carta> cartas;
 	
 	Mano(){
@@ -91,7 +91,6 @@ public class Mano {
 			 
 		 }
 		 
-		 //Si llegamos aca es porq no se encontro la carta
 		return null;
 	}
 	
