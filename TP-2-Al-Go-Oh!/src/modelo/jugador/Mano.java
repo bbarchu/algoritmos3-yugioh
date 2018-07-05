@@ -47,34 +47,89 @@ public class Mano {
 
 	public boolean contieneLas5PartesDeExodia() {
 		boolean resultado = false;
-		int cantidadDePartes = 0;
+		
+		if(contieneBrazoDerechoDelProhibido() && contieneBrazoIzquierdoDelProhibido() && contienePiernaDerechaDelProhibido() && contienePiernaIzquierdaDelProhibido()) {
+			if(contieneCabezaDelProhibido()) {
+				resultado = true;
+			}
+		}
+		return resultado;
+	}
+	
+	private boolean contieneBrazoDerechoDelProhibido() {
+		String nombreDeLaCarta = "BrazoDerechoDelProhibido";
 		
 		Iterator<Carta>iteradorCarta = this.cartas.listIterator(0);
-		while (iteradorCarta.hasNext() == true && cantidadDePartes < 5) {
+		
+		while (iteradorCarta.hasNext() == true) {
 			Carta monstruoActual = iteradorCarta.next();
-			
-			if (monstruoActual.getNombre() == "ExodiaElProhibido") {
-				cantidadDePartes ++;
-				}
-			if (monstruoActual.getNombre() == "BrazoDerechoDelProhibido") {
-					cantidadDePartes ++;
-				}
-			if (monstruoActual.getNombre() == "BrazoIzquierdoDelProhibido") {
-					cantidadDePartes ++;
-				}
-			if (monstruoActual.getNombre() == "PiernaDerechaDelProhibido") {
-					cantidadDePartes ++;
-				}
-			if (monstruoActual.getNombre() == "PiernaIzquierdaDelProhibido") {
-					cantidadDePartes ++;
-				}
+			if (monstruoActual.getNombre() == nombreDeLaCarta) {
+					return true;
+			}
 		}
+
+			return false;
+	}
+	private boolean contieneBrazoIzquierdoDelProhibido() {
+		String nombreDeLaCarta = "BrazoIzquierdoDelProhibido";
 		
-		if(cantidadDePartes == 5) {
-			resultado = true;
+		Iterator<Carta>iteradorCarta = this.cartas.listIterator(0);
+		
+		while (iteradorCarta.hasNext() == true) {
+			Carta monstruoActual = iteradorCarta.next();
+			if (monstruoActual.getNombre() == nombreDeLaCarta) {
+					return true;
+			}
 		}
+
+			return false;
+	}
+	
+	private boolean contienePiernaIzquierdaDelProhibido() {
+		String nombreDeLaCarta = "PiernaIzquierdaDelProhibido";
 		
-		return resultado;
+		Iterator<Carta>iteradorCarta = this.cartas.listIterator(0);
+		
+		while (iteradorCarta.hasNext() == true) {
+			Carta monstruoActual = iteradorCarta.next();
+			if (monstruoActual.getNombre() == nombreDeLaCarta) {
+					return true;
+			}
+		}
+
+			return false;
+	}
+
+	
+	private boolean contienePiernaDerechaDelProhibido() {
+		String nombreDeLaCarta = "PiernaDerechaDelProhibido";
+		
+		Iterator<Carta>iteradorCarta = this.cartas.listIterator(0);
+		
+		while (iteradorCarta.hasNext() == true) {
+			Carta monstruoActual = iteradorCarta.next();
+			if (monstruoActual.getNombre() == nombreDeLaCarta) {
+					return true;
+			}
+		}
+
+			return false;
+	}
+	
+	
+	private boolean contieneCabezaDelProhibido() {
+		String nombreDeLaCarta = "ExodiaElProhibido";
+		
+		Iterator<Carta>iteradorCarta = this.cartas.listIterator(0);
+		
+		while (iteradorCarta.hasNext() == true) {
+			Carta monstruoActual = iteradorCarta.next();
+			if (monstruoActual.getNombre() == nombreDeLaCarta) {
+					return true;
+			}
+		}
+
+			return false;
 	}
 	
 	public Carta buscarCartaPorNombre(String nombreCarta){
